@@ -12,7 +12,7 @@ class JConfig {
 	public $host = 'localhost';
 	public $user = 'root';
 	public $password = '';
-	public $db = 'lptt_db999';
+	public $db = 'lptt_db';
 	public $dbprefix = 'ykx9st_';
 	public $live_site = '';
 	public $secret = 'YWfOUzEo7sfVHJZ0rSFUUkEPPYhv9kFT';
