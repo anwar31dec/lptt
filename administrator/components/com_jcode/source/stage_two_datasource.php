@@ -69,6 +69,9 @@ switch ($task) {
     case "getItemListData" :
         getItemListData($conn);
         break;
+	case "getWaitingProcessList" :
+		getWaitingProcessList($conn);
+	break;
     case "insertUpdateProcessTracking" :
         insertUpdateProcessTracking($conn);
         break;
@@ -1345,7 +1348,95 @@ function convertToHoursMins($time, $format = '%d:%d') {
     return sprintf($format, $hours, $minutes);
 }
 
+function getWaitingProcessList($conn) {
 
+    global $gTEXT;
+    
+	date_default_timezone_set("Asia/Dhaka");
+
+   $lan = $_POST['lan'];
+	$ProcessId = $_POST['ProcessId'];
+	$ProcessOrder = $_POST['ProcessOrder'];
+    $sLimit = "";
+    if (isset($_POST['iDisplayStart'])) {
+        $sLimit = " LIMIT " . mysql_real_escape_string($_POST['iDisplayStart']) . ", " . mysql_real_escape_string($_POST['iDisplayLength']);
+    }
+
+    $sOrder = "";
+    if (isset($_POST['iSortCol_0'])) {
+        $sOrder = " ORDER BY  ";
+        for ($i = 0; $i < mysql_real_escape_string($_POST['iSortingCols']); $i++) {
+            $sOrder .= fnColumnToField_itemlist(mysql_real_escape_string($_POST['iSortCol_' . $i])) . "
+								" . mysql_real_escape_string($_POST['sSortDir_' . $i]) . ", ";
+        }
+        $sOrder = substr_replace($sOrder, "", -2);
+    }
+
+    $sWhere = "";
+    if ($_POST['sSearch'] != "") {
+        $sWhere = " AND  (t_process_tracking.TrackingNo LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%'  OR " .
+                 " t_process_list.ProcessName LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
+                 " t_process_tracking.InTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
+                 " t_process_tracking.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
+    }
+
+    $sql = "SELECT SQL_CALC_FOUND_ROWS
+				 t_process_tracking.ProTrackId
+				, t_process_tracking.TrackingNo
+				, t_process_list.ProcessId
+				, t_process_list.ProcessName
+				, t_process_list.ProcessOrder
+				, t_process_tracking.InTime
+				, t_process_tracking.OutTime
+				, TIMESTAMPDIFF(MINUTE, InTime, NOW()) AS Duration
+				, UsualDuration
+				, (TIMESTAMPDIFF(MINUTE, InTime, NOW()) - UsualDuration) Status
+			FROM
+				t_process_tracking
+				INNER JOIN t_process_list
+					ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
+					WHERE t_process_tracking.ReadyForProOrder = $ProcessOrder
+                    $sWhere 
+                    $sOrder 
+                    $sLimit ";
+ 
+
+    $result = mysql_query($sql, $conn);
+    $total = mysql_num_rows($result);
+    $sQuery = "SELECT FOUND_ROWS()";
+    $rResultFilterTotal = mysql_query($sQuery);
+    $aResultFilterTotal = mysql_fetch_array($rResultFilterTotal);
+    $iFilteredTotal = $aResultFilterTotal[0];
+
+    $sOutput = '{';
+    $sOutput .= '"sEcho": ' . intval($_POST['sEcho']) . ', ';
+    $sOutput .= '"iTotalRecords": ' . $iFilteredTotal . ', ';
+    $sOutput .= '"iTotalDisplayRecords": ' . $iFilteredTotal . ', ';
+    $sOutput .= '"aaData": [ ';
+    $serial = $_POST['iDisplayStart'] + 1;
+
+    $f = 0;
+    while ($aRow = mysql_fetch_array($result)) {
+		
+        if ($f++)
+            $sOutput .= ',';
+
+        $sOutput .= "[";
+		$sOutput .= '"' . $aRow['ProTrackId'] . '",';
+        $sOutput .= '"' . $serial++ . '",';
+        $sOutput .= '"' . $aRow['TrackingNo'] . '",';
+        $sOutput .= '"' . $aRow['ProcessName'] . '",';
+        $sOutput .= '"' . date('d/m/Y g:i A', strtotime($aRow['InTime'])) . '",';
+        $sOutput .= '"' . $aRow['OutTime'] . '",';
+		$sOutput .= '"' . convertToHoursMins($aRow['Duration'], '%02d hours %02d minutes') . '",';
+		$sOutput .= '"' . ($aRow['Status'] < 0 ? abs($aRow['Status']).' minutes ahead' : abs($aRow['Status']).' minutes delay'). '",';
+		$sOutput .= '"' . $aRow['ProcessId'] . '",';
+		$sOutput .= '"' . $aRow['ProcessOrder'] . '"';
+        $sOutput .= "]";
+    }
+    $sOutput .= '] }';
+    echo $sOutput;
+}
 
 function insertUpdateProcessTracking($conn) {
     $jUserId = $_REQUEST['jUserId'];
@@ -1353,10 +1444,12 @@ function insertUpdateProcessTracking($conn) {
     $TrackingNo = $_POST['TrackingNo'];
 	$hTrackingNo = $_POST['hTrackingNo'];
 	$ProcessId = $_POST['ProcessId'];
+	$ProcessOrder = $_POST['ProcessOrder'];
+	$ReadyForProOrder = $ProcessOrder + 1;
 	$ParentProcessId = $_POST['ParentProcessId'];
 	
-	//echo $ParentProcessId;
-	//exit;
+	// echo $ProcessOrder ;
+	// exit;
 	
 	$pTrackingNo = '';
 	$pOutTime = '';
@@ -1385,19 +1478,26 @@ function insertUpdateProcessTracking($conn) {
 	
     if ($pTrackingNo == '') {
 		
-		$sql = "SELECT a.TrackingNo FROM t_process_tracking a WHERE InTime > (SELECT b.InTime FROM t_process_tracking b WHERE b.TrackingNo = '$TrackingNo' AND b.ProcessId = $ParentProcessId;);";
-		
+		 $sql2 = "UPDATE t_process_tracking
+					SET ReadyForProOrder = NULL
+					WHERE TrackingNo = '$TrackingNo'";
+		//echo $sql2;
+		//exit;
+			
+        $aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'".$TrackingNo."'"), 'bUseInsetId' => FALSE);
+       
+		$aQuerys[] = $aQuery2;
 		
         $sql = "INSERT INTO t_process_tracking
             (TrackingNo, ProcessId, InTime, EntryDate)
 			VALUES ('$TrackingNo', $ProcessId, NOW(), Now());";
 			
         $aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
-        $aQuerys = array($aQuery1);
+        $aQuerys[] = $aQuery1;
 		echo json_encode(exec_query($aQuerys, $jUserId, $language));
     } else if($pOutTime == '') {
         $sql = "UPDATE t_process_tracking
-				SET OutTime = NOW()
+				SET OutTime = NOW(), ReadyForProOrder = $ReadyForProOrder
 				WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
 			
         $aQuery1 = array('command' => 'UPDATE', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'".$TrackingNo."'", $ProcessId), 'bUseInsetId' => FALSE);

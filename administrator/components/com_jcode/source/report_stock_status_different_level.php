@@ -28,7 +28,7 @@ var lan='<?php echo $lan;?>';
 <div class="container">
 	<div class="content_fullwidth lessmar">
 		<div class="azp_col-md-12 one_full">
-			<div class="row">
+			<div class="row" style="display:none;">
 				<div class="col-md-12 col-sm-12 col-sx-12">
 					<div class="panel panel-default">
 						<div class="panel-body">
@@ -118,22 +118,8 @@ var lan='<?php echo $lan;?>';
 				</div>
 			</div>
 	
-			<div class="margin_top1"><br></div>
-			<div class="clearfix"><br></div>			
-			
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<div id="barchart-container">
-						<div id="bar-chart" width='100%'></div>						
-					</div>
-				</div>           
-			</div>    
-			
-			<div class="margin_top1"><br></div>
-			<div class="clearfix"><br></div>	
-			
 			<div class="panel-heading clearfix">
-				<?php echo $TEXT['Stock Status at Different Level Data List']; ?>
+				<?php echo 'Lab process time tracking report'; ?>
 				<span class="pull-right">
 						<label>					
 						<a id="PrintBTN" data-mce-href="#" class="but_print" href="javascript:void(0);" onclick="print_function('print')"><i data-mce-bootstrap="1" class="fa fa-print fa-lg">&nbsp;</i> <?php echo $TEXT['Print']; ?></a>

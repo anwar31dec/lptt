@@ -30,7 +30,7 @@ include_once ('language/lang_switcher.php');
 </script>
 
 <div class="row"> 
-<div class="col-md-6">
+	<div class="col-md-6">
         <div id="form-panel99">
 	        <div class="panel-heading">
 	            <?php echo $aUserProcess['ProcessName']; ?>           
@@ -49,6 +49,7 @@ include_once ('language/lang_switcher.php');
 	                	<div class="col-md-4">
 		                    <input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
 							<input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
+							<input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
 							<input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
 							<input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
 		                    <input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
@@ -80,11 +81,31 @@ include_once ('language/lang_switcher.php');
                 </thead>
                 <tbody></tbody>
             </table>			                   
-        </div>
-            
-          </div>  
-		  
-		  
+        </div>            
+    </div>  
+</div>
+
+<div class="row"> 
+	
+	<div class="col-md-6">		
+		<div id="list-panel2">
+            <table  id="WaitingProcessList" class="table table-striped table-bordered display table-hover" cellspacing="0">
+                <thead>
+                    <tr>
+						<th></th>
+                        <th style="text-align: center;">SL#</th>
+                        <th><?php echo 'Tracking#'; ?></th>
+                        <th><?php echo 'Process Name'; ?></th>
+                        <th><?php echo 'In Time'; ?></th>
+                        <th><?php echo 'Out Time'; ?></th>
+						<th><?php echo 'Current Duration'; ?></th>
+						<th><?php echo 'Status' ?></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>			                   
+        </div>            
+    </div>  
 </div>
 
 
