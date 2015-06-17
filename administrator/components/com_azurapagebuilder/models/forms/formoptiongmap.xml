@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    default="googleMap"
+                    label="ID"
+                    description="ID"/>
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Class"
+                    description="Class"
+                    />
+            <field
+                    type="AzuraGMapSelect"
+                    name="selectMap"
+                    id="selectMap"
+                    class="input-medium"
+                    label="Select Map"
+                    description="Select Map Coordinates">
+            </field>
+            <field
+                    type="text"
+                    name="gmapLat"
+                    id="gmapLat"
+                    default="44.434596"
+                    label="Latitude"
+                    description="Latitude"
+                    />
+            <field
+                    type="text"
+                    name="gmapLog"
+                    id="gmapLog"
+                    default="26.080533"
+                    label="Longitude"
+                    description="Longitude"
+                    />
+            <field
+                    type="radio"
+                    name="gmapPanControl"
+                    id="gmapPanControl"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    label="Pan Control"
+                    description="Pan Control"
+                    >
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </field>
+            <field
+                    type="radio"
+                    name="gmapZoomControl"
+                    id="gmapZoomControl"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    label="Zoom Control"
+                    description="Zoom Control"
+                    >
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </field>
+            <field
+                    type="radio"
+                    name="gmapTypeControl"
+                    id="gmapTypeControl"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    label="Type Control"
+                    description="Type Control"
+                    >
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </field>
+            <field
+                    type="radio"
+                    name="gmapStreetviewControl"
+                    id="gmapStreetviewControl"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    label="Street view Control"
+                    description="Street view Control"
+                    >
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </field>
+            <field
+                    type="radio"
+                    name="gmapScrollWheel"
+                    id="gmapScrollWheel"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    label="Scroll Wheel"
+                    description="Scroll Wheel"
+                    >
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </field>
+            <field 
+                name="gmapZoom" id="gmapZoom" 
+                type="text" default="15" 
+                label="Zoom" 
+                description="Zoom" />
+
+            <field 
+                name="gmapTypeId" id="gmapTypeId"
+                type="list" 
+                default="ROADMAP" 
+                label="Map Type" 
+                description="Map Type" >
+                    <option value="HYBRID">HYBRID</option>
+                    <option value="ROADMAP">ROADMAP</option>
+                    <option value="SATELLITE">SATELLITE</option>
+                    <option value="TERRAIN">TERRAIN</option>
+            </field>
+            
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="3"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

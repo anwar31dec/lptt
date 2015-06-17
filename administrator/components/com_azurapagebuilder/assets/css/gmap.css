@@ -1,0 +1,9 @@
+#map-canvas {
+	margin-bottom: 10px;
+	min-height: 300px;
+	min-width: 400px;
+}
+.contact-asCopy {
+	line-height: 1.5 !important;
+	margin-bottom: 15px !important;
+}

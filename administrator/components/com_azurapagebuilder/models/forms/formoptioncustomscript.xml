@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="textarea"
+                    name="textContent"
+                    id="textContent"
+                    label="Script"
+                    description="Script"
+                    cols="500"
+                    rows="15" />
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="false"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="all"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="true"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

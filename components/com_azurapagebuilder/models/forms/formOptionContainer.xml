@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="extraClass"
+                    id="extraClass"
+                    label="Container Extra Class"
+                    description="Container Extra Class"
+                    size="80"
+                    maxLength="255" />
+            <field
+                    type="text"
+                    name="title"
+                    id="title"
+                    label="Container Title"
+                    description="Container Title"
+                    />
+            <field
+                    type="text"
+                    name="subTitle"
+                    id="subTitle"
+                    label="Container Sub Title"
+                    description="Container Sub Title">
+            </field>
+        </fieldset>
+    </fields>
+</form>

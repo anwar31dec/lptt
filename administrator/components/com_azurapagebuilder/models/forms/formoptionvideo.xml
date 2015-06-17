@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="ID"
+                    description="ID" />
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Class"
+                    description="Class"
+                    />
+            
+            <field
+                    type="radio"
+                    name="autoplay"
+                    class="btn-group btn-group-yesno"
+                    id="autoplay"
+                    label="Autoplay"
+                    default="0"
+                    description="Autoplay"
+                    
+                    >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+            </field>
+            <field
+                    type="radio"
+                    name="loop"
+                    id="loop"
+                    label="Loop"
+                    class="btn-group btn-group-yesno"
+                    default="0"
+                    description="Loop"
+                    
+                    >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+            </field>
+            <field
+                    type="text"
+                    name="width"
+                    id="width"
+                    default="560"
+                    label="Video Width"
+                    description="Video Width" />
+            <field
+                    type="text"
+                    name="height"
+                    id="height"
+                    default="315"
+                    label="Video Height"
+                    description="Video Height"
+                    />
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuravideo" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="text"
+                    name="link"
+                    id="link"
+                    label="Video Link (Youtube, Vimeo)"
+                    description="Video Link (Youtube, Vimeo)"
+                    size="80"
+                    maxLength="255" />
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="2"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="true"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+	<fieldset>
+		<field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL"
+			readonly="true" class="readonly"
+			description="JGLOBAL_FIELD_ID_DESC"/>
+
+		<field name="title" type="text"
+			class="inputbox input-xxlarge input-large-text"
+			size="40" label="JGLOBAL_TITLE"
+			description="COM_WEBLINKS_FIELD_TITLE_DESC" required="true" />
+
+		<field name="shortcode" type="hidden"
+			class="inputbox input-xlarge input-large-text"
+			size="40" label="Shortcode"
+			description="Shortcode" />
+		<field name="elementsArray" type="hidden"
+			class="inputbox input-xlarge input-large-text"
+			size="40" label="Elements Array"
+			description="Elements Array" />
+		<field name="elementsSettingArray" type="hidden"
+			class="inputbox input-xlarge input-large-text"
+			size="40" label="Elements Setting Array"
+			description="Elements Setting Array" />
+		<field name="elementsShortcodeArray" type="hidden"
+			class="inputbox input-xlarge input-large-text"
+			size="40" label="Elements Shortcode Array"
+			description="Elements Shortcode Array" />
+		<field name="alias" type="text" class="inputbox"
+			size="40" label="JFIELD_ALIAS_LABEL"
+			description="COM_WEBLINKS_FIELD_ALIAS_DESC"
+			hint="JFIELD_ALIAS_PLACEHOLDER" />
+		
+	</fieldset>
+</form>

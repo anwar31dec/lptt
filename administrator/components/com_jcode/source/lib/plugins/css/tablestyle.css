@@ -1,0 +1,40 @@
+/* ------------------
+ styling for the tables 
+   ------------------   */
+
+
+body
+{
+	line-height: 1.6em;
+}
+#one-column-emphasis
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	margin: 5px;
+	width: 500px;
+	text-align: left;
+	border-collapse: collapse;
+}
+#one-column-emphasis th
+{
+	font-weight: normal;
+	color: #000000;
+}
+#one-column-emphasis td
+{
+	color:#FFFFFF;
+	background-image:url(../images/rowbg.png);
+}
+.oce-first
+{
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+}
+#one-column-emphasis tr:hover td
+{
+	color:#000000;
+	background-image:url(../images/tbl_bg.png);
+}
+a{
+	color:#FFFFFF;
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="ID"
+                    description="ID"
+                     />
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Extra Class"
+                    description="Extra Class"
+                    default="" />
+            <field
+                    type="text"
+                    name="title"
+                    id="title"
+                    label="Title"
+                    description="Title"
+                    />
+            <field
+                    type="AzuraMedia"
+                    name="thumb"
+                    id="thumb"
+                    label="Thumb Image"
+                    class="input-small"
+                    preview="false"
+                    description="Thumb Image" />
+            <field
+                    type="list"
+                    name="lightboxtype"
+                    id="lightboxtype"
+                    default="photo"
+                    label="LightBox"
+                    description="LightBox" >
+                <option value="photo">Photo</option>
+                <option value="vimeo">Vimeo</option>
+                <option value="youtube">Youtube</option>
+            </field>
+            <field
+                    type="AzuraMedia"
+                    name="lightboxlink"
+                    id="lightboxlink"
+                    label="Lightbox Link"
+                    class="input-medium"
+                    preview="false"
+                    description="Lightbox Link" />
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azurawork" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="textarea"
+                    name="description"
+                    id="description"
+                    label="Description"
+                    class="input-xlarge"
+                    description="Description"
+                    cols="24"
+                    rows="15" />
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="showAnimationTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="7"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

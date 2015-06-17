@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.0" group="system" method="upgrade">
+        <name>CTHthemes Mega Menu</name>
+        <author>CTHthemes</author>
+        <creationDate>September 2014</creationDate>
+        <copyright>Copyright (C) 2014 CTHthemes. All rights reserved.</copyright>
+        <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+        <authorEmail>contact@cththemes.com</authorEmail>
+        <authorUrl>http://cththemes.com</authorUrl>
+        <version>1.0.0</version>
+        <description><![CDATA[
+				Cththemes - Mega Menu Plugin. Info and Support: <a href="mailto:cththemes@gmail.com">cththemes@gmail.com</a> - <a href="index.php?option=com_plugins">Go to Plugin Manager</a> 
+			]]></description>
+        <files>
+                <file plugin="cthmegamenu">cthmegamenu.php</file>
+                <file>index.html</file>
+                <folder>params</folder>
+				<folder>language</folder>
+        </files>
+		<languages folder="language">
+			<language tag="en-GB">en-GB/en-GB.plg_system_cthmegamenu.ini</language>
+			<language tag="en-GB">en-GB/en-GB.plg_system_cthmegamenu.sys.ini</language>
+		</languages>
+</extension>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="title"
+                    id="title"
+                    label="Image Title"
+                    description="Image Title" />
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="Image ID"
+                    description="Image ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Image Class"
+                    description="Image Class"
+                    />
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuraimage" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="AzuraMedia"
+                    name="src"
+                    id="src"
+                    label="Image Source"
+                    class="input-small"
+                    preview="false"
+                    description="Image Source" />
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="all"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="true"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

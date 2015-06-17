@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="ID"
+                    description="ID"
+                     />
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Class"
+                    description="Class"
+                    default="accordion" />
+            <field
+                    type="text"
+                    name="defaultActive"
+                    id="defaultActive"
+                    default="1"
+                    label="Default Active"
+                    description="Default Active Item"
+                    />
+            <field
+                    type="radio"
+                    name="acctype"
+                    id="acctype"
+                    default="accordion"
+                    class="btn-group btn-group-yesno"
+                    label="Type"
+                    description="Type"
+                    >
+                <option value="accordion">Accordion</option>
+                <option value="toggle">Toggle</option>
+            </field>
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuraaccordion" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="all"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

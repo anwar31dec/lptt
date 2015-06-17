@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="Element ID"
+                    description="Element ID"  />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Element Class"
+                    description="Element Class"
+                    />
+            <field
+                    type="text"
+                    name="name"
+                    id="name"
+                    label="Name"
+                    description="Member Name"  />
+
+            <field
+                    type="text"
+                    name="position"
+                    id="position"
+                    label="Position"
+                    description="Member Position"
+                    />
+            <field
+                    type="AzuraMedia"
+                    name="photo"
+                    id="photo"
+                    label="Photo"
+                    class="input-small"
+                    description="Member Photo"
+                    preview="false">
+            </field>
+            <field 
+                    name="introduction" 
+                    type="textarea" 
+                    label="Introduction" 
+                    description="Member Introduction" 
+                    rows="3" 
+                    cols="12" />
+           <field
+                    type="text"
+                    name="twitter"
+                    id="twitter"
+                    label="Twitter Link"
+                    description="Twitter Link">
+            </field>
+            <field
+                    type="text"
+                    name="facebook"
+                    id="facebook"
+                    label="Facebook Link"
+                    description="Facebook Link">
+            </field>
+            <field
+                    type="text"
+                    name="dribbble"
+                    id="dribbble"
+                    label="Dribbble Link"
+                    description="Dribbble Link">
+            </field>
+            <field
+                    type="text"
+                    name="linkedin"
+                    id="linkedin"
+                    label="LinkedIn Link"
+                    description="LinkedIn Link">
+            </field>
+            
+            
+            <field
+                    type="text"
+                    name="googleplus"
+                    id="googleplus"
+                    label="Google Plus Link"
+                    description="Google Plus Link">
+            </field>
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azurateammember" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="6"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>
+

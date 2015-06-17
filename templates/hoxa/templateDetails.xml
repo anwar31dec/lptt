@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="template" client="site" method="upgrade">
+        <name>Hoxa</name>
+        <creationDate>September 2014</creationDate>
+        <author>CTHthemes</author>
+        <authorEmail>contact.cththemes@gmail.com</authorEmail>
+        <authorUrl>http://cththemes.com</authorUrl>
+        <copyright>Copyright Info  CTHthemes.com</copyright>
+        <license>License Info  CTHthemes.com</license>
+        <version>1.1.1</version>
+        <description><![CDATA[
+                CTHthemes Hoxa - Responsive MultiPurpose Joomla Template. Info and Support: <a href="mailto:cththemes@gmail.com">cththemes@gmail.com</a> - <a href="index.php?option=com_templates">Go to Template Manager</a> 
+            ]]></description>
+        <files>
+				<filename>component.php</filename>
+				<filename>error.php</filename>
+                <filename>index.html</filename>
+                <filename>index.php</filename>
+                <filename>template_preview.png</filename>
+                <filename>template_thumbnail.png</filename>
+                <filename>templateDetails.xml</filename>
+			<folder>business_css</folder>
+            <folder>business_js</folder>
+            <folder>css</folder>
+			<folder>fields</folder>
+            <folder>html</folder>
+			<folder>images</folder>
+            <folder>js</folder>
+            <folder>language</folder>
+			<folder>layout</folder>
+			<folder>onepage_css</folder>
+            <folder>onepage_js</folder>
+        </files>
+		<languages folder="language">
+			<language tag="en-GB">en-GB/en-GB.tpl_hoxa.ini</language>
+			<language tag="en-GB">en-GB/en-GB.tpl_hoxa.sys.ini</language>
+		</languages>
+        <positions>
+            <position>top_intro</position>
+            <position>top_nav</position>
+            <position>main_nav</position>
+            <position>top_search</position>
+            
+            <position>social-list</position>
+            <position>main-menu</position>
+            <position>breadcrumbs</position>
+            <position>left-sidebar</position>
+            <position>position-8</position>
+            <position>right-sidebar</position>
+            <position>position-7</position>
+            <position>position-1</position>
+            <position>position-2</position>
+            <position>position-3</position>
+            <position>position-4</position>
+            <position>position-5</position>
+            <position>position-6</position>
+            <position>position-9</position>
+            <position>footer-graph</position>
+            <position>footer-two</position>
+            <position>footer-four</position>
+            <position>up-footer</position>
+            <position>footer-contactform</position>
+            <position>footer-contactdetails</position>
+            <position>footer-gmap</position>
+            <position>footer-copyright</position>
+            <position>footer-onepage</position>
+            <position>sticky-menu</position>
+            <position>sticky-azura</position>
+            <position>debug</position>
+        </positions>
+        
+         <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="favicon" type="media" label="Favicon"
+                    description="Favicon" directory=""/>
+                <field name="logoImage" type="media" label="Logo Image"
+                    description="Logo Image" directory=""/>
+                <field name="logoText" type="text" label="Logo Text"
+                    description="Logo Text" default="Hoxa"/>
+                
+                <field name="templateprofile" type="list" label="Profile"
+                    description="Template Profile" default="profile1">
+                    <option value="profile1">Corporate</option>
+                    <option value="business">Business</option>
+                    <option value="onepage">One Page</option>
+                </field>
+                <!-- <field name="blogHeaderIcon" type="text" label="Blog Header Icon"
+                    description="Blog Header Icon Class"/>
+                <field name="projectHeaderIcon" type="text" label="Project Header Icon"
+                    description="Project Header Icon Class"/>
+                <field name="overrideColor" type="radio" label="Override Color" class="btn-group btn-group-yesno"
+                    description="Override Color" default="0">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="colorSkin" type="color" default="#F54F36" 
+                    label="Template Color"
+                    description="Template Color"/> -->
+                <field name="animationTurnOff" type="radio" label="Turn Off Animation" class="btn-group btn-group-yesno"
+                    description="Turn Off Animation" default="0">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="textarea" name="customcsslinks" label="Custom CSS Links" description="Custom CSS Links (related path to theme folder)" />
+                <field type="textarea" name="customjslinks" label="Custom JS Links" description="Custom JS Links (related path to theme folder)" />
+                <field name="error" type="menuitem" published="1"
+                    label="Error Page Menu"
+                    description="The Menu page to redirect to if request page is not found"/>
+
+            </fieldset>
+            <fieldset name="cththemes_layout" >
+                <field name="layoutsite" type="radio" label="Layout" class="btn-group btn-group-yesno"
+                    description="Layout" default="wide">
+                    <option value="wide">Wide</option>
+                    <option value="boxed">Boxed</option>
+                </field>
+
+                <field name="pattern" type="list" label="Background Pattern"
+                    description="Background pattern for boxed layout" default="default">
+                    <option value="default">Default</option>
+                    <option value="one">One</option>
+                    <option value="two">Two</option>
+                    <option value="three">Three</option>
+                    <option value="four">Four</option>
+                    <option value="five">Five</option>
+                    <option value="six">Six</option>
+                    <option value="seven">Seven</option>
+                    <option value="eight">Eight</option>
+                    <option value="nine">Ten</option>
+                    <option value="eleven">Eleven</option>
+                    <option value="twelve">Twelve</option>
+                    <option value="thirteen">Thirteen</option>
+                    <option value="fourteen">Fourteen</option>
+                    <option value="fifteen">Fifteen</option>
+                    
+                </field>
+                
+                <field name="hideComponentErea" type="radio" label="Hide Component Area" class="btn-group btn-group-yesno"
+                    description="Hide Component Area" default="0">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+
+                <field name="layoutstyle" type="list" label="Layout Content"
+                    description="Layout Content" default="rightsidebar">
+                    
+                    <option value="home">Fullwidth</option>
+                    <option value="fullwidth">Default</option>
+                    <option value="leftsidebar">Left Sidebar</option>
+                    <option value="rightsidebar">Right Sidebar</option>
+                </field>
+
+                <!-- <field name="fullwidth" type="radio" label="Full Width" class="btn-group btn-group-yesno"
+                    description="Full Width" default="0">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+
+                <field name="leftsidebar" type="list" label="Left Sidebar"
+                    description="Left Sidebar width class" default="0">
+                    <option value="0">None</option>
+                    <option value="1">col 1</option>
+                    <option value="2">col 2</option>
+                    <option value="3">col 3</option>
+                    <option value="4">col 4</option>
+                    <option value="6">col 6</option>
+                </field>
+
+                <field name="rightsidebar" type="list" label="Right Sidebar"
+                    description="Right Sidebar width class" default="3">
+                    <option value="0">None</option>
+                    <option value="1">col 1</option>
+                    <option value="2">col 2</option>
+                    <option value="3">col 3</option>
+                    <option value="4">col 4</option>
+                    <option value="6">col 6</option>
+                </field> -->
+                
+
+            </fieldset>
+            <!-- <fieldset name="cththemes_header_footer" >
+
+                <field name="headerstyle" type="list" label="Header Style"
+                    description="Select header style" default="style1">
+                    
+                    <option value="style1">Default Style</option>
+                    <option value="style2">Style 2</option>
+                    <option value="onepage">One Page</option>
+                </field>
+
+                <field name="footerstyle" type="list" label="Footer Style"
+                    description="Select footer style" default="style1">
+                    
+                    <option value="style1">Default Style</option>
+                    <option value="style2">Style 2</option>
+                    <option value="onepage">One Page</option>
+                </field>
+                
+            </fieldset> -->
+            <fieldset name="cththemes_googlefont" addfieldpath="/templates/hoxa/fields">
+
+                <field type="CthScript"/>
+
+                <field 
+                    type="GoogleFont"
+                    name="bodyfont"
+                    label="Body Font"
+                    description="Body Font"
+                    default="Raleway">
+                </field>
+                <field name="bodyfontvariants" type="checkboxes" label="Font Style">
+                    <option value="100">Thin</option>
+                    <option value="100italic">100 Italic</option>
+                    <option value="200">200</option>
+                    <option value="200italic">200 Italic</option>
+                    <option value="300">300</option>
+                    <option value="300italic">300 Italic</option>
+                    <option value="400">400</option>
+                    <option value="regular">Regular</option>
+                    <option value="italic">Italic</option>
+                    <option value="500">500</option>
+                    <option value="500italic">500 Italic</option>
+                    <option value="600">600</option>
+                    <option value="600italic">600 Italic</option>
+                    <option value="700">Bold</option>
+                    <option value="700italic">700 Italic</option>
+                    <option value="800">800</option>
+                    <option value="800italic">800 Italic</option>
+                    <option value="900">900</option>
+                    <option value="900italic">900 Italic</option>
+                </field>
+                <field type="hidden" default="'Open Sans',sans-serif;" name="bodyfontfamily"></field>
+                <field 
+                    type="GoogleFont"
+                    name="headingfont"
+                    label="Heading Font"
+                    description="Heading Font"
+                    default="Raleway">
+                </field>
+                <field name="headingfontvariants" type="checkboxes" label="Font Style">
+                    <option value="100">Thin</option>
+                    <option value="100italic">100 Italic</option>
+                    <option value="200">200</option>
+                    <option value="200italic">200 Italic</option>
+                    <option value="300">300</option>
+                    <option value="300italic">300 Italic</option>
+                    <option value="400">400</option>
+                    <option value="regular">Regular</option>
+                    <option value="italic">Italic</option>
+                    <option value="500">500</option>
+                    <option value="500italic">500 Italic</option>
+                    <option value="600">600</option>
+                    <option value="600italic">600 Italic</option>
+                    <option value="700">Bold</option>
+                    <option value="700italic">700 Italic</option>
+                    <option value="800">800</option>
+                    <option value="800italic">800 Italic</option>
+                    <option value="900">900</option>
+                    <option value="900italic">900 Italic</option>
+                </field>
+                <field type="hidden" default="'Raleway',sans-serif;" name="headingfontfamily"></field>
+                <field 
+                    type="GoogleFont"
+                    name="highlightfont"
+                    label="Unique Font"
+                    description="Unique Font"
+                    default="Raleway">
+                </field>
+                <field name="highlightfontvariants" type="checkboxes" label="Font Style">
+                    <option value="100">Thin</option>
+                    <option value="100italic">100 Italic</option>
+                    <option value="200">200</option>
+                    <option value="200italic">200 Italic</option>
+                    <option value="300">300</option>
+                    <option value="300italic">300 Italic</option>
+                    <option value="400">400</option>
+                    <option value="regular">Regular</option>
+                    <option value="italic">Italic</option>
+                    <option value="500">500</option>
+                    <option value="500italic">500 Italic</option>
+                    <option value="600">600</option>
+                    <option value="600italic">600 Italic</option>
+                    <option value="700">Bold</option>
+                    <option value="700italic">700 Italic</option>
+                    <option value="800">800</option>
+                    <option value="800italic">800 Italic</option>
+                    <option value="900">900</option>
+                    <option value="900italic">900 Italic</option>
+                </field>
+                <field type="hidden" default="'Raleway',sans-serif;" name="highlightfontfamily"></field>
+            </fieldset>
+
+            <fieldset name="cththemes_colors" >
+
+
+                <field name="preset" type="radio" default="default" class="colorpresets" label="Presets" description="Presets">
+                    <option value="default">Default</option>
+                    <option value="cyan">Cyan</option>
+                    <option value="green">Green</option>
+                    <option value="bridge">Bridge</option>
+                    <option value="darkred">Darkred</option>
+                    <option value="lightblue">Light Blue</option>
+                    <option value="orange">Orange</option>
+                    <option value="pink">Pink</option>
+                    <option value="purple">Purple</option>
+                    <option value="red">Red</option>
+                    <option value="slate">Slate</option>
+                    <option value="yellow">Yellow</option>
+                </field>
+
+
+                <!-- <field name="preset" type="list" label="Presets"
+                    description="Template Preset Colors" default="">
+                    <option value="">Default</option>
+                    <option value="cyan">Cyan</option>
+                    <option value="green">Green</option>
+                    <option value="bridge">Bridge</option>
+                    <option value="darkred">Darkred</option>
+                    <option value="lightblue">Light Blue</option>
+                    <option value="orange">Orange</option>
+                    <option value="pink">Pink</option>
+                    <option value="purple">Purple</option>
+                    <option value="red">Red</option>
+                    <option value="slate">Slate</option>
+                    <option value="yellow">Yellow</option>
+                    
+                </field> -->
+                <field 
+                    name="overrideColor" 
+                    type="radio" 
+                    label="Use Your Color" 
+                    class="btn-group btn-group-yesno"
+                    description="Use Your Color" 
+                    default="0">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field 
+                    name="baseColor" 
+                    type="color"
+                    default="#27E0FF"
+                    label="Select Color"
+                    description="Select Your Own Color"/>
+                <!-- <field 
+                    name="bodyColor" 
+                    type="color"
+                    default="#666666"
+                    label="Body Color"
+                    description="Body Color"/>
+                <field 
+                    name="headingColor" 
+                    type="color"
+                    default="#000000"
+                    label="Heading Color"
+                    description="Heading Color"/>
+                <field 
+                    name="paragraphColor" 
+                    type="color"
+                    default="#999999"
+                    label="Paragraph Color"
+                    description="Paragraph Color"/>
+                <field 
+                    name="whiteTextColor" 
+                    type="color"
+                    default="#ffffff"
+                    label="White Text Color"
+                    description="White Text Color"/>
+                <field 
+                    name="headerColor" 
+                    type="color"
+                    default="#000000"
+                    label="Header Color"
+                    description="Header Color"/>
+                <field 
+                    name="borderColor" 
+                    type="color"
+                    default="#dddddd"
+                    label="Border Color"
+                    description="Border Color"/> -->
+                <field name="colorReset" type="ColorReset" label="Reset Colors" description="Reset Colors" />
+            </fieldset>
+        </fields>
+    </config>
+
+</extension>

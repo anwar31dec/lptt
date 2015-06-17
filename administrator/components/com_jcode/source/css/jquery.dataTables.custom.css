@@ -1,0 +1,66 @@
+.pagination {
+	color: red;
+}
+.dataTables_wrapper .pagination {
+	border-radius: 4px;
+	display: inline-block;
+	padding-left: 0;
+}
+
+.dataTables_wrapper .pagination > li {
+	display: inline;
+}
+
+.dataTables_wrapper .pagination > li > a, .pagination > li > span {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	float: left;
+	line-height: 1.42857;
+	margin-left: -1px;
+	padding: 6px 12px;
+	position: relative;
+	text-decoration: none;
+}
+
+.dataTables_wrapper .pagination > .active > a, .dataTables_wrapper .pagination > .active > span, .dataTables_wrapper .pagination > .active > a:hover, .dataTables_wrapper .pagination > .active > span:hover, .dataTables_wrapper .pagination > .active > a:focus, .dataTables_wrapper .pagination > .active > span:focus {
+	background-color: #428bca;
+	border-color: #428bca;
+	color: #fff;
+	cursor: default;
+	z-index: 2;
+}
+
+.dataTables_wrapper .table-bordered {
+	border: 1px solid #ddd;
+}
+
+.dataTables_wrapper tr.odd {
+	background: none;
+	border-bottom: none;
+	padding: 0;
+}
+
+.dataTables_wrapper tr.even {
+	background: none;
+	border-bottom: none;
+	padding: 0;
+}
+
+div.dataTables_paginate ul.pagination {
+	margin: 2px 0;
+	white-space: nowrap;
+}
+
+.left-aln {
+	text-align: left;
+}
+.center-aln {
+	text-align: center;
+}
+.right-aln {
+	text-align: right;
+}
+.group {
+	background-color: #E8E8E8 !important;
+	font-size: 110%;
+}

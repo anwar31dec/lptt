@@ -1,0 +1,507 @@
+/**
+ * @package Azura Joomla Pagebuilder
+ * @author Cththemes - www.cththemes.com
+ * @date: 15-07-2014
+ *
+ * @copyright  Copyright ( C ) 2014 cththemes.com . All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE
+ */
+.azura-element-content{
+	display: block;
+	position: relative;
+	border: 1px solid transparent;
+}
+/*Section*/
+.azura-element-content.azurasection:before,
+.azura-element-content.azurasection:after,
+.azura-element-content.azuracontainer:before,
+.azura-element-content.azuracontainer:after 
+{
+	display: table;
+	content: "";
+	line-height: 0;
+}
+.azura-element-content.azurasection:after,
+.azura-element-content.azuracontainer:after
+{
+	clear: both;
+}
+/*Column*/
+.azura-element-content.azuracolumn:before,
+.azura-element-content.azuracolumn:after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+
+.azura-element-tools {
+	position: absolute;
+	/*top: 10px;
+	left: 20px;*/
+	z-index: 5000;
+	display: none;
+	color:#b5b5b5;
+}
+.azura-element-tools > i {
+	cursor: pointer;
+	color: #fff !important;
+	font-size: 13px !important;
+	margin:0px !important;
+	padding: 2px !important;
+	float: none !important;
+	width: 13px !important;
+	height: 13px !important;
+	line-height: 13px !important;
+	border-radius: 0px !important;
+	border: none;
+	box-shadow: none !important;
+	background-color: transparent !important;
+}
+.azura-element-tools > i:hover {
+	cursor: pointer;
+	color: #fff !important;
+	font-size: 13px !important;
+	margin:0px !important;
+	padding: 2px !important;
+	float: none !important;
+	width: 13px !important;
+	height: 13px !important;
+	line-height: 13px !important;
+	border-radius: 0px !important;
+	border: none;
+	box-shadow: none !important;
+	background-color: transparent !important;
+}
+.azura-element-content:hover > .azura-element-tools{display: block;}
+.azura-element-content:hover {
+	border: 1px dashed #2aa0d2;
+}
+.azura-element-tools {
+	background: #2aa0d2;
+	padding: 5px;
+	border-radius: 3px;
+	color: #fff !important;
+	font-size: 13px;
+	transition: all 1.5s ease-out;
+}
+.azura-element-tools:hover{
+	z-index: 5500;
+	background: #1e88b5;
+	display: block;
+}
+.azura-element-tools > span {
+	border-right:1px solid #ccc;
+	padding-right: 3px;
+}
+.azura-element-tools
+{
+	position: absolute;
+}
+/*Column*/
+.azura-element-content.azuracolumn
+{
+	position: relative;
+	display: block;
+	min-height:30px;
+}
+.azura-element-tools.azuracolumn
+{
+	position: absolute;
+}
+/*bscarousel*/
+.azura-element-content.azurabscarousel
+{
+	position: relative;
+	display: block;
+	min-height:20px;
+}
+.azura-element-tools.azurabscarousel
+{
+	position: absolute;
+}
+/*alert*/
+.azura-element-content.azuraalert
+{
+	position: relative;
+	display: block;
+	min-height:20px;
+}
+.azura-element-tools.azuraalert
+{
+	position: absolute;
+}
+/*progress*/
+.azura-element-content.azuraprogress
+{
+	position: relative;
+	display: block;
+	min-height:20px;
+}
+.azura-element-tools.azuraprogress
+{
+	position: absolute;
+}
+/*Image*/
+.azura-element-content.azuraimage
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuraimage
+{
+	position: absolute;
+}
+/*Text*/
+.azura-element-content.azuratext
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuratext
+{
+	position: absolute;
+}
+/*TabToggle*/
+.azura-element-content.azuratabtoggle
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuratabtoggle
+{
+	position: absolute;
+}
+/*Html*/
+.azura-element-content.azurahtml
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azurahtml
+{
+	position: absolute;
+}
+/*Separator*/
+.azura-element-content.azuraseparator
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuraseparator
+{
+	position: absolute;
+}
+/*ClientSay*/
+.azura-element-content.azuraclientsay
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuraclientsay
+{
+	position: absolute;
+}
+/*ClientSay*/
+.azura-element-content.azuraportfolio
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuraportfolio
+{
+	position: absolute;
+}
+/*ButtonLink*/
+.azura-element-content.azurabuttonlink
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azurabuttonlink
+{
+	position: absolute;
+}
+
+/*Team*/
+.azura-element-content.azurateam
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azurateam
+{
+	position: absolute;
+}
+/*SuperSlides*/
+.azura-element-content.azurasuperslides
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azurasuperslides
+{
+	position: absolute;
+}
+/*CarouselSlider*/
+.azura-element-content.azuracarouselslider
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuracarouselslider
+{
+	position: absolute;
+}
+/*ServicesSlider*/
+.azura-element-content.azuraservicesslider
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuraservicesslider
+{
+	position: absolute;
+}
+/*Gmap*/
+.azura-element-content.azuragmap
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuragmap
+{
+	position: absolute;
+}
+/*ContactForm*/
+.azura-element-content.azuracontactform
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuracontactform
+{
+	position: absolute;
+}
+/*Section*/
+.azura-element-content.azurasection
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azurasection
+{
+	position: absolute;
+}
+/*Container*/
+.azura-element-content.azuracontainer
+{
+	position: relative;
+	display: block;
+	height: 100%;
+}
+.azura-element-tools.azuracontainer
+{
+	position: absolute;
+}
+/*Module*/
+.azura-element-content.azuramodule
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuramodule
+{
+	position: absolute;
+}
+/*Accordion*/
+.azura-element-content.azuraaccordion
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuraaccordion
+{
+	/*position: absolute;*/
+}
+/*AccordionItem*/
+.azura-element-content.azuraaccordionitem
+{
+	position: relative;
+	display: block;
+}
+.azura-element-tools.azuraaccordionitem
+{
+	/*position: absolute;*/
+}
+/*teammember*/
+.azura-element-content.azurateammember
+{
+	position: relative;
+	display: inline-block;
+}
+#elesaveajax-loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -22px;
+	margin-left: -22px;
+	background-position: 0 -108px;
+	opacity: 0.8;
+	cursor: pointer;
+	z-index: 8060;
+}
+
+#elesaveajax-loading div {
+	width: 44px;
+	height: 44px;
+	background: url('../images/elesaveajax_loading.gif') center center no-repeat;
+}
+
+.elesaveajax-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	display: none;
+	z-index: 8010;
+	background: url('../images/elesaveajax_overlay.png');
+}
+
+.elesaveajax-overlay-fixed {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+
+
+
+.azura-row-layout {
+	display: inline-block;
+	/*height: 13px;*/
+	/*border: 1px solid #FBEED5;*/
+	/*width: 13px;*/
+	cursor: pointer;
+	position: relative;
+	/*position: absolute;
+	top: 11px;
+	left: 50%;*/
+	/*background: #FCF8E3;*/
+	/*background: url('../images/icon-layout.png') 0 0 no-repeat;*/
+}
+.azura-row-layout span {
+	position: absolute;
+	/*top: 13px;
+	left: 13px;*/
+	display: block;
+}
+.azura-row-layout a {
+	display: none;
+	margin:0 2px;
+}
+.azura-row-layout .azura-active {
+  display: inline-block;
+}
+.azura-row-layout:hover {
+  z-index: 2000;
+  width: auto;
+  height: auto;
+  /*max-width: 353px;
+  border: 1px solid #FBEED5;
+  background: #FCF8E3;*/
+}
+.azura-row-layout:hover a{
+	display: inline;
+	float: left;
+	height: 23px;
+	width: 23px;
+	cursor: pointer;
+	
+}
+.azura-row-layout:hover a:hover,
+.azura-row-layout:hover a.azura-active {
+  background-color: #FBEED5;
+}
+.azura-row-layout .set-width {
+  background-image: url(../images/grid/1.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 23px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.azura-row-layout .set-width:active {
+  outline: none;
+}
+.azura-row-layout .set-width.azura-active {
+  background-color: transparent;
+}
+.azura-row-layout .set-width.l_12_12 {
+	background-image: url('../images/grid/12_12.gif');
+}
+.azura-row-layout .set-width.l_23_13 {
+	background-image: url('../images/grid/23_13.gif');
+}
+.azura-row-layout .set-width.l_13_13_13 {
+	background-image: url('../images/grid/13_13_13.gif');
+}
+.azura-row-layout .set-width.l_14_14_14_14 {
+	background-image: url('../images/grid/14_14_14_14.gif');
+}
+.azura-row-layout .set-width.l_14_34 {
+	background-image: url('../images/grid/14_34.gif');
+}
+.azura-row-layout .set-width.l_14_12_14 {
+	background-image: url('../images/grid/14_12_14.gif');
+}
+.azura-row-layout .set-width.l_56_16 {
+	background-image: url('../images/grid/56_16.gif');
+}
+.azura-row-layout .set-width.l_16_16_16_16_16_16_16 {
+	background-image: url('../images/grid/16_16_16_16_16_16_16.gif');
+}
+.azura-row-layout .set-width.l_16_46_16 {
+	background-image: url('../images/grid/16_46_16.gif');
+}
+.azura-row-layout .set-width.l_16_16_16_12 {
+	background-image: url('../images/grid/16_16_16_12.gif');
+}
+
+.azp_row {
+	display: block;
+}
+.azp_w-50{
+	width:50%;
+}
+
+.azura-elements .azura-element-block .azura-element .azura-row-layout {display: none;}
+
+
+.placeholder {
+	background-color: #BFB;
+	border: 1px dashed #666;
+	height: 39px;
+	margin-bottom: 5px;
+}
+.fancybox-opened {
+	z-index: 50300;
+}
+.fancybox-overlay{
+	z-index: 50100;
+}
+
+.azura-element-content.azp_row {min-height: 40px;}
+.azura-element-content.azuracolumn {min-height: 40px;}
+.azura-element-content.azuracontainer {min-height: 20px;}
+
+.azura-element-content.azuracolumn [class*="azp_col"]{width:100%;}
+
+.manager.thumbnails > li.thumbnail {
+	float: left;
+}
+
+.minicolors-input {
+	width:90px !important;
+	padding: 4px 6px 4px 30px !important;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="azura">
+	<name>plg_azura_azura</name>
+	<author>Cththemes</author>
+	<creationDate>September 2014</creationDate>
+	<copyright>Copyright (C) 2014 Cththemes.com. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>cththemes@gmail.com</authorEmail>
+	<authorUrl>cththemes.com</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[
+                Azura - Azura Plugin. Info and Support: <a href="mailto:cththemes@gmail.com">cththemes@gmail.com</a> - <a href="index.php?option=com_plugins">Go to Plugins Manager</a> 
+            ]]></description>
+	<files>
+		<filename plugin="azura">azura.php</filename>
+		<filename>index.html</filename>
+		<folder>language</folder>
+		<folder>options</folder>
+		
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_azura_azura.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_azura_azura.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+		</fields>
+	</config>
+</extension>

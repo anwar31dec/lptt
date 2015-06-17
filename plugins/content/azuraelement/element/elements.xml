@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="azura_elements">
+		<fieldset name="azura_elements" addfieldpath="/administrator/components/com_azurapagebuilder/models/fields">
+			<field
+				type="AzuraElement"
+				name="Work Item"
+				typename="AzuraWork" 
+				iconclass="fa fa-briefcase"
+				haschildren="no"
+				widthclass="azp_col-md-3"
+				/>
+			<field
+				type="AzuraElement"
+				name="Icon Box"
+				typename="AzuraIconBox" 
+				iconclass="fa fa-eye"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Feature Box"
+				typename="AzuraFeatureBox" 
+				iconclass="fa fa-magic"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Pie Chart"
+				typename="AzuraPieChart" 
+				iconclass="fa fa-pie-chart"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Video Background"
+				typename="AzuraVideoBackground" 
+				iconclass="fa fa-youtube-play"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Master Slider"
+				typename="AzuraMasterSlider" 
+				iconclass="fa fa-sliders"
+				haschildren="yes"
+				hasownchildren="yes"
+				addownchildclass="masterAddSlider"
+				/>
+		</fieldset>
+	</fields>
+</form>

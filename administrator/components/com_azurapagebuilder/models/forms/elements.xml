@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="azura_elements">
+		<fieldset name="azura_elements" addfieldpath="/administrator/components/com_azurapagebuilder/models/fields">
+
+			<field
+				type="AzuraElement"
+				name="Section"
+				typename="AzuraSection" 
+				iconclass="fa fa-archive"
+				haschildren="yes"
+				/>
+			<field
+				type="AzuraElement"
+				name="Container"
+				typename="AzuraContainer" 
+				iconclass="fa fa-archive"
+				haschildren="yes"
+				/>
+			<field
+				type="AzuraElement"
+				name="Row"
+				typename="AzuraRow" 
+				iconclass="fa fa-bars"
+				haschildren="yes"
+				/>
+			<field
+				type="AzuraElement"
+				name="Module"
+				typename="AzuraModule" 
+				iconclass="fa fa-qrcode"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Alert"
+				typename="AzuraAlert" 
+				iconclass="fa fa-bullhorn"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Progress"
+				typename="AzuraProgress" 
+				iconclass="fa fa-tachometer"
+				haschildren="no"
+				/>
+
+			<field
+				type="AzuraElement"
+				name="Separator"
+				typename="AzuraSeparator" 
+				iconclass="fa fa-minus"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Accordion-Toggle"
+				typename="AzuraAccordion" 
+				iconclass="fa fa-cogs"
+				haschildren="yes"
+				hasownchildren="yes" 
+				addownchildclass="accordionAddItem"
+				/>
+			<field
+				type="AzuraElement"
+				name="Tabs"
+				typename="AzuraTabToggle" 
+				iconclass="fa fa-cube"
+				haschildren="yes"
+				hasownchildren="yes" 
+				addownchildclass="tabToggleAddItem"
+				/>
+			<field
+				type="AzuraElement"
+				name="BxSlider"
+				typename="AzuraBxSlider" 
+				iconclass="fa fa-sliders"
+				haschildren="yes"
+				hasownchildren="yes" 
+				addownchildclass="bxAddSlider"
+				/>
+			<field
+				type="AzuraElement"
+				name="Carousel Slider"
+				typename="AzuraCarouselSlider" 
+				iconclass="fa fa-sliders"
+				haschildren="yes"
+				hasownchildren="yes" 
+				addownchildclass="carouselAddSlider"
+				/>
+			<field
+				type="AzuraElement"
+				name="FlexSlider"
+				typename="AzuraFlexSlider" 
+				iconclass="fa fa-sliders"
+				haschildren="yes"
+				hasownchildren="yes" 
+				addownchildclass="flexAddSlider"
+				/>
+			<field
+				type="AzuraElement"
+				name="Image"
+				typename="AzuraImage" 
+				iconclass="fa fa-image"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Header"
+				typename="AzuraHeader" 
+				iconclass="fa fa-header"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Text"
+				typename="AzuraText" 
+				iconclass="fa fa-font"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Bootstrap Carousel"
+				typename="AzuraBsCarousel" 
+				iconclass="fa fa-sliders"
+				haschildren="yes"
+				hasownchildren="yes" 
+				addownchildclass="bscarouselAddSlider"
+				/>
+			<field
+				type="AzuraElement"
+				name="Blockquote"
+				typename="AzuraBlockquote" 
+				iconclass="fa fa-bold"
+				haschildren="no"
+				/>
+
+
+			<field
+				type="AzuraElement"
+				name="Raw HTML"
+				typename="AzuraHtml" 
+				iconclass="fa fa-code"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Video"
+				typename="AzuraVideo" 
+				iconclass="fa fa-video-camera"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Button"
+				typename="AzuraButtonLink" 
+				iconclass="fa fa-link"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Counter"
+				typename="AzuraCounter" 
+				iconclass="fa fa-eye"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Custom Script"
+				typename="AzuraCustomScript" 
+				iconclass="fa fa-subscript"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Team Member"
+				typename="AzuraTeamMember" 
+				iconclass="fa fa-user"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Testimonial"
+				typename="AzuraTestimonial" 
+				iconclass="fa fa-comment-o"
+				haschildren="no"
+				/>
+			<!-- <field
+				type="AzuraElement"
+				name="Popup Link"
+				typename="AzuraPopupLink" 
+				iconclass="fa fa-plus-square-o"
+				haschildren="no"
+				/> -->
+			<field
+				type="AzuraElement"
+				name="Contact Form"
+				typename="AzuraContactForm" 
+				iconclass="fa fa-paper-plane-o"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Google Map"
+				typename="AzuraGMap" 
+				iconclass="fa fa-map-marker"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="Awesome Icon"
+				typename="AzuraIcon" 
+				iconclass="fa fa-eye"
+				haschildren="no"
+				/>
+			<field
+				type="AzuraElement"
+				name="K2 Category"
+				typename="AzuraK2Category" 
+				iconclass="fa fa-briefcase"
+				haschildren="no"
+				/>
+			
+		</fieldset>
+	</fields>
+</form>

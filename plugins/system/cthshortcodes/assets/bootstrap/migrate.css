@@ -1,0 +1,19 @@
+/*Alert Element*/
+.alert .close {
+	top: 0;
+	right: 0;
+	line-height: 18px;
+}
+/*Bs Carousel*/
+.carousel-control {
+	height: 100%;
+	margin-top: 0px;
+	border:none;
+	border-radius: 0px;
+	background: none;
+}
+.azp_carousel-indicators {
+	bottom: 20px !important;
+	top: 90%;
+	margin: 0 auto;
+}

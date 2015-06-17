@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    default=""
+                    label="Slider ID"
+                    description="Slider ID"/>
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    default="bxslider"
+                    label="Slider Class"
+                    description="Slider Class"
+                    />
+            <field
+                    type="list"
+                    name="mode"
+                    id="mode"
+                    default="horizontal"
+                    label="Mode"
+                    description="Type of transition between slides"
+                    >
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+                <option value="fade">Fade</option>
+            </field>
+            <field
+                    type="text"
+                    name="speed"
+                    id="speed"
+                    default="500"
+                    label="Speed"
+                    description="Slide transition duration (in ms)"
+                    />
+            <field
+                    type="text"
+                    name="slideMargin"
+                    id="slideMargin"
+                    default="0"
+                    label="Slide Margin"
+                    description="Margin between each slide"
+                    />
+            <field
+                    type="text"
+                    name="startSlide"
+                    id="startSlide"
+                    default="0"
+                    label="Start Slide"
+                    description="Starting slide index (zero-based)"
+                    />
+            <field
+                    type="radio"
+                    name="randomStart"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="randomStart"
+                    label="Random Start"
+                    description="Start slider on a random slide">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="text"
+                    name="slideSelector"
+                    id="slideSelector"
+                    default=""
+                    label="Slide Selector"
+                    description="Element to use as slides (ex. 'div.slide')."
+                    />
+            <field
+                    type="radio"
+                    name="infiniteLoop"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="infiniteLoop"
+                    label="Infinite Loop"
+                    description="If true, clicking 'Next' while on the last slide will transition to the first slide and vice-versa">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="radio"
+                    name="hideControlOnEnd"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="hideControlOnEnd"
+                    label="HideControlOnEnd"
+                    description="If true, 'Next' control will be hidden on last slide and vice-versa Note: Only used when infiniteLoop: false">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="text"
+                    name="easing"
+                    id="easing"
+                    default="null"
+                    label="Easing"
+                    description="The type of 'easing' to use during transitions."
+                    />
+
+            <field
+                    type="radio"
+                    name="captions"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="captions"
+                    label="Captions"
+                    description="Include image captions. Captions are derived from the image's title attribute">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="radio"
+                    name="ticker"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="ticker"
+                    label="Ticker"
+                    description="Use slider in ticker mode (similar to a news ticker)">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="radio"
+                    name="tickerHover"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="tickerHover"
+                    label="Ticker Hover"
+                    description="Ticker will pause when mouse hovers over slider. Note: this functionality does NOT work if using CSS transitions!">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="radio"
+                    name="adaptiveHeight"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="adaptiveHeight"
+                    label="adaptiveHeight"
+                    description="Dynamically adjust slider height based on each slide's height">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="text"
+                    name="adaptiveHeightSpeed"
+                    default="500"
+                    id="adaptiveHeightSpeed"
+                    label="adaptiveHeightSpeed"
+                    description="Slide height transition duration (in ms). Note: only used if adaptiveHeight: true">
+            </field>
+            <field
+                    type="radio"
+                    name="video"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="video"
+                    label="Video"
+                    description="If any slides contain video, set this to true. Also, include plugins/jquery.fitvids.js">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="radio"
+                    name="responsive"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="responsive"
+                    label="Responsive"
+                    description="Enable or disable auto resize of the slider. Useful if you need to use fixed width sliders.">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="radio"
+                    name="useCSS"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="useCSS"
+                    label="Use CSS"
+                    description="If true, CSS transitions will be used for horizontal and vertical slide animations (this uses native hardware acceleration). If false, jQuery animate() will be used.">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+
+            <field
+                    type="list"
+                    name="preloadImages"
+                    default="visible"
+                    id="preloadImages"
+                    label="preloadImages"
+                    description="If 'all', preloads all images before starting the slider. If 'visible', preloads only images in the initially visible slides before starting the slider (tip: use 'visible' if all slides are identical dimensions)">
+                <option value="all">All</option>
+                <option value="visible">Visible</option>
+            </field>
+            <field
+                    type="radio"
+                    name="touchEnabled"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="touchEnabled"
+                    label="touchEnabled"
+                    description="If true, slider will allow touch swipe transitions">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="text"
+                    name="swipeThreshold"
+                    default="50"
+                    id="swipeThreshold"
+                    label="swipeThreshold"
+                    description="Amount of pixels a touch swipe needs to exceed in order to execute a slide transition. Note: only used if touchEnabled: true"/>
+            <field
+                    type="radio"
+                    name="oneToOneTouch"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="oneToOneTouch"
+                    label="oneToOneTouch"
+                    description="If true, non-fade slides follow the finger as it swipes">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="radio"
+                    name="preventDefaultSwipeX"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="preventDefaultSwipeX"
+                    label="preventDefaultSwipeX"
+                    description="If true, touch screen will not move along the x-axis as the finger swipes">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="radio"
+                    name="preventDefaultSwipeY"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="preventDefaultSwipeY"
+                    label="preventDefaultSwipeY"
+                    description="If true, touch screen will not move along the y-axis as the finger swipes">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="radio"
+                    name="pager"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="pager"
+                    label="Pager"
+                    description="If true, a pager will be added">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="list"
+                    name="pagerType"
+                    default="full"
+                    id="pagerType"
+                    label="Pager Type"
+                    description="If 'full', a pager link will be generated for each slide. If 'short', a x / y pager will be used (ex. 1 / 5)">
+                <option value="full">Full</option>
+                <option value="short">Short</option>
+            </field>
+            <field
+                    type="text"
+                    name="pagerShortSeparator"
+                    default="/"
+                    id="pagerShortSeparator"
+                    label="pagerShortSeparator"
+                    description="If pagerType: 'short', pager will use this value as the separating character">
+            </field>
+            <field
+                    type="text"
+                    name="pagerSelector"
+                    default=""
+                    id="pagerSelector"
+                    label="pagerSelector"
+                    description="Element used to populate the populate the pager. By default, the pager is appended to the bx-viewport">
+            </field>
+            <field
+                    type="text"
+                    name="pagerCustom"
+                    default="null"
+                    id="pagerCustom"
+                    label="pagerCustom"
+                    description="Parent element to be used as the pager. Parent element must contain a &lt;a data-slide-index='x'&gt; element for each slide.">
+            </field>
+            <field
+                    type="text"
+                    name="buildPager"
+                    default="null"
+                    id="buildPager"
+                    label="buildPager"
+                    description="If supplied, function is called on every slide element, and the returned value is used as the pager item markup.">
+            </field>
+            <field
+                    type="radio"
+                    name="controls"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="controls"
+                    label="controls"
+                    description="If true, 'Next' / 'Prev' controls will be added">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="text"
+                    name="nextText"
+                    default="Next"
+                    id="nextText"
+                    label="nextText"
+                    description="Text to be used for the 'Next' control">
+            </field>
+            <field
+                    type="text"
+                    name="prevText"
+                    default="Prev"
+                    id="prevText"
+                    label="prevText"
+                    description="Text to be used for the 'Prev' control">
+            </field>
+            <field
+                    type="text"
+                    name="nextSelector"
+                    default="null"
+                    id="nextSelector"
+                    label="nextSelector"
+                    description="Element used to populate the 'Next' control">
+            </field>
+            <field
+                    type="text"
+                    name="prevSelector"
+                    default="null"
+                    id="prevSelector"
+                    label="prevSelector"
+                    description="Element used to populate the 'Prev' control">
+            </field>
+            <field
+                    type="radio"
+                    name="autoControls"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="autoControls"
+                    label="autoControls"
+                    description="If true, 'Start' / 'Stop' controls will be added">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="text"
+                    name="startText"
+                    default="Start"
+                    id="startText"
+                    label="startText"
+                    description="Text to be used for the 'Start' control">
+            </field>
+            <field
+                    type="text"
+                    name="stopText"
+                    default="Stop"
+                    id="stopText"
+                    label="stopText"
+                    description="Text to be used for the 'Stop' control">
+            </field>
+
+            <field
+                    type="radio"
+                    name="autoControlsCombine"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="autoControlsCombine"
+                    label="autoControlsCombine"
+                    description="When slideshow is playing only 'Stop' control is displayed and vice-versa">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="text"
+                    name="autoControlsSelector"
+                    default="null"
+                    id="autoControlsSelector"
+                    label="autoControlsSelector"
+                    description="Element used to populate the auto controls">
+            </field>
+            <field
+                    type="radio"
+                    name="auto"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="auto"
+                    label="Auto"
+                    description="Slides will automatically transition">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="text"
+                    name="pause"
+                    default="4000"
+                    id="pause"
+                    label="pause"
+                    description="The amount of time (in ms) between each auto transition">
+            </field>
+            <field
+                    type="radio"
+                    name="autoStart"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="autoStart"
+                    label="autoStart"
+                    description="Auto show starts playing on load. If false, slideshow will start when the 'Start' control is clicked">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="list"
+                    name="autoDirection"
+                    default="next"
+                    id="autoDirection"
+                    label="autoDirection"
+                    description="The direction of auto show slide transitions">
+                <option value="next">Next</option>
+                <option value="prev">Prev</option>
+            </field>
+            <field
+                    type="radio"
+                    name="autoHover"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    id="autoHover"
+                    label="autoHover"
+                    description="Auto show will pause when mouse hovers over slider">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field type="text"
+                name="autoDelay"
+                id="autoDelay"
+                default="0"
+                label="AutoDelay"
+                description="Time (in ms) auto show should wait before starting"/>
+            <field
+                    type="text"
+                    name="minSlides"
+                    default="1"
+                    id="minSlides"
+                    label="minSlides"
+                    description="The minimum number of slides to be shown. Slides will be sized down if carousel becomes smaller than the original size.">
+            </field>
+            <field
+                    type="text"
+                    name="maxSlides"
+                    default="1"
+                    id="maxSlides"
+                    label="maxSlides"
+                    description="The maximum number of slides to be shown. Slides will be sized up if carousel becomes larger than the original size.">
+            </field>
+            <field
+                    type="text"
+                    name="moveSlides"
+                    default="0"
+                    id="moveSlides"
+                    label="moveSlides"
+                    description="The number of slides to move on transition. This value must be &gt;= minSlides, and &lt;= maxSlides. If zero (default), the number of fully-visible slides will be used.">
+            </field>
+            <field
+                    type="text"
+                    name="slideWidth"
+                    default="0"
+                    id="slideWidth"
+                    label="slideWidth"
+                    description="The width of each slide. This setting is required for all horizontal carousels!">
+            </field>
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azurabxslider" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="26"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

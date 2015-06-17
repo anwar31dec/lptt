@@ -1,0 +1,309 @@
+/*Tabs*/
+/*.azp_tabs{
+	margin:0 auto;
+	max-width:100%;
+}
+.azp_tabs > ul {
+	list-style: none outside none;
+	margin-left: 0px;
+	border-bottom: 1px solid #ddd;
+}
+.azp_tabs li,.azp_tabs p{
+	float:left;
+}
+
+.azp_tabs p{
+
+	padding:20px;
+	background:#fff;
+	border:1px solid #ccc;
+	border-bottom:2px solid #ccc;
+	width:100%;
+	display:block;
+}
+.azp_tabs ul li a{
+	position:relative;
+	top:1px;
+
+	display:block;
+	padding:10px 25px;
+	border-top:2px solid transparent;
+}
+.azp_tabs ul li a:hover{
+
+}
+.azp_tabs ul li.active a{
+	background:transparent;
+	background:#fff;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #fff; 
+	border-top:2px solid #ccc;
+}*/
+
+
+
+.azp_hidden {display: none;}
+
+/*Icon - Box Circle*/
+.azp_icon_box-circle {
+	margin: 0 auto;
+	width: 160px;
+	height: 160px;
+	border: 5px solid #f3f3f3;
+	border-radius: 100%;
+	text-align: center;
+	margin-bottom: 40px;
+	color: #1da4dd;
+	font-size: 57px;
+	line-height: 148px;
+	vertical-align: middle;
+	/*-webkit-transform: scale(1,1);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 250ms;
+    -moz-transform: scale(1,1);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 250ms;*/
+	
+}
+.azp_icon_box-circle:hover,.azp_icon_box-circle.active {
+	/*-webkit-transform: scale(1.05,1.07);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 250ms;
+    -moz-transform: scale(1.05,1.07);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 250ms;*/
+	background-color: #1da4dd;
+	color: #fff;
+	
+}
+.azp_strong {
+	color: #272727;
+	font-size: 16px;
+	font-weight: 600;
+	text-transform: uppercase;
+	display: block;
+	margin-bottom: 18px;
+}
+
+/*Counter - Circle*/
+.azp_counter-circle {
+	/*margin: 0 auto 30px auto;
+	width: 127px;
+	height: 127px;
+	border-radius: 100%;
+	border: 5px solid #13afeb;
+	font-size: 16px;
+	color: #272727;
+	text-align: center;
+	-webkit-transition: background-color .1s, -webkit-transform .1s;
+    transition: background-color .1s, transform .1s;*/
+    font-size: 14px;
+    text-align: center;
+}
+.azp_counter-circle strong {
+	color: #13afeb;
+	font-size: 30px;
+	font-weight: 600;
+	display: block;
+	margin-top: 41px;
+	margin-bottom: 5px;
+}
+
+/*Team Member*/
+.azp_member{}
+
+
+
+/*Testimonial*/
+.azp_responsive-img{width: 100%;}
+
+.azp_testimonial_avatar {
+	width:60px !important;
+	height: 60px !important;
+	border: 2px solid #13afeb;
+	border-radius: 100%;
+	margin: 0 auto;
+}
+.azp_testimonial_rate{color: yellow;}
+
+ul.azp_member_socials{
+
+}
+li.azp_member_social{
+
+}
+li.azp_member_social:hover{
+}
+.azp_testimonial_position{font-style: italic;font-weight: 100;font-size: 12px;}
+
+/* Contact Form */
+/*::-webkit-input-placeholder { color: #888888 }
+:-moz-placeholder { color: #888888 }
+::-moz-placeholder { color: #888888 }
+:-ms-input-placeholder { color: #888888 }*/
+
+.azp_contact-form input:not([type]),
+.azp_contact-form input[type="text"],
+.azp_contact-form input[type="password"],
+.azp_contact-form input[type="email"],
+.azp_contact-form input[type="url"],
+.azp_contact-form input[type="date"],
+.azp_contact-form input[type="month"],
+.azp_contact-form input[type="time"],
+.azp_contact-form input[type="datetime"],
+.azp_contact-form input[type="datetime-local"],
+.azp_contact-form input[type="week"],
+.azp_contact-form input[type="number"],
+.azp_contact-form input[type="search"],
+.azp_contact-form input[type="tel"],
+.azp_contact-form input[type="color"],
+.azp_contact-form select,
+.azp_contact-form textarea {
+	-webkit-appearance: none;
+	display: inline-block;
+	width: 100%;
+	min-height: 50px;
+	padding: 10px;
+	/*border: 2px solid #f4f4f4;*/
+	background: #f4f4f4;
+	margin-bottom: 10px;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+	/*-webkit-transition: all .2s ease-in-out;
+	   -moz-transition: all .2s ease-in-out;
+		-ms-transition: all .2s ease-in-out;
+		 -o-transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;*/
+}
+
+.azp_contact-form input:not([type]):focus,
+.azp_contact-form input[type="text"]:focus,
+.azp_contact-form input[type="password"]:focus,
+.azp_contact-form input[type="email"]:focus,
+.azp_contact-form input[type="url"]:focus,
+.azp_contact-form input[type="date"]:focus,
+.azp_contact-form input[type="month"]:focus,
+.azp_contact-form input[type="time"]:focus,
+.azp_contact-form input[type="datetime"]:focus,
+.azp_contact-form input[type="datetime-local"]:focus,
+.azp_contact-form input[type="week"]:focus,
+.azp_contact-form input[type="number"]:focus,
+.azp_contact-form input[type="search"]:focus,
+.azp_contact-form input[type="tel"]:focus,
+.azp_contact-form input[type="color"]:focus,
+.azp_contact-form select:focus,
+.azp_contact-form textarea:focus {
+	outline: 0;
+	outline: thin dotted \9; /* IE6-9 */
+	/*color: #111111;
+	border: 2px solid #111111;
+	-webkit-transition: all .2s;
+	   -moz-transition: all .2s;
+		-ms-transition: all .2s;
+		 -o-transition: all .2s;
+			transition: all .2s;*/
+}
+
+.azp_contact-form input[type="file"]:focus,
+.azp_contact-form input[type="radio"]:focus,
+.azp_contact-form input[type="checkbox"]:focus {
+	/*outline: thin dotted #111111;
+	outline: 1px auto #111111;*/
+}
+
+.azp_contact-form select {
+	min-width: 75px;
+}
+
+.azp_contact-form .azp_contact-form-checkbox,
+.azp_contact-form .azp_contact-form-radio {
+	margin: 1em 0;
+	display: block;
+}
+
+.azp_contact-form input:not([type])[disabled],
+.azp_contact-form input[type="text"][disabled],
+.azp_contact-form input[type="password"][disabled],
+.azp_contact-form input[type="email"][disabled],
+.azp_contact-form input[type="url"][disabled],
+.azp_contact-form input[type="date"][disabled],
+.azp_contact-form input[type="month"][disabled],
+.azp_contact-form input[type="time"][disabled],
+.azp_contact-form input[type="datetime"][disabled],
+.azp_contact-form input[type="datetime-local"][disabled],
+.azp_contact-form input[type="week"][disabled],
+.azp_contact-form input[type="number"][disabled],
+.azp_contact-form input[type="search"][disabled],
+.azp_contact-form input[type="tel"][disabled],
+.azp_contact-form input[type="color"][disabled],
+.azp_contact-form select[disabled],
+.azp_contact-form textarea[disabled] {
+	cursor: not-allowed;
+	background-color: #eaeded;
+	color: #cad2d3;
+}
+
+.azp_contact-form input[readonly],
+.azp_contact-form select[readonly],
+.azp_contact-form textarea[readonly] {
+	background: #eee;
+	color: #777;
+	border-color: #ccc;
+}
+
+.azp_contact-form input:focus:invalid,
+.azp_contact-form textarea:focus:invalid,
+.azp_contact-form select:focus:invalid {
+	color: #b94a48;
+	border: 1px solid #ee5f5b;
+}
+
+.azp_contact-form input:focus:invalid:focus,
+.azp_contact-form textarea:focus:invalid:focus,
+.azp_contact-form select:focus:invalid:focus {
+	border-color: #e9322d;
+}
+
+.azp_contact-form input[type="file"]:focus:invalid:focus,
+.azp_contact-form input[type="radio"]:focus:invalid:focus,
+.azp_contact-form input[type="checkbox"]:focus:invalid:focus {
+	outline-color: #e9322d;
+}
+
+.azp_contact-form textarea {
+	resize: none;
+	height: 150px;
+	font-size: 100%;
+}
+
+.azp_contact-form select {
+	border: 1px solid #ccc;
+	background-color: white;
+}
+
+.azp_contact-form select[multiple] {
+	height: auto;
+}
+
+.azp_contact-form label {
+	margin: 0.5em 0 0.2em;
+	font-size: 100%;
+}
+
+.azp_contact-form fieldset {
+	margin: 0;
+	padding: 0.35em 0 0.75em;
+	border: 0;
+}
+
+.azp_contact-form legend {
+	display: block;
+	width: 100%;
+	padding: 10px 0;
+	margin-bottom: 10px;
+	font-size: 125%;
+	color: #111111;
+	border-bottom: 1px solid #eeeeee;
+}

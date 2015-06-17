@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="Header ID"
+                    description="Header ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Header Class"
+                    description="Header Class"
+                    />
+            <field
+                    type="list"
+                    name="heading"
+                    id="heading"
+                    default="h3"
+                    label="Header"
+                    description="Header">
+                <option value="h1">H1</option>
+                <option value="h2">H2</option>
+                <option value="h3">H3</option>
+                <option value="h4">H4</option>
+                <option value="h5">H5</option>
+                <option value="h6">H6</option>
+            </field>
+        <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuraheader" client="site"/>
+            
+        </fieldset>
+    </fields>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="textarea"
+                    name="headerContent"
+                    id="headerContent"
+                    label="Header Text"
+                    class="input-xlarge"
+                    description="Header Text"
+                    cols="24"
+                    rows="3" />
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="3"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

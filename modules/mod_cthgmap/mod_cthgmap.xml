@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>CTH Gmap</name>
+	<author>CTHthemes</author>
+	<creationDate>May 2014</creationDate>
+	<copyright>Copyright Info CTHthemes.com</copyright>
+	<license>License Info CTHthemes.com</license>
+	<authorEmail>contact@cththemes.com</authorEmail>
+	<authorUrl>CTHthemes.com</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_CTHGMAP_XML_DESC</description>
+	<files>
+		<filename module="mod_cthgmap">mod_cthgmap.php</filename>
+		<folder>tmpl</folder>
+		<folder>assets</folder>
+		<folder>fields</folder>
+		<filename>index.html</filename>
+		<filename>mod_cthgmap.xml</filename>
+	</files>
+	<languages folder="language/en-GB">
+		<language tag="en-GB">en-GB.mod_cthgmap.ini</language>
+		<language tag="en-GB">en-GB.mod_cthgmap.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params" addfieldpath="modules/mod_cthgmap/fields">
+			<fieldset name="basic">
+				<field name="gmap" type="Modal_Gmap" label="Select Map" description="Select Map" />
+
+				<field name="gmapLat"  type="text" default="41.8744661" label="Latitude" description="Latitude" />
+				<field name="gmapLog" type="text" default="-87.6614312" label="Longitude" description="Longitude" />
+				<field name="gmapPancontrol" type="radio" default="1" label="Pan Control" description="Pan Control" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="gmapZoomcontrol" type="radio" default="1" label="Zoom Control" description="Zoom Control" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="gmapTypecontrol" type="radio" default="1" label="Map Type Control" description="Map Type Control" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="gmapStreetviewcontrol" type="radio" default="1" label="Street View Control" description="Street View Control" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="gmapScrollwheel" type="radio" default="1" label="Scroll Wheel" description="Scroll Wheel" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="gmapZoom" type="text" default="15" label="Zoom" description="Zoom" />
+				<field name="gmapTypeId" type="list" default="ROADMAP" label="Map Type" description="Map Type" >
+					<option value="HYBRID">HYBRID</option>
+					<option value="ROADMAP">ROADMAP</option>
+					<option value="SATELLITE">SATELLITE</option>
+					<option value="TERRAIN">TERRAIN</option>
+				</field>
+			</fieldset>
+			
+			
+			<fieldset
+				name="advanced">
+
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

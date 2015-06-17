@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="Slide ID"
+                    description="Slide ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Slide Class"
+                    description="Slide Class"
+                    />
+            <field
+                    type="AzuraMedia"
+                    name="image"
+                    id="image"
+                    label="Image Source"
+                    class="input-small"
+                    preview="false"
+                    description="Image Source" />
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azurabscarouselitem" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="textarea"
+                    name="caption"
+                    id="caption"
+                    label="Caption"
+                    class="input-xlarge"
+                    description="Caption"
+                    cols="24"
+                    rows="7" />
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="showAnimationTab"
+                    setting="false"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="4"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

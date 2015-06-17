@@ -1,0 +1,248 @@
+.gritter-info .gritter-title {
+	color: #4dd4fd;
+}
+.gritter-success .gritter-title {
+	color: #9ad268;
+}
+.gritter-warning .gritter-title {
+	color: #ffc545;
+}
+.gritter-danger .gritter-title {
+	color: #fe402b;
+}
+@media (max-width: 480px) {
+	#gritter-notice-wrapper {
+		right: 0;
+	}
+}
+.custom-popup {
+	background-color: rgba(0, 0, 0, 0.9);
+	color: #777;
+	padding: 15px;
+	text-align: center !important;
+}
+.custom-popup.full-width {
+	width: 100%;
+}
+.custom-popup.light {
+	background-color: #f9f9f9;
+}
+.custom-popup {
+	transform: scale(0.8);
+}
+.popup_visible .custom-popup {
+	transform: scale(1);
+}
+.parsley-error-list {
+	list-style: outside none none;
+}
+.parsley-error {
+	border-color: #f53535;
+	color: #b94a48;
+}
+.parsley-error:focus {
+	border-color: #f53535 !important;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 2px rgba(245, 53, 53, 0.6) !important;
+}
+.width-100 {
+	width: 100%;
+}
+
+.dataTables_wrapper .label {
+	border-radius: 0.25em;
+	display: inline;
+	font-size: 75%;
+	font-weight: 700;
+	line-height: 1;
+	padding: 0.2em 0.6em 0.3em;
+	text-align: center;
+	vertical-align: baseline;
+	white-space: nowrap;
+}
+
+div.tbl-header {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+
+div.tbl-header1 label {
+	font-weight: normal;
+	text-align: left;
+	white-space: nowrap;
+}
+
+div.tbl-header1 select, div.tbl-header1 a {
+	display: inline-block;
+}
+
+.badge-danger, .label-danger {
+	background-color: #fe402b;
+	color: #fff;
+}
+.label, .badge {
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.badge-info, .label-info {
+	background-color: #4dd4fd;
+	color: #fff;
+}
+
+/*.padding-md {
+	padding: 20px 0 !important;
+}*/
+.row-magin-top {
+	margin-top: 20px;
+}
+
+.tbl-header label {
+	margin-bottom: 0;
+}
+
+a.but_add, a.but_print, a.but_excel, a.but_pdf, a.but_back {
+	border-radius: 3px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+a.but_add, a.but_print, a.but_excel, a.but_pdf, a.but_back {
+  border-bottom: 1px solid #909090;
+  margin: 0;
+  padding: 6px 11px;
+}
+
+a.but_add, a.but_print, a.but_excel, a.but_pdf, a.but_back {
+	font-family: "Open Sans", sans-serif;
+}
+a.but_add:hover{
+	background-color: #8aa61b;
+}
+a.but_print:hover{
+	background-color: #1b6f6f;
+}
+a.but_excel:hover{
+	background-color: #7c7c7c;
+}
+a.but_pdf:hover{
+	background-color: #800080;
+}
+a.but_back:hover{
+	background-color: #efa66f;
+}
+a.but_add {
+  background: none repeat scroll 0 0 #7f9919;
+}
+a.but_print {
+  background: none repeat scroll 0 0 #196666;
+}
+a.but_excel {
+  background: none repeat scroll 0 0 #727272;
+}
+a.but_pdf {
+  background: none repeat scroll 0 0 #800080;
+}
+a.but_back {
+  background: none repeat scroll 0 0 #cc7f4c;
+}
+
+.form-horizontal .control-label {
+  /*float: left;
+  width: 200px;*/
+}
+
+form.form-border .form-group {
+  border-bottom: 1px solid #f1f5fc;
+  margin-bottom: 0;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+/*.panel.panel-default .panel-heading {
+  background: none repeat scroll 0 0 #fff;
+  border-color: #f1f5fc;
+  color: #777;
+}*/
+
+.panel-heading {
+  /*background: none repeat scroll 0 0 #194c7f !important;*/
+  /*border-color: #5bc0de !important;*/
+  /*color: #fff !important;*/
+  font-weight: bold;
+  border:1px solid #dddddd;
+ 
+}
+
+
+.panel-heading {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+   padding: 10px 10px 10px 10px !important;
+  background-color: #eeeeee !important;
+}
+.panel-body {
+  background: none repeat scroll 0 0 #fff !important;
+  margin: 0;
+  padding: 20px 10px 6px 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+/*.panel-footer{
+	border-color:#035bbc;
+	background:#eeeeee;
+}*/
+form.form-border .form-group:first-child {
+  padding-top: 0;
+}
+form.form-border .form-group {
+  border-bottom: 1px solid #f1f5fc;
+  margin-bottom: 0;
+  padding-bottom: 15px;
+}
+
+.form-horizontal .form-group {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.form-group label{
+	color:#9b9b9b;
+}
+
+.nav-data{
+	padding:5px;
+	border:1px solid #ddd;
+}
+
+.nav-data label{
+	margin-bottom:0;
+}
+.row{
+	margin-top:0;
+}
+#list-panel, #form-panel{
+	margin-top:15px;
+}
+.page_title2{
+	padding:10px 0 0 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    line-height: normal;
+    /*margin: 13px 0 0;*/
+}
+
+.grid-wrap{
+  padding-top: 10px;
+}
+
+.row-margin{
+    	margin-top:10px;
+    }
+.col-padding{
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.topnav_login li{
+font-size:110% !important;
+}

@@ -1,0 +1,3 @@
+Uri: http://demo.thedevelovers.com/dashboard/queenadmin-1.0.1/assets/img/bootstrap-colorpicker/hue.png?1385667212
+File Name: c:\Downloaded Web Sites\demo.thedevelovers.com\dashboard\queenadmin-1.0.1\assets\img\bootstrap-colorpicker\hue.png
+Content Type: image/png

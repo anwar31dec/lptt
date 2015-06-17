@@ -1,0 +1,98 @@
+input[type="text"] {
+	height: inherit;
+	padding: 5px 6px;
+}
+
+.page-title .btn{
+    font-family: 'Open Sans',sans-serif !important;
+    line-height: 1.2 !important;
+}
+
+.right-aln{
+	text-align: right !Important;
+	/*vertical-align: top !Important;*/
+}
+ 
+.left-aln{
+	text-align: left !Important;
+	/*vertical-align: top !Important;*/
+}
+
+.center-aln{
+	text-align: center !Important;
+	/*vertical-align: top !Important;*/
+}
+
+.group{
+	background-color: #DAEF62 !important;
+	font-size: 1.2em;
+}
+
+
+.very-highrisk{
+	background-color:#d7191c;	
+}
+
+.highrisk{
+	background-color:#fe9929;	
+}
+
+.mediumrisk{
+	background-color:#f0f403;	
+}
+
+.lowrisk{
+	background-color:#4dac26;
+}
+.norisk{
+	background-color:#50ABED;
+}
+
+.legend-80 {
+	color: #2D2D2D;
+}
+
+.legend-80 div{
+	width: 80px;
+	height: 24px;
+	line-height: 2em;
+	
+}
+
+.art-bgcolor {
+    background-color: #FFC545;
+}
+.rtk-bgcolor {
+    background-color: #9AD268;
+}
+.pmtct-bgcolor {
+    background-color: #50ABED;
+}
+
+.legend-patient-vertical{
+	
+}
+    
+.legend-patient-vertical div{
+	width: 50px;
+	height: 30px;
+}
+
+.center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-component{
+	width: 200px;
+}
+
+.nav-data, .nav-data a{		
+		font-family: 'Open Sans',sans-serif !important;
+	}
+	
+.form-control{
+	height: 36px;
+}

@@ -1,0 +1,66 @@
+.logo {
+	background-color: #3fc35f;
+}
+
+.nav-collapse a:active,
+.nav-collapse .active a {
+    color: #3fc35f;
+}
+
+.section1 .circle {
+	color: #3fc35f;
+}
+.section1 .circle:hover {
+    background-color: #3fc35f;
+}
+
+.section2 {
+	background: #3fc35f url(../../../../images/para-bg1.png) repeat-y center -65px;
+}
+
+.section3 strong {
+	color: #3fc35f;
+}
+.section3 .one_fourth:hover, .section3 .one_fourth.active {
+	background-color: #3fc35f;
+}
+
+.peosec strong {
+    color: #3fc35f;
+}
+
+.section4 .packagesinfo ul.active li.mostp {
+    background-color: #3fc35f;
+}
+.section4 .packagesinfo ul.active li.title h2 {
+    color: #3fc35f;
+}
+.section4 .packagesinfo ul.active li.title h4 {
+    color: #3fc35f;
+}
+
+.section4 .packagesinfo ul.active li.planbut a {
+    background-color: #3fc35f;
+}
+
+.parallax_sec3 i {
+	background: #3fc35f url(../../../../images/site-img5.png) no-repeat center top;
+}
+
+.punchtext h3 {
+	color: #3fc35f;
+}
+.punchtext a {
+	background-color: #3fc35f;
+}
+
+.sky-form .button {
+    background-color: #3fc35f;
+}
+
+a {
+	color: #3fc35f;
+}
+
+.tp-caption.finewide_verysmall_white_mw div i {color: #3fc35f;}
+.tp-caption.finewide_medium_white em {background: #3fc35f;}

@@ -1,0 +1,131 @@
+ALTER TABLE `t_cnm_patientoverview`
+  ADD CONSTRAINT `FK_t_cnm_patientoverview` FOREIGN KEY (`CNMStockId`) REFERENCES `t_cnm_masterstockstatus` (`CNMStockId`);
+ALTER TABLE `t_cnm_regimenpatient`
+  ADD CONSTRAINT `FK_t_cnm_regimenpatient` FOREIGN KEY (`CNMStockId`) REFERENCES `t_cnm_masterstockstatus` (`CNMStockId`);
+
+ALTER TABLE `t_cfm_patientoverview`
+  ADD CONSTRAINT `FK_t_cfm_patientoverview_1` FOREIGN KEY (`CFMStockId`) REFERENCES `t_cfm_masterstockstatus` (`CFMStockId`);
+ALTER TABLE `t_cfm_regimenpatient`
+  ADD CONSTRAINT `FK_t_cfm_regimenpatient_5` FOREIGN KEY (`CFMStockId`) REFERENCES `t_cfm_masterstockstatus` (`CFMStockId`);
+
+
+ALTER TABLE `t_cnm_stockstatus`
+  ADD CONSTRAINT `FK_ t_cnm_stockstatus_1` FOREIGN KEY (`ItemNo`) REFERENCES `t_itemlist` (`ItemNo`);
+
+ALTER TABLE `t_cfm_stockstatus`
+  ADD CONSTRAINT `FK_ t_cfm_stockstatus_1` FOREIGN KEY (`ItemNo`) REFERENCES `t_itemlist` (`ItemNo`);
+
+ALTER TABLE `t_cfm_regimenpatient`
+  ADD CONSTRAINT `FK_t_cfm_regimenpatient_2` FOREIGN KEY (`RegimenId`) REFERENCES `t_regimen` (`RegimenId`);
+
+ALTER TABLE `t_cnm_regimenpatient`
+  ADD CONSTRAINT `FK_t_cnm_regimenpatient_2` FOREIGN KEY (`RegimenId`) REFERENCES `t_regimen` (`RegimenId`);
+
+
+=====================================================
+use INFORMATION_SCHEMA;
+
+select TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME from KEY_COLUMN_USAGE where
+REFERENCED_TABLE_NAME = 't_cnm_regimenpatient';
+=====================================================
+
+ALTER TABLE `t_country_regimen` ADD `ItemGroupId` INT NOT NULL;
+
+ALTER TABLE `t_cfm_patientoverview` ADD `ItemGroupId` INT NOT NULL;
+ALTER TABLE `t_cfm_regimenpatient` ADD `ItemGroupId` INT NOT NULL;
+
+ALTER TABLE `t_cnm_patientoverview` ADD `ItemGroupId` INT NOT NULL;
+ALTER TABLE `t_cnm_regimenpatient` ADD `ItemGroupId` INT NOT NULL;
+
+
+UPDATE t_country_regimen SET ItemGroupId = 1;
+
+UPDATE t_cfm_patientoverview SET ItemGroupId = 1;
+UPDATE t_cfm_regimenpatient SET ItemGroupId = 1;
+
+UPDATE t_cnm_patientoverview SET ItemGroupId = 1;
+UPDATE t_cnm_regimenpatient SET ItemGroupId = 1;
+
+ALTER TABLE `t_country_regimen`
+  ADD CONSTRAINT `FK_t_country_regimen_3` FOREIGN KEY (`ItemGroupId`) REFERENCES `t_itemgroup` (`ItemGroupId`);
+  
+ALTER TABLE `t_cfm_patientoverview`
+  ADD CONSTRAINT `FK_t_cfm_patientoverview_5` FOREIGN KEY (`ItemGroupId`) REFERENCES `t_itemgroup` (`ItemGroupId`);
+ALTER TABLE `t_cfm_regimenpatient`
+  ADD CONSTRAINT `FK_t_cfm_regimenpatient_6` FOREIGN KEY (`ItemGroupId`) REFERENCES `t_itemgroup` (`ItemGroupId`);
+  
+  
+ALTER TABLE `t_cnm_patientoverview`
+  ADD CONSTRAINT `FK_t_cnm_patientoverview_5` FOREIGN KEY (`ItemGroupId`) REFERENCES `t_itemgroup` (`ItemGroupId`);
+ALTER TABLE `t_cnm_regimenpatient`
+  ADD CONSTRAINT `FK_t_cnm_regimenpatient_5` FOREIGN KEY (`ItemGroupId`) REFERENCES `t_itemgroup` (`ItemGroupId`);
+  
+ALTER TABLE `t_mostype_facility`
+  ADD CONSTRAINT `FK_t_mostype_facility_2` FOREIGN KEY (`FLevelId`) REFERENCES `t_facility_level` (`FLevelId`);
+  
+  
+ALTER TABLE `t_cnm_stockstatus`
+  ADD CONSTRAINT `FK_t_cnm_stockstatus_6` FOREIGN KEY (`CNMStockId`) REFERENCES `t_cnm_masterstockstatus` (`CNMStockId`);
+  
+
+ALTER TABLE `t_country_regimen` DROP `ItemGroupId` 
+
+
+alter table t_cnm_stockstatus drop foreign key `FK_ t_cnm_stockstatus_1`
+
+ALTER TABLE `table_name` DROP FOREIGN KEY `id_name_fk`;
+
+ALTER TABLE `t_cfm_stockstatus` DROP INDEX `t_cfm_stockstatus`;
+
+ ALTER TABLE `warp_jdb`.`t_cfm_stockstatus` DROP INDEX `FacilityId` ,
+ADD UNIQUE `FacilityId` ( `Year` , `MonthId` , `CountryId` , `FacilityId` , `ItemGroupId` , `ItemNo` ) 
+
+DROP INDEX `t_cfm_stockstatus_1` ON t_cfm_stockstatus;
+
+
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('5', '6', '99', 'Overstock1', '3', '4', '#999999', 'Overstock1.png', '110', '177');
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('5', '6', '99', 'Overstock2', '4', '5', '#999999', 'Overstock2.png', '130', '209');
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('5', '6', '99', 'Overstock3', '5', '1000', '#999999', 'Overstock3.png', '150', '241');
+
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('12', '6', '1', 'Overstock1', '20', '25', '#999999', 'Overstock1.png', '110', '177');
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('12', '6', '1', 'Overstock2', '25', '30', '#999999', 'Overstock2.png', '130', '209');
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('12', '6', '1', 'Overstock3', '30', '1000', '#999999', 'Overstock3.png', '150', '241');
+
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('19', '6', '2', 'Overstock1', '4', '5', '#999999', 'Overstock1.png', '110', '177');
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('19', '6', '2', 'Overstock2', '5', '6', '#999999', 'Overstock2.png', '130', '209');
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('19', '6', '2', 'Overstock3', '6', '1000', '#999999', 'Overstock3.png', '150', '241');
+
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('24', '6', '3', 'Overstock1', '4', '5', '#999999', 'Overstock1.png', '110', '177');
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('24', '6', '3', 'Overstock2', '5', '6', '#999999', 'Overstock2.png', '130', '209');
+INSERT INTO `t_mostype_facility_details` (`MosTypeId`, `CountryId`, `FLevelId`, `MosTypeName`, `MinMos`, `MaxMos`, `ColorCode`, `IconMos`, `IconMos_Width`, `IconMos_Height`) VALUES ('24', '6', '3', 'Overstock3', '6', '1000', '#999999', 'Overstock3.png', '150', '241');
+
+
+UPDATE `t_mostype_facility` SET `IconMos_Width` = '50', `IconMos_Height` = '80' WHERE `t_mostype_facility`.`MosTypeName` = 'Stockout';
+UPDATE `t_mostype_facility` SET `IconMos_Width` = '55', `IconMos_Height` = '88' WHERE `t_mostype_facility`.`MosTypeName` = 'Potential Stockout';
+UPDATE `t_mostype_facility` SET `IconMos_Width` = '60', `IconMos_Height` = '96' WHERE `t_mostype_facility`.`MosTypeName` = 'Understock';
+UPDATE `t_mostype_facility` SET `IconMos_Width` = '50', `IconMos_Height` = '80' WHERE `t_mostype_facility`.`MosTypeName` = 'Satisfactory';
+UPDATE `t_mostype_facility` SET `IconMos_Width` = '65', `IconMos_Height` = '104' WHERE `t_mostype_facility`.`MosTypeName` = 'Overstock';
+
+UPDATE `t_mostype_facility_details` SET `IconMos_Width` = '50', `IconMos_Height` = '80' WHERE `t_mostype_facility_details`.`MosTypeName` = 'Stockout';
+UPDATE `t_mostype_facility_details` SET `IconMos_Width` = '55', `IconMos_Height` = '88' WHERE `t_mostype_facility_details`.`MosTypeName` = 'Potential Stockout';
+UPDATE `t_mostype_facility_details` SET `IconMos_Width` = '60', `IconMos_Height` = '96' WHERE `t_mostype_facility_details`.`MosTypeName` = 'Understock';
+UPDATE `t_mostype_facility_details` SET `IconMos_Width` = '50', `IconMos_Height` = '80' WHERE `t_mostype_facility_details`.`MosTypeName` = 'Satisfactory';
+UPDATE `t_mostype_facility_details` SET `IconMos_Width` = '65', `IconMos_Height` = '104' WHERE `t_mostype_facility_details`.`MosTypeName` = 'Overstock';
+
+UPDATE `t_mostype_facility_details` SET `IconMos_Width` = '70', `IconMos_Height` = '112' WHERE `t_mostype_facility_details`.`MosTypeName` = 'Overstock1';
+UPDATE `t_mostype_facility_details` SET `IconMos_Width` = '75', `IconMos_Height` = '120' WHERE `t_mostype_facility_details`.`MosTypeName` = 'Overstock2';
+UPDATE `t_mostype_facility_details` SET `IconMos_Width` = '80', `IconMos_Height` = '128' WHERE `t_mostype_facility_details`.`MosTypeName` = 'Overstock3';
+
+
+ALTER TABLE `t_cnm_masterstockstatus`
+  ADD CONSTRAINT `FK_t_cnm_masterstockstatus_1` FOREIGN KEY (`CountryId`) REFERENCES `t_country` (`CountryId`);
+  
+  ALTER TABLE `t_cnm_masterstockstatus`
+  ADD CONSTRAINT `FK_t_cnm_masterstockstatus_2` FOREIGN KEY (`MonthId`) REFERENCES `t_month` (`MonthId`);
+  
+  ALTER TABLE `t_cnm_masterstockstatus`
+  ADD CONSTRAINT `FK_t_cnm_masterstockstatus_3` FOREIGN KEY (`ItemGroupId`) REFERENCES `t_itemgroup` (`ItemGroupId`);
+  
+   ALTER TABLE `t_cnm_masterstockstatus`
+  ADD CONSTRAINT `FK_t_cnm_masterstockstatus_4` FOREIGN KEY (`StatusId`) REFERENCES `t_status` (`StatusId`);

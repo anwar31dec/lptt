@@ -1,0 +1,27 @@
+.pagination a.navlinks{margin-left:2px;margin-right:2px;}
+
+/*.sharepost {
+	float: left;
+	width: 80%;
+	margin-bottom: 40px;
+}
+.sharepost ul {
+	margin: 0px;
+	padding: 0px;
+}*/
+.sharepost li {
+	/*margin: 0px 7px 5px 0px;
+	padding: 2px 5px;
+	float: left;
+	border-radius: 2px;
+	list-style-type: none;*/
+	/*background-color: #7ab700;*/
+	background-color: transparent !important;
+}
+/*.sharepost li i {
+	color: #fff;
+}*/
+.sharepost li:hover {
+	/*background-color: #383634;*/
+	background-color: transparent !important;
+}

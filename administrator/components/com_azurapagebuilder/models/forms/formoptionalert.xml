@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="Wrapper ID"
+                    description="Wrapper ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Wrapper Class"
+                    description="Wrapper Class"
+                    />
+            <field
+                    type="list"
+                    name="type"
+                    id="type"
+                    default="danger"
+                    label="Alert Type"
+                    description="Alert Type" >
+                <option value="success">Success</option>
+                <option value="info">Info</option>
+                <option value="warning">Warning</option>
+                <option value="danger">Danger</option>
+            </field>
+            <field
+                    type="radio"
+                    name="closebtn"
+                    id="closebtn"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    label="Close Button"
+                    description="Close Button" >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="radio"
+                    name="fadeeffect"
+                    id="fadeeffect"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    label="Fade Effect"
+                    description="Fade Effect" >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuraalert" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="textarea"
+                    name="message"
+                    id="message"
+                    label="Message"
+                    default="Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum."
+                    class="input-xlarge"
+                    description="Message"
+                    cols="24"
+                    rows="7" />
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="6"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

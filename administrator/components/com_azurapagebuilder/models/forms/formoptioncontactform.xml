@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="title"
+                    id="title"
+                    label="Title"
+                    description="Title" />
+
+            <field
+                    type="textarea"
+                    name="introduction"
+                    id="introduction"
+                    label="Introduction Text"
+                    description="Introduction Text"
+                    cols="20" rows="7"
+                    />
+            
+            <field
+                    type="text"
+                    name="receiveemail"
+                    id="receiveemail"
+                    label="Receive Email"
+                    description="Receive Email" />
+
+            <field
+                    type="textarea"
+                    name="emailsubject"
+                    id="emailsubject"
+                    label="Email Subject"
+                    description="Email Subject"
+                    />
+            <field
+                    type="text"
+                    name="thanksmessage"
+                    id="thanksmessage"
+                    label="Thanks Message"
+                    description="Thanks Message" />
+            <field
+                    type="radio"
+                    name="showwebsite"
+                    id="showwebsite"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    label="Show Website Field"
+                    description="Show Website Field" >
+                <option value="1">JYES</option>
+                <option value="0">JNO</option>
+            </field>
+            <field
+                    type="radio"
+                    name="sendascopy"
+                    id="sendascopy"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    label="Show SendAsCopy Field"
+                    description="Show SendAsCopy Field" >
+                <option value="1">JYES</option>
+                <option value="0">JNO</option>
+            </field>
+
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuracontactform" client="site"/>
+            
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="3"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

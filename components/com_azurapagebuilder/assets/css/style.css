@@ -1,0 +1,280 @@
+/**
+ * @package Azura Joomla Pagebuilder
+ * @author Cththemes - www.cththemes.com
+ * @date: 15-07-2014
+ *
+ * @copyright  Copyright ( C ) 2014 cththemes.com . All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE
+ */
+ 
+.azura-elements-list{
+	width: 260px;
+	min-height: 1px;
+	float: left;
+}
+.azura-elements-page{
+	min-height: 500px;
+    overflow: auto;
+}
+.azura-element-block{
+	/*margin:10px 10px 10px 0;*/
+}
+
+.azura-element-block{
+	cursor: move;
+	/*min-height: 48px;
+	
+	margin: 10px;
+	
+	cursor: move;
+	
+	position: relative;
+	
+	/*font-size: 16px;
+	
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+	
+    min-width: 235px;*/
+}
+
+/*.azura-element-block,*/
+.azura-elements-list .azura-element-block:hover,
+.azura-element-block.ui-state-default,
+.azura-elements-page .azura-element-block,
+.azura-elements-page .azura-element
+ {
+	
+/*	text-shadow: 1px -1px 0 rgba(0, 0, 0, 0.2);
+	*/
+	/*text-shadow: 1px 0 0 rgba(255, 255, 255, 0.9);
+	
+	background: #4499e8;
+	
+	background: linear-gradient(bottom , #338CDF 20%, #59A9F4 100%);
+	
+	background: -moz-linear-gradient(bottom , #338CDF 20%, #59A9F4 100%);
+	
+	background: -o-linear-gradient(bottom , #338CDF 20%, #59A9F4 100%);
+	
+	background: -webkit-linear-gradient(bottom , #338CDF 20%, #59A9F4 100%);
+	
+	background: -khtml-linear-gradient(bottom , #338CDF 20%, #59A9F4 100%);
+	
+	background: -ms-linear-gradient(top, #59A9F4 0%,#338CDF 100%);
+	
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#59A9F4', endColorstr='#338CDF',GradientType=0 );
+	
+	border: 1px solid #1f6db6;
+	
+	box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2), inset 0 1px 0 0 rgba(255,255,255,0.5);
+	
+	color: #fff;*/
+	
+
+}
+
+.azura-elements-list .azura-element-block {
+
+	height:48px;
+	
+	/*color: #979797;
+	
+	border: 1px solid #dbdbdb;
+	
+    box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, 0.1);
+	
+	background: #f7f8fa;
+	
+    background: linear-gradient(bottom , #f0f1f5 40%, #fff 100%);
+	
+    background: -moz-linear-gradient(bottom , #f0f1f5 40%, #fff 100%);
+	
+    background: -o-linear-gradient(bottom , #f0f1f5 40%, #fff 100%);
+	
+    background: -khtml-linear-gradient(bottom , #f0f1f5 40%, #fff 100%);
+	
+    background: -webkit-linear-gradient(bottom , #f0f1f5 40%, #fff 100%);
+	
+    background: -ms-linear-gradient(top, #ffffff 0%,#f0f1f5 100%);
+	
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f1f5',GradientType=0 );
+	*/
+
+}
+
+
+
+.azura-elements-page .azura-element-block {
+	
+	/*text-shadow: 1px -1px 0 rgba(0, 0, 0, 0.2);*/
+	
+	/*margin: 8px 8px 0 0;
+	
+	margin: 20px 0 0 0;
+	
+	min-width: 0;
+	
+	overflow: hidden;
+	
+	border-radius: 5px;
+	
+	-moz-border-radius: 5px;
+	
+	-o-border-radius: 5px;
+	
+	-khtml-border-radius: 5px;
+	
+	-webkit-border-radius: 5px;*/
+	
+	float: left;
+	
+
+}
+.hide-in-elements{
+	display: none;
+}
+
+.azura-elements-list .hide-in-elements {
+	display: none;
+}
+
+.azura-elements-page .azura-element-block {
+	/*width:100%;*/
+}
+
+/* elements */
+.azura-elements-page .azura-element-type-azurarow-container, 
+.azura-elements-page .azura-element-type-azuracolumn-container {
+	/*min-height: 100px;
+	/*position: relative;
+	top: 40px;*/
+	/*background: none repeat scroll 0% 0% #f0f1f5;
+	border: 1px solid #dbdbdb;
+	/*margin-bottom: 40px;*/
+}
+.azura-elements-page .azura-element-type-azuracolumn-container {
+	min-height: 150px;
+}
+.azura-elements-page .azura-element-type-azurarow-container .azura-element-block,
+.azura-elements-page .azura-element-type-azuracolumn-container .azura-element-block
+ {
+	display: block;
+	position: relative;
+	left: 0px;
+	top: 0px;
+	/*margin: 0px 0px 95px;*/
+	/*width: 99.5%;*/
+}
+.azura-elements-page .azura-element-type-azurarow-container > div:first-child, 
+.azura-elements-page .azura-element-type-azuracolumn-container > div:first-child {
+	/*margin-top: -30px;*/
+}
+.set-column-width{
+	padding: 5px 10px;
+	cursor: pointer;
+	background-color: #333;
+}
+.azura-element-title>i{
+	/*line-height: 3;
+	margin:0 15px;*/
+	display: none;
+}
+.azura-element-title{float:left; padding-right:10px;}
+.fancybox-inner h2 {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid #2086AF;
+    border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -o-border-radius: 4px 4px 0 0;
+    -khtml-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+	color: #fff;
+	font-size: 16px;
+	height: 50px;
+	line-height: 50px;
+	background: #2493c2;
+	background: linear-gradient(bottom , #1e88b5 20%, #2aa0d2 100%);
+    background: -moz-linear-gradient(bottom , #1e88b5 20%, #2aa0d2 100%);
+    background: -o-linear-gradient(bottom , #1e88b5 20%, #2aa0d2 100%);
+    background: -webkit-linear-gradient(bottom , #1e88b5 20%, #2aa0d2 100%);
+    background: -khtml-linear-gradient(bottom , #1e88b5 20%, #2aa0d2 100%);
+    background: -ms-linear-gradient(top, #2aa0d2 0%,#1e88b5 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#2aa0d2', endColorstr='#1e88b5',GradientType=0 );    
+}
+
+.fancybox-inner h2 span {
+	font-family: times new roman;
+    font-size: 24px;
+    font-style: italic;
+	margin-left: 15px;
+	float: left;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
+}
+
+.fancybox-inner h2 i {
+	width: 40px;
+	font-size: 2em;
+	display: inline-block;
+    float: left;
+    height: 36px;
+    margin: 8px 5px 0 15px;
+}
+
+.margin415 {
+	margin:15px;
+}
+
+.azura-sortable{
+	/*width:100%;*/
+	/*min-height: 500px;*/
+	/*border:1px solid #ccc;*/
+}
+.azura-sortable{
+	/*min-height: 120px;*/
+}
+
+.azura-element-tools{
+	display: none;
+	color:#000;
+}
+.azura-sortable .azura-element-tools {
+	display: block;
+	float:left;
+}
+
+.azura-sortable .azura-element-type-tabtoggle {
+	min-height: 120px !important;
+}
+
+.azura-element-tools>i {
+	cursor: pointer;
+	
+}
+
+.azura-element-settings {
+	display: none;
+	background-color: #ccc;
+}
+
+.row-fluid [class*="span"]{
+	margin-left: 0 !important;
+}
+.span2[data-typename="AzuraColumn"]{
+	width:16.66% !important;
+}
+.span3[data-typename="AzuraColumn"]{
+	width:25% !important;
+}
+.span4[data-typename="AzuraColumn"]{
+	width:33.33% !important;
+}
+.span6[data-typename="AzuraColumn"]{
+	width:50% !important;
+}
+.span12[data-typename="AzuraColumn"]{
+	width:100% !important;
+}
+
+

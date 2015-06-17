@@ -1,0 +1,24 @@
+[
+	{
+		"id": "MLI",
+		"name": "Mali",
+		"bgcolor": "#c8d024",
+		"num_of_staff": "37",
+		"num_of_indicator": "66",
+		"area": "TB, Malaria, Aids", "bSiaps": "1"
+	}, {
+		"id": "SSD",
+		"name": "South Sudan",
+		"bgcolor": "#c8d024",
+		"num_of_staff": "89",
+		"num_of_indicator": "90",
+		"area": "TB, Malaria, Aids", "bSiaps": "1"
+	}, {
+		"id": "GIN",
+		"name": "Guinea",
+		"bgcolor": "#c8d024",
+		"num_of_staff": "63",
+		"num_of_indicator": "6",
+		"area": "TB, Malaria, Aids", "bSiaps": "1"
+	}
+]

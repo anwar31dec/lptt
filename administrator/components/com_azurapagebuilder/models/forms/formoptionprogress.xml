@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="ID"
+                    description="ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Class"
+                    description="Class"
+                    />
+            <field
+                    type="text"
+                    name="value"
+                    id="value"
+                    default="50"
+                    label="Value"
+                    description="Value" />
+
+            <field
+                    type="text"
+                    name="title"
+                    id="title"
+                    default="50%"
+                    label="Title"
+                    description="Title"
+                    />
+            <field
+                    type="list"
+                    name="type"
+                    id="type"
+                    label="Progress Type"
+                    description="Progress Type" >
+                <option value="">Select Type</option>
+                <option value="success">Success</option>
+                <option value="info">Info</option>
+                <option value="warning">Warning</option>
+                <option value="danger">Danger</option>
+            </field>
+            <field
+                    type="radio"
+                    name="striped"
+                    id="striped"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    label="Striped Effect"
+                    description="Striped Effect" >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="radio"
+                    name="animated"
+                    id="animated"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    label="Striped Animated"
+                    description="Striped Animated" >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="radio"
+                    name="aschild"
+                    id="aschild"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    label="As Child"
+                    description="As Child" >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuraprogress" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="6"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

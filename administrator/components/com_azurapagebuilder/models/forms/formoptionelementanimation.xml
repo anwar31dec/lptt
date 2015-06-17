@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsAnimation">
+            <field
+                    type="radio"
+                    name="animation"
+                    id="animation"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    label="Use Animation"
+                    description="Use Animation" >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="list"
+                    name="trigger"
+                    default="animate-in"
+                    id="trigger"
+                    label="Trigger"
+                    description="Trigger"
+                    >
+                <option value="animate-in">On Appear</option>
+                <option value="hover">On Hover</option>
+            </field>
+            <field
+                    type="list"
+                    name="animationtype"
+                    id="animationtype"
+                    default="fade-in"
+                    label="Animation Type"
+                    description="Animation Type" >
+                <option value="fade-in">fade-in</option>
+
+                <option value="fade-in-up">fade-in-up</option>
+                <option value="fade-in-up-big">fade-in-up-big</option>
+                <option value="fade-in-up-large">fade-in-up-large</option>
+
+                <option value="fade-in-down">fade-in-down</option>
+                <option value="fade-in-down-big">fade-in-down-big</option>
+                <option value="fade-in-down-large">fade-in-down-large</option>
+
+                <option value="fade-in-left">fade-in-left</option>
+                <option value="fade-in-left-big">fade-in-left-big</option>
+                <option value="fade-in-left-large">fade-in-left-large</option>
+
+                <option value="fade-in-right">fade-in-right</option>
+                <option value="fade-in-right-big">fade-in-right-big</option>
+                <option value="fade-in-right-large">fade-in-right-large</option>
+
+                <option value="fade-in-up-left">fade-in-up-left</option>
+                <option value="fade-in-up-left-big">fade-in-up-left-big</option>
+                <option value="fade-in-up-left-large">fade-in-up-left-large</option>
+
+                <option value="fade-in-up-right">fade-in-up-right</option>
+                <option value="fade-in-up-right-big">fade-in-up-right-big</option>
+                <option value="fade-in-up-right-large">fade-in-up-right-large</option>
+
+                <option value="fade-in-down-left">fade-in-down-left</option>
+                <option value="fade-in-down-left-big">fade-in-down-left-big</option>
+                <option value="fade-in-down-left-large">fade-in-down-left-large</option>
+
+                <option value="fade-in-down-right">fade-in-down-right</option>
+                <option value="fade-in-down-right-big">fade-in-down-right-big</option>
+                <option value="fade-in-down-right-large">fade-in-down-right-large</option>
+
+                <option value="fade-out">fade-out</option>
+
+                <option value="fade-out-up">fade-out-up</option>
+                <option value="fade-out-up-big">fade-out-up-big</option>
+                <option value="fade-out-up-large">fade-out-up-large</option>
+
+                <option value="fade-out-down">fade-out-down</option>
+                <option value="fade-out-down-big">fade-out-down-big</option>
+                <option value="fade-out-down-large">fade-out-down-large</option>
+
+                <option value="fade-out-left">fade-out-left</option>
+                <option value="fade-out-left-big">fade-out-left-big</option>
+                <option value="fade-out-left-large">fade-out-left-large</option>
+
+                <option value="fade-out-right">fade-out-right</option>
+                <option value="fade-out-right-big">fade-out-right-big</option>
+                <option value="fade-out-right-large">fade-out-right-large</option>
+
+                <option value="fade-out-up-left">fade-out-up-left</option>
+                <option value="fade-out-up-left-big">fade-out-up-left-big</option>
+                <option value="fade-out-up-left-large">fade-out-up-left-large</option>
+
+                <option value="fade-out-up-right">fade-out-up-right</option>
+                <option value="fade-out-up-right-big">fade-out-up-right-big</option>
+                <option value="fade-out-up-right-large">fade-out-up-right-large</option>
+
+                <option value="fade-out-down-left">fade-out-down-left</option>
+                <option value="fade-out-down-left-big">fade-out-down-left-big</option>
+                <option value="fade-out-down-left-large">fade-out-down-left-large</option>
+
+                <option value="fade-out-down-right">fade-out-down-right</option>
+                <option value="fade-out-down-right-big">fade-out-down-right-big</option>
+                <option value="fade-out-down-right-large">fade-out-down-right-large</option>
+
+                <option value="bounce-in">bounce-in</option>
+                <option value="bounce-in-big">bounce-in-big</option>
+                <option value="bounce-in-large">bounce-in-large</option>
+
+                <option value="bounce-in-up">bounce-in-up</option>
+                <option value="bounce-in-up-big">bounce-in-up-big</option>
+                <option value="bounce-in-up-large">bounce-in-up-large</option>
+
+                <option value="bounce-in-down">bounce-in-down</option>
+                <option value="bounce-in-down-big">bounce-in-down-big</option>
+                <option value="bounce-in-down-large">bounce-in-down-large</option>
+
+                <option value="bounce-in-left">bounce-in-left</option>
+                <option value="bounce-in-left-big">bounce-in-left-big</option>
+                <option value="bounce-in-left-large">bounce-in-left-large</option>
+
+                <option value="bounce-in-right">bounce-in-right</option>
+                <option value="bounce-in-right-big">bounce-in-right-big</option>
+                <option value="bounce-in-right-large">bounce-in-right-large</option>
+
+                <option value="bounce-in-up-left">bounce-in-up-left</option>
+                <option value="bounce-in-up-left-big">bounce-in-up-left-big</option>
+                <option value="bounce-in-up-left-large">bounce-in-up-left-large</option>
+
+                <option value="bounce-in-up-right">bounce-in-up-right</option>
+                <option value="bounce-in-up-right-big">bounce-in-up-right-big</option>
+                <option value="bounce-in-up-right-large">bounce-in-up-right-large</option>
+
+                <option value="bounce-in-down-left">bounce-in-down-left</option>
+                <option value="bounce-in-down-left-big">bounce-in-down-left-big</option>
+                <option value="bounce-in-down-left-large">bounce-in-down-left-large</option>
+
+                <option value="bounce-in-down-right">bounce-in-down-right</option>
+                <option value="bounce-in-down-right-big">bounce-in-down-right-big</option>
+                <option value="bounce-in-down-right-large">bounce-in-down-right-large</option>
+
+                <option value="bounce-out">bounce-out</option>
+                <option value="bounce-out-big">bounce-out-big</option>
+                <option value="bounce-out-large">bounce-out-large</option>
+
+                <option value="bounce-out-up">bounce-out-up</option>
+                <option value="bounce-out-up-big">bounce-out-up-big</option>
+                <option value="bounce-out-up-large">bounce-out-up-large</option>
+
+                <option value="bounce-out-down">bounce-out-down</option>
+                <option value="bounce-out-down-big">bounce-out-down-big</option>
+                <option value="bounce-out-down-large">bounce-out-down-large</option>
+
+                <option value="bounce-out-left">bounce-out-left</option>
+                <option value="bounce-out-left-big">bounce-out-left-big</option>
+                <option value="bounce-out-left-large">bounce-out-left-large</option>
+
+                <option value="bounce-out-right">bounce-out-right</option>
+                <option value="bounce-out-right-big">bounce-out-right-big</option>
+                <option value="bounce-out-right-large">bounce-out-right-large</option>
+
+                <option value="bounce-out-up-left">bounce-out-up-left</option>
+                <option value="bounce-out-up-left-big">bounce-out-up-left-big</option>
+                <option value="bounce-out-up-left-large">bounce-out-up-left-large</option>
+
+                <option value="bounce-out-up-right">bounce-out-up-right</option>
+                <option value="bounce-out-up-right-big">bounce-out-up-right-big</option>
+                <option value="bounce-out-up-right-large">bounce-out-up-right-large</option>
+
+                <option value="bounce-out-down-left">bounce-out-down-left</option>
+                <option value="bounce-out-down-left-big">bounce-out-down-left-big</option>
+                <option value="bounce-out-down-left-large">bounce-out-down-left-large</option>
+
+                <option value="bounce-out-down-right">bounce-out-down-right</option>
+                <option value="bounce-out-down-right-big">bounce-out-down-right-big</option>
+                <option value="bounce-out-down-right-large">bounce-out-down-right-large</option>
+
+                <option value="zoom-in">zoom-in</option>
+
+                <option value="zoom-in-up">zoom-in-up</option>
+                <option value="zoom-in-up-big">zoom-in-up-big</option>
+                <option value="zoom-in-up-large">zoom-in-up-large</option>
+
+                <option value="zoom-in-down">zoom-in-down</option>
+                <option value="zoom-in-down-big">zoom-in-down-big</option>
+                <option value="zoom-in-down-large">zoom-in-down-large</option>
+
+                <option value="zoom-in-left">zoom-in-left</option>
+                <option value="zoom-in-left-big">zoom-in-left-big</option>
+                <option value="zoom-in-left-large">zoom-in-left-large</option>
+
+                <option value="zoom-in-right">zoom-in-right</option>
+                <option value="zoom-in-right-big">zoom-in-right-big</option>
+                <option value="zoom-in-right-large">zoom-in-right-large</option>
+
+                <option value="zoom-in-up-left">zoom-in-up-left</option>
+                <option value="zoom-in-up-left-big">zoom-in-up-left-big</option>
+                <option value="zoom-in-up-left-large">zoom-in-up-left-large</option>
+
+                <option value="zoom-in-up-right">zoom-in-up-right</option>
+                <option value="zoom-in-up-right-big">zoom-in-up-right-big</option>
+                <option value="zoom-in-up-right-large">zoom-in-up-right-large</option>
+
+                <option value="zoom-in-down-left">zoom-in-down-left</option>
+                <option value="zoom-in-down-left-big">zoom-in-down-left-big</option>
+                <option value="zoom-in-down-left-large">zoom-in-down-left-large</option>
+
+                <option value="zoom-in-down-right">zoom-in-down-right</option>
+                <option value="zoom-in-down-right-big">zoom-in-down-right-big</option>
+                <option value="zoom-in-down-right-large">zoom-in-down-right-large</option>
+
+                <option value="zoom-out">zoom-out</option>
+
+                <option value="zoom-out-up">zoom-out-up</option>
+                <option value="zoom-out-up-big">zoom-out-up-big</option>
+                <option value="zoom-out-up-large">zoom-out-up-large</option>
+
+                <option value="zoom-out-down">zoom-out-down</option>
+                <option value="zoom-out-down-big">zoom-out-down-big</option>
+                <option value="zoom-out-down-large">zoom-out-down-large</option>
+
+                <option value="zoom-out-left">zoom-out-left</option>
+                <option value="zoom-out-left-big">zoom-out-left-big</option>
+                <option value="zoom-out-left-large">zoom-out-left-large</option>
+
+                <option value="zoom-out-right">zoom-out-right</option>
+                <option value="zoom-out-right-big">zoom-out-right-big</option>
+                <option value="zoom-out-right-large">zoom-out-right-large</option>
+
+                <option value="zoom-out-up-left">zoom-out-up-left</option>
+                <option value="zoom-out-up-left-big">zoom-out-up-left-big</option>
+                <option value="zoom-out-up-left-large">zoom-out-up-left-large</option>
+
+                <option value="zoom-out-up-right">zoom-out-up-right</option>
+                <option value="zoom-out-up-right-big">zoom-out-up-right-big</option>
+                <option value="zoom-out-up-right-large">zoom-out-up-right-large</option>
+
+                <option value="zoom-out-down-left">zoom-out-down-left</option>
+                <option value="zoom-out-down-left-big">zoom-out-down-left-big</option>
+                <option value="zoom-out-down-left-large">zoom-out-down-left-large</option>
+
+                <option value="zoom-out-down-right">zoom-out-down-right</option>
+                <option value="zoom-out-down-right-big">zoom-out-down-right-big</option>
+                <option value="zoom-out-down-right-large">zoom-out-down-right-large</option>
+
+                <option value="flip-in-x">flip-in-x</option>
+
+                <option value="flip-in-y">flip-in-y</option>
+
+                <option value="flip-in-top-front">flip-in-top-front</option>
+
+                <option value="flip-in-top-back">flip-in-top-back</option>
+
+                <option value="flip-in-bottom-front">flip-in-bottom-front</option>
+
+                <option value="flip-in-bottom-back">flip-in-bottom-back</option>
+
+                <option value="flip-in-left-front">flip-in-left-front</option>
+
+                <option value="flip-in-left-back">flip-in-left-back</option>
+
+                <option value="flip-in-right-front">flip-in-right-front</option>
+
+                <option value="flip-in-right-back">flip-in-right-back</option>
+
+                <option value="flip-out-x">flip-out-x</option>
+
+                <option value="flip-out-y">flip-out-y</option>
+
+                <option value="flip-out-top-front">flip-out-top-front</option>
+
+                <option value="flip-out-top-back">flip-out-top-back</option>
+
+                <option value="flip-out-bottom-front">flip-out-bottom-front</option>
+
+                <option value="flip-out-bottom-back">flip-out-bottom-back</option>
+
+                <option value="flip-out-left-front">flip-out-left-front</option>
+
+                <option value="flip-out-left-back">flip-out-left-back</option>
+
+                <option value="flip-out-right-front">flip-out-right-front</option>
+
+                <option value="flip-out-right-back">flip-out-right-back</option>
+
+                <option value="flash">flash</option>
+
+                <option value="strobe">strobe</option>
+
+                <option value="shake-x">shake-x</option>
+
+                <option value="shake-y">shake-y</option>
+
+                <option value="bounce">bounce</option>
+
+                <option value="tada">tada</option>
+
+                <option value="rubber-band">rubber-band</option>
+
+                <option value="swing">swing</option>
+
+                <option value="spin">spin</option>
+
+                <option value="spin-reverse">spin-reverse</option>
+
+                <option value="slingshot">slingshot</option>
+
+                <option value="slingshot-reverse">slingshot-reverse</option>
+
+                <option value="wobble">wobble</option>
+
+                <option value="pulse">pulse</option>
+
+                <option value="pulsate">pulsate</option>
+
+                <option value="heartbeat">heartbeat</option>
+
+                <option value="panic">panic</option>
+
+            </field>
+            <field
+                    type="list"
+                    name="hoveranimationtype"
+                    id="hoveranimationtype"
+                    label="Hover Animation Type"
+                    description="Hover Animation Type"
+                    default="flash">
+                <option value="flash">flash</option>
+
+                <option value="strobe">strobe</option>
+
+                <option value="shake-x">shake-x</option>
+
+                <option value="shake-y">shake-y</option>
+
+                <option value="bounce">bounce</option>
+
+                <option value="tada">tada</option>
+
+                <option value="rubber-band">rubber-band</option>
+
+                <option value="swing">swing</option>
+
+                <option value="spin">spin</option>
+
+                <option value="spin-reverse">spin-reverse</option>
+
+                <option value="slingshot">slingshot</option>
+
+                <option value="slingshot-reverse">slingshot-reverse</option>
+
+                <option value="wobble">wobble</option>
+
+                <option value="pulse">pulse</option>
+
+                <option value="pulsate">pulsate</option>
+
+                <option value="heartbeat">heartbeat</option>
+
+                <option value="panic">panic</option>
+            </field>
+            <field
+                    type="text"
+                    name="animationdelay"
+                    id="animationdelay"
+                    label="Animation Delay"
+                    description="Animation delay in milisecond"
+                />
+            <field
+                    type="radio"
+                    name="infinite"
+                    id="infinite"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    label="Infinite"
+                    description="continuously loop the animation" >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            
+        </fieldset>
+    </fields>
+
+</form>

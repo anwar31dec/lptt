@@ -1,0 +1,127 @@
+
+
+.tp-caption.finewide_medium_white {
+	font-size: 40px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	line-height: 50px;
+	color: #272727;
+	text-transform: inherit;
+	letter-spacing: 1px !important;
+}
+
+.tp-caption.finewide_medium_white em {
+	color: #fff;
+	background: #13afeb;
+	padding: 0 2px;
+	font-style: normal;
+}
+
+.tp-caption.boldwide_small_white {
+	font-size: 18px;
+	text-transform: inherit;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	color: #272727;
+	letter-spacing: 1px !important;
+}
+
+.tp-caption.boldwide_small_white a {
+	font-size: 16px;
+	text-transform: inherit;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	color: #fff;
+	background: #272727;
+	padding: 1.1em 1.8em;
+	border-radius: 3px;	
+	-webkit-border-radius: 3px;	
+	-moz-border-radius: 3px;	
+	-o-border-radius: 3px;	
+}
+
+.tp-caption.finewide_verysmall_white_mw div {
+	width: 150px;
+	height: 150px;
+	text-align: center;
+	background: url(../../../../images/sliders/master/slide20/site-img13.png) no-repeat left top;
+	border-bottom: 2px solid #727272;
+}
+
+.tp-caption.finewide_verysmall_white_mw div i {
+	font-size: 34px;
+	color: #13afeb;
+	margin-bottom: 14px;
+	margin-top: 30px;
+}
+
+.tp-caption.finewide_verysmall_white_mw {
+	font-size: 16px;
+	line-height: 23px;
+	margin-bottom: 16px;
+	font-style: normal;
+	text-transform: inherit;
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: 1px !important;
+}
+
+
+@media (max-width: 1199px) {
+	.tp-caption.finewide_verysmall_white_mw div {
+		width: 130px;
+		height: 130px;
+	}
+
+	.tp-caption.finewide_verysmall_white_mw div i {
+		font-size: 24px;
+		margin-bottom: 10px;
+		margin-top: 20px;
+	}
+
+	.tp-caption.boldwide_small_white a {
+		font-size: 14px;
+		padding: 0.7em 1.3em;
+	}
+
+	.tp-caption.finewide_verysmall_white_mw {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 991px) {
+	.tp-caption.finewide_verysmall_white_mw div {
+		width: 90px;
+		height: 90px;
+	}
+
+	.tp-caption.finewide_verysmall_white_mw div i {
+		font-size: 17px;
+		margin-bottom: 7px;
+		margin-top: 12px;
+	}
+
+	.tp-caption.boldwide_small_white a {
+		font-size: 12px;
+		padding: 0.2em 0.8em;
+	}
+
+	.tp-caption.finewide_verysmall_white_mw {
+		font-size: 10px !important;
+	}
+
+}
+
+@media (max-width: 767px) {
+	.tp-caption.finewide_verysmall_white_mw div {
+		display: none;
+	}
+
+}
+
+@media (max-width: 581px) {
+
+}
+
+@media (max-width: 440px) {
+
+}

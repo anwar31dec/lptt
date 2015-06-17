@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="Section ID"
+                    description="Section ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Section Class"
+                    description="Section Class"
+                    />
+            
+            <field
+                    type="list"
+                    name="wrapperTag"
+                    id="wrapperTag"
+                    label="Wrapper Tag"
+                    default="div"
+                    description="Wrapper Tag">
+                <option value="div">div</option>
+                <option value="section">section</option>
+                <option value="article">article</option>
+                <option value="aside">aside</option>
+            </field>
+            <field
+                    type="radio"
+                    name="usesubwrapper"
+                    id="usesubwrapper"
+                    label="Use SubWrapper"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    description="Use SubWrapper">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="text"
+                    name="subWrapperClass"
+                    id="subWrapperClass"
+                    label="Subwrapper Class"
+                    description="Subwrapper Class">
+            </field>
+            <field
+                    type="text"
+                    name="stellar"
+                    id="stellar"
+                    label="Stellar Ratio"
+                    description="Stellar Ratio">
+            </field>
+
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azurasection" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="all"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

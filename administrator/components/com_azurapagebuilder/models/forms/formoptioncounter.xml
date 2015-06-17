@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="Wrapper ID"
+                    description="Wrapper ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Wrapper Class"
+                    description="Wrapper Class"
+                    />
+            <field
+                    type="text"
+                    name="startvalue"
+                    id="startvalue"
+                    default="0"
+                    label="Start Value"
+                    description="The number to start counting from" />
+            <field
+                    type="text"
+                    name="stopvalue"
+                    id="stopvalue"
+                    default="100"
+                    label="Stop Value"
+                    description="The number to stop counting at." />
+            <field
+                    type="text"
+                    name="speed"
+                    id="speed"
+                    default="1000"
+                    label="Speed"
+                    description="The number of milliseconds it should take to finish counting." />
+            <field
+                    type="text"
+                    name="refreshinterval"
+                    id="refreshinterval"
+                    default=""
+                    label="Refresh Interval"
+                    description="The number of milliseconds to wait between refreshing the counter."
+                    />
+            <field
+                    type="text"
+                    name="unit"
+                    id="unit"
+                    label="Counter Unit"
+                    description="Counter Unit"
+                    />
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuracounter" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="textarea"
+                    name="textContent"
+                    id="textContent"
+                    label="Text Content"
+                    class="input-xlarge"
+                    description="Text Content"
+                    cols="24"
+                    rows="7" />
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="6"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

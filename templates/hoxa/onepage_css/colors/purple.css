@@ -1,0 +1,66 @@
+.logo {
+	background-color: #c762cb;
+}
+
+.nav-collapse a:active,
+.nav-collapse .active a {
+    color: #c762cb;
+}
+
+.section1 .circle {
+	color: #c762cb;
+}
+.section1 .circle:hover {
+    background-color: #c762cb;
+}
+
+.section2 {
+	background: #c762cb url(../../../../images/para-bg1.png) repeat-y center -65px;
+}
+
+.section3 strong {
+	color: #c762cb;
+}
+.section3 .one_fourth:hover, .section3 .one_fourth.active {
+	background-color: #c762cb;
+}
+
+.peosec strong {
+    color: #c762cb;
+}
+
+.section4 .packagesinfo ul.active li.mostp {
+    background-color: #c762cb;
+}
+.section4 .packagesinfo ul.active li.title h2 {
+    color: #c762cb;
+}
+.section4 .packagesinfo ul.active li.title h4 {
+    color: #c762cb;
+}
+
+.section4 .packagesinfo ul.active li.planbut a {
+    background-color: #c762cb;
+}
+
+.parallax_sec3 i {
+	background: #c762cb url(../../../../images/site-img5.png) no-repeat center top;
+}
+
+.punchtext h3 {
+	color: #c762cb;
+}
+.punchtext a {
+	background-color: #c762cb;
+}
+
+.sky-form .button {
+    background-color: #c762cb;
+}
+
+a {
+	color: #c762cb;
+}
+
+.tp-caption.finewide_verysmall_white_mw div i {color: #c762cb;}
+.tp-caption.finewide_medium_white em {background: #c762cb;}

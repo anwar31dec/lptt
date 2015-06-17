@@ -1,0 +1,1242 @@
+[
+	{
+		"id": "AFG",
+		"name": "Afghanistan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "6",
+		"num_of_indicator": "44",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "AGO",
+		"name": "Angola",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "25",
+		"num_of_indicator": "5",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ALB",
+		"name": "Albania",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "95",
+		"num_of_indicator": "14",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ARE",
+		"name": "United Arab Emirates",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "51",
+		"num_of_indicator": "24",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ARG",
+		"name": "Argentina",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "73",
+		"num_of_indicator": "77",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ARM",
+		"name": "Armenia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "15",
+		"num_of_indicator": "48",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ATA",
+		"name": "Antarctica",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "60",
+		"num_of_indicator": "28",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ATF",
+		"name": "French Southern and Antarctic Lands",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "84",
+		"num_of_indicator": "89",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "AUS",
+		"name": "Australia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "94",
+		"num_of_indicator": "74",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "AUT",
+		"name": "Austria",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "17",
+		"num_of_indicator": "12",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "AZE",
+		"name": "Azerbaijan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "25",
+		"num_of_indicator": "55",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BDI",
+		"name": "Burundi",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "61",
+		"num_of_indicator": "42",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BEL",
+		"name": "Belgium",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "53",
+		"num_of_indicator": "92",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BEN",
+		"name": "Benin",
+		"bgcolor": "#9FA615",
+		"num_of_staff": "37",
+		"num_of_indicator": "66",
+		"area": "TB, Malaria, Aids", "bSiaps": "1"
+	}, {
+		"id": "BFA",
+		"name": "Burkina Faso",
+		"bgcolor": "#9FA615",
+		"num_of_staff": "89",
+		"num_of_indicator": "90",
+		"area": "TB, Malaria, Aids", "bSiaps": "1"
+	}, {
+		"id": "BGD",
+		"name": "Bangladesh",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "9",
+		"num_of_indicator": "19",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BGR",
+		"name": "Bulgaria",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "7",
+		"num_of_indicator": "18",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BHS",
+		"name": "The Bahamas",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "81",
+		"num_of_indicator": "96",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BIH",
+		"name": "Bosnia and Herzegovina",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "64",
+		"num_of_indicator": "39",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BLR",
+		"name": "Belarus",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "43",
+		"num_of_indicator": "6",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BLZ",
+		"name": "Belize",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "65",
+		"num_of_indicator": "30",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BOL",
+		"name": "Bolivia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "78",
+		"num_of_indicator": "6",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BRA",
+		"name": "Brazil",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "26",
+		"num_of_indicator": "50",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BRN",
+		"name": "Brunei",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "1",
+		"num_of_indicator": "78",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BTN",
+		"name": "Bhutan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "66",
+		"num_of_indicator": "42",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "BWA",
+		"name": "Botswana",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "18",
+		"num_of_indicator": "39",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CAF",
+		"name": "Central African Republic",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "62",
+		"num_of_indicator": "80",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CAN",
+		"name": "Canada",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "26",
+		"num_of_indicator": "50",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CHE",
+		"name": "Switzerland",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "52",
+		"num_of_indicator": "31",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CHL",
+		"name": "Chile",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "64",
+		"num_of_indicator": "95",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CHN",
+		"name": "China",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "28",
+		"num_of_indicator": "12",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CIV",
+		"name": "Ivory Coast",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "59",
+		"num_of_indicator": "49",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CMR",
+		"name": "Cameroon",
+		"bgcolor": "#9FA615",
+		"num_of_staff": "63",
+		"num_of_indicator": "6",
+		"area": "TB, Malaria, Aids", "bSiaps": "1"
+	}, {
+		"id": "COD",
+		"name": "Democratic Republic of the Congo",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "28",
+		"num_of_indicator": "37",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "COG",
+		"name": "Republic of the Congo",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "43",
+		"num_of_indicator": "96",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "COL",
+		"name": "Colombia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "42",
+		"num_of_indicator": "15",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CRI",
+		"name": "Costa Rica",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "9",
+		"num_of_indicator": "71",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CUB",
+		"name": "Cuba",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "17",
+		"num_of_indicator": "14",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "-99",
+		"name": "Northern Cyprus",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "13",
+		"num_of_indicator": "81",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CYP",
+		"name": "Cyprus",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "64",
+		"num_of_indicator": "68",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "CZE",
+		"name": "Czech Republic",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "0",
+		"num_of_indicator": "96",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "DEU",
+		"name": "Germany",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "77",
+		"num_of_indicator": "60",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "DJI",
+		"name": "Djibouti",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "42",
+		"num_of_indicator": "57",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "DNK",
+		"name": "Denmark",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "82",
+		"num_of_indicator": "94",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "DOM",
+		"name": "Dominican Republic",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "39",
+		"num_of_indicator": "93",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "DZA",
+		"name": "Algeria",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "8",
+		"num_of_indicator": "26",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ECU",
+		"name": "Ecuador",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "81",
+		"num_of_indicator": "26",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "EGY",
+		"name": "Egypt",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "91",
+		"num_of_indicator": "61",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ERI",
+		"name": "Eritrea",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "94",
+		"num_of_indicator": "67",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ESP",
+		"name": "Spain",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "31",
+		"num_of_indicator": "71",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "EST",
+		"name": "Estonia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "25",
+		"num_of_indicator": "71",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ETH",
+		"name": "Ethiopia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "60",
+		"num_of_indicator": "53",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "FIN",
+		"name": "Finland",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "22",
+		"num_of_indicator": "79",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "FJI",
+		"name": "Fiji",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "3",
+		"num_of_indicator": "6",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "FLK",
+		"name": "Falkland Islands",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "47",
+		"num_of_indicator": "92",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "FRA",
+		"name": "France",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "25",
+		"num_of_indicator": "75",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GAB",
+		"name": "Gabon",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "8",
+		"num_of_indicator": "54",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GBR",
+		"name": "United Kingdom",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "39",
+		"num_of_indicator": "75",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GEO",
+		"name": "Georgia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "49",
+		"num_of_indicator": "37",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GHA",
+		"name": "Ghana",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "15",
+		"num_of_indicator": "92",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GIN",
+		"name": "Guinea",
+		"bgcolor": "#9FA615",
+		"num_of_staff": "29",
+		"num_of_indicator": "9",
+		"area": "TB, Malaria, Aids", "bSiaps": "1"
+	}, {
+		"id": "GMB",
+		"name": "Gambia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "75",
+		"num_of_indicator": "19",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GNB",
+		"name": "Guinea Bissau",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "42",
+		"num_of_indicator": "20",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GNQ",
+		"name": "Equatorial Guinea",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "61",
+		"num_of_indicator": "76",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GRC",
+		"name": "Greece",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "66",
+		"num_of_indicator": "94",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GRL",
+		"name": "Greenland",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "83",
+		"num_of_indicator": "40",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GTM",
+		"name": "Guatemala",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "12",
+		"num_of_indicator": "40",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "GUY",
+		"name": "Guyana",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "6",
+		"num_of_indicator": "93",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "HND",
+		"name": "Honduras",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "35",
+		"num_of_indicator": "65",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "HRV",
+		"name": "Croatia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "20",
+		"num_of_indicator": "93",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "HTI",
+		"name": "Haiti",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "20",
+		"num_of_indicator": "17",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "HUN",
+		"name": "Hungary",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "15",
+		"num_of_indicator": "54",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "IDN",
+		"name": "Indonesia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "83",
+		"num_of_indicator": "27",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "IND",
+		"name": "India",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "70",
+		"num_of_indicator": "35",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "IRL",
+		"name": "Ireland",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "38",
+		"num_of_indicator": "14",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "IRN",
+		"name": "Iran",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "56",
+		"num_of_indicator": "98",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "IRQ",
+		"name": "Iraq",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "89",
+		"num_of_indicator": "28",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ISL",
+		"name": "Iceland",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "26",
+		"num_of_indicator": "41",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ISR",
+		"name": "Israel",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "35",
+		"num_of_indicator": "26",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ITA",
+		"name": "Italy",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "4",
+		"num_of_indicator": "92",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "JAM",
+		"name": "Jamaica",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "73",
+		"num_of_indicator": "93",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "JOR",
+		"name": "Jordan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "97",
+		"num_of_indicator": "47",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "JPN",
+		"name": "Japan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "50",
+		"num_of_indicator": "35",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "KAZ",
+		"name": "Kazakhstan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "83",
+		"num_of_indicator": "71",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "KEN",
+		"name": "Kenya",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "76",
+		"num_of_indicator": "9",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "KGZ",
+		"name": "Kyrgyzstan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "57",
+		"num_of_indicator": "81",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "KHM",
+		"name": "Cambodia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "26",
+		"num_of_indicator": "64",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "KOR",
+		"name": "South Korea",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "49",
+		"num_of_indicator": "38",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "-99",
+		"name": "Kosovo",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "89",
+		"num_of_indicator": "16",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "KWT",
+		"name": "Kuwait",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "59",
+		"num_of_indicator": "13",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "LAO",
+		"name": "Laos",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "84",
+		"num_of_indicator": "99",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "LBN",
+		"name": "Lebanon",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "83",
+		"num_of_indicator": "2",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "LBR",
+		"name": "Liberia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "36",
+		"num_of_indicator": "75",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "LBY",
+		"name": "Libya",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "88",
+		"num_of_indicator": "99",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "LKA",
+		"name": "Sri Lanka",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "66",
+		"num_of_indicator": "42",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "LSO",
+		"name": "Lesotho",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "46",
+		"num_of_indicator": "42",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "LTU",
+		"name": "Lithuania",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "31",
+		"num_of_indicator": "89",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "LUX",
+		"name": "Luxembourg",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "25",
+		"num_of_indicator": "32",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "LVA",
+		"name": "Latvia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "83",
+		"num_of_indicator": "20",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MAR",
+		"name": "Morocco",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "4",
+		"num_of_indicator": "90",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MDA",
+		"name": "Moldova",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "79",
+		"num_of_indicator": "20",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MDG",
+		"name": "Madagascar",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "41",
+		"num_of_indicator": "13",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MEX",
+		"name": "Mexico",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "26",
+		"num_of_indicator": "61",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MKD",
+		"name": "Macedonia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "51",
+		"num_of_indicator": "3",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MLI",
+		"name": "Mali",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "81",
+		"num_of_indicator": "31",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MMR",
+		"name": "Myanmar",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "53",
+		"num_of_indicator": "95",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MNE",
+		"name": "Montenegro",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "44",
+		"num_of_indicator": "15",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MNG",
+		"name": "Mongolia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "58",
+		"num_of_indicator": "57",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MOZ",
+		"name": "Mozambique",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "56",
+		"num_of_indicator": "20",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MRT",
+		"name": "Mauritania",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "93",
+		"num_of_indicator": "85",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MWI",
+		"name": "Malawi",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "98",
+		"num_of_indicator": "90",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "MYS",
+		"name": "Malaysia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "44",
+		"num_of_indicator": "71",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "NAM",
+		"name": "Namibia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "15",
+		"num_of_indicator": "59",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "NCL",
+		"name": "New Caledonia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "92",
+		"num_of_indicator": "86",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "NER",
+		"name": "Niger",
+		"bgcolor": "#9FA615",
+		"num_of_staff": "33",
+		"num_of_indicator": "8",
+		"area": "TB, Malaria, Aids", "bSiaps": "1"
+	}, {
+		"id": "NGA",
+		"name": "Nigeria",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "41",
+		"num_of_indicator": "60",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "NIC",
+		"name": "Nicaragua",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "21",
+		"num_of_indicator": "30",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "NLD",
+		"name": "Netherlands",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "75",
+		"num_of_indicator": "27",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "NOR",
+		"name": "Norway",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "34",
+		"num_of_indicator": "18",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "NPL",
+		"name": "Nepal",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "2",
+		"num_of_indicator": "65",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "NZL",
+		"name": "New Zealand",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "39",
+		"num_of_indicator": "28",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "OMN",
+		"name": "Oman",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "4",
+		"num_of_indicator": "8",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "PAK",
+		"name": "Pakistan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "56",
+		"num_of_indicator": "21",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "PAN",
+		"name": "Panama",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "80",
+		"num_of_indicator": "21",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "PER",
+		"name": "Peru",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "53",
+		"num_of_indicator": "79",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "PHL",
+		"name": "Philippines",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "36",
+		"num_of_indicator": "57",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "PNG",
+		"name": "Papua New Guinea",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "47",
+		"num_of_indicator": "91",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "POL",
+		"name": "Poland",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "50",
+		"num_of_indicator": "44",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "PRI",
+		"name": "Puerto Rico",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "3",
+		"num_of_indicator": "85",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "PRK",
+		"name": "North Korea",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "73",
+		"num_of_indicator": "82",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "PRT",
+		"name": "Portugal",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "5",
+		"num_of_indicator": "90",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "PRY",
+		"name": "Paraguay",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "90",
+		"num_of_indicator": "58",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "QAT",
+		"name": "Qatar",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "74",
+		"num_of_indicator": "99",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ROU",
+		"name": "Romania",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "14",
+		"num_of_indicator": "51",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "RUS",
+		"name": "Russia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "26",
+		"num_of_indicator": "19",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "RWA",
+		"name": "Rwanda",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "21",
+		"num_of_indicator": "95",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "-99",
+		"name": "Western Sahara",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "35",
+		"num_of_indicator": "88",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SAU",
+		"name": "Saudi Arabia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "51",
+		"num_of_indicator": "61",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SDN",
+		"name": "Sudan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "51",
+		"num_of_indicator": "57",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SDS",
+		"name": "South Sudan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "66",
+		"num_of_indicator": "36",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SEN",
+		"name": "Senegal",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "16",
+		"num_of_indicator": "44",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SLB",
+		"name": "Solomon Islands",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "59",
+		"num_of_indicator": "42",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SLE",
+		"name": "Sierra Leone",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "10",
+		"num_of_indicator": "71",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SLV",
+		"name": "El Salvador",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "98",
+		"num_of_indicator": "73",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "-99",
+		"name": "Somaliland",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "59",
+		"num_of_indicator": "42",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SOM",
+		"name": "Somalia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "75",
+		"num_of_indicator": "30",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SRB",
+		"name": "Republic of Serbia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "18",
+		"num_of_indicator": "97",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SUR",
+		"name": "Suriname",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "71",
+		"num_of_indicator": "15",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SVK",
+		"name": "Slovakia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "94",
+		"num_of_indicator": "58",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SVN",
+		"name": "Slovenia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "66",
+		"num_of_indicator": "14",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SWE",
+		"name": "Sweden",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "80",
+		"num_of_indicator": "38",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SWZ",
+		"name": "Swaziland",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "62",
+		"num_of_indicator": "61",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "SYR",
+		"name": "Syria",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "26",
+		"num_of_indicator": "2",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "TCD",
+		"name": "Chad",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "26",
+		"num_of_indicator": "13",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "TGO",
+		"name": "Togo",
+		"bgcolor": "#9FA615",
+		"num_of_staff": "0",
+		"num_of_indicator": "17",
+		"area": "TB, Malaria, Aids", "bSiaps": "1"
+	}, {
+		"id": "THA",
+		"name": "Thailand",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "66",
+		"num_of_indicator": "24",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "TJK",
+		"name": "Tajikistan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "21",
+		"num_of_indicator": "25",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "TKM",
+		"name": "Turkmenistan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "63",
+		"num_of_indicator": "55",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "TLS",
+		"name": "East Timor",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "11",
+		"num_of_indicator": "87",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "TTO",
+		"name": "Trinidad and Tobago",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "18",
+		"num_of_indicator": "74",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "TUN",
+		"name": "Tunisia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "34",
+		"num_of_indicator": "95",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "TUR",
+		"name": "Turkey",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "60",
+		"num_of_indicator": "65",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "TWN",
+		"name": "Taiwan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "63",
+		"num_of_indicator": "86",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "TZA",
+		"name": "United Republic of Tanzania",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "42",
+		"num_of_indicator": "25",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "UGA",
+		"name": "Uganda",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "29",
+		"num_of_indicator": "68",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "UKR",
+		"name": "Ukraine",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "9",
+		"num_of_indicator": "86",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "URY",
+		"name": "Uruguay",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "37",
+		"num_of_indicator": "79",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "USA",
+		"name": "United States of America",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "40",
+		"num_of_indicator": "95",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "UZB",
+		"name": "Uzbekistan",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "63",
+		"num_of_indicator": "97",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "VEN",
+		"name": "Venezuela",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "79",
+		"num_of_indicator": "75",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "VNM",
+		"name": "Vietnam",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "83",
+		"num_of_indicator": "46",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "VUT",
+		"name": "Vanuatu",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "85",
+		"num_of_indicator": "11",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "PSE",
+		"name": "West Bank",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "44",
+		"num_of_indicator": "33",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "YEM",
+		"name": "Yemen",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "43",
+		"num_of_indicator": "59",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ZAF",
+		"name": "South Africa",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "80",
+		"num_of_indicator": "83",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ZMB",
+		"name": "Zambia",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "75",
+		"num_of_indicator": "45",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}, {
+		"id": "ZWE",
+		"name": "Zimbabwe",
+		"bgcolor": "#cccccc",
+		"num_of_staff": "92",
+		"num_of_indicator": "39",
+		"area": "TB, Malaria, Aids", "bSiaps": "0"
+	}
+]

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="myFieldSet">
+            <field
+                    type="text"
+                    name="myTextField"
+                    id="myTextField"
+                    label="MY TEXT FIELD LABEL"
+                    description="MY TEXT FIELD DESCRIPTION"
+                    size="80"
+                    maxLength="255" />
+            <field
+                    type="editor"
+                    name="myEditorField"
+                    id="myEditorField"
+                    label="MY EDITOR FIELD LABEL"
+                    description="MY EDITOR FIELD DESCRIPTION"
+                    rows="5"
+                    cols="200"/>
+            <field
+                    type="radio"
+                    name="myRadioField"
+                    id="myRadioField"
+                    label="MY RADIO FIELD LABEL"
+                    description="MY RADIO FIELD DESCRIPTION">
+                <option value="0">YES</option>
+                <option value="1">NO</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>

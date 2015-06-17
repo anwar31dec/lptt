@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset
+		name="page"
+		label="COM_AZURA_CONFIG_PAGE_SETTINGS_LABEL"
+		description="COM_AZURA_CONFIG_PAGE_SETTINGS_DESC">
+
+		<field
+			name="elements_expand"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			default="1"
+			label="COM_AZURA_CONFIG_PAGE_ELEMENTS_EXPAND_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_PAGE_ELEMENTS_EXPAND_FIELD_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+	</fieldset>
+	<fieldset
+		name="front-end"
+		label="COM_AZURA_CONFIG_FRONT_END_SETTINGS_LABEL"
+		description="COM_AZURA_CONFIG_FRONT_END_SETTINGS_DESC">
+
+		<field
+			name="usebootstrapcss"
+			type="list"
+			default="bs31"
+			label="COM_AZURA_CONFIG_FRONT_BOOTSTRAPCSS_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_FRONT_BOOTSTRAPCSS_FIELD_DESC">
+			<option value="none">No</option>
+			<option value="bs32">Bootstrap 3.2</option>
+			<option value="bs31">Bootstrap 3.1</option>
+			<option value="bs23">Bootstrap 2.3</option>
+		</field>
+		<field
+			name="usebootstraptheme"
+			type="list"
+			default="none"
+			label="COM_AZURA_CONFIG_FRONT_BOOTSTRAPTHEME_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_FRONT_BOOTSTRAPTHEME_FIELD_DESC">
+			<option value="none">No</option>
+			<option value="bs32">Bootstrap 3.2</option>
+			<option value="bs31">Bootstrap 3.1</option>
+			<option value="bs23">Bootstrap 2.3</option>
+		</field>
+		<field
+			name="usebootstrapjs"
+			type="list"
+			default="bs31"
+			label="COM_AZURA_CONFIG_FRONT_BOOTSTRAPJS_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_FRONT_BOOTSTRAPJS_FIELD_DESC">
+			<option value="none">No</option>
+			<option value="bs32">Bootstrap 3.2</option>
+			<option value="bs31">Bootstrap 3.1</option>
+			<option value="bs23">Bootstrap 2.3</option>
+		</field>
+		<field
+			name="useazuracss"
+			type="radio"
+			default="1"
+			class="btn-group btn-group-yesno"
+			label="COM_AZURA_CONFIG_FRONT_AZURACSS_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_FRONT_AZURACSS_FIELD_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field
+			name="useazurajs"
+			type="radio"
+			default="1"
+			class="btn-group btn-group-yesno"
+			label="COM_AZURA_CONFIG_FRONT_AZURAJS_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_FRONT_AZURAJS_FIELD_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field
+			name="useawesome"
+			type="radio"
+			default="1"
+			class="btn-group btn-group-yesno"
+			label="COM_AZURA_CONFIG_FRONT_AWESOME_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_FRONT_AWESOME_FIELD_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="usefullwidth"
+			type="radio"
+			default="1"
+			class="btn-group btn-group-yesno"
+			label="COM_AZURA_CONFIG_USE_FULLWIDTH_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_USE_FULLWIDTH_FIELD_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="useeasing"
+			type="radio"
+			default="1"
+			class="btn-group btn-group-yesno"
+			label="COM_AZURA_CONFIG_USE_EASING_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_USE_EASING_FIELD_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="usewaypoints"
+			type="radio"
+			default="1"
+			class="btn-group btn-group-yesno"
+			label="COM_AZURA_CONFIG_USE_WAYPOINTS_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_USE_WAYPOINTS_FIELD_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="useowlcarousel"
+			type="radio"
+			default="1"
+			class="btn-group btn-group-yesno"
+			label="COM_AZURA_CONFIG_USE_OWL_CAROUSEL_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_USE_OWL_CAROUSEL_FIELD_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field
+			name="usebxslider"
+			type="radio"
+			default="1"
+			class="btn-group btn-group-yesno"
+			label="COM_AZURA_CONFIG_USE_BX_SLIDER_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_USE_BX_SLIDER_FIELD_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field
+			name="useflexslider"
+			type="radio"
+			default="1"
+			class="btn-group btn-group-yesno"
+			label="COM_AZURA_CONFIG_USE_FLEX_SLIDER_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_USE_FLEX_SLIDER_FIELD_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field
+			name="usecountto"
+			type="radio"
+			default="1"
+			class="btn-group btn-group-yesno"
+			label="COM_AZURA_CONFIG_USE_COUNTTO_FIELD_LABEL"
+			description="COM_AZURA_CONFIG_USE_COUNTTO_FIELD_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+	</fieldset>
+	<fieldset
+		name="permissions"
+		label="JCONFIG_PERMISSIONS_LABEL"
+		description="JCONFIG_PERMISSIONS_DESC"
+		>
+
+		<field
+			name="rules"
+			type="rules"
+			label="JCONFIG_PERMISSIONS_LABEL"
+			class="inputbox"
+			validate="rules"
+			filter="rules"
+			component="com_azurapagebuilder"
+			section="component" />
+	</fieldset>
+</config>

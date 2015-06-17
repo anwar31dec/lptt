@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="editor"
+                    name="text"
+                    id="text"
+                    label="Text Content"
+                    description="Text Content"
+                    cols="12"
+                    rows="5" />
+        </fieldset>
+    </fields>
+</form>

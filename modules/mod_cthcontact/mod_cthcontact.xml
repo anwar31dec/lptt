@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>CTHContact</name>
+	<author>CTHthemes</author>
+	<creationDate>May 2014</creationDate>
+	<copyright>Copyright Info CTHthemes.com</copyright>
+	<license>License Info CTHthemes.com</license>
+	<authorEmail>contact@cththemes.com</authorEmail>
+	<authorUrl>CTHthemes.com</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_CTHCONTACT_XML_DESC</description>
+	<files>
+		<filename module="mod_cthcontact">mod_cthcontact.php</filename>
+		<folder>tmpl</folder>
+		<filename>index.html</filename>
+		<filename>mod_cthcontact.xml</filename>
+	</files>
+	<languages folder="language/en-GB">
+		<language tag="en-GB">en-GB.mod_cthcontact.ini</language>
+		<language tag="en-GB">en-GB.mod_cthcontact.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+
+				<field name="title" type="text" label="Title" description="Title" />
+
+				<field name="introduction" type="textarea" label="Intro Text" description="Intro Text" rows="3" cols="5" />
+
+				<field name="email" type="text" label="Receive Email" description="Receive Email" />
+
+				<field name="subject" type="textarea"  label="Subject" description="Subject" rows="3" cols="5" />
+
+				<field name="thanks" type="text" default="Thanks for contacting with us!" label="Thanks Message" description="Thanks Message" />
+
+				<field name="showWebsite" type="radio" default="1" label="Show Website Field" class="btn-group btn-group-yesno" description="Show Website Field">
+				  <option value="0">JNO</option>
+				  <option value="1">JYES</option>
+				</field>
+
+				<field name="asCopy" type="radio" default="0" label="Send As Copy" class="btn-group btn-group-yesno" description="Send As Copy">
+				  <option value="0">JNO</option>
+				  <option value="1">JYES</option>
+				</field>
+
+			</fieldset>
+	
+			<fieldset
+				name="advanced">
+
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

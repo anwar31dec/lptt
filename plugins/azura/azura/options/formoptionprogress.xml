@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="ID"
+                    description="ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Class"
+                    description="Class"
+                    />
+            
+
+            <field
+                    type="text"
+                    name="title"
+                    id="title"
+                    default="Progress Title"
+                    label="Title"
+                    description="Title"
+                    />
+            <field
+                    type="text"
+                    name="value"
+                    id="value"
+                    default="50"
+                    label="Value"
+                    description="Value" />
+            <field
+                    type="list"
+                    name="type"
+                    id="type"
+                    label="Progress Type"
+                    description="Progress Type" >
+                <option value="">Default</option>
+                <option value="two">Two</option>
+                <option value="three">Three</option>
+                <option value="four">Four</option>
+            </field>
+            
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuraprogress" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="false"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="showAnimationTab"
+                    setting="false"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="6"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

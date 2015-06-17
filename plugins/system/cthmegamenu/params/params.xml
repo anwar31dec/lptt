@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+        <fields name="params" >
+                <fieldset name="mega_menu">
+                        
+                        <field name="hasSubMenu"
+                               type="radio"
+                               default="0"
+                               class="btn-group btn-group-yesno"
+                               label="Has Submenu"
+                               description="If this item have submenu">
+                                <option value="0">JNO</option>
+                                <option value="1">JYES</option>
+                        </field>
+                        <field name="hasMultiLevel"
+                               type="radio"
+                               default="0"
+                               class="btn-group btn-group-yesno"
+                               label="Has Multi-Level"
+                               description="If submenu have multi level">
+                                <option value="0">JNO</option>
+                                <option value="1">JYES</option>
+                        </field>
+                        <field name="isMultiLevel"
+                               type="radio"
+                               default="0"
+                               class="btn-group btn-group-yesno"
+                               label="Is Multi-Level"
+                               description="If is multi-level from has multi-level">
+                                <option value="0">JNO</option>
+                                <option value="1">JYES</option>
+                        </field>
+                        <field name="extraClass"
+                               type="text"
+                               label="Extra Class"
+                               description="Extra class for menu item (for style purpose)"/>
+
+                        <field type="spacer" name="mega_menu_spacer" label="Mega Menu Options" />
+                        <field name="isMegaMenu"
+                               type="radio"
+                               default="0"
+                               class="btn-group btn-group-yesno"
+                               label="Is Mega Menu"
+                               description="If is mega menu">
+                                <option value="0">JNO</option>
+                                <option value="1">JYES</option>
+                        </field>
+                        <field name="megaMenuShortcode" label ="Mega Menu Shortcode" type="editor" width="500" filter="raw" buttons="true" />
+                        
+                </fieldset>
+        </fields>
+
+</form>

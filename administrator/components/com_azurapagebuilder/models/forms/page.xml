@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset
+		addfieldpath="/administrator/components/com_categories/models/fields"
+	>
+		<field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL"
+			readonly="true" class="readonly"
+			description="JGLOBAL_FIELD_ID_DESC"/>
+
+		<field name="title" type="text"
+			class="inputbox input-xxlarge input-large-text"
+			size="40" label="JGLOBAL_TITLE"
+			description="COM_WEBLINKS_FIELD_TITLE_DESC" required="true" />
+
+		<field name="shortcode" type="hidden"
+			class="inputbox input-xlarge input-large-text"
+			size="40" label="Shortcode"
+			description="Shortcode" />
+		<field name="elementsArray" type="hidden"
+			class="inputbox input-xlarge input-large-text"
+			size="40" label="Elements Array"
+			description="Elements Array" />
+		<field name="elementsSettingArray" type="hidden"
+			class="inputbox input-xlarge input-large-text"
+			size="40" label="Elements Setting Array"
+			description="Elements Setting Array" />
+		<field name="elementsShortcodeArray" type="hidden"
+			class="inputbox input-xlarge input-large-text"
+			size="40" label="Elements Shortcode Array"
+			description="Elements Shortcode Array" />
+		<field name="alias" type="text" class="inputbox"
+			size="40" label="JFIELD_ALIAS_LABEL"
+			description="COM_WEBLINKS_FIELD_ALIAS_DESC"
+			hint="JFIELD_ALIAS_PLACEHOLDER" />
+
+		<field name="alt_layout" type="componentlayout" extension="com_azurapagebuilder" view="page" label="Alternative Layout" useglobal="false" description="Alternative Layout" />
+
+		<field name="customCssLinks" type="textarea"
+			cols="12" rows="3" label="Custom Css Links"
+			description="Custom Css Links (file name in css folder)" />
+		<field name="customJsLinks" type="textarea"
+			cols="12" rows="3" label="Custom Js Links"
+			description="Custom Js Links (file name in js folder)" />
+		<field name="customJsButtonLinks" type="textarea"
+			cols="12" rows="3" label="Custom Js Bottom Links"
+			description="Custom Js Bottom Links (file name in js folder that will be added to the button)" />
+		<field name="customJsBottomScript" type="textarea"
+			cols="12" rows="3" label="Custom Js Bottom Script"
+			description="Custom Js Bottom Script (that will be added to the button)" />
+		<field name="jQueryLinkType" type="list" label="Use jQuery Link" default="" description="Use jQuery Link" >
+			<option value="">Select jQuery Link</option>
+			<option value="1">Google APIs Link</option>
+			<option value="2">Server</option>
+		</field>
+		<field name="noConflict"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="Use noConflict Mode"
+			description="Use noConflict Mode"
+			default="0">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+
+		<field name="hits"
+			type="text"
+			class="readonly"
+			size="6" label="JGLOBAL_HITS"
+			description="COM_WEBLINKS_HITS_DESC"
+			readonly="true"
+			filter="unset" />
+
+
+		<field
+			name="state"
+			type="list"
+			label="JSTATUS"
+			description="COM_CARTS_PRODUCT_FIELD_STATE_DESC"
+			class="chzn-color-state"
+			size="1"
+			default="1">
+			<option
+				value="1">JPUBLISHED</option>
+			<option
+				value="0">JUNPUBLISHED</option>
+			<option
+				value="2">JARCHIVED</option>
+			<option
+				value="-2">JTRASHED</option>
+		</field>
+
+		<field name="ordering" type="ordering" class="inputbox"
+			label="JFIELD_ORDERING_LABEL"
+			description="JFIELD_ORDERING_DESC"
+			content_type="com_carts.product"
+        />
+
+		<field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC" class="inputbox" size="1" />
+
+		<field
+			name="language"
+			type="contentlanguage"
+			label="JFIELD_LANGUAGE_LABEL"
+			description="COM_CARTS_PRODUCT_FIELD_LANGUAGE_DESC"
+			class="inputbox">
+			<option value="*">JALL</option>
+		</field>
+		
+		<field name="version_note"
+			type="text"
+			label="JGLOBAL_FIELD_VERSION_NOTE_LABEL"
+			description="JGLOBAL_FIELD_VERSION_NOTE_DESC"
+			class="inputbox" size="45"
+			labelclass="control-label"
+		/>
+
+		<field name="created" type="calendar"
+			label="JGLOBAL_FIELD_CREATED_LABEL" description="JGLOBAL_FIELD_CREATED_DESC"
+			class="inputbox" size="22" format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc" />
+
+		<field name="created_by" type="user"
+			label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="JGLOBAL_FIELD_CREATED_BY_Desc" />
+
+		<field name="created_by_alias" type="text"
+			label="JGLOBAL_FIELD_CREATED_BY_ALIAS_LABEL" description="JGLOBAL_FIELD_CREATED_BY_ALIAS_DESC"
+			class="inputbox" size="20" />
+
+		<field name="modified" type="calendar" class="readonly"
+			label="JGLOBAL_FIELD_MODIFIED_LABEL" description="COM_CARTS_PRODUCT_FIELD_MODIFIED_DESC"
+			size="22" readonly="true" format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc" />
+
+		<field name="modified_by" type="user"
+			label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+			class="readonly"
+			readonly="true"
+			filter="unset"  />
+
+		<field name="checked_out" type="hidden" filter="unset" />
+
+		<field name="checked_out_time" type="hidden" filter="unset" />
+
+		<field name="publish_up" type="calendar"
+			label="JGLOBAL_FIELD_PUBLISH_UP_LABEL" description="JGLOBAL_FIELD_PUBLISH_UP_DESC"
+			class="inputbox" format="%Y-%m-%d %H:%M:%S" size="22"
+			filter="user_utc" />
+
+		<field name="publish_down" type="calendar"
+			label="JGLOBAL_FIELD_PUBLISH_DOWN_LABEL" description="JGLOBAL_FIELD_PUBLISH_DOWN_DESC"
+			class="inputbox" format="%Y-%m-%d %H:%M:%S" size="22"
+			filter="user_utc" />
+
+		<field name="version" type="text" class="readonly"
+			label="Version" size="6" description="Version"
+			readonly="true" filter="unset" />
+
+
+		<field name="metakey" type="textarea"
+			label="JFIELD_META_KEYWORDS_LABEL" description="JFIELD_META_KEYWORDS_DESC"
+			class="inputbox" rows="3" cols="30" />
+
+		<field name="metadesc" type="textarea"
+			label="JFIELD_META_DESCRIPTION_LABEL" description="JFIELD_META_DESCRIPTION_DESC"
+			class="inputbox" rows="3" cols="30" />
+
+		<field name="rules" type="rules" label="JFIELD_RULES_LABEL"
+			translate_label="false" class="inputbox" filter="rules"
+			component="com_azurapagebuilder" section="page" validate="rules"
+		/>
+
+	</fieldset>
+
+	<fields name="azura_elements">
+		<fieldset name="azura_elements" label="JGLOBAL_FIELDSET_IMAGE_OPTIONS" addfieldpath="/administrator/components/com_azurapagebuilder/models/fields">
+			
+            <field
+				name="Section"
+				type="AzuraSection" typename="section" id="8" class="azura-element-type-section"/>
+            <field
+				name="Container"
+				type="AzuraContainer" typename="container" id="7" class="azura-element-type-container"/>
+			<field
+				name="Row"
+				type="AzuraRow" typename="row" id="2" class="azura-element-type-row"/>
+			<field
+				name="Columns"
+				type="AzuraColumn" typename="column" id="3" class="azura-element-type-column"/>
+			<field
+				name="Grid"
+				type="AzuraGrid" typename="grid" id="14" class="azura-element-type-grid"/>
+			<field
+				name="Separator"
+				type="AzuraSeparator" typename="clear" id="4" class="azura-element-type-separator"/>
+			<field
+				name="Tabs &amp; Toggles"
+				type="AzuraTabToggle" typename="tabtoggle" id="5" class="azura-element-type-tabtoggle"/>
+            <field
+				name="Carousel Slider"
+				type="AzuraCarouselSlider" typename="carouselslider" id="10" class="azura-element-type-carouselslider"/>
+			<field
+				name="SuperSlides"
+				type="AzuraSuperSlides" typename="superslides" class="azura-element-type-superslides"/>
+			<field
+				name="Stat Counter"
+				type="AzuraStat" typename="stat" id="13" class="azura-element-type-stat"/>
+			<field
+				name="Image"
+				type="AzuraImage" typename="image" class="azura-element-type-image"/>
+            <field
+				name="Team"
+				type="AzuraTeam" typename="team" id="11" class="azura-element-type-team"/>
+            <field
+				name="Header"
+				type="AzuraHeader" typename="header" id="9" class="azura-element-type-header"/>
+            <field
+				name="Text"
+				type="AzuraText" typename="text" id="1" class="azura-element-type-text"/>
+            <field
+				name="Raw HTML"
+				type="AzuraHtml" typename="html"  class="azura-element-type-html"/>
+			<field
+				name="Services Slider"
+				type="AzuraServicesSlider" typename="servicesslider"  class="azura-element-type-servicesslider"/>
+			<field
+				name="Video"
+				type="AzuraVideo" typename="video" id="6" class="azura-element-type-video"/>
+			<field 
+				name="Contact Form" 
+				type="AzuraContactForm" typename="contactform" class="azura-element-type-contactform" />
+			
+		</fieldset>
+	</fields>
+
+
+
+	<fields name="metadata" label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
+		<fieldset name="jmetadata" label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
+
+			<field name="robots"
+				type="list"
+				label="JFIELD_METADATA_ROBOTS_LABEL"
+				description="JFIELD_METADATA_ROBOTS_DESC"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="index, follow">JGLOBAL_INDEX_FOLLOW</option>
+				<option value="noindex, follow">JGLOBAL_NOINDEX_FOLLOW</option>
+				<option value="index, nofollow">JGLOBAL_INDEX_NOFOLLOW</option>
+				<option value="noindex, nofollow">JGLOBAL_NOINDEX_NOFOLLOW</option>
+			</field>
+
+			<field name="author" type="text"
+				label="JAUTHOR" description="JFIELD_METADATA_AUTHOR_DESC"
+				size="20" />
+
+			<field name="rights" type="textarea" label="JFIELD_META_RIGHTS_LABEL"
+				description="JFIELD_META_RIGHTS_DESC" required="false" filter="string"
+				cols="30" rows="2" />
+			<field name="xreference" type="text"
+				label="COM_AZURAPAGEBUILDER_FIELD_XREFERENCE_LABEL"
+				description="COM_AZURAPAGEBUILDER_FIELD_XREFERENCE_DESC"
+				size="20" />
+		</fieldset>
+	</fields>
+</form>

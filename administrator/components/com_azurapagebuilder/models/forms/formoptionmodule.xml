@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="Module ID"
+                    description="Module ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Module Class"
+                    description="Module Class"
+                    />
+            <field 
+                    name="moduleID" 
+                    type="sql" 
+                    label="Select a module" 
+                    query="SELECT id AS value, title AS moduleID FROM #__modules WHERE published=1 AND client_id=0" />
+            <field
+                    type="radio"
+                    name="showTitle"
+                    id="showTitle"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    label="Show Title"
+                    description="Show Title"
+                    >
+                <option value="1" >Yes</option>
+                <option value="0" >No</option>
+            </field>
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuramodule" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="all"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

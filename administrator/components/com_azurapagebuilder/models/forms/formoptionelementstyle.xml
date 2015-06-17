@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsStyle">
+            <field
+                    type="color"
+                    name="border_color"
+                    default=""
+                    id="border_color"
+                    label="Border Color"
+                    description="Border Color"
+                    />
+            <field
+                    type="list"
+                    name="border_style"
+                    id="border_style"
+                    label="Border Style"
+                    description="Border Style" >
+                <option value="">Default</option>
+                <option value="solid">Solid</option>
+                <option value="dotted">Dotted</option>
+                <option value="dashed">Dashed</option>
+                <option value="none">None</option>
+                <option value="hidden">Hidden</option>
+                <option value="double">Double</option>
+                <option value="groove">Groove</option>
+                <option value="ridge">Ridge</option>
+                <option value="inset">Inset</option>
+                <option value="outset">Outset</option>
+                <option value="initial">Initial</option>
+                <option value="inherit">Inherit</option>
+            </field>
+            <field
+                    type="color"
+                    name="background_color"
+                    default=""
+                    id="background_color"
+                    label="Background Color"
+                    description="Background Color"
+                    />
+            <field
+                    type="AzuraMedia"
+                    name="background_image"
+                    id="background_image"
+                    label="Background Image"
+                    class="input-small"
+                    description="Background Image"
+                    preview="true">
+            </field>
+            <field
+                    type="list"
+                    name="background_repeat"
+                    id="background_repeat"
+                    default=""
+                    label="Background Repeat"
+                    description="Background Repeat" >
+                <option value="">Default</option>
+                <option value="repeat-x">Repeat X</option>
+                <option value="repeat-y">Repeat Y</option>
+                <option value="no-repeat">No Repeat</option>
+            </field>
+            <field
+                    type="list"
+                    name="background_attachment"
+                    id="background_attachment"
+                    default=""
+                    label="Background Attachment"
+                    description="Background Attachment" >
+                <option value="">Default</option>
+                <option value="fixed">Fixed</option>
+                <option value="local">Local</option>
+            </field>
+            <field
+                    type="list"
+                    name="background_size"
+                    id="background_size"
+                    default=""
+                    label="Background Size"
+                    description="Background Size" >
+                <option value="">Default</option>
+                <option value="cover">Cover</option>
+                <option value="contain">Contain</option>
+            </field>
+            <field
+                type="textarea"
+                name="additional_style"
+                id="additional_style"
+                label="Additional CSS Style"
+                description="Additional CSS Style">
+                
+            </field>
+            <field 
+                type="checkbox"
+                name="simplified"
+                id="simplified"
+                label="Box Control"
+                description="Box Control"
+                value="1"
+                default="0"
+            />
+        </fieldset>
+    </fields>
+
+</form>

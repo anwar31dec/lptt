@@ -1,0 +1,14 @@
+#dt_example .dataTables_length select {
+    height: 20px;
+    margin-bottom: 0;
+    width: 50px;
+}
+#dt_example .dataTables_filter input {
+    margin-bottom: 0;
+    outline: medium none;
+    width: 130px;
+}
+
+select#month-list{
+ padding:5px;
+ }

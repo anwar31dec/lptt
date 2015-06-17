@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="list"
+                    name="heading"
+                    id="heading"
+                    default="h3"
+                    label="Header"
+                    description="Header">
+                <option value="h1">H1</option>
+                <option value="h2">H2</option>
+                <option value="h3">H3</option>
+                <option value="h4">H4</option>
+                <option value="h5">H5</option>
+                <option value="h6">H6</option>
+            </field>
+
+            <field
+                    type="text"
+                    name="title"
+                    id="title"
+                    label="Header Text"
+                    description="Header Text"
+                    />
+            
+        </fieldset>
+    </fields>
+</form>

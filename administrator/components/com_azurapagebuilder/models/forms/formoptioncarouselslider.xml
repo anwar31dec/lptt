@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="Slider ID"
+                    description="Slider ID"/>
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    default="owl-carousel owl-theme"
+                    label="Slider Class"
+                    description="Slider Class"
+                    />
+            <field
+                    type="list"
+                    name="tranStyle"
+                    default=""
+                    id="tranStyle"
+                    label="Transition Type"
+                    description="Transition Type">
+                <option value="">- Select -</option>
+                <option value="fade">Fade</option>
+                <option value="backSlide">backSlide</option>
+                <option value="goDown">goDown</option>
+                <option value="scaleUp">scaleUp</option>
+            </field>
+            <field
+                    type="text"
+                    name="sliderSpeed"
+                    id="sliderSpeed"
+                    default="200"
+                    label="Slider Speed"
+                    description="Slider Speed"
+                    />
+            <field
+                    type="text"
+                    name="rewindSpeed"
+                    id="rewindSpeed"
+
+                    label="Rewind Speed"
+                    description="Rewind Speed"
+                    />
+            <field
+                    type="text"
+                    name="slidePerView"
+                    id="slidePerView"
+                    default="1"
+                    label="Slide Per View"
+                    description="Slide Per View"
+                    />
+            <field
+                    type="text"
+                    name="itemsCustom"
+                    id="itemsCustom"
+                    default=""
+                    label="itemsCustom"
+                    description="itemsCustom"
+                    />
+            <field
+                    type="list"
+                    name="autoPlay"
+                    id="autoPlay"
+                    default="0"
+                    label="AutoPlay"
+                    description="AutoPlay"
+                    >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="list"
+                    name="pagination"
+                    id="pagination"
+                    default="1"
+                    label="Show Pagination"
+                    description="Show Pagination"
+                    >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="text"
+                    name="paginationSpeed"
+                    id="paginationSpeed"
+                    label="Pagination Speed"
+                    description="Pagination Speed"
+                    />
+            <field
+                    type="list"
+                    name="navigation"
+                    id="navigation"
+                    default="0"
+                    label="Show Navigation"
+                    description="Show Navigation"
+                    >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="list"
+                    name="autoHeight"
+                    id="autoHeight"
+                    default="0"
+                    label="Auto Height"
+                    description="Auto Height"
+                    >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="list"
+                    name="mouseDrag"
+                    id="mouseDrag"
+                    default="1"
+                    label="Use Mouse Drag"
+                    description="Use Mouse Drag"
+                    >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="list"
+                    name="touchDrag"
+                    id="touchDrag"
+                    default="1"
+                    label="Use Touch Drag"
+                    description="Use Touch Drag"
+                    >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuracarouselslider" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="9"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="true"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

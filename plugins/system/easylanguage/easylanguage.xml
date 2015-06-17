@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.7" type="plugin" group="system" method="upgrade">
+	<name>System - Easy Language</name>
+	<author>Antonio Di Girolamo and Giampaolo Losito</author>
+	<creationDate>2011-02-25</creationDate>
+	<copyright>Copyright (C) 2011 isapp.it. All rights reserved</copyright>
+	<license>GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html</license>
+	<authorEmail>info@isapp.it</authorEmail>
+	<authorUrl>http://wwww.isapp.it/</authorUrl>
+	<version>1.2.2</version>
+	<description>PLG_EASYLANGUAGE_XML_DESCRIPTION</description>
+	<scriptfile>module/script.php</scriptfile>
+	<files>
+		<filename plugin="easylanguage">easylanguage.php</filename>
+		<filename>index.html</filename>
+		<folder>fields</folder>
+	</files>
+	<languages folder="language">
+        <language tag="it-IT">it-IT/it-IT.plg_system_easylanguage.ini</language>
+        <language tag="it-IT">it-IT/it-IT.plg_system_easylanguage.sys.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_easylanguage.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_easylanguage.sys.ini</language>
+    </languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/plugins/system/easylanguage/fields">
+				<field 
+					name="defaultLanguage" 
+					type="languagesef" 
+					default="" 
+					label="PLG_EASYLANGUAGE_DEFAULT_LANG_LABEL" 
+					description="PLG_EASYLANGUAGE_DEFAULT_LANG_DESC">
+				</field>
+				<field name="allowBO" type="list"
+					default="0"
+					label="PLG_EASYLANGUAGE_ALLOWBO_LANG_LABEL"
+					description="PLG_EASYLANGUAGE_ALLOWBO_LANG_DESC"
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" priority="2" name="Easy Language Updates">http://www.isapp.it/updates/easylanguage-update.xml</server>
+	</updateservers>
+</extension>

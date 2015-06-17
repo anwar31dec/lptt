@@ -1,0 +1,326 @@
+/* Responsive CSS Styles Table of Contents */
+
+@media only screen and (min-width: 1000px) and (max-width: 1169px){
+
+.container {
+	width: 1000px;
+	margin: auto;
+}
+.logo {
+	width: 22%;
+}
+.menu_main {
+	width: 78%;
+}
+
+.section4 .packagesinfo ul {
+	width: 103%;
+}
+
+.punchtext {
+	float: left;
+	text-align: center;
+}
+.punchtext h3 {
+	float: none;
+	margin-bottom: 40px;
+}
+.punchtext a {
+	float: none;
+}
+
+.copyrights ul {
+	width: 31%;
+}
+
+.wres {
+	width: 100%;
+}
+
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 999px){
+.container {
+	width: 747px;
+	margin: auto;
+}
+
+.logo {
+	width: 30%;
+}
+.menu_main {
+	width: 65%;
+}
+
+.section4 .packagesinfo ul {
+	width: 103%;
+}
+
+.section5 .one_third a {
+	float: left;
+	margin-top: 10px;
+}
+
+.punchtext {
+	float: left;
+	text-align: center;
+}
+.punchtext h3 {
+	float: none;
+	margin-bottom: 40px;
+}
+.punchtext a {
+	float: none;
+}
+
+.copyrights ul {
+	width: 43%;
+}
+
+.wres {
+	width: 100%;
+}
+
+}
+
+
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+	
+.container {
+	width: 460px;
+	margin: auto;
+}
+
+.content_left {
+	float: left;
+	width: 100%;
+	padding: 59px 0px 0px 0px;
+}
+.right_sidebar {
+	float: left;
+	width: 100%;
+	padding: 59px 0px 0px 0px;
+}
+.left_sidebar {
+	float: left;
+	width: 100%;
+	padding: 59px 0px 0px 0px;
+}
+.content_right {
+	float: left;
+	width: 100%;
+	padding: 59px 0px 0px 0px;
+}
+
+.one_half, .one_third, .one_fourth, .two_third, .three_fourth, .one_fifth {
+	margin-right: 0%;
+}
+.one_half {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.one_third {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.one_fourth {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.one_fifth {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.two_third {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.three_fourth {
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+.last {
+	margin-right: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.logo {
+	width: 80%;
+}
+.logo img {
+	margin-left: 20px;
+}
+.menu_main {
+	float: none;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.section1 .one_fourth {
+	margin-bottom: 50px;
+	padding-right: 0%;
+	padding-left: 0%;
+	background: none;
+}
+
+.section4 .packagesinfo {
+	margin-top: 50px;
+}
+.section4 .packagesinfo ul {
+	width: 80%;
+	float: none;
+	margin: 0 auto;
+}
+
+.punchtext {
+	float: left;
+	text-align: center;
+}
+.punchtext h3 {
+	float: none;
+	margin-bottom: 40px;
+}
+.punchtext a {
+	float: none;
+}
+
+.copyrights ul {
+	width: 68%;
+}
+
+.cforms {
+	width: 99%;
+}
+
+.wres {
+	width: 100%;
+}
+
+}
+
+
+
+
+
+@media only screen and (max-width: 479px){
+
+.container {
+	width: 300px;
+	margin: auto;
+}
+
+.content_left {
+	float: left;
+	width: 100%;
+	padding: 59px 0px 0px 0px;
+}
+.right_sidebar {
+	float: left;
+	width: 100%;
+	padding: 59px 0px 0px 0px;
+}
+.left_sidebar {
+	float: left;
+	width: 100%;
+	padding: 59px 0px 0px 0px;
+}
+.content_right {
+	float: left;
+	width: 100%;
+	padding: 59px 0px 0px 0px;
+}
+
+.one_half, .one_third, .one_fourth, .two_third, .three_fourth, .one_fifth {
+	margin-right: 0%;
+}
+.one_half {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.one_third {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.one_fourth {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.one_fifth {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.two_third {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.three_fourth {
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+.last {
+	margin-right: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.logo {
+	width: 76%;
+}
+.logo img {
+	margin-left: 10px;
+}
+
+.menu_main {
+	float: none;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.section1 .one_fourth {
+	margin-bottom: 50px;
+	padding-right: 0%;
+	padding-left: 0%;
+	background: none;
+}
+
+.section4 .packagesinfo {
+	margin-top: 50px;
+}
+.section4 .packagesinfo ul {
+	width: 80%;
+	float: none;
+	margin: 0 auto;
+}
+
+.punchtext {
+	float: left;
+	text-align: center;
+}
+.punchtext h3 {
+	float: none;
+	margin-bottom: 40px;
+}
+.punchtext a {
+	float: none;
+}
+
+.copyrights ul {
+	width: 94%;
+}
+.copyrights li {
+	margin: 0px 4px;
+}
+
+.cforms {
+	width: 98%;
+}
+
+.wres {
+	width: 100%;
+}
+
+}

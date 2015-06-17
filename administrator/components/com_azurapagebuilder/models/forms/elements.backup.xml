@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="azura_elements">
+		<fieldset name="azura_elements" addfieldpath="/administrator/components/com_azurapagebuilder/models/fields">
+			
+            <field
+				name="Section"
+				type="AzuraSection" typename="section" id="8" class="azura-element-type-section"/>
+            <field
+				name="Container"
+				type="AzuraContainer" typename="container" id="7" class="azura-element-type-container"/>
+			<field
+				name="Row"
+				type="AzuraRow" typename="row" id="2" class="azura-element-type-row"/>
+			<!-- <field
+				name="Portfolio"
+				type="AzuraPortfolio" typename="portfolio" class="azura-element-type-portfolio"/> -->
+			<!-- <field
+				name="Client Say"
+				type="AzuraClientSay" typename="clientsay" class="azura-element-type-clientsay"/> -->
+			<field
+				name="Module"
+				type="AzuraModule" typename="module" class="azura-element-type-module"/>
+			<field
+				name="Alert"
+				type="AzuraAlert" typename="alert" class="azura-element-type-alert"/>
+			<field
+				name="Progress"
+				type="AzuraProgress" typename="progress" class="azura-element-type-progress"/>
+			<field
+				name="Separator"
+				type="AzuraSeparator" typename="clear" id="4" class="azura-element-type-separator"/>
+			<field
+				name="Accordion - Toggle"
+				type="AzuraAccordion" typename="accordion" class="azura-element-type-accordion"/>
+			<field
+				name="Tabs"
+				type="AzuraTabToggle" typename="tabtoggle" id="5" class="azura-element-type-tabtoggle"/>
+			<field
+				name="BxSlider"
+				type="AzuraBxSlider" typename="bxslider" class="azura-element-type-bxslider"/>
+           <field
+				name="Carousel Slider"
+				type="AzuraCarouselSlider" typename="carouselslider" id="10" class="azura-element-type-carouselslider"/>
+			<!--  <field
+				name="SuperSlides"
+				type="AzuraSuperSlides" typename="superslides" class="azura-element-type-superslides"/> -->
+			<!-- <field
+				name="Stat Counter"
+				type="AzuraStat" typename="stat" id="13" class="azura-element-type-stat"/> -->
+			<field
+				name="Image"
+				type="AzuraImage" typename="image" class="azura-element-type-image"/>
+            <!-- <field
+				name="Team"
+				type="AzuraTeam" typename="team" id="11" class="azura-element-type-team"/> -->
+            <field
+				name="Header"
+				type="AzuraHeader" typename="header" id="9" class="azura-element-type-header"/>
+            <field
+				name="Text"
+				type="AzuraText" typename="text" id="1" class="azura-element-type-text"/>
+			<field
+				name="Blockquote"
+				type="AzuraBlockquote" typename="blockquote" class="azura-element-type-blockquote"/>
+			<field
+				name="Bootstrap Carousel"
+				type="AzuraBsCarousel" typename="bscarousel" class="azura-element-type-bscarousel"/>
+			<!-- <field
+				name="Paragraph"
+				type="AzuraParagraph" typename="paragraph" class="azura-element-type-paragraph"/> -->
+            <field
+				name="Raw HTML"
+				type="AzuraHtml" typename="html"  class="azura-element-type-html"/>
+			<!-- <field
+				name="Services Slider"
+				type="AzuraServicesSlider" typename="servicesslider"  class="azura-element-type-servicesslider"/> -->
+			<field
+				name="Video"
+				type="AzuraVideo" typename="video" id="6" class="azura-element-type-video"/>
+			<!-- <field 
+				name="Contact Form" 
+				type="AzuraContactForm" typename="contactform" class="azura-element-type-contactform" />
+			<field 
+				name="Google Map" 
+				type="AzuraGMap" typename="gmap" class="azura-element-type-gmap" />
+			<field 
+				name="Popup Link" 
+				type="AzuraPopupLink" typename="popuplink" class="azura-element-type-popuplink" /> -->
+
+			<!-- <field 
+				name="Social Buttons" 
+				type="AzuraSocialButtons" typename="socialbuttons" class="azura-element-type-socialbuttons" /> -->
+			<field 
+				name="Link Button" 
+				type="AzuraButtonLink" typename="buttonlink" class="azura-element-type-buttonlink" />
+		</fieldset>
+	</fields>
+</form>

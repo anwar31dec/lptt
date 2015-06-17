@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="ID"
+                    description="ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Class"
+                    description="Class"
+                    />
+            <field
+                    type="text"
+                    name="title"
+                    id="title"
+                    default="50%"
+                    label="Title"
+                    description="Title"
+                    />
+            <field
+                    type="text"
+                    name="value"
+                    id="value"
+                    default="50"
+                    label="Value"
+                    description="Value" />
+            <field
+                    type="text"
+                    name="anivalue"
+                    id="anivalue"
+                    default="45"
+                    label="Animation Value"
+                    description="Animation Value" />
+            <field
+                    type="text"
+                    name="speed"
+                    id="speed"
+                    default="2000"
+                    label="Speed"
+                    description="Speed"
+                    />
+            <field
+                    type="list"
+                    name="type"
+                    id="type"
+                    label="Progress Type"
+                    description="Progress Type" >
+                <option value="">Type One</option>
+                <option value="two">Type Two</option>
+                <option value="three">Type Three</option>
+                <option value="four">Type Four</option>
+                <option value="five">Type Five</option>
+            </field>
+            
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuraprogress" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="6"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

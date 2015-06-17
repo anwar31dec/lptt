@@ -1,0 +1,70 @@
+/**
+ * @package Azura Joomla Pagebuilder
+ * @author Cththemes - www.cththemes.com
+ * @date: 15-07-2014
+ *
+ * @copyright  Copyright ( C ) 2014 cththemes.com . All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE
+ */
+.azura-elements {
+	line-height:1.4em;
+	font-size:13px;
+}
+.azura-elements .azura-element-block {
+    position: relative;
+    margin: 4px 0px 0px;
+}
+.azura-elements{
+	width: 100%;
+	height: 100%;
+}
+
+.azura-elements .azura-element-block{
+	height: 39px;
+	
+	cursor: pointer;
+	margin-left: 20px;
+
+}
+
+
+
+.azura-elements .azura-element-block {
+
+	
+	width: 250px;
+	border: 1px solid #ccc;
+	float: left;
+	display: inline-table;
+
+}
+.hide-in-elements{
+	display: block;
+}
+
+.azura-elements .hide-in-elements {
+	display: none;
+}
+
+.elementchildren.ishide{display: none;}
+.azura-element-title, .azura-element-tools {
+	line-height: 3;
+	margin:0 15px;
+}
+.azura-element-tools{
+	display: none;
+	float:right;
+	color:#000;
+}
+.azura-sortable .azura-element-tools {
+	display: block;
+}
+
+
+.azura-element-settings {
+	display: none;
+	background-color: #ccc;
+}
+
+.azura-elements .azura-element-block .azura-element .azura-row-layout {display: none;}
+

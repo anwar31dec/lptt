@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>CTHthemes Twitter</name>
+	<author>CTHthemes</author>
+	<creationDate>May 2014</creationDate>
+	<copyright>Copyright Infor CTHthemes.com</copyright>
+	<license>License Infor CTHthemes.com</license>
+	<authorEmail>contact.cththemes@gmail.com</authorEmail>
+	<authorUrl>http://cththemes.com</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_AAATHEMETWITTER_XML_DESC</description>
+	<files>
+		<filename module="mod_aaathemetwitter">mod_aaathemetwitter.php</filename>
+		<folder>tmpl</folder>
+		<folder>lib</folder>
+		<folder>cache</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_aaathemetwitter.xml</filename>
+	</files>
+	<languages folder="language/en-GB">
+		<language tag="en-GB">en-GB.mod_aaathemetwitter.ini</language>
+		<language tag="en-GB">en-GB.mod_aaathemetwitter.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" >				
+				<field
+					name="twittername"
+					type="text"
+					default="AAAtheme"
+					label="MOD_AAATHEMETWITTER_FIELD_TWITTERNAME_LABEL"
+					description="MOD_AAATHEMETWITTER_FIELD_TWITTERNAME_DESC" />
+				
+		        <field 
+		        	name="consumer_key" 
+		        	type="text" 
+		        	default="zA9u0dGrPkHi7syeUcibVQ" 
+		        	label="MOD_AAATHEMETWITTER_FIELD_CONSUMER_KEY_LABEL" 
+		        	description="MOD_AAATHEMETWITTER_FIELD_CONSUMER_KEY_DESC" />
+		        <field 
+		        	name="consumer_key_secret" 
+		        	type="text" 
+		        	default="22ilIf1EGCUnynM90RWfkYkf8BkXr4yvShlkPYfv8" 
+		        	label="MOD_AAATHEMETWITTER_FIELD_CONSUMER_KEY_SECRET_LABEL" 
+		        	description="MOD_AAATHEMETWITTER_FIELD_CONSUMER_KEY_SECRET_DESC" />
+		        <field 
+		        	name="access_token" 
+		        	type="text" 
+		        	default="531108948-lTerIQZeUA5dhhONMXZ8xg62938vAFQTz8Qauvpc" 
+		        	label="MOD_AAATHEMETWITTER_FIELD_ACCESS_TOKEN_LABEL" 
+		        	description="MOD_AAATHEMETWITTER_FIELD_ACCESS_TOKEN_DESC" />
+		        <field 
+		        	name="access_token_secret" 
+		        	type="text"
+		        	default="0sMF3AT8tuNnBavLpGQawTkLblIaVjmqG5zaD4YxU4" 
+		        	label="MOD_AAATHEMETWITTER_FIELD_ACCESS_TOKEN_SECRET_LABEL" 
+		        	description="MOD_AAATHEMETWITTER_FIELD_ACCESS_TOKEN_SECRET_DESC" />
+		         <field 
+		        	name="counts" 
+		        	type="text"
+		        	default="1" 
+		        	label="MOD_AAATHEMETWITTER_FIELD_COUNT_LABEL" 
+		        	description="MOD_AAATHEMETWITTER_FIELD_COUNT_DESC" />
+			</fieldset>
+			
+			
+			<fieldset
+				name="advanced">
+
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

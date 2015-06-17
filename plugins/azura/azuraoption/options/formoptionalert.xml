@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="Wrapper ID"
+                    description="Wrapper ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Wrapper Class"
+                    description="Wrapper Class"
+                    />
+            <field
+                    type="list"
+                    name="type"
+                    id="type"
+                    default="error"
+                    label="Alert Type"
+                    description="Alert Type" >
+                <option value="info">Info</option>
+                <option value="success">Success</option>
+                
+                <option value="notice">Notice</option>
+                <option value="error">Error</option>
+            </field>
+            <field
+                    type="radio"
+                    name="closebtn"
+                    id="closebtn"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    label="Close Button"
+                    description="Close Button" >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azuraalert" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="textarea"
+                    name="message"
+                    id="message"
+                    label="Message"
+                    default="This is an Error Message! - Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+                    class="input-xlarge"
+                    description="Message"
+                    cols="24"
+                    rows="7" />
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="5"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

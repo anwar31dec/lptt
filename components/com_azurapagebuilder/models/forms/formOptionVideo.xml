@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="text"
+                    name="link"
+                    id="link"
+                    label="Video Link (Youtube, Vimeo)"
+                    description="Video Link (Youtube, Vimeo)"
+                    size="80"
+                    maxLength="255" />
+        </fieldset>
+    </fields>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="radio"
+                    name="autoplay"
+                    class="btn-group btn-group-yesno"
+                    id="autoplay"
+                    label="Autoplay"
+                    default="0"
+                    description="Autoplay"
+                    
+                    >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+            </field>
+            <field
+                    type="radio"
+                    name="loop"
+                    id="loop"
+                    label="Loop"
+                    default="0"
+                    description="Loop"
+                    
+                    >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>

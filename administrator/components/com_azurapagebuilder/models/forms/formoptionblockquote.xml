@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="ID"
+                    description="ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Class"
+                    description="Class"
+                    />
+            <field
+                    type="radio"
+                    name="tooltip"
+                    id="tooltip"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    label="Use Tooltip"
+                    description="Use Tooltip"
+                    >
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </field>
+            <field
+                    type="text"
+                    name="title"
+                    id="title"
+                    label="Tooltip Title"
+                    description="Tooltip Title"
+                    />
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azurablockquote" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementContent">
+        <fieldset name="elementContentFieldSet">
+            <field
+                    type="textarea"
+                    name="textContent"
+                    id="textContent"
+                    label="Text Content"
+                    class="input-xlarge"
+                    description="Text Content"
+                    cols="24"
+                    rows="7" />
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="5"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

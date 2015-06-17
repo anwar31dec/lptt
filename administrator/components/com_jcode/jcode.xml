@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <extension type="component" version="2.5">
+    <name>JCode</name>
+    <extensionname>JCode</extensionname>
+    <author>Iacopo Guarneri</author>
+    <creationDate>27/06/2012</creationDate>
+    <license>GNU/GPL</license>
+    <authorEmail>iacopo.guarneri@alice.it</authorEmail>
+    <authorUrl>http://www.the-html-tool.com/</authorUrl>
+    <version>1.0</version>
+    <description></description>
+
+    <files folder="site">
+       <folder>views</folder>
+		<filename>index.html</filename>
+		<filename>jcode.php</filename>
+    </files>
+   
+	<administration>
+	<menu link="com_jcode">JCode</menu>
+ 
+   <files folder="administrator">
+		<filename>jcode.php</filename>
+		<filename>insert.php</filename>
+		<filename>index.html</filename>
+		<filename>jquery.js</filename>
+    </files>
+    </administration>
+</extension>

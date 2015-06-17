@@ -1,0 +1,66 @@
+.logo {
+	background-color: #970001;
+}
+
+.nav-collapse a:active,
+.nav-collapse .active a {
+    color: #970001;
+}
+
+.section1 .circle {
+	color: #970001;
+}
+.section1 .circle:hover {
+    background-color: #970001;
+}
+
+.section2 {
+	background: #970001 url(../../../../images/para-bg1.png) repeat-y center -65px;
+}
+
+.section3 strong {
+	color: #970001;
+}
+.section3 .one_fourth:hover, .section3 .one_fourth.active {
+	background-color: #970001;
+}
+
+.peosec strong {
+    color: #970001;
+}
+
+.section4 .packagesinfo ul.active li.mostp {
+    background-color: #970001;
+}
+.section4 .packagesinfo ul.active li.title h2 {
+    color: #970001;
+}
+.section4 .packagesinfo ul.active li.title h4 {
+    color: #970001;
+}
+
+.section4 .packagesinfo ul.active li.planbut a {
+    background-color: #970001;
+}
+
+.parallax_sec3 i {
+	background: #970001 url(../../../../images/site-img5.png) no-repeat center top;
+}
+
+.punchtext h3 {
+	color: #970001;
+}
+.punchtext a {
+	background-color: #970001;
+}
+
+.sky-form .button {
+    background-color: #970001;
+}
+
+a {
+	color: #970001;
+}
+
+.tp-caption.finewide_verysmall_white_mw div i {color: #970001;}
+.tp-caption.finewide_medium_white em {background: #970001;}

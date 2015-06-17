@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="system" method="upgrade">
+    <name>CTHthemes Shortcodes</name>
+    <author>CTHthemes.com</author>
+    <creationDate>June 2014</creationDate>
+    <copyright>Copyright (C) 2014 CTHthemes. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GPLv2 or later</license>
+    <authorEmail>contact@cththemes.com</authorEmail>
+    <authorUrl>www.CTHthemes.com</authorUrl>
+    <version>1.2.0</version>
+    <description><![CDATA[
+                Cththemes - Anywhere shortcode plugin. Info and Support: <a href="mailto:cththemes@gmail.com">cththemes@gmail.com</a> - <a href="index.php?option=com_plugins">Plugins Manager</a> 
+            ]]></description>
+
+    <files>
+		<folder plugin="cthshortcodes">assets</folder>
+		<folder plugin="cthshortcodes">core</folder>
+		<folder plugin="cthshortcodes">shortcodes</folder>
+		<folder plugin="cthshortcodes">shortcodes_template</folder>
+		<filename plugin="cthshortcodes">cthshortcodes.php</filename>
+		<filename plugin="cthshortcodes">cthshortcodes.xml</filename>
+		<filename plugin="cthshortcodes">index.html</filename>
+    </files>
+    <config>
+        <fields name="params" >
+            <fieldset name="basic">
+                <field name="useAnywhere"
+                       type="radio"
+                       default="0"
+                       class="btn-group btn-group-yesno"
+                       label="Use Anywhere Shortcodes"
+                       description="Use Anywhere Shortcodes">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

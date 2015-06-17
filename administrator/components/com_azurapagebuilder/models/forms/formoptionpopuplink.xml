@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="ID"
+                    description="ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Class"
+                    description="Class"
+                    />
+            <field
+                    type="text"
+                    name="title"
+                    id="title"
+                    label="Title"
+                    description="Title"
+                    />
+
+            <field
+                    type="text"
+                    name="subtitle"
+                    id="subtitle"
+                    label="SubTitle"
+                    description="SubTitle"
+                    />
+            <field
+                    type="list"
+                    name="popuptype"
+                    id="popuptype"
+                    default="popup-link"
+                    label="Popup"
+                    description="Popup"
+                    >
+                <option value="popup-link">Gallery Popup</option>
+                <option value="popup-youtube">Popup Youtube</option>
+                <option value="popup-vimeo">Popup Vimeo</option>
+                <option value="popup-gmaps">Popup Gmaps</option>
+            </field>
+            <field
+                    type="AzuraMedia"
+                    name="popuplink"
+                    id="popuplink"
+                    label="Popup Link"
+                    class="input-medium"
+                    description="Enter video links or select an image"
+                    preview="false">
+            </field>
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azurapopuplink" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="4"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

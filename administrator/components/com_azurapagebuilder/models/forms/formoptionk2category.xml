@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    label="ID"
+                    description="ID" />
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    label="Class"
+                    description="Class"
+                    />
+            <field 
+                    name="category" 
+                    type="sql" 
+                    id="category"
+                    label="Select a category"
+                    description="Choose category get item from" 
+                    query="SELECT id AS value, name AS category FROM #__k2_categories WHERE published=1 AND trash=0" />
+            <!-- <field 
+                    name="category" 
+                    type="sql" 
+                    id="category"
+                    label="Select a category" 
+                    query="SELECT id AS value, title AS category FROM #__categories WHERE published=1 AND extension='com_content'" /> -->
+            <field
+                    type="text"
+                    name="limit"
+                    id="limit"
+                    default="All"
+                    label="Limit"
+                    description="Number or All"
+                    />
+            <field
+                    type="list"
+                    name="order"
+                    id="order"
+                    default="created"
+                    label="Order"
+                    description="Order"
+                    >
+                <option value="created" >Created</option>
+                <option value="id" >ID</option>
+                <option value="ordering" >Ordering</option>
+            </field>
+            <field
+                    type="list"
+                    name="orderDir"
+                    id="orderDir"
+                    default="ASC"
+                    label="Order Direction"
+                    description="Order Direction"
+                    >
+                <option value="ASC" >Ascending</option>
+                <option value="DESC" >Descending</option>
+            </field>
+            <field
+                    type="radio"
+                    name="fetchchild"
+                    id="fetchchild"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    label="Fetch Child Items"
+                    description="Fetch Child Items"
+                    >
+                <option value="1" >Yes</option>
+                <option value="0" >No</option>
+            </field>
+            <field
+                    type="radio"
+                    name="showfilter"
+                    id="showfitle"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    label="Show Filter"
+                    description="Show Filter"
+                    >
+                <option value="1" >Yes</option>
+                <option value="0" >No</option>
+            </field>
+            
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azurak2category" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>  
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="5"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>

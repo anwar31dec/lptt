@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="elementAttrs">
+        <fieldset name="elementAttrsFieldSet">
+            <field
+                    type="text"
+                    name="id"
+                    id="id"
+                    default="carousel-example-generic"
+                    label="Slider ID"
+                    description="Slider ID"/>
+
+            <field
+                    type="text"
+                    name="class"
+                    id="class"
+                    default="slide"
+                    label="Slider Class"
+                    description="Slider Class"
+                    />
+            <field
+                    type="text"
+                    name="interval"
+                    id="interval"
+                    default="5000"
+                    label="Interval"
+                    description="The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle."
+                    />
+            <field
+                    type="text"
+                    name="pause"
+                    id="pause"
+                    default="hover"
+                    label="Pause"
+                    description="Pauses the cycling of the carousel on mouseenter and resumes the cycling of the carousel on mouseleave."
+                    />
+            <field
+                    type="radio"
+                    name="wrap"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="wrap"
+                    label="Wrap"
+                    description="Whether the carousel should cycle continuously or have hard stops.">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </field>
+            <field
+                    type="radio"
+                    name="navigation"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="navigation"
+                    label="Show Navigation"
+                    description="Show Navigation">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field
+                    type="radio"
+                    name="pagination"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    id="pagination"
+                    label="Show Pagination"
+                    description="Show Pagination">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </field>
+            <field 
+                name="layout" label="Shortcode Layout"  description="Shortcode Layout" type="AzuraShortcodelayout" shortcode="azurabscarousel" client="site"/>
+        </fieldset>
+    </fields>
+    <fields name="elementSettings">
+        <fieldset name="elementSettingsFieldSet">
+            <field
+                    type="AzuraElementSetting"
+                    name="showStyleTab"
+                    setting="true"
+                    default="true"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="numberLeftSettings"
+                    setting="6"
+                    default="all"/>
+            <field
+                    type="AzuraElementSetting"
+                    name="contentFirst"
+                    setting="false"
+                    default="false"/>
+        </fieldset>
+    </fields>
+</form>
