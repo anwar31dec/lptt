@@ -95,6 +95,7 @@ function onConfirmWhenAddEdit() {
 			} else {
 				onErrorMsg($msg);
 			}
+			$("#TrackingNo").val("");
 		}
 	});
 }
@@ -505,5 +506,49 @@ $(function() {
 	});
 
 	onComboProductSubGroup();
+	
+	//var timestamp = new Date().getTime();
+	
+	
+	// var txtScanValue = '';
+   // $("#TrackingNo").keyup(function(event)
+   // {
+	   // console.log($("#TrackingNo").val());
+	   
+        // var currentTimestamp = new Date().getTime();
+
+        // if(currentTimestamp - timestamp > 100)
+        // {
+			////console.log($("#TrackingNo").val());
+			// $("#TrackingNo").val('MMMMM');
+			//onConfirmWhenAddEdit();8901177100505
+			
+            
+        // }
+        // timestamp = currentTimestamp;
+		////alert(timestamp);
+		////console.log(timestamp);
+   // });       
+   
+    var barcode="";
+    $("#TrackingNo").keydown(function(e) {
+
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+            //console.log(code);
+			//console.log($("#TrackingNo").val());
+			//$("#TrackingNo").val('');
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
 
 }); 
