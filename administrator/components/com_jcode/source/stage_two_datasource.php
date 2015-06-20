@@ -1445,6 +1445,7 @@ function insertUpdateProcessTracking($conn) {
 	$hTrackingNo = $_POST['hTrackingNo'];
 	$ProcessId = $_POST['ProcessId'];
 	$ProcessOrder = $_POST['ProcessOrder'];
+	$PrevProcessOrder = $_POST['ProcessOrder']-1;
 	$ReadyForProOrder = $ProcessOrder + 1;
 	$ParentProcessId = $_POST['ParentProcessId'];
 	
@@ -1476,17 +1477,46 @@ function insertUpdateProcessTracking($conn) {
 	 
 	//exit;
 	
+	$sql2 = "SELECT 
+	  t_process_tracking.ProTrackId 
+	FROM
+	  t_process_tracking 
+	  INNER JOIN t_process_list 
+		ON t_process_tracking.ProcessId = t_process_list.ProcessId		
+	WHERE 
+		t_process_tracking.TrackingNo = '$TrackingNo' 
+		AND t_process_list.ProcessOrder = $PrevProcessOrder;";
+  
+ // exit;
+  
+  $result2 = mysql_query($sql2);
+  if($result2)
+		$aData2 = mysql_fetch_assoc($result2);
+	
+ //echo $aData2['ProTrackId'];
+ //exit;
+	$ProTrackId = '';
+	if($aData2){
+		$ProTrackId = $aData2['ProTrackId'];
+		//var_dump($ProTrackId);
+	}
+ 
+ 
+	
+	
+	
+	
     if ($pTrackingNo == '') {
 		
-		 $sql2 = "UPDATE t_process_tracking
-					SET ReadyForProOrder = NULL
-					WHERE TrackingNo = '$TrackingNo'";
-		//echo $sql2;
-		//exit;
-			
-        $aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'".$TrackingNo."'"), 'bUseInsetId' => FALSE);
-       
-		$aQuerys[] = $aQuery2;
+		if($ProTrackId != ''){
+			$sql2 = "UPDATE t_process_tracking SET OutTime = NOW() WHERE TrackingNo = '$TrackingNo' AND ProTrackId = $ProTrackId;";
+			//echo $sql2;
+			//exit;
+				
+			$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'".$TrackingNo."'"), 'bUseInsetId' => FALSE);
+		   
+			$aQuerys[] = $aQuery2;
+		}
 		
         $sql = "INSERT INTO t_process_tracking
             (TrackingNo, ProcessId, InTime, EntryDate)
