@@ -9,6 +9,7 @@ include('language/lang_en.php');
 include('language/lang_fr.php');
 include('language/lang_switcher_report.php');
 include_once ("function_lib.php");
+include_once ("working_days.php");
 
 mysql_query('SET CHARACTER SET utf8');
 
@@ -549,6 +550,8 @@ $sQuery = "SELECT
 	
 $rResult = mysql_query($sQuery);
 
+$holidays = array("2015-06-18","2015-06-19");
+
 if ($rResult) {
 	while ($data = mysql_fetch_object($rResult)) {
 		//print_r($data);
@@ -567,7 +570,10 @@ if ($rResult) {
 			// collecting data for the facility
 			$row[$data -> ProcessOrder.'i'] = is_null($data -> InTime)? '' : $data -> InTime;
 			$row[$data -> ProcessOrder.'o'] = is_null($data -> OutTime)? '' : $data -> OutTime;
-			$row[$data -> ProcessOrder.'d'] = is_null($data -> Duration)? '' : $data -> Duration;
+			//$row[$data -> ProcessOrder.'d'] = is_null($data -> Duration)? '' : $data -> Duration;
+			
+			$row[$data -> ProcessOrder.'d'] = is_null($data -> InTime) || is_null($data -> OutTime)? '' : convertToHoursMins(getWorkingDays($data -> InTime,$data -> OutTime,$holidays) * 24 * 60, '%02d hours %02d minutes');
+			
 			$row['Total'] += is_null($data -> Duration)? 0 : $data -> Duration;
 			
 			// put the temp variable with the item code
@@ -577,7 +583,10 @@ if ($rResult) {
 			// collecting data for the facility
 			$row[$data -> ProcessOrder.'i'] = is_null($data -> InTime)? '' : $data -> InTime;
 			$row[$data -> ProcessOrder.'o'] = is_null($data -> OutTime)? '' : $data -> OutTime;
-			$row[$data -> ProcessOrder.'d'] = is_null($data -> Duration)? '' : $data -> Duration;
+			//$row[$data -> ProcessOrder.'d'] = is_null($data -> Duration)? '' : $data -> Duration;
+			
+			$row[$data -> ProcessOrder.'d'] = is_null($data -> InTime) || is_null($data -> OutTime)? '' : convertToHoursMins(getWorkingDays($data -> InTime,$data -> OutTime,$holidays) * 24 * 60, '%02d hours %02d minutes');
+			
 			$row['Total'] += is_null($data -> Duration)? 0 : $data -> Duration;
 			// put the temp variable with the item code
 			$tmpFacilityCode = $data -> TrackingNo;
@@ -606,6 +615,17 @@ if ($num_rows) {
  echo '{"sEcho": ' . intval($sEcho) . ', "iTotalRecords":"10","iTotalDisplayRecords": "10", "aaData":' . json_encode($aaData) . '';
  echo ',"COLUMNS":' . json_encode($aColumns) . '}';
 }
+
+function convertToHoursMins($time, $format = '%d:%d') {
+    settype($time, 'integer');
+    if ($time < 1) {
+        return;
+    }
+    $hours = floor($time / 60);
+    $minutes = ($time % 60);
+    return sprintf($format, $hours, $minutes);
+}
+
 ?>
 
 
