@@ -1442,21 +1442,24 @@ function insertUpdateProcessTracking($conn) {
     $jUserId = $_REQUEST['jUserId'];
     $language = $_REQUEST['language'];
     $TrackingNo = $_POST['TrackingNo'];
+	$RegNo = $_POST['RegNo'];
 	$hTrackingNo = $_POST['hTrackingNo'];
 	$ProcessId = $_POST['ProcessId'];
 	$ProcessOrder = $_POST['ProcessOrder'];
 	$PrevProcessOrder = $_POST['ProcessOrder']-1;
 	$ReadyForProOrder = $ProcessOrder + 1;
 	$ParentProcessId = $_POST['ParentProcessId'];
+	$bNewNo = $_POST['bNewNo'];
 	
-	// echo $ProcessOrder ;
-	// exit;
+	
+	//echo $RegNo ;
+	//exit;
 	
 	$pTrackingNo = '';
 	$pOutTime = '';
 	//$result = '';
 	
-	 $sql = "SELECT TrackingNo, OutTime FROM t_process_tracking WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
+	 $sql = "SELECT TrackingNo, RegNo, OutTime FROM t_process_tracking WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
 	 
 	 $result = mysql_query($sql);
 	 
@@ -1519,11 +1522,20 @@ function insertUpdateProcessTracking($conn) {
 		}
 		
         $sql = "INSERT INTO t_process_tracking
-            (TrackingNo, ProcessId, InTime, EntryDate)
-			VALUES ('$TrackingNo', $ProcessId, NOW(), Now());";
+            (TrackingNo, RegNo, ProcessId, InTime, EntryDate)
+			VALUES ('$TrackingNo', '$RegNo', $ProcessId, NOW(), Now());";
 			
         $aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
         $aQuerys[] = $aQuery1;
+		
+		
+		$sql3 = "UPDATE t_process_tracking
+				SET RegNo = '$RegNo'
+				WHERE TrackingNo = '$TrackingNo';";
+			
+        $aQuery3 = array('command' => 'INSERT', 'query' => $sql3, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
+        $aQuerys[] = $aQuery3;
+		
 		echo json_encode(exec_query($aQuerys, $jUserId, $language));
     } else if($pOutTime == '') {
         $sql = "UPDATE t_process_tracking
@@ -1536,9 +1548,7 @@ function insertUpdateProcessTracking($conn) {
     }else if($pTrackingNo != '' && $pOutTime != ''){
 		echo json_encode(array('msgType' => 'success', 'msg' => 'This tracking no is already completed.'));	
 	
-	}
-	
-    
+	}   
 }
 
 function deleteItemList($conn) {
