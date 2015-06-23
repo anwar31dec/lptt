@@ -38,14 +38,14 @@ include_once ('language/lang_switcher.php');
 	        <div class="panel-body">
 	            <form novalidate="" data-validate="parsley" id="itemlist_form" class="form-horizontal form-border no-margin">
 										
-	                <div class="form-group">
+	                <div class="form-group" style="<?php if($aUserProcess['bUseTrackingNo']) echo 'display:block;'; else echo 'display:none;';?>">
 	                    <label class="control-label col-md-4" for="TrackingNo"><?php echo 'Tracking No:'; ?></label>
 	                    <div class="col-md-8">
 	                        <input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="TrackingNo" id="TrackingNo" data-required="true" placeholder="scan here..."/>
 	                    </div>
 	                </div> 
 
-					<div class="form-group"  style="<?php if($aUserProcess['eNewNo']=='REGISTRATION') echo 'display:block;'; else echo 'display:none;';?>">
+			<div class="form-group"  style="<?php if($aUserProcess['bUseRegNo']) echo 'display:block;'; else echo 'display:none;';?>">
 	                    <label class="control-label col-md-4" for="RegNo"><?php echo 'Registration No:'; ?></label>
 	                    <div class="col-md-8">
 	                        <input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNo" id="RegNo" data-required="true" placeholder="scan here..."/>
@@ -54,15 +54,16 @@ include_once ('language/lang_switcher.php');
 	
 	                <div class="form-group">
 	                	<div class="col-md-4">
-		                    <input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
-							<input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
-							<input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
-							<input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
-							<input type="hiidden" style="display:none;"name="eNewNo" id="eNewNo" value="<?php echo $aUserProcess['eNewNo']; ?>"/>
-							<input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
-		                    <input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
-		                    <input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
-	                    </div>
+					<input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
+					<input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
+					<input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
+					<input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
+					<input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
+					<input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
+					<input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
+					<input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
+					<input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
+				</div>
 	                    <div class="col-md-8">		                    	
 		                        <a href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitItemList"><?php echo $TEXT['Submit']; ?></a>
 		                        <a href="javascript:void(0);" class="btn btn-default" onClick="onListPanel()"><?php echo $TEXT['Cancel']; ?></a>			                    

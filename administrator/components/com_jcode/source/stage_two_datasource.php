@@ -5,6 +5,7 @@ include_once ("function_lib.php");
 include('language/lang_en.php');
 include('language/lang_fr.php');
 include('language/lang_switcher_report.php');
+include_once ("working_days.php");
 
 $gTEXT = $TEXT;
 $task = '';
@@ -1439,74 +1440,77 @@ function getWaitingProcessList($conn) {
 }
 
 function insertUpdateProcessTracking($conn) {
-    $jUserId = $_REQUEST['jUserId'];
-    $language = $_REQUEST['language'];
-    $TrackingNo = $_POST['TrackingNo'];
+	$jUserId = $_REQUEST['jUserId'];
+	$language = $_REQUEST['language'];
+	$TrackingNo = $_POST['TrackingNo'];
 	$RegNo = $_POST['RegNo'];
 	$hTrackingNo = $_POST['hTrackingNo'];
 	$ProcessId = $_POST['ProcessId'];
 	$ProcessOrder = $_POST['ProcessOrder'];
-	$PrevProcessOrder = $_POST['ProcessOrder']-1;
+	$PrevProcessOrder = $_POST['ProcessOrder'] - 1;
 	$ReadyForProOrder = $ProcessOrder + 1;
 	$ParentProcessId = $_POST['ParentProcessId'];
-	$eNewNo = $_POST['eNewNo'];
+	$eNewNoPosition = $_POST['eNewNoPosition'];
+	$Position = $_POST['Position'];
 	
-	//echo $eNewNo;
-    //exit;
-	
-	
-	if($RegNo > 0){
-		 $sql22 = "SELECT TrackingNo FROM t_process_tracking WHERE RegNo = '$RegNo' AND TrackingNo IS NOT NULL LIMIT 1;";
-	 
-		 $result22 = mysql_query($sql22);
-		 
-		 //echo $result22;
-		 //exit;
-		
-		if($result22)
+	$holidays = array("2015-06-18","2015-06-19");
+
+	//echo $eNewNoPosition;
+	//exit;
+
+	if ($RegNo > 0) {
+		$sql22 = "SELECT TrackingNo FROM t_process_tracking WHERE RegNo = '$RegNo' AND TrackingNo IS NOT NULL LIMIT 1;";
+
+		$result22 = mysql_query($sql22);
+
+		//echo $result22;
+		//exit;
+
+		if ($result22)
 			$aData22 = mysql_fetch_assoc($result22);
-		
+
 		// var_dump($aData22);
 		// exit;
-		
-		if($aData22){
-			$eTrackingNo = $aData22['TrackingNo']; //Earlier stage tracking number because this process has no tracking number but we need the tracking number to link the next process
+
+		if ($aData22) {
+			$eTrackingNo = $aData22['TrackingNo'];
+			//Earlier stage tracking number because this process has no tracking number but we need the tracking number to link the next process
 		}
-		
-		if(!$TrackingNo){
+
+		if (!$TrackingNo) {
 			$TrackingNo = $eTrackingNo;
 		}
 	}
-	
-	
+
 	// echo $eTrackingNo ;
 	// exit;
-	
+
 	$pTrackingNo = '';
 	$pOutTime = '';
 	//$result = '';
-	
-	 $sql = "SELECT TrackingNo, RegNo, OutTime FROM t_process_tracking WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
-	 
-	 $result = mysql_query($sql);
-	 
-	 //echo $result;
-	 //exit;
-	
-	if($result)
+
+	$sql = "SELECT TrackingNo, RegNo, OutTime FROM t_process_tracking WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
+	//exit;
+
+	$result = mysql_query($sql);
+
+	//echo $result;
+	//exit;
+
+	if ($result)
 		$aData = mysql_fetch_assoc($result);
-	
+
 	//var_dump($aData);
-	
-	if($aData){
+
+	if ($aData) {
 		$pTrackingNo = $aData['TrackingNo'];
 		$pOutTime = $aData['OutTime'];
 	}
-	 
+
 	//var_dump($pOutTime);
-	 
+
 	//exit;
-	
+
 	$sql2 = "SELECT 
 	  t_process_tracking.ProTrackId 
 	FROM
@@ -1516,62 +1520,66 @@ function insertUpdateProcessTracking($conn) {
 	WHERE 
 		t_process_tracking.TrackingNo = '$TrackingNo' 
 		AND t_process_list.ProcessOrder = $PrevProcessOrder;";
-  
- // exit;
-  
-  $result2 = mysql_query($sql2);
-  if($result2)
+
+	// exit;
+
+	$result2 = mysql_query($sql2);
+	if ($result2)
 		$aData2 = mysql_fetch_assoc($result2);
-	
- //echo $aData2['ProTrackId'];
- //exit;
+
+	//echo $aData2['ProTrackId'];
+	//exit;
 	$ProTrackId = '';
-	if($aData2){
+	if ($aData2) {
 		$ProTrackId = $aData2['ProTrackId'];
 		//var_dump($ProTrackId);
 	}
- 
 	
-    if ($pTrackingNo == '') {
-		
-		if($ProTrackId != ''){
-			$sql2 = "UPDATE t_process_tracking SET OutTime = NOW() WHERE TrackingNo = '$TrackingNo' AND ProTrackId = $ProTrackId;";
+
+	if ($pTrackingNo == '') {
+
+		if ($ProTrackId != '') {
+			$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = 120 WHERE TrackingNo = '$TrackingNo' AND ProTrackId = $ProTrackId;";
 			//echo $sql2;
 			//exit;
-				
-			$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'".$TrackingNo."'"), 'bUseInsetId' => FALSE);
-		   
+
+			$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
+
 			$aQuerys[] = $aQuery2;
 		}
-		
-        $sql = "INSERT INTO t_process_tracking
+
+		$sql = "INSERT INTO t_process_tracking
             (TrackingNo, RegNo, ProcessId, InTime, EntryDate)
 			VALUES ('$TrackingNo', '$RegNo', $ProcessId, NOW(), Now());";
-			
-        $aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
-        $aQuerys[] = $aQuery1;
-		
-		
-		$sql3 = "UPDATE t_process_tracking
+
+		$aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
+		$aQuerys[] = $aQuery1;
+
+		if ($eNewNoPosition == 'REGISTRATION') {
+			$sql3 = "UPDATE t_process_tracking
 				SET RegNo = '$RegNo'
 				WHERE TrackingNo = '$TrackingNo';";
-			
-        $aQuery3 = array('command' => 'INSERT', 'query' => $sql3, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
-        $aQuerys[] = $aQuery3;
+			$aQuery3 = array('command' => 'INSERT', 'query' => $sql3, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
+			$aQuerys[] = $aQuery3;
+		}
+
+		echo json_encode(exec_query($aQuerys, $jUserId, $language));
 		
+	} else if ($pTrackingNo != '' && $Position == 'END') {
+		
+		$sql = "UPDATE t_process_tracking
+			SET OutTime = NOW(), ReadyForProOrder = $ReadyForProOrder
+			WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
+
+		$aQuery1 = array('command' => 'UPDATE', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => FALSE);
+		$aQuerys = array($aQuery1);
 		echo json_encode(exec_query($aQuerys, $jUserId, $language));
-    } else if($pOutTime == '') {
-        $sql = "UPDATE t_process_tracking
-				SET OutTime = NOW(), ReadyForProOrder = $ReadyForProOrder
-				WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
-			
-        $aQuery1 = array('command' => 'UPDATE', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'".$TrackingNo."'", $ProcessId), 'bUseInsetId' => FALSE);
-        $aQuerys = array($aQuery1);
-		echo json_encode(exec_query($aQuerys, $jUserId, $language));
-    }else if($pTrackingNo != '' && $pOutTime != ''){
-		echo json_encode(array('msgType' => 'success', 'msg' => 'This tracking no is already completed.'));	
-	
-	}   
+		
+	} else if ($pTrackingNo != '' && $pOutTime != '') {
+		
+		echo json_encode(array('msgType' => 'success', 'msg' => 'This tracking no is already completed.'));
+
+	}
 }
 
 function deleteItemList($conn) {
