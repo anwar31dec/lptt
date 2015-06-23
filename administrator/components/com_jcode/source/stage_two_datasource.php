@@ -1449,11 +1449,38 @@ function insertUpdateProcessTracking($conn) {
 	$PrevProcessOrder = $_POST['ProcessOrder']-1;
 	$ReadyForProOrder = $ProcessOrder + 1;
 	$ParentProcessId = $_POST['ParentProcessId'];
-	$bNewNo = $_POST['bNewNo'];
+	$eNewNo = $_POST['eNewNo'];
+	
+	//echo $eNewNo;
+    //exit;
 	
 	
-	//echo $RegNo ;
-	//exit;
+	if($RegNo > 0){
+		 $sql22 = "SELECT TrackingNo FROM t_process_tracking WHERE RegNo = '$RegNo' AND TrackingNo IS NOT NULL LIMIT 1;";
+	 
+		 $result22 = mysql_query($sql22);
+		 
+		 //echo $result22;
+		 //exit;
+		
+		if($result22)
+			$aData22 = mysql_fetch_assoc($result22);
+		
+		// var_dump($aData22);
+		// exit;
+		
+		if($aData22){
+			$eTrackingNo = $aData22['TrackingNo']; //Earlier stage tracking number because this process has no tracking number but we need the tracking number to link the next process
+		}
+		
+		if(!$TrackingNo){
+			$TrackingNo = $eTrackingNo;
+		}
+	}
+	
+	
+	// echo $eTrackingNo ;
+	// exit;
 	
 	$pTrackingNo = '';
 	$pOutTime = '';
@@ -1504,10 +1531,6 @@ function insertUpdateProcessTracking($conn) {
 		//var_dump($ProTrackId);
 	}
  
- 
-	
-	
-	
 	
     if ($pTrackingNo == '') {
 		

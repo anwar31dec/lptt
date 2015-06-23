@@ -45,7 +45,7 @@ include_once ('language/lang_switcher.php');
 	                    </div>
 	                </div> 
 
-					<div class="form-group">
+					<div class="form-group"  style="<?php if($aUserProcess['eNewNo']=='REGISTRATION') echo 'display:block;'; else echo 'display:none;';?>">
 	                    <label class="control-label col-md-4" for="RegNo"><?php echo 'Registration No:'; ?></label>
 	                    <div class="col-md-8">
 	                        <input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNo" id="RegNo" data-required="true" placeholder="scan here..."/>
@@ -58,7 +58,7 @@ include_once ('language/lang_switcher.php');
 							<input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
 							<input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
 							<input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
-							<input type="hiidden" style="display:none;"name="bNewNo" id="bNewNo" value="<?php echo $aUserProcess['bNewNo']; ?>"/>
+							<input type="hiidden" style="display:none;"name="eNewNo" id="eNewNo" value="<?php echo $aUserProcess['eNewNo']; ?>"/>
 							<input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
 		                    <input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
 		                    <input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>

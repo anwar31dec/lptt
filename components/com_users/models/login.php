@@ -52,7 +52,7 @@ class UsersModelLogin extends JModelForm
 		// Check the session for previously entered login form data.
 		$app  = JFactory::getApplication();
 		$data = $app->getUserState('users.login.form.data', array());
-
+				
 		$input = $app->input;
 		$method = $input->getMethod();
 
@@ -76,7 +76,12 @@ class UsersModelLogin extends JModelForm
 
 		$this->preprocessData('com_users.login', $data);
 		
-		$data['return'] =JURI::base().'index.php/dashboard'; // by nayeem
+		//$user = JFactory::getUser();
+		
+		// print_r($user->groups);
+		// exit;
+		
+		$data['return'] = JURI::base().'index.php/tracking-time'; // by anwar
 		
 		return $data;
 	}

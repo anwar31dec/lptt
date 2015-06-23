@@ -646,7 +646,7 @@ echo ' var gCountries = JSON.parse(\'' . json_encode($output, JSON_HEX_APOS) . '
 
 $aColumns = array('ProcessId', 'ProcessName');
 
-$sQuery = "SELECT b.ProcessId, a.ProcessName, UsualDuration, ProcessOrder, `Position`, ParentProcessId, bNewNo
+$sQuery = "SELECT b.ProcessId, a.ProcessName, UsualDuration, ProcessOrder, `Position`, ParentProcessId, eNewNo
                                         FROM t_process_list a
                     INNER JOIN t_user_process_map b ON a.ProcessId = b.ProcessId
                     WHERE b.UserId = '$userName' 
