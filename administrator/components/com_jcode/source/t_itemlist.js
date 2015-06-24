@@ -79,7 +79,6 @@ function onConfirmWhenAddEdit() {
 		"success" : function(response) {
 			$msgType = JSON.parse(response)['msgType'];
 			$msg = JSON.parse(response)['msg'];
-			$msg = JSON.parse(response)['TrackingNo'];
 			if ($msgType == "success") {
 				
 			/* if(checkout == ''){

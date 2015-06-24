@@ -1454,63 +1454,65 @@ function insertUpdateProcessTracking($conn) {
 	$Position = $_POST['Position'];
 	
 	$holidays = array("2015-06-18","2015-06-19");
-
-	//echo $eNewNoPosition;
-	//exit;
-
+	
+	/* ============ START ================= */
+	/* 	
+		--PRE CHECKING--
+		No tracking number of all process after the registration number.	
+		Get tracking number of current process registration number from the
+		record of position of REGISTRATION or from other record already 
+		filled up by the tracking number that is the top record which has 
+		both tracking and registration number.
+		
+		Refill the tracking number that is empty from the client side, so the tracking number is always present.
+	*/
 	if ($RegNo > 0) {
 		$sql22 = "SELECT TrackingNo FROM t_process_tracking WHERE RegNo = '$RegNo' AND TrackingNo IS NOT NULL LIMIT 1;";
-
 		$result22 = mysql_query($sql22);
-
-		//echo $result22;
-		//exit;
-
 		if ($result22)
 			$aData22 = mysql_fetch_assoc($result22);
-
-		// var_dump($aData22);
-		// exit;
-
 		if ($aData22) {
-			$eTrackingNo = $aData22['TrackingNo'];
 			//Earlier stage tracking number because this process has no tracking number but we need the tracking number to link the next process
+			$eTrackingNo = $aData22['TrackingNo'];			
 		}
-
 		if (!$TrackingNo) {
+			// Replaced empty tracking number with tracking number that come from the earlier stage, the first one is the registration process
 			$TrackingNo = $eTrackingNo;
 		}
 	}
-
-	// echo $eTrackingNo ;
-	// exit;
-
+	/* ============ END ================= */
+	
+	/* ============ START ================= */
+	/* 	
+		--PRE CHECKING--
+		Check the tracking number already scanned by the user that was for START TIME
+		and check the out time is empty. This is use for the same text box from the client.
+		As tracking number is replaced by the tracking number of registration process so no need to keep track the
+		previous registration number, this tracking no will do the same that would do by the previous registration no
+		so responsibility replaced by the tracking number e.g $TrackingNo = $eTrackingNo; line no - 1479.
+		If the tracking no is already existed and scanned for second time out time must be empty if it is third time out time will have to it.
+	*/
+	
+	// $pTrackingNo is for the previous scanned tracking number
 	$pTrackingNo = '';
 	$pOutTime = '';
-	//$result = '';
 
-	$sql = "SELECT TrackingNo, RegNo, OutTime FROM t_process_tracking WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
-	//exit;
-
+	$sql = "SELECT TrackingNo, OutTime FROM t_process_tracking WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
 	$result = mysql_query($sql);
-
-	//echo $result;
-	//exit;
-
 	if ($result)
 		$aData = mysql_fetch_assoc($result);
-
-	//var_dump($aData);
-
+	
 	if ($aData) {
 		$pTrackingNo = $aData['TrackingNo'];
 		$pOutTime = $aData['OutTime'];
 	}
-
-	//var_dump($pOutTime);
-
-	//exit;
-
+	/* ============ END ================= */
+	
+	/* ============ START ================= */
+	/* 
+		Get previous process ID that is started but not finished with the second time scan.
+		This ID will do the update of the out time of previous process.
+	*/
 	$sql2 = "SELECT 
 	  t_process_tracking.ProTrackId 
 	FROM
@@ -1521,40 +1523,35 @@ function insertUpdateProcessTracking($conn) {
 		t_process_tracking.TrackingNo = '$TrackingNo' 
 		AND t_process_list.ProcessOrder = $PrevProcessOrder;";
 
-	// exit;
-
 	$result2 = mysql_query($sql2);
 	if ($result2)
 		$aData2 = mysql_fetch_assoc($result2);
-
-	//echo $aData2['ProTrackId'];
-	//exit;
 	$ProTrackId = '';
 	if ($aData2) {
 		$ProTrackId = $aData2['ProTrackId'];
-		//var_dump($ProTrackId);
 	}
+	/* ============ END ================= */
 	
-
+	/* Check the tracking/registration no already scanned. Variable ($pTrackingNo) is the same for
+	both tracking/registration for this alternation ($TrackingNo = $eTrackingNo). */
 	if ($pTrackingNo == '') {
-
+		/* Update the previous process that out time is empty */
 		if ($ProTrackId != '') {
 			$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = 120 WHERE TrackingNo = '$TrackingNo' AND ProTrackId = $ProTrackId;";
-			//echo $sql2;
-			//exit;
-
+			
 			$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
 
 			$aQuerys[] = $aQuery2;
 		}
-
+		/* Insert the current process */
 		$sql = "INSERT INTO t_process_tracking
             (TrackingNo, RegNo, ProcessId, InTime, EntryDate)
 			VALUES ('$TrackingNo', '$RegNo', $ProcessId, NOW(), Now());";
 
 		$aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
 		$aQuerys[] = $aQuery1;
-
+		
+		/* Update the previous process registration column those were empty until now as first 2 process use tracking no (inward no)*/
 		if ($eNewNoPosition == 'REGISTRATION') {
 			$sql3 = "UPDATE t_process_tracking
 				SET RegNo = '$RegNo'
@@ -1565,19 +1562,23 @@ function insertUpdateProcessTracking($conn) {
 
 		echo json_encode(exec_query($aQuerys, $jUserId, $language));
 		
-	} else if ($pTrackingNo != '' && $Position == 'END') {
-		
+	} else if ($pTrackingNo != '' && $Position == 'END' && $pOutTime == '') {
+		/* Update out time at the end of all processes */
 		$sql = "UPDATE t_process_tracking
-			SET OutTime = NOW(), ReadyForProOrder = $ReadyForProOrder
+			SET OutTime = NOW()
 			WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
 
 		$aQuery1 = array('command' => 'UPDATE', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => FALSE);
 		$aQuerys = array($aQuery1);
 		echo json_encode(exec_query($aQuerys, $jUserId, $language));
 		
-	} else if ($pTrackingNo != '' && $pOutTime != '') {
-		
-		echo json_encode(array('msgType' => 'success', 'msg' => 'This tracking no is already completed.'));
+	}else if ($pTrackingNo != '' && $Position != 'END') {
+		/* No stage can put out time until the last process */
+		echo json_encode(array('msgType' => 'success', 'msg' => '<span style="color:pink;"You have scanned already.</span>'));
+	}	
+	else if ($pTrackingNo != '' && $pOutTime != '' && $Position == 'END') {
+		/* The end process is done */
+		echo json_encode(array('msgType' => 'success', 'msg' => '<span style="color:yellow;">This job is already completed.</span>'));
 
 	}
 }
