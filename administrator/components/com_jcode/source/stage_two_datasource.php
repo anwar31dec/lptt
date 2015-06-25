@@ -1495,7 +1495,7 @@ function insertUpdateProcessTracking($conn) {
 	
 	// $pTrackingNo is for the previous scanned tracking number
 	$pTrackingNo = '';
-	$pOutTime = '';
+	$pOutTime = '';	
 
 	$sql = "SELECT TrackingNo, OutTime FROM t_process_tracking WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
 	$result = mysql_query($sql);
@@ -1503,7 +1503,7 @@ function insertUpdateProcessTracking($conn) {
 		$aData = mysql_fetch_assoc($result);
 	
 	if ($aData) {
-		$pTrackingNo = $aData['TrackingNo'];
+		$pTrackingNo = $aData['TrackingNo'];		
 		$pOutTime = $aData['OutTime'];
 	}
 	/* ============ END ================= */
@@ -1513,8 +1513,9 @@ function insertUpdateProcessTracking($conn) {
 		Get previous process ID that is started but not finished with the second time scan.
 		This ID will do the update of the out time of previous process.
 	*/
+		
 	$sql2 = "SELECT 
-	  t_process_tracking.ProTrackId 
+	  t_process_tracking.ProTrackId, t_process_tracking.InTime
 	FROM
 	  t_process_tracking 
 	  INNER JOIN t_process_list 
@@ -1526,18 +1527,54 @@ function insertUpdateProcessTracking($conn) {
 	$result2 = mysql_query($sql2);
 	if ($result2)
 		$aData2 = mysql_fetch_assoc($result2);
+	
 	$ProTrackId = '';
+	$pInTime = '';
+	
 	if ($aData2) {
 		$ProTrackId = $aData2['ProTrackId'];
+		$pInTime = $aData2['InTime'];
+		//var_dump($pInTime);
+		//exit;
 	}
 	/* ============ END ================= */
 	
+	date_default_timezone_set("Asia/Dhaka");
+	$duration = 0;	
+	$txtDuration = '';
+	//var_dump($pInTime);
+	//exit;
+	
+	if($pInTime){
+		
+		$now = new DateTime(date('Y-m-d H:i:s'));
+		$vInTime = new DateTime($pInTime);
+		$diff = $now->diff($vInTime);
+		//echo $diff->d;
+		//exit;
+		$duration = $diff->d*24*60 + $diff->h*60 + $diff->i;
+		
+		if($diff->d)
+			$txtDuration = $diff->d . " Days ";
+		else if($diff->h)
+			$txtDuration .= $diff->h . " Hours ";
+		else if($diff->i)
+			$txtDuration .= $diff->i." Minutes";
+	}
+	//echo $duration;
+			//exit;
+
 	/* Check the tracking/registration no already scanned. Variable ($pTrackingNo) is the same for
 	both tracking/registration for this alternation ($TrackingNo = $eTrackingNo). */
 	if ($pTrackingNo == '') {
 		/* Update the previous process that out time is empty */
+		// echo $pTrackingNo;
+			// exit;
 		if ($ProTrackId != '') {
-			$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = 120 WHERE TrackingNo = '$TrackingNo' AND ProTrackId = $ProTrackId;";
+			// echo $duration;
+			// exit;
+	
+			$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration' WHERE TrackingNo = '$TrackingNo' AND ProTrackId = $ProTrackId;";
 			
 			$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
 
