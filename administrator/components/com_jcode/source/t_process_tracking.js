@@ -83,7 +83,7 @@ function onConfirmWhenAddEdit() {
 			}
 			$("#TrackingNo").val("");
 			$("#RegNo").val("");
-			$("#TrackingNo").prop('disabled', false);
+			//$("#TrackingNo").prop('disabled', false);
 		}
 	});
 }
@@ -496,6 +496,14 @@ $(function() {
         var code = (e.keyCode ? e.keyCode : e.which);
         if(code == 13)// Enter key hit
         {
+			//alert($("#TrackingNo").val().length);
+			if(parseInt($("#TrackingNo").val().length)> 15){
+				alert('Your input length is greater than the actual.');
+				$("#TrackingNo").val('');
+				$("#TrackingNo").focus();
+				return;				
+			}
+				
 			
 			if($("#TrackingNo").val()==$("#RegNo").val()){
 				alert('Inward no and Registration can not be same.');
@@ -515,7 +523,7 @@ $(function() {
             //console.log(code);
 			//console.log($("#TrackingNo").val());
 			//$("#TrackingNo").val('');
-			$("#TrackingNo").prop('disabled', true);
+			//$("#TrackingNo").prop('disabled', true);
 			onConfirmWhenAddEdit();
         }
         else if(code==9)// Tab key hit
@@ -532,6 +540,15 @@ $(function() {
         var code = (e.keyCode ? e.keyCode : e.which);
         if(code == 13)// Enter key hit
         {
+			//alert($("#RegNo").val().length);
+			if(parseInt($("#RegNo").val().length)> 12){
+				alert('Your input length is greater than the actual.');
+				$("#TrackingNo").val('');
+				$("#RegNo").val('');
+				//$("#TrackingNo").focus();
+				return;				
+			}
+			
 			if($("#TrackingNo").val()==$("#RegNo").val()){
 				alert('Inward no and Registration can not be same.');
 				$("#TrackingNo").val('');

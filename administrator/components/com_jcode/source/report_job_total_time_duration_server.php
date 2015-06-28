@@ -609,16 +609,6 @@ if ($num_rows) {
  echo ',"COLUMNS":' . json_encode($aColumns) . '}';
 }
 
-function convertToHoursMins($time, $format = '%d:%d') {
-    settype($time, 'integer');
-    if ($time < 1) {
-        return;
-    }
-	$time = floor($time / 60);//Seconds to minutes
-    $hours = floor($time / 60);
-    $minutes = ($time % 60);
-    return sprintf($format, $hours, $minutes);
-}
 ?>
 
 
