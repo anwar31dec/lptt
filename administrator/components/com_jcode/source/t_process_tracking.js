@@ -83,6 +83,7 @@ function onConfirmWhenAddEdit() {
 			}
 			$("#TrackingNo").val("");
 			$("#RegNo").val("");
+			$("#TrackingNo").prop('disabled', false);
 		}
 	});
 }
@@ -514,6 +515,7 @@ $(function() {
             //console.log(code);
 			//console.log($("#TrackingNo").val());
 			//$("#TrackingNo").val('');
+			$("#TrackingNo").prop('disabled', true);
 			onConfirmWhenAddEdit();
         }
         else if(code==9)// Tab key hit

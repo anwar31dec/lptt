@@ -28,17 +28,6 @@ switch ($task) {
         break;
 }
 
-function convertToHoursMins($time, $format = '%d:%d') {
-    settype($time, 'integer');
-    if ($time < 1) {
-        return;
-    }
-	$time = floor($time / 60);//Seconds to minutes
-    $hours = floor($time / 60);
-    $minutes = ($time % 60);
-    return sprintf($format, $hours, $minutes);
-}
-
 function getProcessTrackingData($conn) {
 
     global $gTEXT;
@@ -400,6 +389,8 @@ function insertUpdateProcessTracking($conn) {
 		$diff = $timeStampNow - $timeStampInTime;
 	
 		$duration = $diff - ($countNwdDays * 86400);
+		
+		$txtDuration = convertToHoursMins($duration, '%02d hours %02d minutes'); 
 	} 
 
 	/* ============ END ================= */
@@ -416,7 +407,7 @@ function insertUpdateProcessTracking($conn) {
 			// echo $duration;
 			// exit;
 	
-			$sql2 = "UPDATE t_process_tracking SET TrackingNo = '$TrackingNo', OutTime = NOW(), Duration = $duration, TxtDuration = '$duration' WHERE TrackingNo = '$TrackingNo' AND ProTrackId = $ProTrackId;";
+			$sql2 = "UPDATE t_process_tracking SET TrackingNo = '$TrackingNo', OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration' WHERE TrackingNo = '$TrackingNo' AND ProTrackId = $ProTrackId;";
 			
 			$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
 
@@ -444,7 +435,7 @@ function insertUpdateProcessTracking($conn) {
 	} else if ($pTrackingNo != '' && $Position == 'END' && $pOutTime == '') {
 		/* Update out time at the end of all processes */
 		$sql = "UPDATE t_process_tracking
-			SET OutTime = NOW(), duration = $duration, TxtDuration = $duration
+			SET OutTime = NOW(), duration = $duration, TxtDuration = '$txtDuration'
 			WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
 
 		$aQuery1 = array('command' => 'UPDATE', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => FALSE);

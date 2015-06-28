@@ -379,6 +379,17 @@ function get_client_ip() {
 	return $ipaddress;
 }
 
+function convertToHoursMins($time, $format = '%d:%d') {
+    settype($time, 'integer');
+    if ($time < 1) {
+        return;
+    }
+	$time = floor($time / 60);//Seconds to minutes
+    $hours = floor($time / 60);
+    $minutes = ($time % 60);
+    return sprintf($format, $hours, $minutes);
+}
+
 // function exec_query($aQuerys, $jUserId = 'Admin', $sLang = 'en-GB', $bSqlLog = TRUE, $bTableLog = FALSE, $bRetData = FALSE, $bEcho = FALSE) {
 // 
     // include('language/lang_en_msg.php');
