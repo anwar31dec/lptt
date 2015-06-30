@@ -1,14 +1,10 @@
 <?php
-include ("define.inc");
-$conn = mysql_connect(HOSTNAME, DBUSER, DBPWD) or die('Could not connect: ' . mysql_error());
-mysql_select_db(DBNAME, $conn) or die('Could not connect: ' . mysql_error());
-mysql_query('SET CHARACTER SET utf8');
+include_once ('database_conn.php');
+include_once ("function_lib.php");
 
 include('language/lang_en.php');
 include('language/lang_fr.php');
 include('language/lang_switcher_report.php');
-include_once ("function_lib.php");
-//include_once ("working_days.php");
 
 mysql_query('SET CHARACTER SET utf8');
 
@@ -464,12 +460,12 @@ function getDiffLevelTableData() {
    
 	$DistrictId = ctype_digit($_POST['DistrictId'])? $_POST['DistrictId'] : '';
 
-	$StartMonthId = isset($_POST['StartMonthId']) ? $_POST['StartMonthId'] : '';
-	$StartYearId = isset($_POST['StartYearId']) ? $_POST['StartYearId'] : '';
-	$EndMonthId = isset($_POST['EndMonthId']) ? $_POST['EndMonthId'] : '';
-	$EndYearId = isset($_POST['EndYearId']) ? $_POST['EndYearId'] : '';
-	$MonthNumber = isset($_POST['MonthNumber']) ? $_POST['MonthNumber'] : 0;
-
+	$MonthId = isset($_POST['MonthId']) ? $_POST['MonthId'] : '';
+	$YearId = isset($_POST['YearId']) ? $_POST['YearId'] : '';
+	
+	$StartDate = $YearId . '-' . $MonthId . '-01';
+	$EndDate = $YearId . '-' . $MonthId . '-30';
+	
 	$currentYearMonth = $_POST['EndYearId'] . "-" . $_POST['EndMonthId'] . "-" . "01";
 	$Endtdate = date("Y-m-t", strtotime($currentYearMonth));
 
@@ -529,15 +525,14 @@ $tmpItemName = '';
 $tmpUnitName = '';
 $sl = 0;
 
-
 $sQuery = "SELECT 
 				  t_process_tracking.RegNo TrackingNo, t_process_tracking.ProcessId, t_process_list.ProcessName, t_process_list.ProcessOrder, t_process_tracking.InTime, t_process_tracking.OutTime,  Duration
 				FROM
 				  t_process_tracking 
 				  INNER JOIN t_process_list 
 					ON t_process_tracking.ProcessId = t_process_list.ProcessId 
-				WHERE EntryDate >= '2014-01-01' 
-				  AND EntryDate <= '2015-06-31' 
+				WHERE EntryDate >= '$StartDate' 
+				  AND EntryDate <= '$EndDate' 
 				ORDER BY t_process_tracking.TrackingNo, t_process_list.ProcessOrder;";
 	
 	
@@ -588,9 +583,10 @@ if ($rResult) {
 	}
 }
 
-//print_r($aaData);
 
-$num_rows = mysql_num_rows($result);
+
+$num_rows = mysql_num_rows($rResult);
+//var_dump($num_rows);
 if ($num_rows) {
 	//print_r(array_values($row));
 	// get the last row that is skipped in the above loop
@@ -598,6 +594,7 @@ if ($num_rows) {
 	$tmpRow = array_values($row);
 	array_unshift($tmpRow, ++$sl, $tmpFacilityName);
 	$aaData[] = $tmpRow;
+	//print_r($aaData);
 }
 
 //$clmMonthYear = array_values($aMonthYear);

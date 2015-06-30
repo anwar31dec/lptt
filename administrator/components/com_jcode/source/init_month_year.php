@@ -1,7 +1,7 @@
 <?php
-date_default_timezone_set('UTC');
+date_default_timezone_set("Asia/Dhaka");
 
-$lastYearMonth = date("Y-m-d", strtotime(date("Y-m-d") . "-1 month"));
+$lastYearMonth = date("Y-m-d", strtotime(date("Y-m-d")));
 
 $lastYearMonthArray = explode("-", $lastYearMonth);
 $lastYear = intval($lastYearMonthArray[0]);

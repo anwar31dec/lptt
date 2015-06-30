@@ -14,7 +14,7 @@ var lan='<?php echo $lan;?>';
 	include_once ('database_conn.php');
 	include_once ('init_month_year.php');
 	include_once ('function_lib.php');
-	//include_once ('combo_script.php');
+	include_once ('combo_script.php');
 	include_once ('language/lang_en.php');
 	include_once ('language/lang_fr.php');
 	include_once ('language/lang_switcher.php');
@@ -23,6 +23,7 @@ var lan='<?php echo $lan;?>';
 <script type="text/javascript">
 	var vLang = '<?php echo $vLang; ?>';
 </script>
+
 
 
 <div class="container">
@@ -56,12 +57,12 @@ var lan='<?php echo $lan;?>';
 			</div>
 	
 			<div class="panel-heading clearfix">
-				<?php echo 'Lab process time tracking report'; ?>
+				<?php echo 'Job Total Time Duration'; ?>
 				<span class="pull-right">
 						<label>					
 						<a id="PrintBTN" data-mce-href="#" class="but_print" href="javascript:void(0);" onclick="print_function('print')"><i data-mce-bootstrap="1" class="fa fa-print fa-lg">&nbsp;</i> <?php echo $TEXT['Print']; ?></a>
 						<a id="PrintBTN1" data-mce-href="#" class="but_excel" href="javascript:void(0);" onclick="print_function('excel')"><i data-mce-bootstrap="1" class="fa fa-file-excel-o fa-lg">&nbsp;</i> <?php echo $TEXT['Excel']; ?></a>
-						<a id="PDFBTN" data-mce-href="#" class="but_pdf" href="javascript:void(0);" onclick="print_function('pdf')"><i data-mce-bootstrap="1" class="fa fa-file-pdf-o fa-lg">&nbsp;</i> <?php echo $TEXT['PDF']; ?></a>
+						<a style="display:none;" id="PDFBTN" data-mce-href="#" class="but_pdf" href="javascript:void(0);" onclick="print_function('pdf')"><i data-mce-bootstrap="1" class="fa fa-file-pdf-o fa-lg">&nbsp;</i> <?php echo $TEXT['PDF']; ?></a>
 					</label>
 				</span>
 			</div>
@@ -87,10 +88,10 @@ function print_function(type){
 	var tableId = 'tbl-patient-trend-time-series';
 	var reportHeaderList = new Array();
 	var dataAlignment = new Array();
-	var chart = 1;
-	var reportSaveName = 'Stock_Status_at_Different_Levels'; //Not allow any type of special character of cahrtName
+	var chart = 0;
+	var reportSaveName = 'Job_Total_Time_Duration'; //Not allow any type of special character of cahrtName
 	
-	var reportHeaderName = TEXT['Stock Status at Different Levels Report'];
+	var reportHeaderName = 'Job Total Time Duration';
 	reportHeaderList[0] = reportHeaderName;
 	reportHeaderList[1] = $('#country-list option[value='+$('#country-list').val()+']').text()+' - ' + $('#item-group option[value='+$('#item-group').val()+']').text()+ ' - ' + $('#report-by option[value='+$('#report-by').val()+']').text();
 

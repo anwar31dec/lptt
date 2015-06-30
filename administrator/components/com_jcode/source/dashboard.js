@@ -10,14 +10,14 @@ var patientTrendTimeSeries;
 var $ = jQuery.noConflict();
 
 
-function onPatientTrendTable() {
+function onPatientTrendTable_Old() {
 	$('body').animate({
 		opacity : 1
 	}, 500, function() {
 
 	$.ajax({
 		type : "POST",
-		url : baseUrl + "report_job_total_time_duration_server.php",
+		url : baseUrl + "dashboard_server.php",
 		data : {
 			action : 'getDiffLevelTableData',
 			YearId: $('#year-list').val(),
@@ -35,9 +35,7 @@ function onPatientTrendTable() {
 		
 	if(ColumnNo == 0){
 		html += '<tr><th style="text-align:center; width:5%;">SL#</th><th rowspan="2" style="text-align:center; width:10%;">Tracking#</th>';
-		html += '<th  style="text-align:center; width:10%;">National Level AMC</th>';
-		html += '<th style="text-align:center; width:10%;">National Level SOH</th>';	
-		html += '<th style="text-align:center; width:10%;">National Level MOS</th></tr>'
+		
 	}
 	else{		
 		html += '<tr><th rowspan="2" style="text-align:center; width:5%;">SL#</th>';
@@ -94,7 +92,7 @@ patientTrendTimeSeries = $('#tbl-patient-trend-time-series').dataTable({
 	"sPaginationType" : "full_numbers",
 	"aLengthMenu" : [[25, 50, 100], [25, 50, 100]],
 	"iDisplayLength" : 25,
-	"sAjaxSource": baseUrl + "report_job_total_time_duration_server.php",
+	"sAjaxSource": baseUrl + "dashboard_server.php",
 	"fnDrawCallback": function(oSettings) {			
 	
 	},
@@ -136,6 +134,98 @@ patientTrendTimeSeries = $('#tbl-patient-trend-time-series').dataTable({
 	 }
 	});
   });
+}
+
+function getJobCountInAllProcess() {
+
+	$('#tbl-pf').html('');
+	html = '<table class="table table-hover table-striped" id="tblJobCountInAllProcess">';
+	html += '<thead></thead>';
+	html += '<tbody></tbody>';
+	html += '</table>';
+	$('#tbl-pf').html(html);
+
+	$('body').animate({
+		opacity : 1
+	}, 500, function() {
+
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : baseUrl + "dashboard_server.php",
+			data : {
+				"operation" : 'getJobCountInAllProcess',
+				"MosTypeId" : gMosTypeId,
+				"CountryId" : gCountryId,
+				"lan" : lan
+			},
+			success : function(oColumns) {
+				
+				getLegendMos();
+
+		tblJobCountInAllProcess = $('#tblJobCountInAllProcess').dataTable({
+					"bFilter" : false,
+					"bJQueryUI" : true,
+					"bSort" : false,
+					"bInfo" : false,
+					"bPaginate" : false,
+					"bSortClasses" : false,
+					"bProcessing" : true,
+					"bServerSide" : true,
+					"sPaginationType" : "full_numbers",
+					"sAjaxSource" : baseUrl + "dashboard_server.php",
+					"fnDrawCallback" : function(oSettings) {
+					},
+					"fnServerData" : function(sSource, aoData, fnCallback) {
+						aoData.push({
+							"name" : "operation",
+							"value" : 'getJobCountInAllProcess'
+						});
+
+						aoData.push({
+							"name" : "lan",
+							"value" : lan
+						});
+						aoData.push({
+							"name" : "baseUrl",
+							"value" : baseUrl
+						});
+
+						aoData.push({
+							"name" : "MonthId",
+							"value" : gMonthId
+						});
+						aoData.push({
+							"name" : "YearId",
+							"value" : gYearId
+						});
+						aoData.push({
+							"name" : "CountryId",
+							"value" : gCountryId
+						});
+						aoData.push({
+							"name" : "ItemGroupId",
+							"value" : gItemGroupId
+						});
+						aoData.push({
+							"name" : "MosTypeId",
+							"value" : gMosTypeId
+						});
+						$.ajax({
+							"dataType" : 'json',
+							"type" : "POST",
+							"url" : sSource,
+							"data" : aoData,
+							"success" : function(json) {
+								fnCallback(json);
+							}
+						});
+					},
+					"aoColumns" : oColumns
+				});
+			}
+		});
+	});
 }
 
 
