@@ -154,31 +154,35 @@ function getJobCountInAllProcess() {
 			dataType : "json",
 			url : baseUrl + "dashboard_server.php",
 			data : {
-				"operation" : 'getJobCountInAllProcess',
-				"MosTypeId" : gMosTypeId,
-				"CountryId" : gCountryId,
+				"action" : 'getProcessColumns',
+				"MosTypeId" : 'gMosTypeId',
+				"CountryId" : 'gCountryId',
 				"lan" : lan
 			},
 			success : function(oColumns) {
 				
-				getLegendMos();
+				//getLegendMos();
+				
+			//console.log(oColumns.COLUMNS);
 
 		tblJobCountInAllProcess = $('#tblJobCountInAllProcess').dataTable({
-					"bFilter" : false,
-					"bJQueryUI" : true,
-					"bSort" : false,
-					"bInfo" : false,
-					"bPaginate" : false,
+					"bFilter" : true,		
+					"bSort" : true,
+					"bInfo" : true,
+					"bPaginate" : true,
 					"bSortClasses" : false,
 					"bProcessing" : true,
 					"bServerSide" : true,
+					"aaSorting" : [[9, 'asc'], [2, 'asc']],
+					"aLengthMenu" : [[25, 50, 100], [25, 50, 100]],
+					"iDisplayLength" : 25,
 					"sPaginationType" : "full_numbers",
 					"sAjaxSource" : baseUrl + "dashboard_server.php",
 					"fnDrawCallback" : function(oSettings) {
 					},
 					"fnServerData" : function(sSource, aoData, fnCallback) {
 						aoData.push({
-							"name" : "operation",
+							"name" : "action",
 							"value" : 'getJobCountInAllProcess'
 						});
 
@@ -201,15 +205,15 @@ function getJobCountInAllProcess() {
 						});
 						aoData.push({
 							"name" : "CountryId",
-							"value" : gCountryId
+							"value" : 'gCountryId'
 						});
 						aoData.push({
 							"name" : "ItemGroupId",
-							"value" : gItemGroupId
+							"value" : 'gItemGroupId'
 						});
 						aoData.push({
 							"name" : "MosTypeId",
-							"value" : gMosTypeId
+							"value" : 'gMosTypeId'
 						});
 						$.ajax({
 							"dataType" : 'json',
@@ -302,5 +306,5 @@ $(function() {
     });
 
 	
-	onPatientTrendTable();	
+	getJobCountInAllProcess();	
 });

@@ -322,7 +322,7 @@ ajaxRequest.send("jBaseUrl=localhost&lan="+lan+"&reportSaveName="+reportSaveName
 
 
 <style>
-.SL{
+/* .SL{
     text-align: center !important;
 }
 .amc, .soh, .mos{
@@ -349,11 +349,6 @@ text-align : center !important;
     padding-right: 0px !important;
 }
 
-
-
-
-
-
 #tbl-patient-trend-time-series  tr  th {
 vertical-align: middle !important;
 }
@@ -378,14 +373,20 @@ border: 1px solid #e4e4e4 !important;
 table.dataTable thead th .DataTables_sort_wrapper span.ui-icon-carat-2-n-s:before{
 content: '' !important ;
 }
-</style>
+ */
+ 
+#tbl-patient-trend-time-series th{
+border: 1px solid #e4e4e4 !important;
+
+}
+ 
+ </style>
 <script src="<?php echo $baseUrl; ?>lib/fnc-lib.js" type="text/javascript"></script>
+
 <link href="<?php echo $baseUrl; ?>media/datatable-bootstrap/dataTables.bootstrap.css" rel="stylesheet"/>
 <link href="<?php echo $baseUrl; ?>css/jquery.dataTables.custom.css" rel="stylesheet"/>
 <script src='<?php echo $baseUrl; ?>media/datatable/js/jquery.dataTables.min.js'></script>
-<script src='<?php echo $baseUrl; ?>media/highcharts/highcharts.js'></script>
 <script src='<?php echo $baseUrl; ?>media/datatable-bootstrap/dataTables.bootstrap.min.js'></script>
-<script src='<?php echo $baseUrl; ?>media/datatable/extensions/FixedColumns/js/dataTables.fixedColumns.js'></script>
 
 
 <script src='<?php echo $baseUrl; ?>report_job_total_time_duration.js'></script>

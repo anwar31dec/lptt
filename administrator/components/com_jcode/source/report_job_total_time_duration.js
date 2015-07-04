@@ -35,9 +35,9 @@ function onPatientTrendTable() {
 		
 	if(ColumnNo == 0){
 		html += '<tr><th style="text-align:center; width:5%;">SL#</th><th rowspan="2" style="text-align:center; width:10%;">Tracking#</th>';
-		html += '<th  style="text-align:center; width:10%;">National Level AMC</th>';
-		html += '<th style="text-align:center; width:10%;">National Level SOH</th>';	
-		html += '<th style="text-align:center; width:10%;">National Level MOS</th></tr>'
+		html += '<th  style="text-align:center; width:10%;">In Time</th>';
+		html += '<th style="text-align:center; width:10%;">Out Time</th>';	
+		html += '<th style="text-align:center; width:10%;">Duration</th></tr>'
 	}
 	else{		
 		html += '<tr><th rowspan="2" style="text-align:center; width:5%;">SL#</th>';
@@ -52,7 +52,7 @@ function onPatientTrendTable() {
 		}
 		
 		var index = 0;
-		html += '<th rowspan="2" style="text-align:center; width:10%;">Total Time</th>';
+		html += '<th rowspan="2" style="text-align:center;">Total Time</th>';
 		html += '</tr><tr>'
 			for (var i = 0; i < ColumnNo; i++) {
 				index++;
@@ -69,7 +69,7 @@ function onPatientTrendTable() {
 		}		
 		html += '</tr>'	
 	}
-	
+ 	
 	
 	html += '</thead>';
 	html += '<tbody></tbody>';

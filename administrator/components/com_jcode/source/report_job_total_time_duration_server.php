@@ -526,7 +526,7 @@ $tmpUnitName = '';
 $sl = 0;
 
 $sQuery = "SELECT 
-				  t_process_tracking.RegNo TrackingNo, t_process_tracking.ProcessId, t_process_list.ProcessName, t_process_list.ProcessOrder, t_process_tracking.InTime, t_process_tracking.OutTime,  Duration
+				  t_process_tracking.TrackingNo, t_process_tracking.ProcessId, t_process_list.ProcessName, t_process_list.ProcessOrder, t_process_tracking.InTime, t_process_tracking.OutTime,  Duration
 				FROM
 				  t_process_tracking 
 				  INNER JOIN t_process_list 
