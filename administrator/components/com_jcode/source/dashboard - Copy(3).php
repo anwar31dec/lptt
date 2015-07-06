@@ -24,48 +24,63 @@ var lan='<?php echo $lan;?>';
 	var vLang = '<?php echo $vLang; ?>';
 </script>
 
-<div class="nav-data">
-	<div class="row">				
-		<div class="col-md-6 col-padding">					
-			<div class="tbl-header1" id="itemTable_length1">
-				<center> 							
-					<table id="month-year">
-						<tbody>
-							<tr>
-								<td valign="middle" align="right">
-								<button class="btn btn-info" type="button" id="left-arrow"><span class="fa fa-arrow-left fntC"> </span></button></td>
-								<td>&nbsp;&nbsp;</td><td valign="middle" align="left"><select class="form-control" id="month-list"></select></td>
-								<td>&nbsp;&nbsp;</td><td valign="middle" align="left"><select class="form-control" id="year-list"></select></td>
-								<td>&nbsp;&nbsp;</td><td width="" valign="middle" align="left">
-								<button class="btn btn-info" type="button" id="right-arrow"><span class="fa fa-arrow-right fntC"></span></button></td>
-							</tr>
-						</tbody>
-					</table>
-				</center> 
+
+
+<div class="container">
+	<div class="content_fullwidth lessmar">
+		<div class="azp_col-md-12 one_full">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-sx-12">
+					<div class="panel panel-default">
+						<div class="panel-body">		
+								<div class="row">
+									<div class="col-md-12 col-sm-12 col-sx-12">	
+										<center> 							
+											<table id="month-year">
+												<tbody>
+													<tr>
+														<td valign="middle" align="right">
+														<button class="btn btn-info" type="button" id="left-arrow"><span class="fa fa-arrow-left fntC"> </span></button></td>
+														<td>&nbsp;&nbsp;</td><td valign="middle" align="left"><select class="form-control" id="month-list"></select></td>
+														<td>&nbsp;&nbsp;</td><td valign="middle" align="left"><select class="form-control" id="year-list"></select></td>
+														<td>&nbsp;&nbsp;</td><td width="" valign="middle" align="left">
+														<button class="btn btn-info" type="button" id="right-arrow"><span class="fa fa-arrow-right fntC"></span></button></td>
+													</tr>
+												</tbody>
+											</table>
+										</center> 								
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="col-md-6 col-padding">
-			<div class="tbl-header1 pull-right">
-				<label>		
-					<a id="PrintBTN" data-mce-href="#" class="but_print" href="javascript:void(0);" onclick="print_function('print')"><i data-mce-bootstrap="1" class="fa fa-print fa-lg">&nbsp;</i> <?php echo $TEXT['Print']; ?></a>
-					<a id="PrintBTN1" data-mce-href="#" class="but_excel" href="javascript:void(0);" onclick="print_function('excel')"><i data-mce-bootstrap="1" class="fa fa-file-excel-o fa-lg">&nbsp;</i> <?php echo $TEXT['Excel']; ?></a>
-				</label>
+	
+			<div class="panel-heading clearfix">
+				<?php echo 'Job Total Time Duration'; ?>
+				<span class="pull-right">
+						<label>					
+						<a id="PrintBTN" data-mce-href="#" class="but_print" href="javascript:void(0);" onclick="print_function('print')"><i data-mce-bootstrap="1" class="fa fa-print fa-lg">&nbsp;</i> <?php echo $TEXT['Print']; ?></a>
+						<a id="PrintBTN1" data-mce-href="#" class="but_excel" href="javascript:void(0);" onclick="print_function('excel')"><i data-mce-bootstrap="1" class="fa fa-file-excel-o fa-lg">&nbsp;</i> <?php echo $TEXT['Excel']; ?></a>
+						<a style="display:none;" id="PDFBTN" data-mce-href="#" class="but_pdf" href="javascript:void(0);" onclick="print_function('pdf')"><i data-mce-bootstrap="1" class="fa fa-file-pdf-o fa-lg">&nbsp;</i> <?php echo $TEXT['PDF']; ?></a>
+					</label>
+				</span>
 			</div>
-		</div>
+			
+			<div class="panel-body">
+			<!--style="overflow-x: scroll;overflow-y: scroll;height:600px;" -->
+				<div id="tbl-pf" style="overflow-x: scroll;">
+					 <table  id="tblJobCountInAllProcess" class="table table-striped table-bordered display table-hover" cellspacing="0">
+                   <thead></thead>
+				   <tbody></tbody>
+                </table>	
+				
+				</div>
+			</div>
+			
+		</div>		
 	</div>
 </div>
-
-<div class="row"> 
-	<div class="col-md-12">
-		<div id="tbl-pf" style="overflow-x: scroll;">
-			<table  id="tblJobCountInAllProcess" class="table table-striped table-bordered display table-hover" cellspacing="0">
-			   <thead></thead>
-			   <tbody></tbody>
-			</table>				
-		</div>				
-	</div>			
-</div>
-		
 
 <script>
 function print_function(type){

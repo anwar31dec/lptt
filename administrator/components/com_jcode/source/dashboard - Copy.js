@@ -7,7 +7,6 @@ var endDate = new Date();
 var chart;
 var gFrequencyId=1;
 var patientTrendTimeSeries;
-var tblProcessCount;
 var $ = jQuery.noConflict();
 
 
@@ -305,81 +304,7 @@ $(function() {
         //getReportGeneratePercentage();
 		onPatientTrendTable();
     });
-	
-	tblProcessCount = $('#tblProcessCount').dataTable({
-        "bFilter": false,
-        "bJQueryUI": false,
-        "bSort": false,
-        "bInfo": false,
-        "bPaginate": false,
-        "bSortClasses": false,
-        "bProcessing": true,
-        "bServerSide": true,
-        "aaSorting": [[0, 'asc']],
-        "sPaginationType": "full_numbers",
-        "aLengthMenu": [[25, 50, 100], [25, 50, 100]],
-        "iDisplayLength": 25,
-        "sAjaxSource": baseUrl + "dashboard_server.php",
-        "fnServerData": function(sSource, aoData, fnCallback) {
-            aoData.push({
-                "name": "action",
-                "value": "getProcessCount"
-            });
-            aoData.push({
-                "name": "lan",
-                "value": lan
-            });
-            aoData.push({
-                "name": "baseUrl",
-                "value": baseUrl
-            });
-            aoData.push({
-                "name": "Year",
-                "value": $('#year-list').val()
-            });
-            aoData.push({
-                "name": "Month",
-                "value": $('#month-list').val()
-            });
-            aoData.push({
-                "name": "Country",
-                "value": $('#country-list').val()
-            });
-            aoData.push({
-                "name": "ItemGroup",
-                "value": $('#item-group').val()
-            });
-            aoData.push({
-                "name": "Reportby",
-                "value": $('#report-by').val()
-            });
 
-            $.ajax({
-                "dataType": 'json',
-                "type": "POST",
-                "url": sSource,
-                "data": aoData,
-                "success": function(json) {
-                    fnCallback(json);
-                }
-            });
-        },
-        "aoColumns": [{
-                "bVisible": true,
-                "bSortable": false,
-                "sWidth": "5%"
-            }, {
-                "sWidth": "25%"
-            }, {
-                "sWidth": "14%",
-                "sClass": "right-aln",
-                "bVisible": true
-            }, {
-                "sWidth": "14%",
-                "sClass": "right-aln",
-                "bVisible": false
-            }]
-    });
 	
-	//getJobCountInAllProcess();	
+	getJobCountInAllProcess();	
 });

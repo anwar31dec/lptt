@@ -24,9 +24,6 @@ switch ($task) {
     case 'getJobCountInAllProcess' :
         getJobCountInAllProcess();
         break;
-	case 'getProcessCount' :
-        getProcessCount();
-        break;
     default :
         echo "{failure:true}";
         break;
@@ -159,45 +156,6 @@ $aaData[] = $tmpRow;
 
  echo '{"sEcho": ' . intval($sEcho) . ', "iTotalRecords":"10","iTotalDisplayRecords": "10", "aaData":' . json_encode($aaData) . '';
  echo ',"COLUMNS":' . json_encode($aColumns) . '}';
-}
-
-function getProcessCount(){
-	$sQuery = "SELECT
-				SQL_CALC_FOUND_ROWS t_process_list.ProcessOrder, t_process_list.ProcessName, COUNT(*) Total, t_process_tracking.ProcessId
-			FROM
-				t_process_tracking
-				LEFT JOIN t_process_list 
-					ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
-			WHERE OutTime IS NULL AND EntryDate BETWEEN '2015-06-01' AND '2015-07-03'
-			GROUP BY t_process_tracking.ProcessId
-			ORDER BY t_process_list.ProcessOrder;";	
-	
-	$rResult = mysql_query($sQuery);
-	
-	//$rows = array();
-	//$sOutput .= '"aaData": [ ';
-	if ($rResult) {
-		$sQuery = "SELECT FOUND_ROWS()";
-		$rResultFilterTotal = mysql_query($sQuery);
-		$aResultFilterTotal = mysql_fetch_array($rResultFilterTotal);
-		$iFilteredTotal = $aResultFilterTotal[0];
-
-		$sOutput = '{';
-		$sOutput .= '"sEcho": ' . intval($_POST['sEcho']) . ', ';
-		$sOutput .= '"iTotalRecords": ' . $iFilteredTotal . ', ';
-		$sOutput .= '"iTotalDisplayRecords": ' . $iFilteredTotal . ', ';
-		$sOutput .= '"aaData":[';
-		while ($aRow = mysql_fetch_assoc($rResult)) {
-			$sOutput .= "[";
-			$sOutput .= '"' . $aRow['ProcessOrder'] . '",';
-			$sOutput .= '"' . $aRow['ProcessName'] . '",';
-			$sOutput .= '"' . number_format($aRow['Total']) . '",';
-			$sOutput .= '"' . $aRow['ProcessId'] . '",';
-			$sOutput .= "]";		
-		}
-	}
-	$sOutput .= ']}';
-	echo $sOutput;
 }
 
 ?>

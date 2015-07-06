@@ -57,12 +57,17 @@ var lan='<?php echo $lan;?>';
 
 <div class="row"> 
 	<div class="col-md-12">
-		<div id="tbl-pf" style="overflow-x: scroll;">
-			<table  id="tblJobCountInAllProcess" class="table table-striped table-bordered display table-hover" cellspacing="0">
-			   <thead></thead>
-			   <tbody></tbody>
-			</table>				
-		</div>				
+		<table  id="tblProcessCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
+							<thead>
+								<tr>
+									<th style="width:10%">SL.</th>
+									<th style="width:10%"><?php echo 'Process Name'; ?></th>
+									<th style="width:10%"><?php echo 'Total'; ?></th>
+									<th style="width:10%"><?php echo 'Process Id'; ?></th>
+								</tr>
+							</thead>
+							<tbody>	</tbody>
+						</table>				
 	</div>			
 </div>
 		
