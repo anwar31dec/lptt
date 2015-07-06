@@ -315,7 +315,7 @@ $(function() {
         "bSortClasses": false,
         "bProcessing": true,
         "bServerSide": true,
-        "aaSorting": [[0, 'asc']],
+        "aaSorting": [[1, 'asc']],
         "sPaginationType": "full_numbers",
         "aLengthMenu": [[25, 50, 100], [25, 50, 100]],
         "iDisplayLength": 25,
@@ -376,7 +376,7 @@ $(function() {
                 "bVisible": true
             }, {
                 "sWidth": "14%",
-                "sClass": "right-aln",
+                "sClass": "true-aln",
                 "bVisible": false
             }]
     });

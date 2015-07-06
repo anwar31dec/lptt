@@ -187,12 +187,14 @@ function getProcessCount(){
 		$sOutput .= '"iTotalRecords": ' . $iFilteredTotal . ', ';
 		$sOutput .= '"iTotalDisplayRecords": ' . $iFilteredTotal . ', ';
 		$sOutput .= '"aaData":[';
+		$f = 0;
 		while ($aRow = mysql_fetch_assoc($rResult)) {
+			if ($f++) $sOutput .= ',';
 			$sOutput .= "[";
 			$sOutput .= '"' . $aRow['ProcessOrder'] . '",';
 			$sOutput .= '"' . $aRow['ProcessName'] . '",';
-			$sOutput .= '"' . number_format($aRow['Total']) . '",';
-			$sOutput .= '"' . $aRow['ProcessId'] . '",';
+			$sOutput .= '"' . '<a href=\'www.google.com\'>' . number_format($aRow['Total']) . '</a>' . '",';
+			$sOutput .= '"' . $aRow['ProcessId'] . '"';
 			$sOutput .= "]";		
 		}
 	}
