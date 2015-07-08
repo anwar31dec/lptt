@@ -382,4 +382,31 @@ $(function() {
     });
 	
 	//getJobCountInAllProcess();	
+	 $('#datepic-start').val("08/07/2015");
+	 $('#datepic-end').val("08/07/2015");
+	// $('#datpic-start').val('29/06/2014');
+	// $('#datpic-start').val('08/07/2015');
+	
+	$('#sandbox-container .input-daterange').datepicker({
+		format: "dd/mm/yyyy",
+		todayBtn: "linked",
+		daysOfWeekDisabled: "6",
+		orientation: "top left",
+		 autoclose: true
+	}).on("changeDate", function(e) {
+		//alert('hey');
+		//console.log(e.target.name);
+		
+		console.log($('#datepic-start').val());
+	    console.log($('#datepic-end').val());
+		
+	});
+	
+	
+	$('#sandbox-container .input-daterange').datepicker('update', '2011-03-05');
+	
+	// $("#sandbox-container .input-daterange").on("changeDate", function(e) {
+		// alert('hey');
+	// });
+
 });

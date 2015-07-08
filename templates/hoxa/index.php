@@ -10,6 +10,13 @@
 
 defined('_JEXEC') or die;
 
+
+
+unset (JFactory::getDocument()->_scripts['/lptt/media/system/js/mootools-more.js']);
+
+// print_r(JFactory::getDocument()->_scripts);
+// exit;
+
 // Getting params from template
 $params = &JFactory::getApplication()->getTemplate(true)->params;
 

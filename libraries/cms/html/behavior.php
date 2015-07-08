@@ -367,7 +367,8 @@ abstract class JHtmlBehavior
 		$options = JHtml::getJSObject($opt);
 
 		// Attach modal behavior to document
-		$document
+		// ============ Start changed by Anwar 08-07-2015 ============
+		/* $document
 			->addScriptDeclaration(
 			"
 		jQuery(function($) {
@@ -376,7 +377,8 @@ abstract class JHtmlBehavior
 				parse: 'rel'
 			});
 		});"
-		);
+		); */
+		// ============ End changed by Anwar 08-07-2015 ============
 
 		// Set static array
 		static::$loaded[__METHOD__][$sig] = true;

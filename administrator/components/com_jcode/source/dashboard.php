@@ -41,8 +41,9 @@ var lan='<?php echo $lan;?>';
 							</tr>
 						</tbody>
 					</table>
-				</center> 
+				</center> 				
 			</div>
+			
 		</div>
 		<div class="col-md-6 col-padding">
 			<div class="tbl-header1 pull-right">
@@ -52,11 +53,21 @@ var lan='<?php echo $lan;?>';
 				</label>
 			</div>
 		</div>
+		
 	</div>
 </div>
 
 <div class="row"> 
-	<div class="col-md-12">
+	<div id="sandbox-container" class="col-md-6">
+		<div class="input-daterange input-group" id="datepicker">
+			<input type="text" class="input-sm form-control" id="datepic-start" name="start"/>
+			<span class="input-group-addon">to</span>
+			<input type="text" class="input-sm form-control" id="datepic-end" name="end"/>
+		</div>
+	</div>
+</div> 
+<div class="row"> 
+	<div class="col-md-6">
 		<table  id="tblProcessCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
 			<thead>
 				<tr>
@@ -68,6 +79,8 @@ var lan='<?php echo $lan;?>';
 			</thead>
 			<tbody>	</tbody>
 		</table>				
+	</div>	
+	<div class="col-md-6">
 	</div>			
 </div>
 		
@@ -317,8 +330,15 @@ ajaxRequest.send("jBaseUrl=localhost&lan="+lan+"&reportSaveName="+reportSaveName
 <script src='<?php echo $baseUrl; ?>media/datatable/js/jquery.dataTables.min.js'></script>
 <script src='<?php echo $baseUrl; ?>media/datatable-bootstrap/dataTables.bootstrap.min.js'></script>
 
+<link href="<?php echo $baseUrl; ?>lib/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker3.css" rel="stylesheet"/>
+<script src='<?php echo $baseUrl; ?>lib/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js'></script>
+
+
+
 <script src='<?php echo $baseUrl; ?>dashboard.js'></script>
 
 <script type="text/javascript" src="<?php echo $baseUrl; ?>language/lang_en.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>language/lang_fr.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>language/lang_switcher.js"></script>
+
+   

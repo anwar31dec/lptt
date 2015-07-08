@@ -193,7 +193,7 @@ function getProcessCount(){
 			$sOutput .= "[";
 			$sOutput .= '"' . $aRow['ProcessOrder'] . '",';
 			$sOutput .= '"' . $aRow['ProcessName'] . '",';
-			$sOutput .= '"' . '<a href=\'www.google.com\'>' . number_format($aRow['Total']) . '</a>' . '",';
+			$sOutput .= '"' . '<a style=\'text-decoration: underline;\' href=\'reports/job-total-time-duration?ProcessId=1\'>' . number_format($aRow['Total']) . '</a>' . '",';
 			$sOutput .= '"' . $aRow['ProcessId'] . '"';
 			$sOutput .= "]";		
 		}

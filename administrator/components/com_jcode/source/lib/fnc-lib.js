@@ -127,6 +127,3 @@ function getInitialMonth() {
 	});
 }
 
-$(function() {
-	//getInitialMonth();
-});
