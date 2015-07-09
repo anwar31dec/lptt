@@ -10,6 +10,7 @@ var patientTrendTimeSeries;
 var tblProcessCount;
 var $ = jQuery.noConflict();
 
+
 function onPatientTrendTable_Old() {
 	$('body').animate({
 		opacity : 1
@@ -305,9 +306,6 @@ $(function() {
 		onPatientTrendTable();
     });
 	
-	dpStartDate = moment().startOf('month').format('YYYY-MM-DD');
-	dpEndDate = moment().endOf('month').format('YYYY-MM-DD');
-	
 	tblProcessCount = $('#tblProcessCount').dataTable({
         "bFilter": false,
         "bJQueryUI": false,
@@ -337,11 +335,11 @@ $(function() {
             });
             aoData.push({
                 "name": "dp1-start",
-                "value": dpStartDate
+                "value": $('#dp1-start').val()
             });
             aoData.push({
                 "name": "dp1-end",
-                "value": dpEndDate
+                "value": $('#dp1-end').val()
             });
 
             $.ajax({
@@ -372,11 +370,12 @@ $(function() {
     });
 	
 	//getJobCountInAllProcess();	
-	 //$('#dp1-start').val("08/07/2015");
-	 //$('#dp1-end').val("08/07/2015");
+	 $('#dp1-start').val("08/07/2015");
+	 $('#dp1-end').val("08/07/2015");
+	// $('#datpic-start').val('29/06/2014');
+	// $('#datpic-start').val('08/07/2015');
 	
-	
-	/* $('#sandbox-container .input-daterange').datepicker({
+	$('#sandbox-container .input-daterange').datepicker({
 		format: "dd/mm/yyyy",
 		todayBtn: "linked",
 		daysOfWeekDisabled: "6",
@@ -401,25 +400,13 @@ $(function() {
 		
 		tblProcessCount.fnDraw();
 		
-	}); */
+	});
 	
 	
-	//$('#sandbox-container .input-daterange').datepicker('update', '2011-03-05');
+	$('#sandbox-container .input-daterange').datepicker('update', '2011-03-05');
 	
 	// $("#sandbox-container .input-daterange").on("changeDate", function(e) {
 		// alert('hey');
 	// });
-	
-	$('#reportrange').on('apply.daterangepicker', function(ev, picker) { 
-	
-	
-	dpStartDate = picker.startDate.format('YYYY-MM-DD');
-	dpEndDate = picker.endDate.format('YYYY-MM-DD');
-	
-	tblProcessCount.fnDraw();
-	
-	//alert(startDate);
-	
-  });
 
 });

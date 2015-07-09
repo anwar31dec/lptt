@@ -67,14 +67,6 @@ var lan='<?php echo $lan;?>';
 	</div>
 </div> 
 <div class="row"> 
-	<div id="reportrange-container" class="col-md-12">
-		<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-		  <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-		  <span></span> <b class="caret"></b>
-	   </div>
-	</div>
-</div> 
-<div class="row"> 
 	<div class="col-md-6">
 		<table  id="tblProcessCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
 			<thead>
@@ -91,12 +83,7 @@ var lan='<?php echo $lan;?>';
 	<div class="col-md-6">
 	</div>			
 </div>
-
-<style>
-.btn {
-  min-width: 78px;
-}
-</style>
+		
 
 <script>
 function print_function(type){
@@ -343,11 +330,8 @@ ajaxRequest.send("jBaseUrl=localhost&lan="+lan+"&reportSaveName="+reportSaveName
 <script src='<?php echo $baseUrl; ?>media/datatable/js/jquery.dataTables.min.js'></script>
 <script src='<?php echo $baseUrl; ?>media/datatable-bootstrap/dataTables.bootstrap.min.js'></script>
 
-
-
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/daterangepicker-bs3.css" />
-<script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/moment.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+<link href="<?php echo $baseUrl; ?>lib/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker3.css" rel="stylesheet"/>
+<script src='<?php echo $baseUrl; ?>lib/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js'></script>
 
 
 
@@ -356,69 +340,5 @@ ajaxRequest.send("jBaseUrl=localhost&lan="+lan+"&reportSaveName="+reportSaveName
 <script type="text/javascript" src="<?php echo $baseUrl; ?>language/lang_en.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>language/lang_fr.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>language/lang_switcher.js"></script>
-
-<script type="text/javascript">
-var dpStartDate;
-var dpEndDate;
-$(document).ready(function() {
-  var cb = function(start, end, label) {
-	console.log(start.toISOString(), end.toISOString(), label);
-	$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-	//alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
-  };
-
-  var optionSet1 = {
-	startDate: moment().startOf('month'),
-	endDate: moment().endOf('month'),
-	minDate: '01/01/2012',
-	maxDate: '12/31/2015',
-	dateLimit: { days: 365 },
-	showDropdowns: true,
-	showWeekNumbers: true,
-	timePicker: false,
-	timePickerIncrement: 1,
-	timePicker12Hour: true,
-	ranges: {
-	   'Today': [moment(), moment()],
-	   'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-	   'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-	   'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-	   'This Month': [moment().startOf('month'), moment().endOf('month')],
-	   'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-	},
-	opens: 'left',
-	buttonClasses: ['btn btn-default'],
-	applyClass: 'btn-sm btn-primary',
-	cancelClass: 'btn-sm',
-	format: 'MM/DD/YYYY',
-	separator: ' to ',
-	locale: {
-		applyLabel: 'Submit',
-		cancelLabel: 'Clear',
-		fromLabel: 'From',
-		toLabel: 'To',
-		customRangeLabel: 'Custom',
-		daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr','Sa'],
-		monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-		firstDay: 1
-	}
-  };
-
-  $('#reportrange span').html(moment().startOf('month').format('MMMM D, YYYY') + ' - ' + moment().endOf('month').format('MMMM D, YYYY'));
-
-  $('#reportrange').daterangepicker(optionSet1, cb);
-
-  $('#reportrange').on('show.daterangepicker', function() { console.log("show event fired"); });
-  $('#reportrange').on('hide.daterangepicker', function() { console.log("hide event fired"); });
-  /* $('#reportrange').on('apply.daterangepicker', function(ev, picker) { 
-	console.log("apply event fired, start/end dates are " 
-	  + picker.startDate.format('YYYY-MM-DD') 
-	  + " to " 
-	  + picker.endDate.format('YYYY-MM-DD')
-	); 
-  }); */
-  $('#reportrange').on('cancel.daterangepicker', function(ev, picker) { console.log("cancel event fired"); });
-});
-</script>
 
    
