@@ -97,7 +97,7 @@ function print_function(type){
 
 	dataAlignment = ["center","left","right","right","right","right","right","right","right","right","right","right","right","right"];
 	//when column count and width array count are not same then last value repeat
-	cellWidth = ["10","82","13"];
+	cellWidth = ["10","20","13"];
 
 	reportHeaderList = JSON.stringify(reportHeaderList);
 	
@@ -196,6 +196,7 @@ function print_function(type){
 					dataList = JSON.stringify(dataList);
 					dataColSpanList = JSON.stringify(dataColSpanList);
 					
+					//alert('kkkkk');
 					
 					$.ajax({
 						url: baseUrl + 'report/excel_master_dynamic_column.php',
@@ -215,7 +216,8 @@ function print_function(type){
                             dataAlignment: JSON.stringify(dataAlignment)
 						},
 						success: function(response) {
-						window.open( baseUrl + 'report/media/'+reportSaveName+'.xlsx');
+							//console.log(response);
+						    window.open( baseUrl + 'report/media/'+reportSaveName+'.xlsx');
 						}
 					});	
 					/**/	

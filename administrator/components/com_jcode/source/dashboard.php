@@ -23,51 +23,14 @@ var lan='<?php echo $lan;?>';
 <script type="text/javascript">
 	var vLang = '<?php echo $vLang; ?>';
 </script>
-
-<div class="nav-data">
-	<div class="row">				
-		<div class="col-md-6 col-padding">					
-			<div class="tbl-header1" id="itemTable_length1">
-				<center> 							
-					<table id="month-year">
-						<tbody>
-							<tr>
-								<td valign="middle" align="right">
-								<button class="btn btn-info" type="button" id="left-arrow"><span class="fa fa-arrow-left fntC"> </span></button></td>
-								<td>&nbsp;&nbsp;</td><td valign="middle" align="left"><select class="form-control" id="month-list"></select></td>
-								<td>&nbsp;&nbsp;</td><td valign="middle" align="left"><select class="form-control" id="year-list"></select></td>
-								<td>&nbsp;&nbsp;</td><td width="" valign="middle" align="left">
-								<button class="btn btn-info" type="button" id="right-arrow"><span class="fa fa-arrow-right fntC"></span></button></td>
-							</tr>
-						</tbody>
-					</table>
-				</center> 				
-			</div>
-			
-		</div>
-		<div class="col-md-6 col-padding">
-			<div class="tbl-header1 pull-right">
-				<label>		
-					<a id="PrintBTN" data-mce-href="#" class="but_print" href="javascript:void(0);" onclick="print_function('print')"><i data-mce-bootstrap="1" class="fa fa-print fa-lg">&nbsp;</i> <?php echo $TEXT['Print']; ?></a>
-					<a id="PrintBTN1" data-mce-href="#" class="but_excel" href="javascript:void(0);" onclick="print_function('excel')"><i data-mce-bootstrap="1" class="fa fa-file-excel-o fa-lg">&nbsp;</i> <?php echo $TEXT['Excel']; ?></a>
-				</label>
-			</div>
-		</div>
-		
-	</div>
-</div>
-
+	
 <div class="row"> 
-	<div id="sandbox-container" class="col-md-6">
-		<div class="input-daterange input-group" id="datepicker">
-			<input type="text" class="input-sm form-control" id="dp1-start" name="start" readonly=""/>
-			<span class="input-group-addon">to</span>
-			<input type="text" class="input-sm form-control" id="dp1-end" name="end" readonly=""/>
-		</div>
+	
+	<div class="col-md-4">
 	</div>
-</div> 
-<div class="row"> 
-	<div id="reportrange-container" class="col-md-12">
+	<div class="col-md-4">
+	</div>
+	<div id="reportrange-container" class="col-md-4">
 		<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
 		  <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
 		  <span></span> <b class="caret"></b>
@@ -76,6 +39,7 @@ var lan='<?php echo $lan;?>';
 </div> 
 <div class="row"> 
 	<div class="col-md-6">
+		<h4>Processes in progress of date range</h4>
 		<table  id="tblProcessCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
 			<thead>
 				<tr>
@@ -83,6 +47,18 @@ var lan='<?php echo $lan;?>';
 					<th style="width:30%"><?php echo 'Process Name'; ?></th>
 					<th style="width:30%"><?php echo 'Total'; ?></th>
 					<th style="width:30%"><?php echo 'Process Id'; ?></th>
+				</tr>
+			</thead>
+			<tbody>	</tbody>
+		</table>				
+	</div>	
+	<div class="col-md-6">
+		<h4>Total Processes in and out of date range</h4>
+		<table  id="tblTotalInOutCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
+			<thead>
+				<tr>
+					<th style="width:50%">Total In</th>
+					<th style="width:50%">Total Out</th>
 				</tr>
 			</thead>
 			<tbody>	</tbody>
@@ -370,8 +346,8 @@ $(document).ready(function() {
   var optionSet1 = {
 	startDate: moment().startOf('month'),
 	endDate: moment().endOf('month'),
-	minDate: '01/01/2012',
-	maxDate: '12/31/2015',
+	minDate: '01/01/2015',
+	maxDate: '12/31/2020',
 	dateLimit: { days: 365 },
 	showDropdowns: true,
 	showWeekNumbers: true,

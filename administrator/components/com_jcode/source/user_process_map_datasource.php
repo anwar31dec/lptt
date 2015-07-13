@@ -79,7 +79,7 @@ function getJoomlaLabUsers() {
              FROM ykx9st_users a
              INNER JOIN ykx9st_user_usergroup_map b ON a.id = b.user_id 
              INNER JOIN ykx9st_usergroups c ON b.group_id = c.id           
-             WHERE b.group_id IN(3, 10, 11, 12, 13, 14, 15)  " . $sWhere . " GROUP BY a.id, name, username
+             WHERE b.group_id IN(3, 10, 11, 12, 13, 14, 15, 17)  " . $sWhere . " GROUP BY a.id, name, username
 			 " . $sOrder . " " . $sLimit . "";
 
     $pacrs = mysql_query($sql);

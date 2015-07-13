@@ -1,0 +1,21 @@
+/* Get current process max record of a job following the NoOfScann field
+ as a job can repeat if failed in certain stage
+and to check this job is scanned already in this process */
+ 
+function getRecExistInCurProc($jobNo){
+	return $jobrecord;
+};
+
+/* Get last process max record of a job following the NoOfScann field
+ as a job can repeat if failed in certain stage 
+ use getMaxNoOfScann() to get last record of same job (for return purpose)*/
+ 
+function getRecExistInLastProc($jobNo){
+	return $jobrecord;
+};
+
+/* Get max NoOfScann record of the job */
+ 
+function getMaxNoOfScann($jobNo){
+	return $maxNo;
+};

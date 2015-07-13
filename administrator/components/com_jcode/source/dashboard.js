@@ -359,7 +359,8 @@ $(function() {
                 "bSortable": false,
                 "sWidth": "5%"
             }, {
-                "sWidth": "25%"
+                "sWidth": "25%",
+				"sClass": "left-aln"
             }, {
                 "sWidth": "14%",
                 "sClass": "right-aln",
@@ -368,6 +369,63 @@ $(function() {
                 "sWidth": "14%",
                 "sClass": "true-aln",
                 "bVisible": false
+            }]
+    });	
+	
+	tblTotalInOutCount = $('#tblTotalInOutCount').dataTable({
+        "bFilter": false,
+        "bJQueryUI": false,
+        "bSort": false,
+        "bInfo": false,
+        "bPaginate": false,
+        "bSortClasses": false,
+        "bProcessing": true,
+        "bServerSide": true,
+        "aaSorting": [[1, 'asc']],
+        "sPaginationType": "full_numbers",
+        "aLengthMenu": [[25, 50, 100], [25, 50, 100]],
+        "iDisplayLength": 25,
+        "sAjaxSource": baseUrl + "dashboard_server.php",
+        "fnServerData": function(sSource, aoData, fnCallback) {
+            aoData.push({
+                "name": "action",
+                "value": "getTotalInOutCount"
+            });
+            aoData.push({
+                "name": "lan",
+                "value": lan
+            });
+            aoData.push({
+                "name": "baseUrl",
+                "value": baseUrl
+            });
+            aoData.push({
+                "name": "dp1-start",
+                "value": dpStartDate
+            });
+            aoData.push({
+                "name": "dp1-end",
+                "value": dpEndDate
+            });
+
+            $.ajax({
+                "dataType": 'json',
+                "type": "POST",
+                "url": sSource,
+                "data": aoData,
+                "success": function(json) {
+                    fnCallback(json);
+                }
+            });
+        },
+        "aoColumns": [{
+                "sWidth": "50%",
+                "sClass": "center-aln",
+                "bVisible": true
+            }, {
+                "sWidth": "50%",
+                "sClass": "center-aln",
+                "bVisible": true
             }]
     });
 	
@@ -417,6 +475,7 @@ $(function() {
 	dpEndDate = picker.endDate.format('YYYY-MM-DD');
 	
 	tblProcessCount.fnDraw();
+	tblTotalInOutCount.fnDraw();
 	
 	//alert(startDate);
 	

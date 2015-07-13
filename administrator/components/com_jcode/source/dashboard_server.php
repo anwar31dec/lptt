@@ -27,6 +27,9 @@ switch ($task) {
 	case 'getProcessCount' :
         getProcessCount();
         break;
+	case 'getTotalInOutCount' :
+        getTotalInOutCount();
+        break;
     default :
         echo "{failure:true}";
         break;
@@ -199,6 +202,71 @@ function getProcessCount(){
 			$sOutput .= '"' . $aRow['ProcessId'] . '"';
 			$sOutput .= "]";		
 		}
+	}
+	$sOutput .= ']}';
+	echo $sOutput;
+}
+
+function getTotalInOutCount(){
+	$StartDate = $_POST['dp1-start'];
+	$EndDate = $_POST['dp1-end'];
+	$sQuery = "SELECT 
+				  SQL_CALC_FOUND_ROWS 'Total In' ProcInOut, COUNT(*) TotalIn 
+				FROM
+				  (SELECT DISTINCT 
+					TrackingNo 
+				  FROM
+					t_process_tracking 
+					INNER JOIN t_process_list 
+					  ON (
+						t_process_tracking.ProcessId = t_process_list.ProcessId
+					  ) 
+				  WHERE EntryDate BETWEEN '$StartDate' 
+					AND '$EndDate') a;";	
+	
+	$rResult1 = mysql_query($sQuery);
+	
+	$aRow1 = mysql_fetch_assoc($rResult1);
+	//print_r($aRow);
+	
+	$sQuery2 = "SELECT
+		SQL_CALC_FOUND_ROWS 'Total Out' ProcInOut, COUNT(*) TotalClosed
+	FROM
+		t_process_tracking
+		INNER JOIN t_process_list 
+			ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
+	WHERE OutTime IS NOT NULL AND `Position` = 'END' AND EntryDate BETWEEN '2015-06-01' AND '2015-07-03';";	
+	
+	$rResult2 = mysql_query($sQuery2);
+	
+	$aRow2 = mysql_fetch_assoc($rResult2);
+	//print_r($aRow2);
+	//exit;
+	$aaRows = array('TotalIn' => $aRow1['TotalIn'], 'TotalClosed' => $aRow2['TotalClosed']);
+	//print_r($aaRows);
+	//exit;
+	
+	//$rows = array();
+	//$sOutput .= '"aaData": [ ';
+	if ($rResult1 && $rResult2) {
+		$sQuery = "SELECT FOUND_ROWS()";
+		$rResultFilterTotal = mysql_query($sQuery);
+		$aResultFilterTotal = mysql_fetch_array($rResultFilterTotal);
+		$iFilteredTotal = $aResultFilterTotal[0];
+
+		$sOutput = '{';
+		$sOutput .= '"sEcho": ' . intval($_POST['sEcho']) . ', ';
+		$sOutput .= '"iTotalRecords": ' . $iFilteredTotal . ', ';
+		$sOutput .= '"iTotalDisplayRecords": ' . $iFilteredTotal . ', ';
+		$sOutput .= '"aaData":[';
+		$f = 0;
+		
+			if ($f++) $sOutput .= ',';
+			$sOutput .= "[";
+			$sOutput .= '"' . $aaRows['TotalIn'] . '",';			
+			$sOutput .= '"' . $aaRows['TotalClosed'] . '"';
+			$sOutput .= "]";		
+		
 	}
 	$sOutput .= ']}';
 	echo $sOutput;

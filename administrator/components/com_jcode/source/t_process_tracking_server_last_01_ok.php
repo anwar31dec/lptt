@@ -335,6 +335,36 @@ function insertUpdateProcessTracking($conn) {
 	//var_dump($pInTime);
 	//exit;
 	
+	/* if($pInTime){
+		
+		$now = new DateTime(date('Y-m-d H:i:s'));
+		$vInTime = new DateTime($pInTime);
+		$diff = $now->diff($vInTime);
+		//echo $diff->d;
+		//exit;
+		$duration = $diff->d*24*60 + $diff->h*60 + $diff->i;
+		
+		$txtDuration = ($diff->d != 0 ? $diff->d . " Days " : "").($diff->h != 0 ? $diff->h . " Hours ":"") . ($diff->i != 0 ? $diff->i . " Minutes ":"");
+	} */
+	
+	/* $holidays = array("2015-06-18","2015-06-19");
+	if($pInTime){
+		
+		$now = date('Y-m-d H:i:s');
+		//$vInTime = $pInTime;
+		//$diff = $now->diff($vInTime);
+		
+		// $durationDays = getWorkingDays($vInTime, $now, $holidays);
+		// $duration = $durationDays * 24 * 60;
+		
+		//$holidays=array("2008-12-25","2008-12-26","2009-01-01");
+		//$holidays=array("2015-06-01");
+		$holidays=array();
+
+		$durationDays = getWorkingDays($pInTime,$now,$holidays);
+		$duration = $durationDays;
+	} */
+	
 	if($pInTime){
 		
 		$now = date('Y-m-d H:i:s');

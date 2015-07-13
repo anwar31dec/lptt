@@ -1,0 +1,29 @@
+Add addtional field (NoOfScann) to track the no of scanned of each job in the same process (like textile addition)
+this is now take the multiple input of same job in the same process for the return purpose
+
+add a popup form to return the job to the inward, this to set the end time of the current process where the decision is taken to return
+
+Case: ProcessOrder (1,2,3,4)
+
+Case: ProcessOrder (5) Physical lab in
+	* One input text box
+	* 4 sub process check box (Wet Lab, Machanical Lab, Pilling Lab, Process X), a particular job divided into 4 process
+	* Add 4 fields to the database to fill the above check box
+	* Add 4 fields to the database to confirm the sub process is done
+	* Scann REGISTRATION NO and check the no of following process to be completion
+	* After scann show popup to check the no of sub process
+	* Update the out time of process order 4
+	
+Case: ProcessOrder (6,7,8,9) - Wet Lab, Machanical Lab, Pilling Lab, Process X
+	* One input text box
+	* Scann REGISTRATION NO
+	* Update the out time of process order 5 by each consecutive scann and update the sub process flag of process order 5
+	
+Case: ProcessOrder (10) - Report compilation
+	* add 4 text box 
+	* Add 4 fields to the database to confirm the sub process is done
+	* Scann REGISTRATION NO into the respective text box for each completed sub process
+	* Create only one record out of 4 text scann
+	* Update the out time of process order 6,7,8,9 by each respective text box scann
+	* This step handled by one user but update 4 process
+	
