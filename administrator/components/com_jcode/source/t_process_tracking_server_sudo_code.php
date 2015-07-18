@@ -26,6 +26,10 @@ switch ($task) {
 	case "getInwardNoByRegNo" :
         var_dump(getInwardNoByRegNo('34343', '1'));
         break;
+	case "getParentProTrackId" :
+        var_dump(getParentProTrackId('1', 1));
+        break;
+		
     default :
         echo "{failure:true}";
         break;
@@ -43,7 +47,7 @@ function getRecExistInProc($JobNo, $ProcessId){
 	
 	$aData = array();
 	try {
-		$MaxNoOfScann = getMaxNoOfScann($JobNo);
+		$MaxNoOfScann = getMaxNoOfScann($JobNo, $ProcessId);
 		
 		if (!$MaxNoOfScann) {
 			return $aData;
@@ -85,11 +89,11 @@ function getRecExistInLastProc($JobNo){
    return value/NULL
 */
  
-function getMaxNoOfScann($JobNo){
+function getMaxNoOfScann($JobNo, $ProcessId){
 	if(!$JobNo)
 		return 'Job No is empty';
 	
-	$query = "SELECT MAX(NoOfScann) MaxNoOfScann FROM t_process_tracking WHERE TrackingNo = '$JobNo' OR RegNo = '$JobNo';";
+	$query = "SELECT MAX(NoOfScann) MaxNoOfScann FROM t_process_tracking WHERE (TrackingNo = '$JobNo' OR RegNo = '$JobNo') AND ProcessId = $ProcessId;";
 	$result = mysql_query($query);
 	$MaxNoOfScann = 0;
 	$aData = array();
@@ -111,7 +115,7 @@ function getInwardNoByRegNo($JobNo, $ProcessId){
 	
 	$aData = array();
 	try {
-		$MaxNoOfScann = getMaxNoOfScann($JobNo);
+		$MaxNoOfScann = getMaxNoOfScann($JobNo, $ProcessId);
 		
 		if (!$MaxNoOfScann) {
 			return $aData;
@@ -128,5 +132,39 @@ function getInwardNoByRegNo($JobNo, $ProcessId){
 		return $e;
 	}
 };
+
+/* Get Inward no using registration number */
+ 
+function getParentProTrackId($JobNo, $ProcessId){	
+	if(!$JobNo)
+		echo 'Job No is empty';
+	else if(!$ProcessId)
+		echo 'ProcessId is empty';
+	
+	$aData = array();
+	try {
+		$MaxNoOfScann = getMaxNoOfScann($JobNo, $ProcessId);
+		
+		if (!$MaxNoOfScann) {
+			return $aData;
+		}
+		
+		$query = "SELECT
+				t_process_tracking.ProTrackId
+			FROM
+				t_process_tracking
+			WHERE (t_process_tracking.TrackingNo = '$JobNo'
+				AND t_process_tracking.ProcessId = $ProcessId
+				AND t_process_tracking.NoOfScann = $MaxNoOfScann);";
+		$result = mysql_query($query);
+		
+		if ($result)
+			$aData = mysql_fetch_assoc($result);
+		return $aData;
+		//var_dump($aData);
+	} catch (Exception $e) {
+		return $e;
+	}
+}
 
 ?>

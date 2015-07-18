@@ -41,14 +41,15 @@ echo ' var gYearList = JSON.parse(\'' . json_encode($output, JSON_HEX_APOS) . '\
 $sQuery = "SELECT b.ProcessId, a.ProcessName, UsualDuration, ProcessOrder, `Position`, ParentProcessId, eNewNoPosition, bUseTrackingNo, bUseRegNo
                                         FROM t_process_list a
                     INNER JOIN t_user_process_map b ON a.ProcessId = b.ProcessId
-                    WHERE b.UserId = '$userName' 
-                    ORDER BY a.ProcessName";              
+                    WHERE b.UserId = '$userName' AND a.ProcUnitId = 1
+                    ORDER BY a.ProcessName";      
+//exit();					
 
 $rResult = safe_query($sQuery);
 
 $aUserProcess = array();
 
-while ($aRow = mysql_fetch_assoc($rResult)) {    
+while ($aRow = mysql_fetch_assoc($rResult)) {
     $aUserProcess = $aRow;
 }
 
