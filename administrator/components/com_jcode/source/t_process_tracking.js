@@ -78,6 +78,8 @@ function onConfirmWhenAddEdit() {
 				tblProcessTracking.fnDraw();
 				onSuccessMsg($msg);
 				onListPanel();
+				$("#regno-group-id").hide();	
+				$('input[type=checkbox]').attr('checked',false);
 			} else {
 				onErrorMsg($msg);
 			}
@@ -123,8 +125,6 @@ jQuery('#frmProcessTracking').parsley({
 		}
 	}
 });
-
-
 
 $(function() {
 	
@@ -586,5 +586,21 @@ $(function() {
 	}else{
 		$("#TrackingNo").focus();
 	}
+	
+	$('#processTickDone').click(function() {			
+			if($('#chk-wet-lab').attr('checked')){
+				$("#regno-group-id").show();
+			}
+			else if($('#chk-mechanical-lab').attr('checked')){
+				$("#regno-group-id").show();
+			}
+			else if($('#chk-pilling-abrasion-lab').attr('checked')){
+				$("#regno-group-id").show();
+			}else{
+				alert('You must select at least one option.');
+				return;
+			}
+			$("#RegNo").focus();
+	});
 
 }); 

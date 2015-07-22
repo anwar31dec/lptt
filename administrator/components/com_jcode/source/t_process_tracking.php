@@ -64,7 +64,7 @@ $ProcessId = $aUserProcess['ProcessId'];
 								<input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
 							</div>
 							<div class="col-md-8">		                    	
-								<a href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
+								<a style="display:none;" href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
 								<a style="display:none;" href="javascript:void(0);" class="btn btn-default" onClick="onListPanel()"><?php echo $TEXT['Cancel']; ?></a>			                    
 							</div>
 						</div>
@@ -102,7 +102,68 @@ $ProcessId = $aUserProcess['ProcessId'];
 								<input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
 							</div>
 							<div class="col-md-8">		                    	
-								<a href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
+								<a style="display:none;" href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
+								<a style="display:none;" href="javascript:void(0);" class="btn btn-default" onClick="onListPanel()"><?php echo $TEXT['Cancel']; ?></a>			                    
+							</div>
+						</div>
+					</form>
+				<?php break;?>
+				<?php case 4:?>
+				<!-- Code block for CASE 4 (Physical Lab-In)<br> -->
+					<form novalidate="" data-validate="parsley" id="frmProcessTracking" class="form-horizontal form-border no-margin">
+						
+						<div class="form-group" style="display:none;" id="regno-group-id">
+							<label class="control-label col-md-4" for="RegNo"><?php echo 'Registration No:'; ?></label>
+							<div class="col-md-8">
+								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNo" id="RegNo" data-required="true" placeholder="scan here..."/>
+							</div>
+						</div>
+						<div class="form-group"  id="chk-group-id">
+							<div class="col-md-4">								
+							</div>
+							<div class="col-md-8">
+								<div class="checkbox">
+									<label>
+									  <input type="checkbox" name="chk-wet-lab" id ="chk-wet-lab"> Wet Lab
+									</label>
+								</div>
+								<div class="checkbox">
+									<label>
+									  <input type="checkbox" name="chk-mechanical-lab" id ="chk-mechanical-lab"> Mechanical Lab
+									</label>
+								</div>
+								<div class="checkbox">
+									<label>
+									  <input type="checkbox" name="chk-pilling-abrasion-lab" id ="chk-pilling-abrasion-lab"> Pilling-abrasion Lab
+									</label>
+								</div>								
+							</div> 
+						</div> 
+						<div class="form-group"  id="ok-group-id">
+							<div class="col-md-4">	
+							</div>
+							<div class="col-md-8">
+								<div class="ok">									
+									  <a href="javascript:void(0);" class="btn btn-success btn-form-success" id="processTickDone">OK</a>									
+								</div>
+							</div>
+						</div> 
+				
+						<div class="form-group">
+							<div class="col-md-4">
+								<input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
+								<input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
+								<input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
+								<input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
+								<input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
+								<input type="hiidden" style="display:none;"name="bUseRegNo" id="bUseRegNo" value="<?php echo $aUserProcess['bUseRegNo']; ?>"/>
+								<input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
+								<input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
+								<input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
+								<input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
+							</div>
+							<div class="col-md-8">		                    	
+								<a style="display:none;" href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
 								<a style="display:none;" href="javascript:void(0);" class="btn btn-default" onClick="onListPanel()"><?php echo $TEXT['Cancel']; ?></a>			                    
 							</div>
 						</div>
@@ -147,7 +208,7 @@ $ProcessId = $aUserProcess['ProcessId'];
 								<input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
 							</div>
 							<div class="col-md-8">		                    	
-								<a href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
+								<a style="display:none;" href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
 								<a style="display:none;" href="javascript:void(0);" class="btn btn-default" onClick="onListPanel()"><?php echo $TEXT['Cancel']; ?></a>			                    
 							</div>
 						</div>
@@ -192,7 +253,7 @@ $ProcessId = $aUserProcess['ProcessId'];
 								<input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
 							</div>
 							<div class="col-md-8">		                    	
-								<a href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
+								<a style="display:none;" href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
 								<a style="display:none;" href="javascript:void(0);" class="btn btn-default" onClick="onListPanel()"><?php echo $TEXT['Cancel']; ?></a>			                    
 							</div>*
 						</div>
@@ -230,7 +291,7 @@ $ProcessId = $aUserProcess['ProcessId'];
 								<input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
 							</div>
 							<div class="col-md-8">		                    	
-								<a href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
+								<a style="display:none;" href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
 								<a style="display:none;" href="javascript:void(0);" class="btn btn-default" onClick="onListPanel()"><?php echo $TEXT['Cancel']; ?></a>			                    
 							</div>
 						</div>
@@ -261,7 +322,7 @@ $ProcessId = $aUserProcess['ProcessId'];
 								<input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
 							</div>
 							<div class="col-md-8">		                    	
-								<a href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
+								<a style="display:none;" href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
 								<a style="display:none;" href="javascript:void(0);" class="btn btn-default" onClick="onListPanel()"><?php echo $TEXT['Cancel']; ?></a>			                    
 							</div>
 						</div>
@@ -292,28 +353,6 @@ $ProcessId = $aUserProcess['ProcessId'];
     </div>  
 </div>
 
-<div class="row" style="display:none;"> 
-	
-	<div class="col-md-6">		
-		<div id="list-panel2">
-            <table  id="WaitingProcessList" class="table table-striped table-bordered display table-hover" cellspacing="0">
-                <thead>
-                    <tr>
-						<th></th>
-                        <th style="text-align: center;">SL#</th>
-                        <th><?php echo 'Tracking#'; ?></th>
-                        <th><?php echo 'Process Name'; ?></th>
-                        <th><?php echo 'In Time'; ?></th>
-                        <th><?php echo 'Out Time'; ?></th>
-						<th><?php echo 'Current Duration'; ?></th>
-						<th><?php echo 'Status' ?></th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>			                   
-        </div>            
-    </div>  
-</div>
 
 <style>
 	#itemlist_form select, #itemlist_form input{

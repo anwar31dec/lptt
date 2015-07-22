@@ -81,7 +81,7 @@ class UsersModelLogin extends JModelForm
 		// print_r($user->groups);
 		// exit;
 		
-		$data['return'] = JURI::base().'index.php/tracking-time'; // by anwar
+		//$data['return'] = JURI::base().'index.php/tracking-time'; // by anwar
 		
 		return $data;
 	}
