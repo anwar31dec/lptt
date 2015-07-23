@@ -250,7 +250,7 @@ function insertUpdateProcessTracking($conn) {
 						
 			/* Update out time of parent */
 			if($ParentProcessId){
-				$aParentData = getParentProcess($TrackingNo, $ParentProcessId, $MaxNoOfScann);
+				$aParentData = getParentProcessByInwardNo($TrackingNo, $ParentProcessId, $MaxNoOfScann);
 				
 				$ProTrackId = $aParentData['ProTrackId'];
 				$ParentInTime = $aParentData['InTime'];
@@ -284,15 +284,18 @@ function insertUpdateProcessTracking($conn) {
 			
 			break;
 		case 3:
-			$MaxNoOfScann = getMaxNoOfScann($RegNo, $ProcessId);
+			$MaxNoOfScann = getMaxNoOfScann($TrackingNo, $ProcessId);
 			$MaxNoOfScann = $MaxNoOfScann + 1;
 						
 			/* Update out time of parent */
 			if($ParentProcessId){
-				$aParentData = getParentProcess($RegNo, $ParentProcessId, $MaxNoOfScann);
+				$aParentData = getParentProcessByInwardNo($TrackingNo, $ParentProcessId, $MaxNoOfScann);
 				
 				$ProTrackId = $aParentData['ProTrackId'];
 				$ParentInTime = $aParentData['InTime'];
+				
+				//var_dump($ProTrackId);
+				//exit;
 				
 				$aParentTimeDuration = getTimeDuration($ParentInTime);
 				$duration = $aParentTimeDuration['Duration'];
@@ -335,7 +338,7 @@ function insertUpdateProcessTracking($conn) {
 						
 			/* Update out time of parent */
 			if($ParentProcessId){
-				$aParentData = getParentProcess($RegNo, $ParentProcessId, $MaxNoOfScann);
+				$aParentData = getParentProcessByRegNo($RegNo, $ParentProcessId, $MaxNoOfScann);
 				
 				$ProTrackId = $aParentData['ProTrackId'];
 				$ParentInTime = $aParentData['InTime'];
@@ -378,13 +381,69 @@ function insertUpdateProcessTracking($conn) {
 			echo json_encode(exec_query($aQuerys, $jUserId, $language));
 			
 			break;
+		case 5:
+		case 6:
+		case 7:
+		
+			$bDoneWet = $ProcessId == 5? 1 : 0;
+			$bDoneMachanical = $ProcessId == 6? 1 : 0;
+			$bDonePilling = $ProcessId == 7? 1 : 0;
+					
+			$MaxNoOfScann = getMaxNoOfScann($RegNo, $ProcessId);
+			$MaxNoOfScann = $MaxNoOfScann + 1;
+						
+			/* Update out time of parent */
+			if($ParentProcessId){
+				$aParentData = getParentProcessByRegNo($RegNo, $ParentProcessId, $MaxNoOfScann);
+				
+				$ProTrackId = $aParentData['ProTrackId'];
+				$ParentInTime = $aParentData['InTime'];
+				
+				$aParentTimeDuration = getTimeDuration($ParentInTime);
+				$duration = $aParentTimeDuration['Duration'];
+				$txtDuration = $aParentTimeDuration['txtDuration'];
+								
+				if ($ProTrackId) {
+					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId', bDoneWet = $bDoneWet, bDoneMachanical = $bDoneMachanical, bDonePilling = $bDonePilling WHERE ProTrackId = $ProTrackId;";
+					
+					$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
+
+					$aQuerys[] = $aQuery2;
+				}
+			}
+			
+			/* Insert the current process */
+			$sql = "INSERT INTO t_process_tracking
+				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId)
+				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1);";
+			$aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
+			$aQuerys[] = $aQuery1;
+			
+			if($ParentProcessId){
+				$aParentData2 = getInwardNoByRegNo($RegNo, $ParentProcessId, $MaxNoOfScann);
+				
+				$TrackingNo = $aParentData2['TrackingNo'];
+								
+				if ($TrackingNo) {			
+					/* Update RegNo of ancestors */
+					$sql3 = "UPDATE t_process_tracking
+						SET TrackingNo = '$TrackingNo'
+						WHERE TrackingNo = '' AND RegNo = '$RegNo';";
+					$aQuery3 = array('command' => 'INSERT', 'query' => $sql3, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
+					$aQuerys[] = $aQuery3;
+				}
+			}
+			
+			echo json_encode(exec_query($aQuerys, $jUserId, $language));
+			
+			break;
 		default:
 			$MaxNoOfScann = getMaxNoOfScann($RegNo, $ProcessId);
 			$MaxNoOfScann = $MaxNoOfScann + 1;
 						
 			/* Update out time of parent */
 			if($ParentProcessId){
-				$aParentData = getParentProcess($RegNo, $ParentProcessId, $MaxNoOfScann);
+				$aParentData = getParentProcessByRegNo($RegNo, $ParentProcessId, $MaxNoOfScann);
 				
 				$ProTrackId = $aParentData['ProTrackId'];
 				$ParentInTime = $aParentData['InTime'];
@@ -451,7 +510,7 @@ function getMaxNoOfScann($JobNo, $ProcessId){
 	return $MaxNoOfScann;
 }
 
-function getParentProcess($JobNo, $ProcessId, $MaxNoOfScann){	
+function getParentProcessByInwardNo($JobNo, $ProcessId, $MaxNoOfScann){	
 	if(!$JobNo)
 		echo 'Job No is empty';
 	else if(!$ProcessId)
@@ -463,9 +522,37 @@ function getParentProcess($JobNo, $ProcessId, $MaxNoOfScann){
 				t_process_tracking.ProTrackId, t_process_tracking.InTime
 			FROM
 				t_process_tracking
-			WHERE (t_process_tracking.TrackingNo = '$JobNo' OR t_process_tracking.RegNo = '$JobNo'
+			WHERE (t_process_tracking.TrackingNo = '$JobNo'
 				AND t_process_tracking.ProcessId = $ProcessId
 				AND t_process_tracking.NoOfScann = $MaxNoOfScann);";
+		//exit;
+		$result = mysql_query($query);
+		
+		if ($result)
+			$aData = mysql_fetch_assoc($result);
+		return $aData;
+		//var_dump($aData);
+	} catch (Exception $e) {
+		return $e;
+	}
+}
+
+function getParentProcessByRegNo($JobNo, $ProcessId, $MaxNoOfScann){	
+	if(!$JobNo)
+		echo 'Job No is empty';
+	else if(!$ProcessId)
+		echo 'ProcessId is empty';
+	
+	$aData = array();
+	try {		
+		$query = "SELECT
+				t_process_tracking.ProTrackId, t_process_tracking.InTime
+			FROM
+				t_process_tracking
+			WHERE (t_process_tracking.RegNo = '$JobNo'
+				AND t_process_tracking.ProcessId = $ProcessId
+				AND t_process_tracking.NoOfScann = $MaxNoOfScann);";
+		//exit;
 		$result = mysql_query($query);
 		
 		if ($result)
