@@ -221,21 +221,21 @@ $ProcessId = $aUserProcess['ProcessId'];
 						<div class="form-group">
 							<label class="control-label col-md-4" for="TrackingNo"><?php echo 'For Physical:'; ?></label>
 							<div class="col-md-8">
-								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoPhy" id="RegNoWet" data-required="true" placeholder="scan here..."/>
+								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoPhy" id="RegNoPhy" data-required="true" placeholder="scan here..."/>
 							</div>
 						</div> 
 
 						<div class="form-group">
 							<label class="control-label col-md-4" for="RegNo"><?php echo 'For Color Fastness:'; ?></label>
 							<div class="col-md-8">
-								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoCol" id="RegNoMec" data-required="true" placeholder="scan here..."/>
+								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoCol" id="RegNoCol" data-required="true" placeholder="scan here..."/>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label col-md-4" for="RegNo"><?php echo 'For Fibre:'; ?></label>
 							<div class="col-md-8">
-								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoFib" id="RegNoPil" data-required="true" placeholder="scan here..."/>
+								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoFib" id="RegNoFib" data-required="true" placeholder="scan here..."/>
 							</div>
 						</div>
 				
@@ -255,7 +255,7 @@ $ProcessId = $aUserProcess['ProcessId'];
 							<div class="col-md-8">		                    	
 								<a style="display:none;" href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
 								<a style="display:none;" href="javascript:void(0);" class="btn btn-default" onClick="onListPanel()"><?php echo $TEXT['Cancel']; ?></a>			                    
-							</div>*
+							</div>
 						</div>
 					</form>
 				<?php break;?>
@@ -264,16 +264,16 @@ $ProcessId = $aUserProcess['ProcessId'];
 					<form novalidate="" data-validate="parsley" id="frmProcessTracking" class="form-horizontal form-border no-margin">
 													
 						<div class="form-group">
-							<label class="control-label col-md-4" for="TrackingNo"><?php echo 'Inward No:'; ?></label>
+							<label class="control-label col-md-4" for="TrackingNo"><?php echo 'For Compilation:'; ?></label>
 							<div class="col-md-8">
-								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="TrackingNo" id="TrackingNo" data-required="true" placeholder="scan here..."/>
+								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoCom" id="RegNoCom" data-required="true" placeholder="scan here..."/>
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label class="control-label col-md-4" for="RegNo"><?php echo 'For Sub:'; ?></label>
+							<label class="control-label col-md-4" for="RegNo"><?php echo 'For Subcontractor:'; ?></label>
 							<div class="col-md-8">
-								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoSub" id="RegNoPil" data-required="true" placeholder="scan here..."/>
+								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoSub" id="RegNoSub" data-required="true" placeholder="scan here..."/>
 							</div>
 						</div>
 				

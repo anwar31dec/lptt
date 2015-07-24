@@ -87,7 +87,12 @@ function onConfirmWhenAddEdit() {
 			$("#RegNo").val("");
 			$("#RegNoWet").val("");
 			$("#RegNoMec").val("");
-			$("#RegNoPil").val("");
+			$("#RegNoPil").val("");$
+			$("#RegNoPhy").val("");
+			$("#RegNoCol").val("");
+			$("#RegNoFib").val("");
+			$("#RegNoCom").val("");
+			$("#RegNoSub").val("");
 			//$("#TrackingNo").prop('disabled', false);
 		}
 	});
@@ -635,6 +640,111 @@ $(function() {
 			if(parseInt($("#RegNoPil").val().length)> 12){
 				alert('Your input length is greater than the actual.');				
 				$("#RegNoPil").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RegNoPhy").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			if(parseInt($("#RegNoPhy").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RegNoPhy").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RegNoCol").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			if(parseInt($("#RegNoCol").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RegNoCol").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RegNoFib").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			if(parseInt($("#RegNoFib").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RegNoFib").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RegNoCom").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			if(parseInt($("#RegNoCom").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RegNoCom").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RegNoSub").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			if(parseInt($("#RegNoSub").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RegNoSub").val('');				
 				return;				
 			}
 			onConfirmWhenAddEdit();
