@@ -85,6 +85,9 @@ function onConfirmWhenAddEdit() {
 			}
 			$("#TrackingNo").val("");
 			$("#RegNo").val("");
+			$("#RegNoWet").val("");
+			$("#RegNoMec").val("");
+			$("#RegNoPil").val("");
 			//$("#TrackingNo").prop('disabled', false);
 		}
 	});
@@ -568,6 +571,72 @@ $(function() {
             //console.log(code);
 			//console.log($("#TrackingNo").val());
 			//$("#TrackingNo").val('');
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RegNoWet").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			//alert($("#RegNo").val().length);
+			if(parseInt($("#RegNoWet").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RegNoWet").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RegNoMec").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			//alert($("#RegNo").val().length);
+			if(parseInt($("#RegNoMec").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RegNoMec").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RegNoPil").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			//alert($("#RegNo").val().length);
+			if(parseInt($("#RegNoPil").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RegNoPil").val('');				
+				return;				
+			}
 			onConfirmWhenAddEdit();
         }
         else if(code==9)// Tab key hit
