@@ -62,6 +62,7 @@ function getProcessTrackingData($conn) {
     $sql = "SELECT SQL_CALC_FOUND_ROWS
 				 t_process_tracking.ProTrackId
 				, t_process_tracking.TrackingNo
+				, t_process_tracking.RegNo
 				, t_process_list.ProcessId
 				, t_process_list.ProcessName
 				, t_process_list.ProcessOrder
@@ -106,7 +107,7 @@ function getProcessTrackingData($conn) {
         $sOutput .= "[";
 		$sOutput .= '"' . $aRow['ProTrackId'] . '",';
         $sOutput .= '"' . $serial++ . '",';
-        $sOutput .= '"' . $aRow['TrackingNo'] . '",';
+        $sOutput .= '"' . ($aRow['RegNo'] ? $aRow['RegNo'] : $aRow['TrackingNo']) . '",';
         $sOutput .= '"' . $aRow['ProcessName'] . '",';
         $sOutput .= '"' . date('d/m/Y g:i A', strtotime($aRow['InTime'])) . '",';
         $sOutput .= '"' . $aRow['OutTime'] . '",';
