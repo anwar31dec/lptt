@@ -93,6 +93,8 @@ function onConfirmWhenAddEdit() {
 			$("#RegNoFib").val("");
 			$("#RegNoCom").val("");
 			$("#RegNoSub").val("");
+			$("#RegNoRec").val("");
+			$("#RegNoDel").val("");
 			//$("#TrackingNo").prop('disabled', false);
 		}
 	});
@@ -745,6 +747,48 @@ $(function() {
 			if(parseInt($("#RegNoSub").val().length)> 12){
 				alert('Your input length is greater than the actual.');				
 				$("#RegNoSub").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RegNoRec").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			if(parseInt($("#RegNoRec").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RegNoRec").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RegNoDel").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			if(parseInt($("#RegNoDel").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RegNoDel").val('');				
 				return;				
 			}
 			onConfirmWhenAddEdit();

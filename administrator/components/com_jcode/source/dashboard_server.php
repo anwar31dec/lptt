@@ -127,7 +127,7 @@ $sQuery = "SELECT
 				t_process_tracking
 				INNER JOIN t_process_list 
 					ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
-			WHERE OutTime IS NULL AND EntryDate BETWEEN '2015-06-01' AND '2015-07-03'
+			WHERE OutTime IS NULL AND EntryDate BETWEEN '2015-06-01' AND '2015-07-30'
 			GROUP BY t_process_tracking.ProcessId
 			ORDER BY t_process_list.ProcessOrder;";
 	
@@ -216,12 +216,8 @@ function getTotalInOutCount(){
 				  (SELECT DISTINCT 
 					TrackingNo 
 				  FROM
-					t_process_tracking 
-					INNER JOIN t_process_list 
-					  ON (
-						t_process_tracking.ProcessId = t_process_list.ProcessId
-					  ) 
-				  WHERE EntryDate BETWEEN '$StartDate' 
+					t_process_tracking
+				  WHERE t_process_tracking.ProcessId = 1 AND EntryDate BETWEEN '$StartDate' 
 					AND '$EndDate') a;";	
 	
 	$rResult1 = mysql_query($sQuery);
@@ -235,7 +231,7 @@ function getTotalInOutCount(){
 		t_process_tracking
 		INNER JOIN t_process_list 
 			ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
-	WHERE OutTime IS NOT NULL AND `Position` = 'END' AND EntryDate BETWEEN '2015-06-01' AND '2015-07-03';";	
+	WHERE OutTime IS NOT NULL AND t_process_list.ProcessId = 22 AND EntryDate BETWEEN '2015-06-01' AND '2015-07-30';";	
 	
 	$rResult2 = mysql_query($sQuery2);
 	

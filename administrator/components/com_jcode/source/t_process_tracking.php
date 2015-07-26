@@ -297,6 +297,44 @@ $ProcessId = $aUserProcess['ProcessId'];
 						</div>
 					</form>
 				<?php break;?>
+				<?php case 22:?>
+				<!-- Code block for CASE 22 (Invoice Generation)<br> -->
+					<form novalidate="" data-validate="parsley" id="frmProcessTracking" class="form-horizontal form-border no-margin">
+													
+						<div class="form-group">
+							<label class="control-label col-md-4" for="TrackingNo"><?php echo 'For Job Receive:'; ?></label>
+							<div class="col-md-8">
+								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoRec" id="RegNoRec" data-required="true" placeholder="scan here..."/>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-md-4" for="RegNo"><?php echo 'For Job Delivered:'; ?></label>
+							<div class="col-md-8">
+								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoDel" id="RegNoDel" data-required="true" placeholder="scan here..."/>
+							</div>
+						</div>
+				
+						<div class="form-group">
+							<div class="col-md-4">
+								<input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
+								<input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
+								<input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
+								<input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
+								<input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
+								<input type="hiidden" style="display:none;"name="bUseRegNo" id="bUseRegNo" value="<?php echo $aUserProcess['bUseRegNo']; ?>"/>
+								<input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
+								<input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
+								<input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
+								<input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
+							</div>
+							<div class="col-md-8">		                    	
+								<a style="display:none;" href="javascript:void(0);" class="btn btn-success btn-form-success" id="submitProcessTracking"><?php echo $TEXT['Submit']; ?></a>
+								<a style="display:none;" href="javascript:void(0);" class="btn btn-default" onClick="onListPanel()"><?php echo $TEXT['Cancel']; ?></a>			                    
+							</div>
+						</div>
+					</form>
+				<?php break;?>
 				<?php default: ?>
 				<!-- Code block for CASE default<br> -->
 					<form novalidate="" data-validate="parsley" id="frmProcessTracking" class="form-horizontal form-border no-margin">
