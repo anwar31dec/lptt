@@ -512,7 +512,7 @@ $tmpUnitName = '';
 $sl = 0;
 
 $sQuery = "SELECT 
-				  t_process_tracking.TrackingNo, t_process_tracking.RegNo, t_process_tracking.ProcessId, t_process_list.ProcessName, t_process_list.ProcessOrder, t_process_tracking.InTime, t_process_tracking.OutTime,  Duration
+				  t_process_tracking.TrackingNo, t_process_tracking.RegNo, t_process_tracking.NoOfScann, t_process_tracking.ProcessId, t_process_list.ProcessName, t_process_list.ProcessOrder, t_process_tracking.InTime, t_process_tracking.OutTime,  Duration
 				FROM
 				  t_process_tracking 
 				  INNER JOIN t_process_list 
@@ -529,7 +529,8 @@ $rResult = mysql_query($sQuery);
 if ($rResult) {
 	while ($data = mysql_fetch_object($rResult)) {
 		//print_r($data);
-		if ($data -> TrackingNo != $tmpFacilityCode) {
+		$TrackNoAndNoOfScann = $data -> TrackingNo . $data -> NoOfScann;
+		if ($TrackNoAndNoOfScann != $tmpFacilityCode) {
 
 			// get each row to a array when it changes it state so in this case last row always skipped
 			if (!is_null($row)) {
@@ -551,7 +552,7 @@ if ($rResult) {
 			$row['Total'] += is_null($data -> Duration)? 0 : $data -> Duration;
 			
 			// put the temp variable with the item code
-			$tmpFacilityCode = $data -> TrackingNo;
+			$tmpFacilityCode = $data -> TrackingNo . $data -> NoOfScann;
 			$tmpFacilityName = $data -> RegNo? $data -> RegNo : $data -> TrackingNo;
 		} else {
 			// collecting data for the facility
@@ -563,7 +564,7 @@ if ($rResult) {
 			
 			$row['Total'] += is_null($data -> Duration)? 0 : $data -> Duration;
 			// put the temp variable with the item code
-			$tmpFacilityCode = $data -> TrackingNo;
+			$tmpFacilityCode = $data -> TrackingNo . $data -> NoOfScann;
 		}
 		//print_r($row);
 	}

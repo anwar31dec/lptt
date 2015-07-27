@@ -246,6 +246,40 @@ function insertUpdateProcessTracking($conn) {
 	switch ($ProcessId) {
 		case 1:
 		case 2:
+		
+			$RetTrackingNo = $_POST['RetTrackingNo'];
+			
+			if($RetTrackingNo){	
+				
+				$MaxNoOfScann = getMaxNoOfScann($RetTrackingNo, $ProcessId);
+
+				$aRecExistData2 = getRecExistInProcByInwardNo($RetTrackingNo, $ProcessId, $MaxNoOfScann);
+				// print_r($aRecExistData2);
+				// exit;
+				$OwnProTrackId = $aRecExistData2['ProTrackId'];
+				$OwnInTime = $aRecExistData2['InTime'];
+				$OwnOutTime = $aRecExistData2['OutTime'];
+				
+				if($OwnOutTime){
+					echo json_encode(array('msgType' => 'error', 'msg' => 'This Job is scanned already.'));
+					return;
+				}
+				
+				$aOwnTimeDuration = getTimeDuration($OwnInTime);
+				$duration = $aOwnTimeDuration['Duration'];
+				$txtDuration = $aOwnTimeDuration['txtDuration'];
+								
+				if ($OwnProTrackId) {
+					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $OwnProTrackId;";
+					
+					$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('ProTrackId'), 'pk_values' => array($OwnProTrackId), 'bUseInsetId' => FALSE);
+
+					$aQuerys[] = $aQuery2;
+				}		
+								
+				echo json_encode(exec_query($aQuerys, $jUserId, $language));
+				return;
+			}
 
 			if(!$TrackingNo){
 				echo json_encode(array('msgType' => 'error', 'msg' => 'Job no can not be empty.'));
@@ -262,14 +296,14 @@ function insertUpdateProcessTracking($conn) {
 				$ProTrackId = $aParentData['ProTrackId'];
 				$ParentInTime = $aParentData['InTime'];
 				
+				if (!$ProTrackId && $ProcessId != 1) {
+					echo json_encode(array('msgType' => 'error', 'msg' => 'This job is not scanned by Inward.'));
+					exit();
+				}
+				
 				$aParentTimeDuration = getTimeDuration($ParentInTime);
 				$duration = $aParentTimeDuration['Duration'];
 				$txtDuration = $aParentTimeDuration['txtDuration'];
-								
-				if (!$ProTrackId && $ProcessId != 1) {
-					echo json_encode(array('msgType' => 'success', 'msg' => 'This job is not scanned by Inward.'));
-					exit();
-				}
 				
 				if ($ProTrackId) {
 					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $ProTrackId;";
@@ -940,6 +974,33 @@ function getInwardNoByRegNo($JobNo, $ProcessId, $MaxNoOfScann){
 	try {		
 		$query = "SELECT TrackingNo FROM t_process_tracking WHERE RegNo = '$JobNo' AND ProcessId = $ProcessId AND NoOfScann = $MaxNoOfScann AND TrackingNo IS NOT NULL LIMIT 1;";
 		
+		$result = mysql_query($query);
+		
+		if ($result)
+			$aData = mysql_fetch_assoc($result);
+		return $aData;
+		//var_dump($aData);
+	} catch (Exception $e) {
+		return $e;
+	}
+}
+
+function getRecExistInProcByInwardNo($JobNo, $ProcessId, $MaxNoOfScann){
+	if(!$JobNo)
+		echo 'Job No is empty';
+	else if(!$ProcessId)
+		echo 'ProcessId is empty';
+	
+	$aData = array();
+	try {		
+		$query = "SELECT
+				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime
+			FROM
+				t_process_tracking
+			WHERE (t_process_tracking.TrackingNo = '$JobNo'
+				AND t_process_tracking.ProcessId = $ProcessId
+				AND t_process_tracking.NoOfScann = $MaxNoOfScann);";
+		//exit;
 		$result = mysql_query($query);
 		
 		if ($result)

@@ -95,7 +95,7 @@ function onConfirmWhenAddEdit() {
 			$("#RegNoSub").val("");
 			$("#RegNoRec").val("");
 			$("#RegNoDel").val("");
-			//$("#TrackingNo").prop('disabled', false);
+			$("#RetTrackingNo").val('');
 		}
 	});
 }
@@ -825,5 +825,43 @@ $(function() {
 			}
 			$("#RegNo").focus();
 	});
+	
+	var bShowReturn = false;
+	$('#btnReturn').click(function() {	
+		if(!bShowReturn){
+			$("#TrackingNo-group-id").hide();
+			$("#RetTrackingNo-group-id").show();
+			$("#RetTrackingNo").focus();
+			bShowReturn = true;
+			$('#btnReturn').text('Hide Return');
+		}else{
+			$("#TrackingNo-group-id").show();
+			$("#RetTrackingNo-group-id").hide();
+			$("#TrackingNo").focus();
+			bShowReturn = false;
+			$('#btnReturn').text('Show Return');
+		}
+	});
+	
+	$("#RetTrackingNo").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			if(parseInt($("#RetTrackingNo").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RetTrackingNo").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
 
 }); 

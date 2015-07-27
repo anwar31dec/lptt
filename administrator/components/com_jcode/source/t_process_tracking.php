@@ -43,10 +43,27 @@ $ProcessId = $aUserProcess['ProcessId'];
 				<!-- Code block for CASE 1 and CASE 2 (Inward and Photo Taking)<br> -->
 					<form novalidate="" data-validate="parsley" id="frmProcessTracking" class="form-horizontal form-border no-margin">
 													
-						<div class="form-group">
+						<div class="form-group"  id="TrackingNo-group-id">
 							<label class="control-label col-md-4" for="TrackingNo"><?php echo 'Inward No:'; ?></label>
 							<div class="col-md-8">
 								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="TrackingNo" id="TrackingNo" data-required="true" placeholder="scan here..."/>
+							</div>
+						</div> 
+						
+						<div class="form-group"  id="RetTrackingNo-group-id" style = "display:none;">
+							<label class="control-label col-md-4" for="TrackingNo" style="color:red;"><?php echo 'Return Inward No:'; ?></label>
+							<div class="col-md-8">
+								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RetTrackingNo" id="RetTrackingNo" data-required="true" placeholder="scan here..."/>
+							</div>
+						</div> 
+						
+						<div class="form-group"  id="return-group-id">
+							<div class="col-md-4">	
+							</div>
+							<div class="col-md-8">
+								<div class="return">									
+									  <a href="javascript:void(0);" class="btn btn-success btn-form-success" id="btnReturn">Show Return</a>									
+								</div>
 							</div>
 						</div> 
 				
