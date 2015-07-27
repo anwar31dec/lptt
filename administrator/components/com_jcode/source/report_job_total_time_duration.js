@@ -112,12 +112,12 @@ patientTrendTimeSeries = $('#tbl-patient-trend-time-series').dataTable({
 			"value": baseUrl
 		});
 		 aoData.push({
-			"name": "YearId",
-			"value": $('#year-list').val()
+			"name": "dp1-start",
+			"value": dpStartDate
 		});
 		aoData.push({
-			"name": "MonthId",
-			"value": $('#month-list').val()
+			"name": "dp1-end",
+			"value": dpEndDate
 		});
 				
 		
@@ -211,6 +211,17 @@ $(function() {
 		onPatientTrendTable();
     });
 
+	dpStartDate = moment().startOf('month').format('YYYY-MM-DD');
+	dpEndDate = moment().endOf('month').format('YYYY-MM-DD');
 	
 	onPatientTrendTable();	
+	
+	$('#reportrange').on('apply.daterangepicker', function(ev, picker) { 
+		dpStartDate = picker.startDate.format('YYYY-MM-DD');
+		dpEndDate = picker.endDate.format('YYYY-MM-DD');
+		
+		onPatientTrendTable();
+		
+	  });
+	
 });

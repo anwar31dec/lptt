@@ -458,22 +458,8 @@ function getDiffLevelTableData_0099() {
 
 function getDiffLevelTableData() {
    
-	$DistrictId = ctype_digit($_POST['DistrictId'])? $_POST['DistrictId'] : '';
-
-	$MonthId = isset($_POST['MonthId']) ? $_POST['MonthId'] : '';
-	$YearId = isset($_POST['YearId']) ? $_POST['YearId'] : '';
-	
-	$StartDate = $YearId . '-' . $MonthId . '-01';
-	$EndDate = $YearId . '-' . $MonthId . '-30';
-	
-	$currentYearMonth = $_POST['EndYearId'] . "-" . $_POST['EndMonthId'] . "-" . "01";
-	$Endtdate = date("Y-m-t", strtotime($currentYearMonth));
-
-	if($StartMonthId!='' && $StartYearId!='' && $MonthNumber == 0){
-		$lastYearMonth = $StartYearId . "-" . $StartMonthId . "-" . "01";
-	}else{
-		$lastYearMonth = date("Y-m-d", strtotime(date("Y-m-d", strtotime($currentYearMonth)) . "-".($MonthNumber-1)." month"));
-	}
+$StartDate = $_POST['dp1-start'];
+$EndDate = $_POST['dp1-end'];
 
 $query = "SELECT ProcessId, ProcessName, ProcessOrder
 FROM t_process_list
@@ -526,7 +512,7 @@ $tmpUnitName = '';
 $sl = 0;
 
 $sQuery = "SELECT 
-				  t_process_tracking.TrackingNo, t_process_tracking.ProcessId, t_process_list.ProcessName, t_process_list.ProcessOrder, t_process_tracking.InTime, t_process_tracking.OutTime,  Duration
+				  t_process_tracking.TrackingNo, t_process_tracking.RegNo, t_process_tracking.ProcessId, t_process_list.ProcessName, t_process_list.ProcessOrder, t_process_tracking.InTime, t_process_tracking.OutTime,  Duration
 				FROM
 				  t_process_tracking 
 				  INNER JOIN t_process_list 
@@ -566,7 +552,7 @@ if ($rResult) {
 			
 			// put the temp variable with the item code
 			$tmpFacilityCode = $data -> TrackingNo;
-			$tmpFacilityName = $data -> TrackingNo;
+			$tmpFacilityName = $data -> RegNo? $data -> RegNo : $data -> TrackingNo;
 		} else {
 			// collecting data for the facility
 			$row[$data -> ProcessOrder.'i'] = is_null($data -> InTime)? '' : date('d/m/Y g:i A', strtotime($data -> InTime));

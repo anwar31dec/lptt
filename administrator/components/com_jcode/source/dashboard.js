@@ -305,8 +305,8 @@ $(function() {
 		onPatientTrendTable();
     });
 	
-	dpStartDate = moment().startOf('month').format('YYYY-MM-DD');
-	dpEndDate = moment().endOf('month').format('YYYY-MM-DD');
+	dp1StartDate = moment().startOf('month').format('YYYY-MM-DD');
+	dp1EndDate = moment().endOf('month').format('YYYY-MM-DD');
 	
 	tblProcessCount = $('#tblProcessCount').dataTable({
         "bFilter": false,
@@ -337,11 +337,11 @@ $(function() {
             });
             aoData.push({
                 "name": "dp1-start",
-                "value": dpStartDate
+                "value": dp1StartDate
             });
             aoData.push({
                 "name": "dp1-end",
-                "value": dpEndDate
+                "value": dp1EndDate
             });
 
             $.ajax({
@@ -401,11 +401,11 @@ $(function() {
             });
             aoData.push({
                 "name": "dp1-start",
-                "value": dpStartDate
+                "value": dp1StartDate
             });
             aoData.push({
                 "name": "dp1-end",
-                "value": dpEndDate
+                "value": dp1EndDate
             });
 
             $.ajax({
@@ -468,17 +468,15 @@ $(function() {
 		// alert('hey');
 	// });
 	
-	$('#reportrange').on('apply.daterangepicker', function(ev, picker) { 
-	
-	
-	dpStartDate = picker.startDate.format('YYYY-MM-DD');
-	dpEndDate = picker.endDate.format('YYYY-MM-DD');
-	
-	tblProcessCount.fnDraw();
-	tblTotalInOutCount.fnDraw();
-	
-	//alert(startDate);
-	
-  });
+	$('#reportrange').on('apply.daterangepicker', function(ev, picker) { 		
+		dp1StartDate = picker.startDate.format('YYYY-MM-DD');
+		dp1EndDate = picker.endDate.format('YYYY-MM-DD');
+		
+		tblProcessCount.fnDraw();
+		tblTotalInOutCount.fnDraw();
+		
+		//alert(startDate);
+		
+	  });
 
 });

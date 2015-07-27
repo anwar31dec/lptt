@@ -28,33 +28,19 @@ var lan='<?php echo $lan;?>';
 
 <div class="container">
 	<div class="content_fullwidth lessmar">
-		<div class="azp_col-md-12 one_full">
-			<div class="row">
-				<div class="col-md-12 col-sm-12 col-sx-12">
-					<div class="panel panel-default">
-						<div class="panel-body">		
-								<div class="row">
-									<div class="col-md-12 col-sm-12 col-sx-12">	
-										<center> 							
-											<table id="month-year">
-												<tbody>
-													<tr>
-														<td valign="middle" align="right">
-														<button class="btn btn-info" type="button" id="left-arrow"><span class="fa fa-arrow-left fntC"> </span></button></td>
-														<td>&nbsp;&nbsp;</td><td valign="middle" align="left"><select class="form-control" id="month-list"></select></td>
-														<td>&nbsp;&nbsp;</td><td valign="middle" align="left"><select class="form-control" id="year-list"></select></td>
-														<td>&nbsp;&nbsp;</td><td width="" valign="middle" align="left">
-														<button class="btn btn-info" type="button" id="right-arrow"><span class="fa fa-arrow-right fntC"></span></button></td>
-													</tr>
-												</tbody>
-											</table>
-										</center> 								
-									</div>
-								</div>
-						</div>
-					</div>
+		<div class="azp_col-md-12 one_full">			
+			<div class="row"> 	
+				<div class="col-md-4">
 				</div>
-			</div>
+				<div class="col-md-4">
+				</div>
+				<div id="reportrange-container" class="col-md-4">
+					<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+					  <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+					  <span></span> <b class="caret"></b>
+				   </div>
+				</div>
+			</div> 
 	
 			<div class="panel-heading clearfix">
 				<?php echo 'Job Total Time Duration'; ?>
@@ -95,9 +81,9 @@ function print_function(type){
 	reportHeaderList[0] = reportHeaderName;
 	reportHeaderList[1] = $('#country-list option[value='+$('#country-list').val()+']').text()+' - ' + $('#item-group option[value='+$('#item-group').val()+']').text()+ ' - ' + $('#report-by option[value='+$('#report-by').val()+']').text();
 
-	dataAlignment = ["center","left","right","right","right","right","right","right","right","right","right","right","right","right"];
+	dataAlignment = ["center","center"];
 	//when column count and width array count are not same then last value repeat
-	cellWidth = ["10","20","13"];
+	cellWidth = ["10","20","20"];
 
 	reportHeaderList = JSON.stringify(reportHeaderList);
 	
@@ -322,6 +308,73 @@ ajaxRequest.send("jBaseUrl=localhost&lan="+lan+"&reportSaveName="+reportSaveName
 
 </script>
 
+<script type="text/javascript">
+var $ = jQuery.noConflict();
+var dpStartDate;
+var dpEndDate;
+$(document).ready(function() {
+  var cb = function(start, end, label) {
+	console.log(start.toISOString(), end.toISOString(), label);
+	$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+	//alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
+  };
+
+  var optionSet1 = {
+	startDate: moment().startOf('month'),
+	endDate: moment().endOf('month'),
+	minDate: '01/01/2015',
+	maxDate: '12/31/2020',
+	dateLimit: { days: 365 },
+	showDropdowns: true,
+	showWeekNumbers: true,
+	timePicker: false,
+	timePickerIncrement: 1,
+	timePicker12Hour: true,
+	ranges: {
+	   'Today': [moment(), moment()],
+	   'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+	   'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+	   'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+	   'This Month': [moment().startOf('month'), moment().endOf('month')],
+	   'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+	},
+	opens: 'left',
+	buttonClasses: ['btn btn-default'],
+	applyClass: 'btn-sm btn-primary',
+	cancelClass: 'btn-sm',
+	format: 'MM/DD/YYYY',
+	separator: ' to ',
+	locale: {
+		applyLabel: 'Submit',
+		cancelLabel: 'Clear',
+		fromLabel: 'From',
+		toLabel: 'To',
+		customRangeLabel: 'Custom',
+		daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr','Sa'],
+		monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+		firstDay: 1
+	}
+  };
+
+  $('#reportrange span').html(moment().startOf('month').format('MMMM D, YYYY') + ' - ' + moment().endOf('month').format('MMMM D, YYYY'));
+
+  $('#reportrange').daterangepicker(optionSet1, cb);
+
+  $('#reportrange').on('show.daterangepicker', function() { console.log("show event fired"); });
+  $('#reportrange').on('hide.daterangepicker', function() { console.log("hide event fired"); });
+  /* $('#reportrange').on('apply.daterangepicker', function(ev, picker) { 
+	console.log("apply event fired, start/end dates are " 
+	  + picker.startDate.format('YYYY-MM-DD') 
+	  + " to " 
+	  + picker.endDate.format('YYYY-MM-DD')
+	); 
+  }); */
+  $('#reportrange').on('cancel.daterangepicker', function(ev, picker) { console.log("cancel event fired"); });
+});
+</script>
+
+
+
 
 <style>
 /* .SL{
@@ -390,6 +443,9 @@ border: 1px solid #e4e4e4 !important;
 <script src='<?php echo $baseUrl; ?>media/datatable/js/jquery.dataTables.min.js'></script>
 <script src='<?php echo $baseUrl; ?>media/datatable-bootstrap/dataTables.bootstrap.min.js'></script>
 
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+<script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/moment.js"></script>
+<script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/daterangepicker.js"></script>
 
 <script src='<?php echo $baseUrl; ?>report_job_total_time_duration.js'></script>
 

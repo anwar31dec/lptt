@@ -334,8 +334,8 @@ ajaxRequest.send("jBaseUrl=localhost&lan="+lan+"&reportSaveName="+reportSaveName
 <script type="text/javascript" src="<?php echo $baseUrl; ?>language/lang_switcher.js"></script>
 
 <script type="text/javascript">
-var dpStartDate;
-var dpEndDate;
+var dp1StartDate;
+var dp1EndDate;
 $(document).ready(function() {
   var cb = function(start, end, label) {
 	console.log(start.toISOString(), end.toISOString(), label);
