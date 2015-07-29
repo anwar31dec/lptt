@@ -62,7 +62,7 @@ $ProcessId = $aUserProcess['ProcessId'];
 							</div>
 							<div class="col-md-8">
 								<div class="return">									
-									  <a href="javascript:void(0);" class="btn btn-success btn-form-success" id="btnReturn">Show Return</a>									
+									  <a href="javascript:void(0);" class="btn btn-success btn-form-success" id="btnRetTrackingNo">Show Return</a>									
 								</div>
 							</div>
 						</div> 
@@ -165,6 +165,23 @@ $ProcessId = $aUserProcess['ProcessId'];
 								</div>
 							</div>
 						</div> 
+						
+						<div class="form-group"  id="RetRegNo-group-id" style = "display:none;">
+							<label class="control-label col-md-4" for="RetRegNo" style="color:red;"><?php echo 'Return Inward No:'; ?></label>
+							<div class="col-md-8">
+								<input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RetRegNo" id="RetRegNo" data-required="true" placeholder="scan here..."/>
+							</div>
+						</div> 
+						
+						<div class="form-group"  id="return-group-id">
+							<div class="col-md-4">	
+							</div>
+							<div class="col-md-8">
+								<div class="return">									
+									  <a href="javascript:void(0);" class="btn btn-success btn-form-success" id="btnRetRegNo">Show Return</a>									
+								</div>
+							</div>
+						</div>
 				
 						<div class="form-group">
 							<div class="col-md-4">

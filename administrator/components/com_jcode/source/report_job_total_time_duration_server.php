@@ -519,7 +519,7 @@ $sQuery = "SELECT
 					ON t_process_tracking.ProcessId = t_process_list.ProcessId 
 				WHERE EntryDate >= '$StartDate' 
 				  AND EntryDate <= '$EndDate' 
-				ORDER BY t_process_tracking.TrackingNo, t_process_list.ProcessOrder;";
+				ORDER BY t_process_tracking.TrackingNo, t_process_tracking.NoOfScann, t_process_list.ProcessOrder;";
 	
 	
 $rResult = mysql_query($sQuery);

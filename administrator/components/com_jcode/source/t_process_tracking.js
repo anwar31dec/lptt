@@ -96,6 +96,7 @@ function onConfirmWhenAddEdit() {
 			$("#RegNoRec").val("");
 			$("#RegNoDel").val("");
 			$("#RetTrackingNo").val('');
+			$("#RetRegNo").val('');
 		}
 	});
 }
@@ -827,19 +828,35 @@ $(function() {
 	});
 	
 	var bShowReturn = false;
-	$('#btnReturn').click(function() {	
+	$('#btnRetTrackingNo').click(function() {	
 		if(!bShowReturn){
 			$("#TrackingNo-group-id").hide();
 			$("#RetTrackingNo-group-id").show();
 			$("#RetTrackingNo").focus();
 			bShowReturn = true;
-			$('#btnReturn').text('Hide Return');
+			$('#btnRetTrackingNo').text('Hide Return');
 		}else{
 			$("#TrackingNo-group-id").show();
 			$("#RetTrackingNo-group-id").hide();
 			$("#TrackingNo").focus();
 			bShowReturn = false;
-			$('#btnReturn').text('Show Return');
+			$('#btnRetTrackingNo').text('Show Return');
+		}
+	});
+	
+	$('#btnRetRegNo').click(function() {	
+		if(!bShowReturn){
+			$("#RegNo-group-id").hide();
+			$("#RetRegNo-group-id").show();
+			$("#RetRegNo").focus();
+			bShowReturn = true;
+			$('#btnRetRegNo').text('Hide Return');
+		}else{
+			$("#RegNo-group-id").show();
+			$("#RetRegNo-group-id").hide();
+			$("#RegNo").focus();
+			bShowReturn = false;
+			$('#btnRetRegNo').text('Show Return');
 		}
 	});
 	
@@ -850,6 +867,27 @@ $(function() {
 			if(parseInt($("#RetTrackingNo").val().length)> 12){
 				alert('Your input length is greater than the actual.');				
 				$("#RetTrackingNo").val('');				
+				return;				
+			}
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	$("#RetRegNo").keydown(function(e) {	
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			if(parseInt($("#RetRegNo").val().length)> 12){
+				alert('Your input length is greater than the actual.');				
+				$("#RetRegNo").val('');				
 				return;				
 			}
 			onConfirmWhenAddEdit();

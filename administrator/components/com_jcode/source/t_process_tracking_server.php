@@ -240,6 +240,8 @@ function insertUpdateProcessTracking($conn) {
 	$eNewNoPosition = $_POST['eNewNoPosition'];
 	$Position = $_POST['Position'];
 	
+	$ParentNoOfScann = 0;
+	
 	//echo $ParentProcessId;
 	//exit();
 	
@@ -250,7 +252,7 @@ function insertUpdateProcessTracking($conn) {
 			$RetTrackingNo = $_POST['RetTrackingNo'];
 			
 			if($RetTrackingNo){	
-				
+			
 				$MaxNoOfScann = getMaxNoOfScann($RetTrackingNo, $ProcessId);
 
 				$aRecExistData2 = getRecExistInProcByInwardNo($RetTrackingNo, $ProcessId, $MaxNoOfScann);
@@ -270,7 +272,7 @@ function insertUpdateProcessTracking($conn) {
 				$txtDuration = $aOwnTimeDuration['txtDuration'];
 								
 				if ($OwnProTrackId) {
-					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $OwnProTrackId;";
+					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId', bReturn = 1 WHERE ProTrackId = $OwnProTrackId;";
 					
 					$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('ProTrackId'), 'pk_values' => array($OwnProTrackId), 'bUseInsetId' => FALSE);
 
@@ -286,8 +288,17 @@ function insertUpdateProcessTracking($conn) {
 				return;
 			}
 		
-			$MaxNoOfScann = getMaxNoOfScann($TrackingNo, $ProcessId);
-			$MaxNoOfScann = $MaxNoOfScann + 1;
+			$MaxNoOfScann = getMaxNoOfScann($TrackingNo, $ParentProcessId);
+			
+			// if( $MaxNoOfScann > 0 ){
+				// $TotNoOfReturn = getTotNoOfReturn($TrackingNo, 2, $MaxNoOfScann);
+				// if(!$TotNoOfReturn){
+					// echo json_encode(array('msgType' => 'error', 'msg' => 'No return found for this job.'));
+					// return;
+				// }				
+			// }
+			if($ProcessId == 1)	
+				$MaxNoOfScann = $MaxNoOfScann + 1;
 						
 			/* Update out time of parent */
 			if($ParentProcessId){
@@ -295,6 +306,8 @@ function insertUpdateProcessTracking($conn) {
 				
 				$ProTrackId = $aParentData['ProTrackId'];
 				$ParentInTime = $aParentData['InTime'];
+				$ParentNoOfScann = $aParentData['NoOfScann'];
+				//$ParentNoOfScann =  $ParentNoOfScann? $ParentNoOfScann: 'NULL';
 				
 				if (!$ProTrackId && $ProcessId != 1) {
 					echo json_encode(array('msgType' => 'error', 'msg' => 'This job is not scanned by Inward.'));
@@ -314,10 +327,13 @@ function insertUpdateProcessTracking($conn) {
 				}
 			}
 			
+			if(!$ParentNoOfScann)
+				$ParentNoOfScann = $MaxNoOfScann;
+			
 			/* Insert the current process */
 			$sql = "INSERT INTO t_process_tracking
-				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId)
-				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1);";
+				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId, ParentNoOfScann)
+				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1, $ParentNoOfScann);";
 			$aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
 			$aQuerys[] = $aQuery1;
 			
@@ -325,42 +341,74 @@ function insertUpdateProcessTracking($conn) {
 			
 			break;
 		case 3:
-			
+					
 			if(!$TrackingNo){
 				echo json_encode(array('msgType' => 'error', 'msg' => 'Job no can not be empty.'));
 				return;
 			}
 			
-			$MaxNoOfScann = getMaxNoOfScann($TrackingNo, $ProcessId);
-			$MaxNoOfScann = $MaxNoOfScann + 1;
-						
-			/* Update out time of parent */
-			if($ParentProcessId){
-				$aParentData = getParentProcessByInwardNo($TrackingNo, $ParentProcessId, $MaxNoOfScann);
-				
-				$ProTrackId = $aParentData['ProTrackId'];
-				$ParentInTime = $aParentData['InTime'];
-				
-				//var_dump($ProTrackId);
-				//exit;
-				
-				$aParentTimeDuration = getTimeDuration($ParentInTime);
-				$duration = $aParentTimeDuration['Duration'];
-				$txtDuration = $aParentTimeDuration['txtDuration'];
+			$bReScann = 1;
+			
+			if($bReScann){
+				$MaxNoOfScann = getMaxNoOfScann($TrackingNo, $ProcessId);
+			}
+			else{
+				$MaxNoOfScann = getMaxNoOfScann($TrackingNo, $ParentProcessId);
+			}
+			
+							
+			// if( $MaxNoOfScann > 0 ){
+				// $TotNoOfReturn = getTotNoOfReturn($TrackingNo, 4, $MaxNoOfScann);
 								
-				if ($ProTrackId) {
-					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $ProTrackId;";
+				// if(!$TotNoOfReturn){
+					// echo json_encode(array('msgType' => 'error', 'msg' => 'No return found for this job.'));
+					// return;
+				// }				
+			// }
+			
+			//$MaxNoOfScann = $MaxNoOfScann + 1;
+			
+				
+			
+			if($bReScann){	
+				$MaxNoOfScann = $MaxNoOfScann + 1;				
+			}/* Update out time of parent */
+			else if($ParentProcessId){
+				$aParentData = getParentProcessByInwardNo($TrackingNo, $ParentProcessId, $MaxNoOfScann);
+				// var_dump($aParentData);
+				// exit;
+				
+				if($aParentData){
+					$ProTrackId = $aParentData['ProTrackId'];
+					$ParentInTime = $aParentData['InTime'];
+					$ParentNoOfScann = $aParentData['NoOfScann'];
 					
-					$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
+					// var_dump($ParentNoOfScann);
+					// exit;					
+					
+					if($ProTrackId){
+						$aParentTimeDuration = getTimeDuration($ParentInTime);
+						$duration = $aParentTimeDuration['Duration'];
+						$txtDuration = $aParentTimeDuration['txtDuration'];
+										
+						if ($ProTrackId) {
+							$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $ProTrackId;";
+							
+							$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
 
-					$aQuerys[] = $aQuery2;
+							$aQuerys[] = $aQuery2;
+						}
+					}
 				}
 			}
 			
+			if(!$ParentNoOfScann)
+				$ParentNoOfScann = $MaxNoOfScann;
+			
 			/* Insert the current process */
 			$sql = "INSERT INTO t_process_tracking
-				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId)
-				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1);";
+				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId, ParentNoOfScann)
+				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1, $ParentNoOfScann);";
 			$aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
 			$aQuerys[] = $aQuery1;
 			
@@ -376,6 +424,40 @@ function insertUpdateProcessTracking($conn) {
 			break;
 		case 4:
 		
+			$RetRegNo = $_POST['RetRegNo'];
+			
+			if($RetRegNo){	
+			
+				$MaxNoOfScann = getMaxNoOfScann($RetRegNo, $ProcessId);
+
+				$aRecExistData2 = getRecExistInProcByRegNo($RetRegNo, $ProcessId, $MaxNoOfScann);
+				// print_r($aRecExistData2);
+				// exit;
+				$OwnProTrackId = $aRecExistData2['ProTrackId'];
+				$OwnInTime = $aRecExistData2['InTime'];
+				$OwnOutTime = $aRecExistData2['OutTime'];
+				
+				if($OwnOutTime){
+					echo json_encode(array('msgType' => 'error', 'msg' => 'This Job is scanned already.'));
+					return;
+				}
+				
+				$aOwnTimeDuration = getTimeDuration($OwnInTime);
+				$duration = $aOwnTimeDuration['Duration'];
+				$txtDuration = $aOwnTimeDuration['txtDuration'];
+								
+				if ($OwnProTrackId) {
+					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId', bReturn = 1 WHERE ProTrackId = $OwnProTrackId;";
+					
+					$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('ProTrackId'), 'pk_values' => array($OwnProTrackId), 'bUseInsetId' => FALSE);
+
+					$aQuerys[] = $aQuery2;
+				}		
+								
+				echo json_encode(exec_query($aQuerys, $jUserId, $language));
+				return;
+			}
+		
 			$bUseWet = $_POST['chk-wet-lab']? 1 : 0;
 			$bUseMechanical = $_POST['chk-mechanical-lab']? 1 : 0;
 			$bUsePilling = $_POST['chk-pilling-abrasion-lab']? 1 : 0;
@@ -385,33 +467,38 @@ function insertUpdateProcessTracking($conn) {
 				return;
 			}
 			
-			$MaxNoOfScann = getMaxNoOfScann($RegNo, $ProcessId);
-			$MaxNoOfScann = $MaxNoOfScann + 1;
+			$MaxNoOfScann = getMaxNoOfScann($RegNo, $ParentProcessId);
+			//$MaxNoOfScann = $MaxNoOfScann + 1;
 						
 			/* Update out time of parent */
 			if($ParentProcessId){
 				$aParentData = getParentProcessByRegNo($RegNo, $ParentProcessId, $MaxNoOfScann);
-				
-				$ProTrackId = $aParentData['ProTrackId'];
-				$ParentInTime = $aParentData['InTime'];
-				
-				$aParentTimeDuration = getTimeDuration($ParentInTime);
-				$duration = $aParentTimeDuration['Duration'];
-				$txtDuration = $aParentTimeDuration['txtDuration'];
-								
-				if ($ProTrackId) {
-					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $ProTrackId;";
+				if($aParentData){
+					$ProTrackId = $aParentData['ProTrackId'];
+					$ParentInTime = $aParentData['InTime'];
+					$ParentNoOfScann = $aParentData['NoOfScann'];
 					
-					$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
+					$aParentTimeDuration = getTimeDuration($ParentInTime);
+					$duration = $aParentTimeDuration['Duration'];
+					$txtDuration = $aParentTimeDuration['txtDuration'];
+									
+					if ($ProTrackId) {
+						$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $ProTrackId;";
+						
+						$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
 
-					$aQuerys[] = $aQuery2;
+						$aQuerys[] = $aQuery2;
+					}
 				}
 			}
 			
+			if(!$ParentNoOfScann)
+				$ParentNoOfScann = $MaxNoOfScann;
+			
 			/* Insert the current process */
 			$sql = "INSERT INTO t_process_tracking
-				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId, bUseWet, bUseMechanical, bUsePilling)
-				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1, $bUseWet, $bUseMechanical, $bUsePilling);";
+				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId, bUseWet, bUseMechanical, bUsePilling, ParentNoOfScann)
+				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1, $bUseWet, $bUseMechanical, $bUsePilling, $ParentNoOfScann);";
 			$aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
 			$aQuerys[] = $aQuery1;
 			
@@ -456,33 +543,51 @@ function insertUpdateProcessTracking($conn) {
 				return;
 			}
 			
-			$MaxNoOfScann = getMaxNoOfScann($RegNo, $ProcessId);
-			$MaxNoOfScann = $MaxNoOfScann + 1;
+			$MaxNoOfScann = getMaxNoOfScann($RegNo, $ParentProcessId);
+			//$MaxNoOfScann = $MaxNoOfScann + 1;
+			
+			// var_dump($MaxNoOfScann);
+					// exit;	
 						
 			/* Update out time of parent */
 			if($ParentProcessId){
 				$aParentData = getParentProcessByRegNo($RegNo, $ParentProcessId, $MaxNoOfScann);
-				
-				$ProTrackId = $aParentData['ProTrackId'];
-				$ParentInTime = $aParentData['InTime'];
-				
-				$aParentTimeDuration = getTimeDuration($ParentInTime);
-				$duration = $aParentTimeDuration['Duration'];
-				$txtDuration = $aParentTimeDuration['txtDuration'];
-								
-				if ($ProTrackId) {
-					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId', $StrBDone WHERE ProTrackId = $ProTrackId;";
+				// print_r($aParentData);
+				// exit;
+				if($aParentData){
+					$ProTrackId = $aParentData['ProTrackId'];
+					$ParentInTime = $aParentData['InTime'];
+					$ParentNoOfScann = $aParentData['NoOfScann'];
 					
-					$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
+					// var_dump($ParentNoOfScann);
+					// exit;	
+					
+					$aParentTimeDuration = getTimeDuration($ParentInTime);
+					$duration = $aParentTimeDuration['Duration'];
+					$txtDuration = $aParentTimeDuration['txtDuration'];
+									
+					if ($ProTrackId) {
+						$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId', $StrBDone WHERE ProTrackId = $ProTrackId;";
+						
+						$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
 
-					$aQuerys[] = $aQuery2;
+						$aQuerys[] = $aQuery2;
+					}
 				}
 			}
 			
+
+			
+			if(!$ParentNoOfScann)
+				$ParentNoOfScann = $MaxNoOfScann;
+			
+						// var_dump($ParentNoOfScann);
+					// exit;	
+			
 			/* Insert the current process */
 			$sql = "INSERT INTO t_process_tracking
-				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId)
-				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1);";
+				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId, ParentNoOfScann)
+				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1, $ParentNoOfScann);";
 			$aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
 			$aQuerys[] = $aQuery1;
 			
@@ -523,8 +628,8 @@ function insertUpdateProcessTracking($conn) {
 				return;
 			}
 								
-			//$MaxNoOfScann = getMaxNoOfScann($RegNo, $ProcessId);
-			$MaxNoOfScann =  1;
+			$MaxNoOfScann = getMaxNoOfScann($RegNo, $ParentProcessId);
+			//$MaxNoOfScann =  1;
 						
 			/* Update out time of parent */
 			if($ParentProcessId){
@@ -532,13 +637,14 @@ function insertUpdateProcessTracking($conn) {
 				
 				$ProTrackId = $aParentData['ProTrackId'];
 				$ParentInTime = $aParentData['InTime'];
+				$ParentNoOfScann = $aParentData['NoOfScann'];
 				
 				$aParentTimeDuration = getTimeDuration($ParentInTime);
 				$duration = $aParentTimeDuration['Duration'];
 				$txtDuration = $aParentTimeDuration['txtDuration'];
 								
 				if ($ProTrackId) {
-					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $ProTrackId;";
+					$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId', ParentNoOfScann = $ParentNoOfScann WHERE ProTrackId = $ProTrackId;";
 					
 					$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
 
@@ -549,8 +655,8 @@ function insertUpdateProcessTracking($conn) {
 			$aRecExistData2 = getRecExistInProcByRegNo($RegNo, $ProcessId, $MaxNoOfScann);
 			$CurProTrackId = $aRecExistData2['ProTrackId'];
 			
-			//print_r($aRecExistData2);
-			//exit;
+			if(!$ParentNoOfScann)
+				$ParentNoOfScann = $MaxNoOfScann;
 			
 			if($CurProTrackId){
 				// $sql4 = "UPDATE t_process_tracking SET InTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $CurProTrackId;";
@@ -562,8 +668,8 @@ function insertUpdateProcessTracking($conn) {
 			else{
 				/* Insert the current process */
 				$sql = "INSERT INTO t_process_tracking
-					(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId)
-					VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1);";
+					(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId, ParentNoOfScann)
+					VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1, $ParentNoOfScann);";
 				$aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
 				$aQuerys[] = $aQuery1;
 			}
@@ -833,8 +939,8 @@ function insertUpdateProcessTracking($conn) {
 			
 			break;
 		default:
-			$MaxNoOfScann = getMaxNoOfScann($RegNo, $ProcessId);
-			$MaxNoOfScann = $MaxNoOfScann + 1;
+			$MaxNoOfScann = getMaxNoOfScann($RegNo, $ParentProcessId);
+			//$MaxNoOfScann = $MaxNoOfScann + 1;
 						
 			/* Update out time of parent */
 			if($ParentProcessId){
@@ -842,6 +948,7 @@ function insertUpdateProcessTracking($conn) {
 				
 				$ProTrackId = $aParentData['ProTrackId'];
 				$ParentInTime = $aParentData['InTime'];
+				$ParentNoOfScann = $aParentData['NoOfScann'];
 				
 				if(!$ProTrackId){
 					echo json_encode(array('msgType' => 'error', 'msg' => 'This Job has no previous record.'));
@@ -863,8 +970,8 @@ function insertUpdateProcessTracking($conn) {
 			
 			/* Insert the current process */
 			$sql = "INSERT INTO t_process_tracking
-				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId)
-				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1);";
+				(TrackingNo, RegNo, ProcessId, NoOfScann, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId, ParentNoOfScann)
+				VALUES ('$TrackingNo', '$RegNo', $ProcessId, $MaxNoOfScann, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1, $ParentNoOfScann);";
 			$aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
 			$aQuerys[] = $aQuery1;
 			
@@ -918,8 +1025,8 @@ function getParentProcessByInwardNo($JobNo, $ProcessId, $MaxNoOfScann){
 	
 	$aData = array();
 	try {		
-		$query = "SELECT
-				t_process_tracking.ProTrackId, t_process_tracking.InTime
+		 $query = "SELECT
+				t_process_tracking.ProTrackId, t_process_tracking.InTime,  t_process_tracking.NoOfScann
 			FROM
 				t_process_tracking
 			WHERE (t_process_tracking.TrackingNo = '$JobNo'
@@ -930,6 +1037,9 @@ function getParentProcessByInwardNo($JobNo, $ProcessId, $MaxNoOfScann){
 		
 		if ($result)
 			$aData = mysql_fetch_assoc($result);
+		
+		//var_dump($aData);
+		
 		return $aData;
 		//var_dump($aData);
 	} catch (Exception $e) {
@@ -946,7 +1056,7 @@ function getParentProcessByRegNo($JobNo, $ProcessId, $MaxNoOfScann){
 	$aData = array();
 	try {		
 		$query = "SELECT
-				t_process_tracking.ProTrackId, t_process_tracking.InTime
+				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.NoOfScann
 			FROM
 				t_process_tracking
 			WHERE (t_process_tracking.RegNo = '$JobNo'
@@ -1070,5 +1180,35 @@ function getTimeDuration($ParentInTime){
 	$txtDuration = convertToHoursMins($duration, '%02d hours %02d minutes'); 	
 	
 	return array('Duration' => $duration, 'txtDuration' => $txtDuration);
+}
+
+function getTotNoOfReturn($JobNo, $NextProcessId, $MaxNoOfScann){
+	if(!$JobNo)
+		echo 'Job No is empty';
+	else if(!$NextProcessId)
+		echo 'ProcessId is empty';
+	
+	$aData = array();
+	try {		
+		$query = "SELECT 
+					  COUNT(*) TotNoOfReturn 
+					FROM
+					  t_process_tracking 
+					WHERE (
+						TrackingNo = '$JobNo' 
+						AND NoOfScann = $MaxNoOfScann
+						AND ProcessId = $NextProcessId
+						AND bReturn = 1
+					  ) ;";
+		//exit;
+		$result = mysql_query($query);
+		
+		if ($result)
+			$aData = mysql_fetch_assoc($result);
+		return $aData['TotNoOfReturn'];
+		//var_dump($aData);
+	} catch (Exception $e) {
+		return $e;
+	}
 }
 ?>
