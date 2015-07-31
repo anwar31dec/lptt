@@ -95,7 +95,7 @@ function onConfirmWhenAddEdit() {
 			$("#RegNoSub").val("");
 			$("#RegNoRec").val("");
 			$("#RegNoDel").val("");
-			$("#TrackingNoPt").val('');
+			$("#RetTrackingNo").val('');
 			$("#RetRegNo").val('');
 		}
 	});
@@ -862,13 +862,13 @@ $(function() {
 		}
 	});
 	
-	$("#TrackingNoPt").keydown(function(e) {	
+	$("#RetTrackingNo").keydown(function(e) {	
         var code = (e.keyCode ? e.keyCode : e.which);
         if(code == 13)// Enter key hit
         {
-			if(parseInt($("#TrackingNoPt").val().length)> 12){
+			if(parseInt($("#RetTrackingNo").val().length)> 12){
 				alert('Your input length is greater than the actual.');				
-				$("#TrackingNoPt").val('');				
+				$("#RetTrackingNo").val('');				
 				return;				
 			}
 			onConfirmWhenAddEdit();
