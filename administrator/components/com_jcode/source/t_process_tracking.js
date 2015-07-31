@@ -847,12 +847,14 @@ $(function() {
 	$('#btnRetRegNo').click(function() {	
 		if(!bShowReturn){
 			$("#RegNo-group-id").hide();
+			$("#regno14-group-id").hide();
 			$("#RetRegNo-group-id").show();
 			$("#RetRegNo").focus();
 			bShowReturn = true;
 			$('#btnRetRegNo').text('Hide Return');
 		}else{
 			$("#RegNo-group-id").show();
+			$("#regno14-group-id").show();
 			$("#RetRegNo-group-id").hide();
 			$("#RegNo").focus();
 			bShowReturn = false;
