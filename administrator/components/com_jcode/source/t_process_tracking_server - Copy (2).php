@@ -53,11 +53,10 @@ function getProcessTrackingData($conn) {
 
     $sWhere = "";
     if ($_POST['sSearch'] != "") {
-        $sWhere = " AND  (a.TrackingNo LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%'  OR " .
-                 " a.RegNo LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
-                 " b.ProcessName LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
-                 " a.InTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
-                 " a.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
+        $sWhere = " AND  (t_process_tracking.TrackingNo LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%'  OR " .
+                 " t_process_list.ProcessName LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
+                 " t_process_tracking.InTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
+                 " t_process_tracking.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
     }
 
    /*  $sql = "SELECT SQL_CALC_FOUND_ROWS
@@ -149,8 +148,8 @@ function getProcessTrackingData($conn) {
                     $sWhere 
                     $sOrder 
                     $sLimit ";
-	// echo $sql;
-	// exit;
+	//echo $sql;
+	//exit;
 	
  
 
@@ -272,37 +271,26 @@ function getWaitingProcessList($conn) {
                  " t_process_tracking.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
     }
 
-    $sql = "SELECT 
-				  SQL_CALC_FOUND_ROWS DISTINCT a.RegNo, p.RegNo RegNoWet,  p.InTime InTimeWet, p.OutTime OutTimeWet, q.RegNo RegNoMec,  q.InTime InTimeMec, q.OutTime OutTimeMec, r.RegNo RegNoPil, r.InTime InTimePil, r.OutTime OutTimePil 
-				FROM
-				  t_process_tracking a 
-				  INNER JOIN t_process_list b 
-					ON (a.ProcessId = b.ProcessId) 
-				  LEFT JOIN 
-					(SELECT 
-					  RegNo, InTime, OutTime 
-					FROM
-					  t_process_tracking 
-					WHERE ProcessId = 5) p 
-					ON (a.RegNo = p.RegNo) 
-				  LEFT JOIN 
-					(SELECT 
-					  RegNo, InTime, OutTime 
-					FROM
-					  t_process_tracking 
-					WHERE ProcessId = 6) q 
-					ON (a.RegNo = q.RegNo) 
-				  LEFT JOIN 
-					(SELECT 
-					  RegNo, InTime, OutTime 
-					FROM
-					  t_process_tracking 
-					WHERE ProcessId = 7) r 
-					ON (a.RegNo = r.RegNo) 
-				WHERE a.ProcessId IN (5,6,7)
+    $sql = "SELECT SQL_CALC_FOUND_ROWS
+				 t_process_tracking.ProTrackId
+				, t_process_tracking.TrackingNo
+				, t_process_list.ProcessId
+				, t_process_list.ProcessName
+				, t_process_list.ProcessOrder
+				, t_process_tracking.InTime
+				, t_process_tracking.OutTime
+				, TIMESTAMPDIFF(MINUTE, InTime, NOW()) AS Duration
+				, UsualDuration
+				, (TIMESTAMPDIFF(MINUTE, InTime, NOW()) - UsualDuration) Status
+			FROM
+				t_process_tracking
+				INNER JOIN t_process_list
+					ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
+					WHERE t_process_list.ParentProcessId IN (5,6,7)
                     $sWhere 
                     $sOrder 
                     $sLimit ";
+ 
 
     $result = mysql_query($sql, $conn);
     $total = mysql_num_rows($result);

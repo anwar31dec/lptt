@@ -53,11 +53,10 @@ function getProcessTrackingData($conn) {
 
     $sWhere = "";
     if ($_POST['sSearch'] != "") {
-        $sWhere = " AND  (a.TrackingNo LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%'  OR " .
-                 " a.RegNo LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
-                 " b.ProcessName LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
-                 " a.InTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
-                 " a.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
+        $sWhere = " AND  (t_process_tracking.TrackingNo LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%'  OR " .
+                 " t_process_list.ProcessName LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
+                 " t_process_tracking.InTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
+                 " t_process_tracking.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
     }
 
    /*  $sql = "SELECT SQL_CALC_FOUND_ROWS
@@ -149,8 +148,8 @@ function getProcessTrackingData($conn) {
                     $sWhere 
                     $sOrder 
                     $sLimit ";
-	// echo $sql;
-	// exit;
+	//echo $sql;
+	//exit;
 	
  
 
@@ -272,7 +271,7 @@ function getWaitingProcessList($conn) {
                  " t_process_tracking.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
     }
 
-    $sql = "SELECT 
+    echo $sql = "SELECT 
 				  SQL_CALC_FOUND_ROWS DISTINCT a.RegNo, p.RegNo RegNoWet,  p.InTime InTimeWet, p.OutTime OutTimeWet, q.RegNo RegNoMec,  q.InTime InTimeMec, q.OutTime OutTimeMec, r.RegNo RegNoPil, r.InTime InTimePil, r.OutTime OutTimePil 
 				FROM
 				  t_process_tracking a 
@@ -302,7 +301,7 @@ function getWaitingProcessList($conn) {
 				WHERE a.ProcessId IN (5,6,7)
                     $sWhere 
                     $sOrder 
-                    $sLimit ";
+                    $sLimit "
 
     $result = mysql_query($sql, $conn);
     $total = mysql_num_rows($result);

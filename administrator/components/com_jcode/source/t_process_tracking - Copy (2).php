@@ -32,7 +32,7 @@ $ProcessId = $aUserProcess['ProcessId'];
 </script>
 
 <div class="row"> 
-	<div class="col-md-4">
+	<div class="col-md-6">
         <div id="form-panel99">
 	        <div class="panel-heading">
 	            <?php echo $aUserProcess['ProcessName']; ?>           
@@ -315,29 +315,8 @@ $ProcessId = $aUserProcess['ProcessId'];
 	        </div>      
 	    </div>
 	</div>
-	<div class="col-md-8">		
+	<div class="col-md-6">		
 		<div id="list-panel">
-			<?php switch($ProcessId): case 8: ?>
-				<table  id="tblProcessTracking8" class="table table-striped table-bordered display table-hover" cellspacing="0">
-					<thead>
-						<tr>
-							<th></th>
-							<th style="text-align: center;">SL#</th>
-							<th><?php echo 'Tracking#'; ?></th>
-							<th><?php echo 'Process Name'; ?></th>
-							<th><?php echo 'In Time'; ?></th>
-							<th><?php echo 'Out Time'; ?></th>
-							<th><?php echo 'Current Duration'; ?></th>
-							<th><?php echo 'Status' ?></th>
-							<th><?php echo 'Wet' ?></th>
-							<th><?php echo 'Mechanical' ?></th>
-							<th><?php echo 'Pilling' ?></th>
-						</tr>
-					</thead>
-					<tbody></tbody>
-				</table>
-			<?php break;?>
-			<?php default: ?>
 				<table  id="tblProcessTracking" class="table table-striped table-bordered display table-hover" cellspacing="0">
                 <thead>
                     <tr>
@@ -353,11 +332,40 @@ $ProcessId = $aUserProcess['ProcessId'];
                 </thead>
                 <tbody></tbody>
             </table>
-			<?php break;?>
-			<?php endswitch; ?>
         </div>            
     </div>  
 </div>
+<?php switch($ProcessId): case 8: ?>
+<div class="row"> 
+	<div class="col-md-6">
+        <div id="form-pane258">
+			<table  id="tblWaitingProcessList" class="table table-striped table-bordered display table-hover" cellspacing="0">
+				<thead>
+					<tr>
+						<th></th>
+						<th style="text-align: center;">SL#</th>
+						<th><?php echo 'Tracking#'; ?></th>
+						<th><?php echo 'Process Name'; ?></th>
+						<th><?php echo 'In Time'; ?></th>
+						<th><?php echo 'Out Time'; ?></th>
+						<th><?php echo 'Current Duration'; ?></th>
+						<th><?php echo 'Status' ?></th>
+						<th><?php echo 'Wet' ?></th>
+						<th><?php echo 'Mechanical' ?></th>
+						<th><?php echo 'Pilling' ?></th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-6">
+        <div id="form-panel99">
+		</div>
+	</div>
+</div>
+<?php break;?>
+<?php endswitch; ?>
 
 
 <style>
