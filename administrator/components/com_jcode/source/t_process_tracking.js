@@ -76,6 +76,9 @@ function onConfirmWhenAddEdit() {
 			}
 			 */	
 				tblProcessTracking.fnDraw();
+				tblProcessTracking8.fnDraw();				
+				tblProcessTracking18.fnDraw();				
+				tblProcessTracking19.fnDraw();				
 				onSuccessMsg($msg);
 				onListPanel();
 				$("#regno-group-id").hide();	
@@ -303,10 +306,6 @@ $(function() {
 			// Key Product
 			"sWidth" : "10%",
 			"bSortable" : true
-		},{
-			"bVisible": false,
-		},{
-			"bVisible": false,
 		}]
 	});
 	
@@ -402,7 +401,7 @@ $(function() {
 		"fnServerData" : function(sSource, aoData, fnCallback) {
 			aoData.push({
 				"name" : "action",
-				"value" : 'getProcessTrackingData'
+				"value" : 'getProcessTrackingData8'
 			});
 			aoData.push({
 				"name" : "lan",
@@ -466,12 +465,212 @@ $(function() {
 			"sWidth" : "10%",
 			"bSortable" : true
 		},{
+			"sClass" : "center-aln",
 			"sWidth" : "10%",
 			"bVisible": true,
 		},{
+			"sClass" : "center-aln",
 			"sWidth" : "10%",
 			"bVisible": true,
 		},{
+			"sClass" : "center-aln",
+			"sWidth" : "10%",
+			"bVisible": true,
+		}]
+	});
+	
+	tblProcessTracking18 = $('#tblProcessTracking18').dataTable({
+		"bFilter" : true,		
+		"bSort" : true,
+		"bInfo" : true,
+		"bPaginate" : true,
+		"bSortClasses" : false,
+		"bProcessing" : true,
+		"bServerSide" : true,
+		"aaSorting" : [[0, 'DESC']],
+		"aLengthMenu" : [[25, 50, 100], [25, 50, 100]],
+		"iDisplayLength" : 25,
+		"sPaginationType" : "full_numbers",
+		//"sScrollX": "100%",
+		"sAjaxSource" : baseUrl + "t_process_tracking_server.php",
+		"fnDrawCallback" : function(oSettings) {
+			if (oSettings.aiDisplay.length == 0) {
+				return;
+			}
+		},
+		"fnServerData" : function(sSource, aoData, fnCallback) {
+			aoData.push({
+				"name" : "action",
+				"value" : 'getProcessTrackingData18'
+			});
+			aoData.push({
+				"name" : "lan",
+				"value" : lan
+			});
+			aoData.push({
+				"name" : "baseUrl",
+				"value" : baseUrl
+			});
+			aoData.push({
+				"name" : "ProcessId",
+				"value" : $("#ProcessId").val()
+			});
+			$.ajax({
+				"dataType" : 'json',
+				"type" : "POST",
+				"url" : sSource,
+				"data" : aoData,
+				"success" : fnCallback
+			});
+		},
+		"aoColumns" : [{
+			"bVisible": false,
+			"bSortable" : true
+		},{
+			"sClass" : "center-aln",
+			// SL#
+			"sWidth" : "5%",
+			"bSortable" : false,
+			"bVisible": false
+		}, {
+			"sClass" : "left-aln",
+			// Product Code
+			"sWidth" : "10%",
+			"bSortable" : true
+		}, {
+			"sClass" : "left-aln",
+			// Product Name
+			"sWidth" : "10%",
+			"bSortable" : true,
+			"bVisible": false
+		}, {
+			"sClass" : "left-aln",
+			// Short Name
+			"sWidth" : "10%",
+			"bSortable" : true
+		}, {
+			"sClass" : "left-aln",
+			// Key Product
+			"sWidth" : "10%",
+			"bSortable" : true,
+			"bVisible": false
+		}, {
+			"sClass" : "left-aln",
+			// Key Product
+			"sWidth" : "10%",
+			"bSortable" : true
+		}, {
+			"sClass" : "left-aln",
+			// Key Product
+			"sWidth" : "10%",
+			"bSortable" : true
+		},{
+			"sClass" : "center-aln",
+			"sWidth" : "10%",
+			"bVisible": true,
+		},{
+			"sClass" : "center-aln",
+			"sWidth" : "10%",
+			"bVisible": true,
+		},{
+			"sClass" : "center-aln",
+			"sWidth" : "10%",
+			"bVisible": true,
+		}]
+	});
+	
+	
+	tblProcessTracking19 = $('#tblProcessTracking19').dataTable({
+		"bFilter" : true,		
+		"bSort" : true,
+		"bInfo" : true,
+		"bPaginate" : true,
+		"bSortClasses" : false,
+		"bProcessing" : true,
+		"bServerSide" : true,
+		"aaSorting" : [[0, 'DESC']],
+		"aLengthMenu" : [[25, 50, 100], [25, 50, 100]],
+		"iDisplayLength" : 25,
+		"sPaginationType" : "full_numbers",
+		//"sScrollX": "100%",
+		"sAjaxSource" : baseUrl + "t_process_tracking_server.php",
+		"fnDrawCallback" : function(oSettings) {
+			if (oSettings.aiDisplay.length == 0) {
+				return;
+			}
+		},
+		"fnServerData" : function(sSource, aoData, fnCallback) {
+			aoData.push({
+				"name" : "action",
+				"value" : 'getProcessTrackingData19'
+			});
+			aoData.push({
+				"name" : "lan",
+				"value" : lan
+			});
+			aoData.push({
+				"name" : "baseUrl",
+				"value" : baseUrl
+			});
+			aoData.push({
+				"name" : "ProcessId",
+				"value" : $("#ProcessId").val()
+			});
+			$.ajax({
+				"dataType" : 'json',
+				"type" : "POST",
+				"url" : sSource,
+				"data" : aoData,
+				"success" : fnCallback
+			});
+		},
+		"aoColumns" : [{
+			"bVisible": false,
+			"bSortable" : true
+		},{
+			"sClass" : "center-aln",
+			// SL#
+			"sWidth" : "5%",
+			"bSortable" : false,
+			"bVisible": false
+		}, {
+			"sClass" : "left-aln",
+			// Product Code
+			"sWidth" : "10%",
+			"bSortable" : true
+		}, {
+			"sClass" : "left-aln",
+			// Product Name
+			"sWidth" : "10%",
+			"bSortable" : true,
+			"bVisible": false
+		}, {
+			"sClass" : "left-aln",
+			// Short Name
+			"sWidth" : "10%",
+			"bSortable" : true
+		}, {
+			"sClass" : "left-aln",
+			// Key Product
+			"sWidth" : "10%",
+			"bSortable" : true,
+			"bVisible": false
+		}, {
+			"sClass" : "left-aln",
+			// Key Product
+			"sWidth" : "10%",
+			"bSortable" : true
+		}, {
+			"sClass" : "left-aln",
+			// Key Product
+			"sWidth" : "10%",
+			"bSortable" : true
+		},{
+			"sClass" : "center-aln",
+			"sWidth" : "10%",
+			"bVisible": true,
+		},{
+			"sClass" : "center-aln",
 			"sWidth" : "10%",
 			"bVisible": true,
 		}]

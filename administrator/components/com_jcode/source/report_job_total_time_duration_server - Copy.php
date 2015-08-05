@@ -529,7 +529,7 @@ $rResult = mysql_query($sQuery);
 if ($rResult) {
 	while ($data = mysql_fetch_object($rResult)) {
 		//print_r($data);
-		$TrackNoAndNoOfScann = $data -> TrackingNo;
+		$TrackNoAndNoOfScann = $data -> TrackingNo . $data -> NoOfScann;
 		if ($TrackNoAndNoOfScann != $tmpFacilityCode) {
 
 			// get each row to a array when it changes it state so in this case last row always skipped
