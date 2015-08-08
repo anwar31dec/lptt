@@ -765,19 +765,9 @@ function insertUpdateProcessTracking($conn) {
     $language = $_REQUEST['language'];
     $TrackingNo = $_POST['TrackingNo'];
     $RegNo = $_POST['RegNo'];
-    $hTrackingNo = $_POST['hTrackingNo'];
     $ProcessId = $_POST['ProcessId'];
-    $ProcessOrder = $_POST['ProcessOrder'];
-    $PrevProcessOrder = $_POST['ProcessOrder'] - 1;
-    $ReadyForProOrder = $ProcessOrder + 1;
-    $ParentProcessId = $_POST['ParentProcessId'];
-    $eNewNoPosition = $_POST['eNewNoPosition'];
-    $Position = $_POST['Position'];
+    $ParentProcessId = $_POST['ParentProcessId'];   
 
-    $ParentNoOfScann = 0;
-
-    //echo $ParentProcessId;
-    //exit();
 
     switch ($ProcessId) {
         case 1:
@@ -869,7 +859,7 @@ function insertUpdateProcessTracking($conn) {
                 $txtDuration = $aParentTimeDuration['txtDuration'];
 
                 if ($ParentProTrackId) {
-                    $sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId', bReturn = 1 WHERE ProTrackId = $ParentProTrackId;";
+                    $sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $ParentProTrackId;";
 
                     $aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('ProTrackId'), 'pk_values' => array($ParentProTrackId), 'bUseInsetId' => FALSE);
 
