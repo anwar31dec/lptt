@@ -231,7 +231,7 @@ function getTotalInOutCount() {
 		t_process_tracking
 		INNER JOIN t_process_list 
 			ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
-	WHERE OutTime IS NOT NULL AND t_process_list.ProcessId = 22 AND EntryDate BETWEEN '2015-06-01' AND '2015-08-30';";
+	WHERE OutTime IS NOT NULL AND t_process_list.ProcessId = 22 AND EntryDate BETWEEN '$StartDate' AND '$EndDate';";
 
     $rResult2 = mysql_query($sQuery2);
 
