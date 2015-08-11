@@ -156,7 +156,7 @@ function insertUpdateProcessTracking($conn) {
     $RegNo = $_POST['RegNo'];
     $ProcessId = $_POST['ProcessId'];
     $bHold = $_POST['bHold']? 1 : 0;
-    $HoldComments = $_POST['HoldComments'];
+    $HoldComments = mysql_real_escape_string($_POST['HoldComments']);
 
     $sql = "UPDATE
             t_process_tracking SET				

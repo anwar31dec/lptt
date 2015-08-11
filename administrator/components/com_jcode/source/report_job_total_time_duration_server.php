@@ -458,8 +458,8 @@ function getDiffLevelTableData_0099() {
 
 function getDiffLevelTableData() {
    
-$StartDate = $_POST['dp1-start'];
-$EndDate = $_POST['dp1-end'];
+$StartDate = $_POST['dp1_start'];
+$EndDate = $_POST['dp1_end'];
 
 $query = "SELECT ProcessId, ProcessName, ProcessOrder
 FROM t_process_list
@@ -512,14 +512,16 @@ $tmpUnitName = '';
 $sl = 0;
 
 $sQuery = "SELECT 
-				  t_process_tracking.TrackingNo, t_process_tracking.RegNo, t_process_tracking.NoOfScann, t_process_tracking.ProcessId, t_process_list.ProcessName, t_process_list.ProcessOrder, t_process_tracking.InTime, t_process_tracking.OutTime,  Duration
+				  t_process_tracking.TrackingNo, t_process_tracking.RegNo, t_process_tracking.ProcessId, t_process_list.ProcessName, t_process_list.ProcessOrder, t_process_tracking.InTime, t_process_tracking.OutTime,  Duration
 				FROM
 				  t_process_tracking 
 				  INNER JOIN t_process_list 
 					ON t_process_tracking.ProcessId = t_process_list.ProcessId 
 				WHERE EntryDate >= '$StartDate' 
 				  AND EntryDate <= '$EndDate' 
-				ORDER BY t_process_tracking.TrackingNo, t_process_tracking.NoOfScann, t_process_list.ProcessOrder;";
+				ORDER BY t_process_tracking.TrackingNo, t_process_list.ProcessOrder;";
+//echo $sQuery;
+//exit;
 	
 	
 $rResult = mysql_query($sQuery);

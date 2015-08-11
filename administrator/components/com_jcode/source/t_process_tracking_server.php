@@ -803,6 +803,12 @@ function insertUpdateProcessTracking($conn) {
 
                 $ProTrackId = $aParentData['ProTrackId'];
                 $ParentInTime = $aParentData['InTime'];
+                $ParentBHold = $aParentData['bHold'];
+                
+                if ($ParentBHold) {
+                    echo json_encode(array('msgType' => 'error', 'msg' => 'This job is holded by previous process.'));
+                    exit();
+                }
 
                 if (!$ProTrackId) {
                     echo json_encode(array('msgType' => 'error', 'msg' => 'This job is not scanned by Inward.'));
@@ -848,6 +854,12 @@ function insertUpdateProcessTracking($conn) {
                 $ParentProTrackId = $aRecExistData2['ProTrackId'];
                 $ParentInTime = $aRecExistData2['InTime'];
                 $ParentOutTime = $aRecExistData2['OutTime'];
+                $ParentBHold = $aRecExistData2['bHold'];
+                
+                if ($ParentBHold) {
+                    echo json_encode(array('msgType' => 'error', 'msg' => 'This job is holded by previous process.'));
+                    exit();
+                }
 
                 if ($ParentOutTime) {
                     echo json_encode(array('msgType' => 'error', 'msg' => 'Photo taking job is received already.'));
@@ -903,6 +915,13 @@ function insertUpdateProcessTracking($conn) {
                 $ParentInTime = $aRecExistData3['InTime'];
                 $ParentOutTime = $aRecExistData3['OutTime'];
                 $ParentEntryDate = $aRecExistData3['EntryDate'];
+                
+                $ParentBHold = $aRecExistData3['bHold'];
+                
+                if ($ParentBHold) {
+                    echo json_encode(array('msgType' => 'error', 'msg' => 'This job is holded by previous process.'));
+                    exit();
+                }
 
                 if (!$ParentOutTime) {
                     echo json_encode(array('msgType' => 'error', 'msg' => 'Photo taking out time is not set.'));
@@ -960,7 +979,13 @@ function insertUpdateProcessTracking($conn) {
 
                 $ProTrackId = $aParentData['ProTrackId'];
                 $ParentInTime = $aParentData['InTime'];
-                $ParentOutTime = $aParentData['OutTime'];
+                $ParentOutTime = $aParentData['OutTime'];                
+                $ParentBHold = $aParentData['bHold'];
+                
+                if ($ParentBHold) {
+                    echo json_encode(array('msgType' => 'error', 'msg' => 'This job is holded by previous process.'));
+                    exit();
+                }
 
                 if ($ParentOutTime) {
                     echo json_encode(array('msgType' => 'error', 'msg' => 'This job is received already.'));
@@ -1038,6 +1063,12 @@ function insertUpdateProcessTracking($conn) {
                 $ProTrackId = $aParentData['ProTrackId'];
                 $ParentInTime = $aParentData['InTime'];
                 $ParentOutTime = $aParentData['OutTime'];
+                $ParentBHold = $aParentData['bHold'];
+                
+                if ($ParentBHold) {
+                    echo json_encode(array('msgType' => 'error', 'msg' => 'This job is holded by previous process.'));
+                    exit();
+                }
 
                 if ($ParentOutTime) {
                     echo json_encode(array('msgType' => 'error', 'msg' => 'This job is received already.'));
@@ -1112,6 +1143,12 @@ function insertUpdateProcessTracking($conn) {
                 $ProTrackId = $aParentData['ProTrackId'];
                 $ParentInTime = $aParentData['InTime'];
                 $ParentOutTime = $aParentData['OutTime'];
+                $ParentBHold = $aParentData['bHold'];
+                
+                if ($ParentBHold) {
+                    echo json_encode(array('msgType' => 'error', 'msg' => 'This job is holded by previous process.'));
+                    exit();
+                }
 
                 if ($ParentOutTime) {
                     echo json_encode(array('msgType' => 'error', 'msg' => 'This job is received already.'));
@@ -1178,6 +1215,12 @@ function insertUpdateProcessTracking($conn) {
 
                     $ProTrackId = $aParentData['ProTrackId'];
                     $ParentInTime = $aParentData['InTime'];
+                    $ParentBHold = $aParentData['bHold'];
+                
+                    if ($ParentBHold) {
+                        echo json_encode(array('msgType' => 'error', 'msg' => 'This job is holded by previous process.'));
+                        exit();
+                    }
 
                     if (!$ProTrackId) {
                         echo json_encode(array('msgType' => 'error', 'msg' => 'This job has no previous record.'));
@@ -1237,6 +1280,12 @@ function insertUpdateProcessTracking($conn) {
                 $OwnProTrackId = $aRecExistData2['ProTrackId'];
                 $OwnInTime = $aRecExistData2['InTime'];
                 $OwnOutTime = $aRecExistData2['OutTime'];
+                $OwnBHold = $aRecExistData2['bHold'];
+                
+                if ($OwnBHold) {
+                    echo json_encode(array('msgType' => 'error', 'msg' => 'This job is holded by previous process.'));
+                    exit();
+                }
 
                 if ($OwnOutTime) {
                     echo json_encode(array('msgType' => 'error', 'msg' => 'This job is delivered already.'));
@@ -1283,6 +1332,12 @@ function insertUpdateProcessTracking($conn) {
 
                 $ProTrackId = $aParentData['ProTrackId'];
                 $ParentInTime = $aParentData['InTime'];
+                $ParentBHold = $aParentData['bHold'];
+                
+                if ($ParentBHold) {
+                    echo json_encode(array('msgType' => 'error', 'msg' => 'This job is holded by previous process.'));
+                    exit();
+                }
 
                 $aParentTimeDuration = getTimeDuration($ParentInTime);
                 $duration = $aParentTimeDuration['Duration'];
@@ -1354,7 +1409,7 @@ function getParentProcessByInwardNo($JobNo, $ProcessId) {
     $aData = array();
     try {
         $query = "SELECT
-				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime, t_process_tracking.EntryDate
+				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime, t_process_tracking.EntryDate, t_process_tracking.bHold
 			FROM
 				t_process_tracking
 			WHERE (t_process_tracking.TrackingNo = '$JobNo'
@@ -1383,7 +1438,7 @@ function getParentProcessByRegNo($JobNo, $ProcessId) {
     $aData = array();
     try {
         $query = "SELECT
-				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime
+				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime, t_process_tracking.bHold
 			FROM
 				t_process_tracking
 			WHERE (t_process_tracking.RegNo = '$JobNo'
@@ -1430,7 +1485,7 @@ function getRecExistInProcByInwardNo($JobNo, $ProcessId) {
     $aData = array();
     try {
         $query = "SELECT
-				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime
+				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime, t_process_tracking.bHold
 			FROM
 				t_process_tracking
 			WHERE (t_process_tracking.TrackingNo = '$JobNo'
@@ -1458,7 +1513,7 @@ function getRecExistInProcByInwardNoAndRegNo($InwarNo, $RegNo, $ProcessId) {
     $aData = array();
     try {
         $query = "SELECT
-				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime
+				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime, t_process_tracking.bHold
 			FROM
 				t_process_tracking
 			WHERE (t_process_tracking.TrackingNo = '$InwarNo'
@@ -1485,7 +1540,7 @@ function getRecExistInProcByRegNo($JobNo, $ProcessId) {
     $aData = array();
     try {
         $query = "SELECT
-				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime
+				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime, t_process_tracking.bHold
 			FROM
 				t_process_tracking
 			WHERE (t_process_tracking.RegNo = '$JobNo'
