@@ -835,7 +835,7 @@ function insertUpdateProcessTracking($conn) {
             $aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
             $aQuerys[] = $aQuery1;
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
 
             break;
         case 3:
@@ -878,7 +878,7 @@ function insertUpdateProcessTracking($conn) {
                     $aQuerys[] = $aQuery2;
                 }
 
-                echo json_encode(exec_query($aQuerys, $jUserId, $language));
+                echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
                 return;
             }
             /* End receiving from Photo Taking */
@@ -948,7 +948,7 @@ function insertUpdateProcessTracking($conn) {
             $aQuery3 = array('command' => 'UPDATE', 'query' => $sql3, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
             $aQuerys[] = $aQuery3;
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
 
             break;
         case 8:
@@ -1031,7 +1031,7 @@ function insertUpdateProcessTracking($conn) {
                 }
             }
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
 
             break;
         case 18:
@@ -1114,7 +1114,7 @@ function insertUpdateProcessTracking($conn) {
                 }
             }
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
 
             break;
         case 19:
@@ -1194,7 +1194,7 @@ function insertUpdateProcessTracking($conn) {
                 }
             }
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
 
             break;
         case 22:
@@ -1262,7 +1262,7 @@ function insertUpdateProcessTracking($conn) {
                     }
                 }
 
-                echo json_encode(exec_query($aQuerys, $jUserId, $language));
+                echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
             }
             /* FOR JOB DELIVERED */ else if ($_POST['RegNoDel']) {
                 $RegNo = $_POST['RegNoDel'];
@@ -1304,7 +1304,7 @@ function insertUpdateProcessTracking($conn) {
                     $aQuerys[] = $aQuery2;
                 }
 
-                echo json_encode(exec_query($aQuerys, $jUserId, $language));
+                echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
             }
 
             break;
@@ -1374,7 +1374,7 @@ function insertUpdateProcessTracking($conn) {
                 }
             }
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
 
             break;
     }

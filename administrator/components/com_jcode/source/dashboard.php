@@ -24,7 +24,7 @@ include_once ('language/lang_switcher.php');
     var vLang = '<?php echo $vLang; ?>';
 </script>
 
-<div class="row"> 
+<div class="row">
 
     <div class="col-md-4">
     </div>
@@ -36,8 +36,8 @@ include_once ('language/lang_switcher.php');
             <span></span> <b class="caret"></b>
         </div>
     </div>
-</div> 
-<div class="row"> 
+</div>
+<div class="row">
     <div class="col-md-6">
         <h4>Processes in progress</h4>
         <table  id="tblProcessCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
@@ -50,8 +50,8 @@ include_once ('language/lang_switcher.php');
                 </tr>
             </thead>
             <tbody>	</tbody>
-        </table>				
-    </div>	
+        </table>
+    </div>
     <div class="col-md-6">
         <h4>Total Processes in and out</h4>
         <table  id="tblTotalInOutCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
@@ -62,10 +62,10 @@ include_once ('language/lang_switcher.php');
                 </tr>
             </thead>
             <tbody>	</tbody>
-        </table>				
-    </div>	
+        </table>
+    </div>
     <div class="col-md-6">
-    </div>			
+    </div>
 </div>
 
 <style>
@@ -138,7 +138,7 @@ include_once ('language/lang_switcher.php');
                                         var tableHeaderList = [];
                                         var tableHeaderColSpanList = [];
                                         var tableHeaderRowSpanList = [];
-                                        //var tableHeaderColWidthList = [];					
+                                        //var tableHeaderColWidthList = [];
                                         for (var r = 0; r < rows.length; r++) {
                                             //// Creates an empty line
                                             tableHeaderList.push([]);
@@ -151,7 +151,7 @@ include_once ('language/lang_switcher.php');
                                             tableHeaderColSpanList[r].push(new Array(rows[r].length));
                                             tableHeaderRowSpanList[r].push(new Array(rows[r].length));
                                             // tableHeaderColWidthList[r].push( new Array(rows[r].length));
-                                            //}	  
+                                            //}
                                             for (var c = 0; c < rows[r].cells.length; c++) {
                                                 tableHeaderList[r][c] = rows[r].cells[c].textContent;//topTds[m].textContent;
                                                 tableHeaderColSpanList[r][c] = rows[r].cells[c].colSpan;
@@ -178,7 +178,7 @@ include_once ('language/lang_switcher.php');
                                             //dataList[index].push( new Array(totalColumn));
                                             dataList[r].push(new Array(rows[r].length));
                                             dataColSpanList[r].push(new Array(rows[r].length));
-                                            //}	  
+                                            //}
                                             for (var c = 0; c < rows[r].cells.length; c++) {
                                                 dataList[r][c] = rows[r].cells[c].textContent;//topTds[m].textContent;
                                                 dataColSpanList[r][c] = rows[r].cells[c].colSpan;
@@ -280,7 +280,7 @@ include_once ('language/lang_switcher.php');
 
                                         /*
                                          var ajaxRequest;
-                                         
+
                                          try{
                                          // Opera 8.0+, Firefox, Safari
                                          ajaxRequest = new XMLHttpRequest();
@@ -390,12 +390,12 @@ include_once ('language/lang_switcher.php');
                             $('#reportrange').on('hide.daterangepicker', function () {
                                 console.log("hide event fired");
                             });
-                            /* $('#reportrange').on('apply.daterangepicker', function(ev, picker) { 
-                             console.log("apply event fired, start/end dates are " 
-                             + picker.startDate.format('YYYY-MM-DD') 
-                             + " to " 
+                            /* $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+                             console.log("apply event fired, start/end dates are "
+                             + picker.startDate.format('YYYY-MM-DD')
+                             + " to "
                              + picker.endDate.format('YYYY-MM-DD')
-                             ); 
+                             );
                              }); */
                             $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
                                 console.log("cancel event fired");

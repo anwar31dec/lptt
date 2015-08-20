@@ -923,7 +923,7 @@ $(function () {
         if (code == 13)// Enter key hit
         {
             //alert($("#RegNo").val().length);
-            if (parseInt($("#RegNo").val().length) > 12) {
+            if (parseInt($("#RegNo").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#TrackingNo").val('');
                 $("#RegNo").val('');
@@ -967,7 +967,7 @@ $(function () {
         if (code == 13)// Enter key hit
         {
             //alert($("#RegNo").val().length);
-            if (parseInt($("#RegNoWet").val().length) > 12) {
+            if (parseInt($("#RegNoWet").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RegNoWet").val('');
                 return;
@@ -989,7 +989,7 @@ $(function () {
         if (code == 13)// Enter key hit
         {
             //alert($("#RegNo").val().length);
-            if (parseInt($("#RegNoMec").val().length) > 12) {
+            if (parseInt($("#RegNoMec").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RegNoMec").val('');
                 return;
@@ -1011,7 +1011,7 @@ $(function () {
         if (code == 13)// Enter key hit
         {
             //alert($("#RegNo").val().length);
-            if (parseInt($("#RegNoPil").val().length) > 12) {
+            if (parseInt($("#RegNoPil").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RegNoPil").val('');
                 return;
@@ -1032,7 +1032,7 @@ $(function () {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13)// Enter key hit
         {
-            if (parseInt($("#RegNoPhy").val().length) > 12) {
+            if (parseInt($("#RegNoPhy").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RegNoPhy").val('');
                 return;
@@ -1053,7 +1053,7 @@ $(function () {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13)// Enter key hit
         {
-            if (parseInt($("#RegNoCol").val().length) > 12) {
+            if (parseInt($("#RegNoCol").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RegNoCol").val('');
                 return;
@@ -1074,7 +1074,7 @@ $(function () {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13)// Enter key hit
         {
-            if (parseInt($("#RegNoFib").val().length) > 12) {
+            if (parseInt($("#RegNoFib").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RegNoFib").val('');
                 return;
@@ -1095,7 +1095,7 @@ $(function () {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13)// Enter key hit
         {
-            if (parseInt($("#RegNoCom").val().length) > 12) {
+            if (parseInt($("#RegNoCom").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RegNoCom").val('');
                 return;
@@ -1116,7 +1116,7 @@ $(function () {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13)// Enter key hit
         {
-            if (parseInt($("#RegNoSub").val().length) > 12) {
+            if (parseInt($("#RegNoSub").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RegNoSub").val('');
                 return;
@@ -1137,7 +1137,7 @@ $(function () {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13)// Enter key hit
         {
-            if (parseInt($("#RegNoRec").val().length) > 12) {
+            if (parseInt($("#RegNoRec").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RegNoRec").val('');
                 return;
@@ -1158,7 +1158,7 @@ $(function () {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13)// Enter key hit
         {
-            if (parseInt($("#RegNoDel").val().length) > 12) {
+            if (parseInt($("#RegNoDel").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RegNoDel").val('');
                 return;
@@ -1237,7 +1237,7 @@ $(function () {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13)// Enter key hit
         {
-            if (parseInt($("#TrackingNoPt").val().length) > 12) {
+            if (parseInt($("#TrackingNoPt").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#TrackingNoPt").val('');
                 return;
@@ -1258,7 +1258,7 @@ $(function () {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13)// Enter key hit
         {
-            if (parseInt($("#RetRegNo").val().length) > 12) {
+            if (parseInt($("#RetRegNo").val().length) > 20) {
                 alert('Your input length is greater than the actual.');
                 $("#RetRegNo").val('');
                 return;
