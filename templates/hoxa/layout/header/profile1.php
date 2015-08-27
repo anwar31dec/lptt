@@ -69,7 +69,7 @@ if(!empty($logoImage)){
 		     <div class="container">
 		    
 				<!-- Logo -->
-				<div class="logo"><?php echo $logo;?><span class="focus-countries">Lab process time tracking</span></div>
+				<div class="logo"><?php echo $logo;?><span class="focus-countries">iTrack Sample</span></div>
 				
 				<!-- Menu -->
 				<div class="menu_main">

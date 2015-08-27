@@ -5164,6 +5164,7 @@ a.knowmore_but:hover {
 .focus-countries{
 	color:#003d7d;
 	font-size: 99%;
+	letter-spacing: 1.8px;
 }
 .mod-languages{
 	float: right; width: 72px;

@@ -79,7 +79,7 @@ function getJoomlaLabUsers() {
              FROM ykx9st_users a
              INNER JOIN ykx9st_user_usergroup_map b ON a.id = b.user_id 
              INNER JOIN ykx9st_usergroups c ON b.group_id = c.id           
-             WHERE b.group_id IN(17)  " . $sWhere . " GROUP BY a.id, name, username
+             WHERE b.group_id IN(18)  " . $sWhere . " GROUP BY a.id, name, username
 			 " . $sOrder . " " . $sLimit . "";
 
     $pacrs = mysql_query($sql);
@@ -143,14 +143,18 @@ function getProcessList() {
         $sql = " SELECT SQL_CALC_FOUND_ROWS a.MapId, a.UserId, b.ProcessId, IF(a.MapId is Null,'false','true') chkValue, ProcessName ProcessName
                  FROM t_user_process_map a 
                  RIGHT JOIN t_process_list b ON (a.ProcessId = b.ProcessId AND a.UserId = '" . $username . "')
-				 WHERE b.ProcUnitId = 1
+				 WHERE b.ProcUnitId = 2
                  ORDER BY ProcessId " . $sLimit . "";
+				 // echo $sql;
+				 // return;
     } else {
         $sql = " SELECT SQL_CALC_FOUND_ROWS a.MapId, a.UserId, b.ProcessId, IF(a.MapId is Null,'false','true') chkValue, ProcessName ProcessName
                  FROM t_user_process_map a 
                  INNER JOIN t_process_list b ON (a.ProcessId = b.ProcessId AND a.UserId = '" . $username . "')
-				 WHERE b.ProcUnitId = 1
+				 WHERE b.ProcUnitId = 2
                  ORDER BY ProcessId " . $sLimit . "";
+				 // echo $sql;
+				 // return;
     }
 
     $pacrs = mysql_query($sql);
@@ -189,7 +193,7 @@ function insertAllorOneMapping() {
 
     if ($checkVal == "true") {
         $sql = "INSERT INTO t_user_process_map (UserId, ProcessId, ProcUnitId) 
-                VALUES ('" . $userName . "', " . $ProcessId . ", 1) ";
+                VALUES ('" . $userName . "', " . $ProcessId . ", 2) ";
 
         $aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_user_process_map', 'pks' => array('MapId'), 'pk_values' => array(), 'bUseInsetId' => TRUE);
         $aQuerys = array($aQuery1);
