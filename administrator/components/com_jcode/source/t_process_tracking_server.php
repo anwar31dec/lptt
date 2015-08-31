@@ -68,61 +68,26 @@ function getProcessTrackingData($conn) {
                 " a.InTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
                 " a.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
     }
-
-    /*  $sql = "SELECT SQL_CALC_FOUND_ROWS
-      t_process_tracking.ProTrackId
-      , t_process_tracking.TrackingNo
-      , t_process_tracking.RegNo
-      , t_process_list.ProcessId
-      , t_process_list.ProcessName
-      , t_process_list.ProcessOrder
-      , t_process_tracking.InTime
-      , t_process_tracking.OutTime
-      , TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
-      , UsualDuration
-      , (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
-      FROM
-      t_process_tracking
-      INNER JOIN t_process_list
-      ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
-      WHERE t_process_tracking.ProcessId = $ProcessId AND t_process_tracking.OutTime IS NULL
-      $sWhere
-      $sOrder
-      $sLimit "; */
-
-    /* $sql = "SELECT 
-      SQL_CALC_FOUND_ROWS a.ProTrackId, a.TrackingNo, a.RegNo, b.ProcessId, b.ProcessName, b.ProcessOrder, a.InTime, a.OutTime
-      , TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
-      , UsualDuration
-      , (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
-      , (SELECT
-      OutTime
-      FROM
-      t_process_tracking
-      WHERE RegNo = a.RegNo
-      AND ProcessId = 5) OutTimeWet,
-      (SELECT
-      OutTime
-      FROM
-      t_process_tracking
-      WHERE RegNo = a.RegNo
-      AND ProcessId = 6) OutTimeMec,
-      (SELECT
-      OutTime
-      FROM
-      t_process_tracking
-      WHERE RegNo = a.RegNo
-      AND ProcessId = 7) OutTimePil
-      FROM
-      t_process_tracking a
-      INNER JOIN t_process_list b
-      ON (a.ProcessId = b.ProcessId)
-      WHERE a.ProcessId = 8
-      AND a.OutTime IS NULL
-      $sWhere
-      $sOrder
-      $sLimit "; */
-    $sql = "SELECT 
+	
+    $sql = '';
+	
+	if($ProcessId == 1){
+		$sql = "SELECT 
+			SQL_CALC_FOUND_ROWS a.ProTrackId, a.TrackingNo, a.RegNo, b.ProcessId, b.ProcessName, b.ProcessOrder, a.InTime, a.OutTime 
+			, TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
+			, UsualDuration
+			, (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
+			FROM
+			  t_process_tracking a 
+			  INNER JOIN t_process_list b 
+				ON (a.ProcessId = b.ProcessId)
+			WHERE a.ProcessId IN (1, 23) 
+			  AND a.OutTime IS NULL 
+                    $sWhere 
+                    $sOrder 
+                    $sLimit ";
+	} else{
+		$sql = "SELECT 
 			SQL_CALC_FOUND_ROWS a.ProTrackId, a.TrackingNo, a.RegNo, b.ProcessId, b.ProcessName, b.ProcessOrder, a.InTime, a.OutTime 
 			, TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
 			, UsualDuration
@@ -136,8 +101,7 @@ function getProcessTrackingData($conn) {
                     $sWhere 
                     $sOrder 
                     $sLimit ";
-    // echo $sql;
-    // exit;
+	}
 
 
 
@@ -763,15 +727,20 @@ function insertUpdateProcessTracking($conn) {
     date_default_timezone_set("Asia/Dhaka");
     $jUserId = $_REQUEST['jUserId'];
     $language = $_REQUEST['language'];
-    $TrackingNo = $_POST['TrackingNo'];
-    $RegNo = $_POST['RegNo'];
+    $TrackingNo = strtoupper($_POST['TrackingNo']);
+    $RegNo = strtoupper($_POST['RegNo']);
     $ProcessId = $_POST['ProcessId'];
-    $ParentProcessId = $_POST['ParentProcessId'];   
+    $ParentProcessId = $_POST['ParentProcessId'];  
+	$OptUnit = $_POST['OptUnit'];
+	$ProcUnitId = 1;	
 
 
     switch ($ProcessId) {
         case 1:
         case 2:
+			if($ProcessId == 1){
+				$ProcUnitId = $OptUnit;
+			}
 
             if (!$TrackingNo) {
                 echo json_encode(array('msgType' => 'error', 'msg' => 'Job no can not be empty.'));
@@ -820,22 +789,16 @@ function insertUpdateProcessTracking($conn) {
                 $txtDuration = $aParentTimeDuration['txtDuration'];
 
                 if ($ProTrackId) {
-                    $sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $ProTrackId;";
-
-                    $aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
-
+					$aQuery2 = getProTrackUpdateCmd($duration, $txtDuration, $jUserId, $ProTrackId);
                     $aQuerys[] = $aQuery2;
                 }
             }
 
             /* Insert the current process */
-            $sql = "INSERT INTO t_process_tracking
-				(TrackingNo, RegNo, ProcessId, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId)
-				VALUES ('$TrackingNo', '$TrackingNo', $ProcessId, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1);";
-            $aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
+            $aQuery1 = getProTrackInsertCmdInward($TrackingNo, $ProcessId, $jUserId, $ProcUnitId);
             $aQuerys[] = $aQuery1;
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE, FALSE));
 
             break;
         case 3:
@@ -1378,6 +1341,33 @@ function insertUpdateProcessTracking($conn) {
 
             break;
     }
+}
+
+function getProTrackInsertCmd($TrackingNo, $ProcessId, $jUserId, $ProcUnitId){
+	$sql = "INSERT INTO t_process_tracking
+		(TrackingNo, RegNo, ProcessId, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId)
+		VALUES ('$TrackingNo', '$TrackingNo', $ProcessId, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', $ProcUnitId);";
+	return array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
+}
+
+function getProTrackInsertCmdInward($TrackingNo, $ProcessId, $jUserId, $ProcUnitId){
+	
+	if($ProcUnitId == '1'){
+		$ProcessId = 1;
+	}
+	else if($ProcUnitId == '2'){
+		$ProcessId = 23;
+	}
+		
+	$sql = "INSERT INTO t_process_tracking
+		(TrackingNo, RegNo, ProcessId, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId)
+		VALUES ('$TrackingNo', '$TrackingNo', $ProcessId, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', $ProcUnitId);";
+	return array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
+}
+
+function getProTrackUpdateCmd($duration, $txtDuration, $jUserId, $ProTrackId){
+	$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $ProTrackId;";
+    return array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
 }
 
 /* Get max NoOfScann record of the job 

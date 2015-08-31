@@ -7,7 +7,7 @@ define('DBPWD', "");
 define('SITETITLEENG', "Lab Process Time Tracker");
 define('SITETITLEFRN', "Lab Process Time Tracker");
 
-define('JBASEURL', "http://69.39.239.111/~lptt/administrator/components/com_jcode/source/");
+define('JBASEURL', "http://localhost/~lptt/administrator/components/com_jcode/source/");
 
 define('SITEROOT','/');
 define('SITEDOCUMENT',$_SERVER['DOCUMENT_ROOT'].SITEROOT);

@@ -159,26 +159,26 @@ $ProcessId = $aUserProcess['ProcessId'];
                                 </div>
                             </form>
                             <?php break; ?>				
-                        <?php case 18: ?>
+                        <?php case 33: ?>
                             <!-- Code block for CASE 18 (Physical Lab Data Entry)<br> -->
                             <form novalidate="" data-validate="parsley" id="frmProcessTracking" class="form-horizontal form-border no-margin">
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-4" for="TrackingNo"><?php echo 'For Physical:'; ?></label>
+                                    <label class="control-label col-md-4" for="TrackingNo"><?php echo 'For Data Consolidation:'; ?></label>
                                     <div class="col-md-8">
                                         <input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoPhy" id="RegNoPhy" data-required="true" placeholder="scan here..."/>
                                     </div>
                                 </div> 
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-4" for="RegNo"><?php echo 'For Color Fastness:'; ?></label>
+                                    <label class="control-label col-md-4" for="RegNo"><?php echo 'For Footwear Lab Out:'; ?></label>
                                     <div class="col-md-8">
                                         <input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoCol" id="RegNoCol" data-required="true" placeholder="scan here..."/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-4" for="RegNo"><?php echo 'For Fibre:'; ?></label>
+                                    <label class="control-label col-md-4" for="RegNo"><?php echo 'For Sub Contract Textile:'; ?></label>
                                     <div class="col-md-8">
                                         <input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="RegNoFib" id="RegNoFib" data-required="true" placeholder="scan here..."/>
                                     </div>
@@ -242,7 +242,7 @@ $ProcessId = $aUserProcess['ProcessId'];
                                 </div>
                             </form>
                             <?php break; ?>
-                        <?php case 22: ?>
+                        <?php case 36: ?>
                             <!-- Code block for CASE 22 (Invoice Generation)<br> -->
                             <form novalidate="" data-validate="parsley" id="frmProcessTracking" class="form-horizontal form-border no-margin">
 
@@ -336,15 +336,14 @@ $ProcessId = $aUserProcess['ProcessId'];
                                         <th><?php echo 'Out Time'; ?></th>
                                         <th><?php echo 'Current Duration'; ?></th>
                                         <th><?php echo 'Status' ?></th>
-                                        <th><?php echo 'Wet' ?></th>
-                                        <th><?php echo 'Mechanical' ?></th>
-                                        <th><?php echo 'Pilling' ?></th>
+                                        <th><?php echo 'Organic' ?></th>
+                                        <th><?php echo 'Inorganic' ?></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
                             </table>
                             <?php break; ?>
-                        <?php case 18: ?>
+                        <?php case 33: ?>
                             <table  id="tblProcessTracking18" class="table table-striped table-bordered display table-hover" cellspacing="0">
                                 <thead>
                                     <tr>
@@ -356,9 +355,9 @@ $ProcessId = $aUserProcess['ProcessId'];
                                         <th><?php echo 'Out Time'; ?></th>
                                         <th><?php echo 'Current Duration'; ?></th>
                                         <th><?php echo 'Status' ?></th>
-                                        <th><?php echo 'Physical' ?></th>
-                                        <th><?php echo 'Color Fastness' ?></th>
-                                        <th><?php echo 'Fibre' ?></th>
+                                        <th><?php echo 'Data Consolidation' ?></th>
+                                        <th><?php echo 'Footwear Lab Out' ?></th>
+                                        <th><?php echo 'Sub Contract Textile' ?></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>

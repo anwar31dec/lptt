@@ -69,59 +69,6 @@ function getProcessTrackingData($conn) {
                 " a.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
     }
 
-    /*  $sql = "SELECT SQL_CALC_FOUND_ROWS
-      t_process_tracking.ProTrackId
-      , t_process_tracking.TrackingNo
-      , t_process_tracking.RegNo
-      , t_process_list.ProcessId
-      , t_process_list.ProcessName
-      , t_process_list.ProcessOrder
-      , t_process_tracking.InTime
-      , t_process_tracking.OutTime
-      , TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
-      , UsualDuration
-      , (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
-      FROM
-      t_process_tracking
-      INNER JOIN t_process_list
-      ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
-      WHERE t_process_tracking.ProcessId = $ProcessId AND t_process_tracking.OutTime IS NULL
-      $sWhere
-      $sOrder
-      $sLimit "; */
-
-    /* $sql = "SELECT 
-      SQL_CALC_FOUND_ROWS a.ProTrackId, a.TrackingNo, a.RegNo, b.ProcessId, b.ProcessName, b.ProcessOrder, a.InTime, a.OutTime
-      , TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
-      , UsualDuration
-      , (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
-      , (SELECT
-      OutTime
-      FROM
-      t_process_tracking
-      WHERE RegNo = a.RegNo
-      AND ProcessId = 5) OutTimeWet,
-      (SELECT
-      OutTime
-      FROM
-      t_process_tracking
-      WHERE RegNo = a.RegNo
-      AND ProcessId = 6) OutTimeMec,
-      (SELECT
-      OutTime
-      FROM
-      t_process_tracking
-      WHERE RegNo = a.RegNo
-      AND ProcessId = 7) OutTimePil
-      FROM
-      t_process_tracking a
-      INNER JOIN t_process_list b
-      ON (a.ProcessId = b.ProcessId)
-      WHERE a.ProcessId = 8
-      AND a.OutTime IS NULL
-      $sWhere
-      $sOrder
-      $sLimit "; */
     $sql = "SELECT 
 			SQL_CALC_FOUND_ROWS a.ProTrackId, a.TrackingNo, a.RegNo, b.ProcessId, b.ProcessName, b.ProcessOrder, a.InTime, a.OutTime 
 			, TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
@@ -213,66 +160,12 @@ function getProcessTrackingData8($conn) {
                 " a.InTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
                 " a.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
     }
-
-    /*  $sql = "SELECT SQL_CALC_FOUND_ROWS
-      t_process_tracking.ProTrackId
-      , t_process_tracking.TrackingNo
-      , t_process_tracking.RegNo
-      , t_process_list.ProcessId
-      , t_process_list.ProcessName
-      , t_process_list.ProcessOrder
-      , t_process_tracking.InTime
-      , t_process_tracking.OutTime
-      , TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
-      , UsualDuration
-      , (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
-      FROM
-      t_process_tracking
-      INNER JOIN t_process_list
-      ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
-      WHERE t_process_tracking.ProcessId = $ProcessId AND t_process_tracking.OutTime IS NULL
-      $sWhere
-      $sOrder
-      $sLimit "; */
-
-    /* $sql = "SELECT 
-      SQL_CALC_FOUND_ROWS a.ProTrackId, a.TrackingNo, a.RegNo, b.ProcessId, b.ProcessName, b.ProcessOrder, a.InTime, a.OutTime
-      , TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
-      , UsualDuration
-      , (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
-      , (SELECT
-      OutTime
-      FROM
-      t_process_tracking
-      WHERE RegNo = a.RegNo
-      AND ProcessId = 5) OutTimeWet,
-      (SELECT
-      OutTime
-      FROM
-      t_process_tracking
-      WHERE RegNo = a.RegNo
-      AND ProcessId = 6) OutTimeMec,
-      (SELECT
-      OutTime
-      FROM
-      t_process_tracking
-      WHERE RegNo = a.RegNo
-      AND ProcessId = 7) OutTimePil
-      FROM
-      t_process_tracking a
-      INNER JOIN t_process_list b
-      ON (a.ProcessId = b.ProcessId)
-      WHERE a.ProcessId = 8
-      AND a.OutTime IS NULL
-      $sWhere
-      $sOrder
-      $sLimit "; */
     $sql = "SELECT 
 			SQL_CALC_FOUND_ROWS a.ProTrackId, a.TrackingNo, a.RegNo, b.ProcessId, b.ProcessName, b.ProcessOrder, a.InTime, a.OutTime 
 			, TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
 			, UsualDuration
 			, (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
-			, p.RegNo RegNoWet, p.OutTime OutTimeWet, q.RegNo RegNoMec, q.OutTime OutTimeMec, r.RegNo RegNoPil, r.OutTime OutTimePil 
+			, p.RegNo RegNoWet, p.OutTime OutTimeWet, q.RegNo RegNoMec, q.OutTime OutTimeMec 
 			FROM
 			  t_process_tracking a 
 			  INNER JOIN t_process_list b 
@@ -282,22 +175,15 @@ function getProcessTrackingData8($conn) {
 				  RegNo, OutTime 
 				FROM
 				  t_process_tracking 
-				WHERE ProcessId = 5) p 
+				WHERE ProcessId = 27) p 
 				ON (a.RegNo = p.RegNo) 
 			  LEFT JOIN 
 				(SELECT 
 				  RegNo, OutTime 
 				FROM
 				  t_process_tracking 
-				WHERE ProcessId = 6) q 
+				WHERE ProcessId = 30) q 
 				ON (a.RegNo = q.RegNo) 
-			  LEFT JOIN 
-				(SELECT 
-				  RegNo, OutTime 
-				FROM
-				  t_process_tracking 
-				WHERE ProcessId = 7) r 
-				ON (a.RegNo = r.RegNo) 
 			WHERE a.ProcessId = $ProcessId 
 			  AND a.OutTime IS NULL 
                     $sWhere 
@@ -344,11 +230,11 @@ function getProcessTrackingData8($conn) {
 
         $wetStatus = '';
         if ($aRow['RegNoWet'] && $aRow['OutTimeWet']) {
-            $parentStatus = "<span style='color:#00ff00;'>Received</span>";
+            $wetStatus = "<span style='color:#00ff00;'>Received</span>";
         } else if ($aRow['RegNoWet'] && !$aRow['OutTimeWet']) {
-            $parentStatus = "<span style='color:#ff0000;'>Not Received</span>";
+            $wetStatus = "<span style='color:#ff0000;'>Not Received</span>";
         } else if (!$aRow['RegNoWet'] && !$aRow['OutTimeWet']) {
-            $parentStatus = "<span style='color:#0000ff;'>na</span>";
+            $wetStatus = "<span style='color:#0000ff;'>na</span>";
         }
 
         $mecStatus = '';
@@ -360,18 +246,8 @@ function getProcessTrackingData8($conn) {
             $mecStatus = "<span style='color:#0000ff;'>na</span>";
         }
 
-        $pilStatus = '';
-        if ($aRow['RegNoPil'] && $aRow['OutTimePil']) {
-            $pilStatus = "<span style='color:#00ff00;'>Received</span>";
-        } else if ($aRow['RegNoPil'] && !$aRow['OutTimePil']) {
-            $pilStatus = "<span style='color:#ff0000;'>Not Received</span>";
-        } else if (!$aRow['RegNoPil'] && !$aRow['OutTimePil']) {
-            $pilStatus = "<span style='color:#0000ff;'>na</span>";
-        }
-
-        $sOutput .= '"' . $parentStatus . '",';
-        $sOutput .= '"' . $mecStatus . '",';
-        $sOutput .= '"' . $pilStatus . '"';
+        $sOutput .= '"' . $wetStatus . '",';
+        $sOutput .= '"' . $mecStatus . '"';
         $sOutput .= "]";
     }
     $sOutput .= '] }';
@@ -427,21 +303,21 @@ function getProcessTrackingData18($conn) {
 				  RegNo, OutTime 
 				FROM
 				  t_process_tracking 
-				WHERE ProcessId = 9) p 
+				WHERE ProcessId = 31) p 
 				ON (a.RegNo = p.RegNo) 
 			  LEFT JOIN 
 				(SELECT 
 				  RegNo, OutTime 
 				FROM
 				  t_process_tracking 
-				WHERE ProcessId = 13) q 
+				WHERE ProcessId = 28) q 
 				ON (a.RegNo = q.RegNo) 
 			  LEFT JOIN 
 				(SELECT 
 				  RegNo, OutTime 
 				FROM
 				  t_process_tracking 
-				WHERE ProcessId = 16) r 
+				WHERE ProcessId = 32) r 
 				ON (a.RegNo = r.RegNo) 
 			WHERE a.ProcessId = $ProcessId 
 			  AND a.OutTime IS NULL 
@@ -763,8 +639,8 @@ function insertUpdateProcessTracking($conn) {
     date_default_timezone_set("Asia/Dhaka");
     $jUserId = $_REQUEST['jUserId'];
     $language = $_REQUEST['language'];
-    $TrackingNo = $_POST['TrackingNo'];
-    $RegNo = $_POST['RegNo'];
+    $TrackingNo = strtoupper($_POST['TrackingNo']);
+    $RegNo = strtoupper($_POST['RegNo']);
     $ProcessId = $_POST['ProcessId'];
     $ParentProcessId = $_POST['ParentProcessId'];   
 
@@ -1031,15 +907,15 @@ function insertUpdateProcessTracking($conn) {
             echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
 
             break;
-        case 18:
+        case 33:
             if ($_POST['RegNoPhy']) {
-                $ParentProcessId = 9;
+                $ParentProcessId = 31;
                 $RegNo = $_POST['RegNoPhy'];
             } else if ($_POST['RegNoCol']) {
-                $ParentProcessId = 13;
+                $ParentProcessId = 28;
                 $RegNo = $_POST['RegNoCol'];
             } else if ($_POST['RegNoFib']) {
-                $ParentProcessId = 16;
+                $ParentProcessId = 32;
                 $RegNo = $_POST['RegNoFib'];
             }
 
@@ -1194,7 +1070,7 @@ function insertUpdateProcessTracking($conn) {
             echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
 
             break;
-        case 22:
+        case 36:
             if ($_POST['RegNoRec']) {
                 $RegNo = $_POST['RegNoRec'];
 

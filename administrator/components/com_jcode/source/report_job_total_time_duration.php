@@ -83,7 +83,7 @@ function print_function(type){
 
 	dataAlignment = ["center","center"];
 	//when column count and width array count are not same then last value repeat
-	cellWidth = ["10","20","20"];
+	cellWidth = ["10","30","30"];
 
 	reportHeaderList = JSON.stringify(reportHeaderList);
 	

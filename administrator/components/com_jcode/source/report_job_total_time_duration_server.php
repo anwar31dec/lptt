@@ -463,6 +463,7 @@ $EndDate = $_POST['dp1_end'];
 
 $query = "SELECT ProcessId, ProcessName, ProcessOrder
 FROM t_process_list
+WHERE t_process_list.ProcUnitId = 1
 ORDER BY ProcessOrder;";
 
 //echo $query;
@@ -519,6 +520,7 @@ $sQuery = "SELECT
 					ON t_process_tracking.ProcessId = t_process_list.ProcessId 
 				WHERE EntryDate >= '$StartDate' 
 				  AND EntryDate <= '$EndDate' 
+				  AND t_process_tracking.ProcUnitId = 1
 				ORDER BY t_process_tracking.TrackingNo, t_process_list.ProcessOrder;";
 //echo $sQuery;
 //exit;
@@ -531,7 +533,7 @@ $rResult = mysql_query($sQuery);
 if ($rResult) {
 	while ($data = mysql_fetch_object($rResult)) {
 		//print_r($data);
-		$TrackNoAndNoOfScann = $data -> TrackingNo;
+		$TrackNoAndNoOfScann = strtoupper($data -> TrackingNo);
 		if ($TrackNoAndNoOfScann != $tmpFacilityCode) {
 
 			// get each row to a array when it changes it state so in this case last row always skipped

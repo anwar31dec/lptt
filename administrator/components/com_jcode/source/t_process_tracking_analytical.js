@@ -477,10 +477,6 @@ $(function () {
                 "sClass": "center-aln",
                 "sWidth": "10%",
                 "bVisible": true,
-            }, {
-                "sClass": "center-aln",
-                "sWidth": "10%",
-                "bVisible": true,
             }]
     });
 

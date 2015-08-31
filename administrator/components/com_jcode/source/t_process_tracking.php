@@ -51,22 +51,38 @@ $ProcessId = $aUserProcess['ProcessId'];
                             <form novalidate="" data-validate="parsley" id="frmProcessTracking" class="form-horizontal form-border no-margin">
 
                                 <div class="form-group"  id="TrackingNo-group-id">
-                                    <label class="control-label col-md-4" for="TrackingNo"><?php echo 'Inward No:'; ?></label>
+                                    <label class="control-label col-md-4" for="TrackingNo"><?php echo 'Inward No :'; ?></label>
                                     <div class="col-md-8">
                                         <input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="TrackingNo" id="TrackingNo" data-required="true" placeholder="scan here..."/>
-                                    </div>
+                                    </div>									
                                 </div> 
+								
+								<div class="form-group">
+									<div class="col-md-4">
+									</div>
+									<div class="col-md-8">
+										<label class="control-label">Select Department/Unit</label>
+										<label class="radio inline">
+											<input type="radio" name="OptUnit" value="1" checked />
+											Textile
+										</label>
+										<label class="radio inline">
+											<input type="radio" name="OptUnit" value="2"/>
+											Analytical
+										 </label>
+									 </div>
+								</div>
 
                                 <div class="form-group">
                                     <div class="col-md-4">
                                         <input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
                                         <input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
+                                        
                                         <input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="bUseRegNo" id="bUseRegNo" value="<?php echo $aUserProcess['bUseRegNo']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
+                                        
+                                        
+                                        
+                                        
                                         <input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
                                         <input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
                                     </div>
@@ -105,12 +121,12 @@ $ProcessId = $aUserProcess['ProcessId'];
                                     <div class="col-md-4999">
                                         <input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
                                         <input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
+                                        
                                         <input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="bUseRegNo" id="bUseRegNo" value="<?php echo $aUserProcess['bUseRegNo']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
+                                        
+                                        
+                                        
+                                        
                                         <input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
                                         <input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
                                     </div>
@@ -150,12 +166,12 @@ $ProcessId = $aUserProcess['ProcessId'];
                                     <div class="col-md-4">
                                         <input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
                                         <input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
+                                        
                                         <input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="bUseRegNo" id="bUseRegNo" value="<?php echo $aUserProcess['bUseRegNo']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
+                                        
+                                        
+                                        
+                                        
                                         <input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
                                         <input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
                                     </div>
@@ -195,12 +211,12 @@ $ProcessId = $aUserProcess['ProcessId'];
                                     <div class="col-md-4">
                                         <input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
                                         <input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
+                                        
                                         <input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="bUseRegNo" id="bUseRegNo" value="<?php echo $aUserProcess['bUseRegNo']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
+                                        
+                                        
+                                        
+                                        
                                         <input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
                                         <input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
                                     </div>
@@ -233,12 +249,12 @@ $ProcessId = $aUserProcess['ProcessId'];
                                     <div class="col-md-4">
                                         <input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
                                         <input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
+                                        
                                         <input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="bUseRegNo" id="bUseRegNo" value="<?php echo $aUserProcess['bUseRegNo']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
+                                        
+                                        
+                                        
+                                        
                                         <input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
                                         <input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
                                     </div>
@@ -271,12 +287,12 @@ $ProcessId = $aUserProcess['ProcessId'];
                                     <div class="col-md-4">
                                         <input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
                                         <input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
+                                        
                                         <input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="bUseRegNo" id="bUseRegNo" value="<?php echo $aUserProcess['bUseRegNo']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
+                                        
+                                        
+                                        
+                                        
                                         <input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
                                         <input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
                                     </div>
@@ -302,12 +318,12 @@ $ProcessId = $aUserProcess['ProcessId'];
                                     <div class="col-md-4">
                                         <input type="text" value="insertUpdateProcessTracking" id="action" name="action" style="display: none;"/>
                                         <input type="hiidden" style="display:none;"name="ProcessId" id="ProcessId" value="<?php echo $aUserProcess['ProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
+                                        
                                         <input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="bUseRegNo" id="bUseRegNo" value="<?php echo $aUserProcess['bUseRegNo']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
-                                        <input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
+                                        
+                                        
+                                        
+                                        
                                         <input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
                                         <input type="hiidden" style="display:none;" id="en-GBId" value="<?php echo $lan; ?>"/>
                                     </div>

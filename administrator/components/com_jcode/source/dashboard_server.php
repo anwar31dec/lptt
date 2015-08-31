@@ -83,6 +83,7 @@ function getJobCountInAllProcess() {
 
     $query = "SELECT ProcessId, ProcessName, ProcessOrder
     FROM t_process_list
+	WHERE t_process_list.ProcUnitId = 2
     ORDER BY ProcessOrder;";
 
 //echo $query;
@@ -173,6 +174,7 @@ function getProcessCount() {
 				LEFT JOIN t_process_list 
 					ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
 			WHERE OutTime IS NULL AND EntryDate BETWEEN '$StartDate' AND '$EndDate'
+			AND t_process_tracking.ProcUnitId = 2
 			GROUP BY t_process_tracking.ProcessId
 			ORDER BY t_process_list.ProcessOrder;";
 
@@ -217,8 +219,9 @@ function getTotalInOutCount() {
 					TrackingNo 
 				  FROM
 					t_process_tracking
-				  WHERE t_process_tracking.ProcessId = 1 AND EntryDate BETWEEN '$StartDate' 
-					AND '$EndDate') a;";
+				  WHERE t_process_tracking.ProcessId = 23 AND EntryDate BETWEEN '$StartDate' 
+					AND '$EndDate'
+					AND t_process_tracking.ProcUnitId = 2) a;";
 
     $rResult1 = mysql_query($sQuery);
 
@@ -231,7 +234,8 @@ function getTotalInOutCount() {
 		t_process_tracking
 		INNER JOIN t_process_list 
 			ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
-	WHERE OutTime IS NOT NULL AND t_process_list.ProcessId = 22 AND EntryDate BETWEEN '$StartDate' AND '$EndDate';";
+	WHERE OutTime IS NOT NULL AND t_process_list.ProcessId = 36 AND EntryDate BETWEEN '$StartDate' AND '$EndDate'
+	AND t_process_tracking.ProcUnitId = 2;";
 
     $rResult2 = mysql_query($sQuery2);
 
