@@ -1311,12 +1311,12 @@ function insertUpdateProcessTracking($conn) {
                 return;
             }
 
-            if ($RegNo) {
-                if (getRecExistInProcByRegNo($RegNo, $ProcessId)) {
-                    echo json_encode(array('msgType' => 'error', 'msg' => 'This Job is scanned already.'));
-                    return;
-                }
+
+            if (getRecExistInProcByRegNo($RegNo, $ProcessId)) {
+                echo json_encode(array('msgType' => 'error', 'msg' => 'This Job is scanned already.'));
+                return;
             }
+
 
             /* Update out time of parent */
             if ($ParentProcessId) {
@@ -1374,6 +1374,20 @@ function insertUpdateProcessTracking($conn) {
             echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
 
             break;
+    }
+}
+
+/*
+ * Validate job for insert by registration no
+ */
+
+function validateJobByRegNo($RegNo, $ProcessId) {
+    if (!$RegNo) {
+         return array('msgType' => 'error', 'msg' => 'Registration no can not be empty.');
+    }
+    
+    if (getRecExistInProcByRegNo($RegNo, $ProcessId)) {
+        return array('msgType' => 'error', 'msg' => 'This Job is scanned already.');
     }
 }
 
