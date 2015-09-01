@@ -100,6 +100,21 @@ jQuery('#process_hold_form').parsley({
 });
 
 
+function validate() {
+
+    // check if input is bigger than 3
+    var value = document.getElementById('HoldComments').value;
+//  alert(value);
+    if (value.length < 10) {
+        return false; // keep form from submitting
+    }
+
+    // else form is good let it submit, of course you will 
+    // probably want to alert the user WHAT went wrong.
+
+    return true;
+}
+
 
 $(function () {
 
@@ -113,6 +128,12 @@ $(function () {
     resetForm("process_hold_form");
 
     $('#submitItemList').click(function () {
+        var value = $('#HoldComments').val();
+        if (value.length < 10) {
+            alert('You must input minimum 10 characters.')
+            return false;
+        }
+
         $("#process_hold_form").submit();
     });
 
@@ -158,16 +179,16 @@ $(function () {
                     var nTr = this.parentNode.parentNode;
                     var aData = tblProcessTracking.fnGetData(nTr);
                     $('#TrackingNo').val(aData[2]);
-                    $('#hTrackingNo').val(aData[2]); 
+                    $('#hTrackingNo').val(aData[2]);
                     if (aData[8] === 1) {
-                       $("#bHold").prop("checked", true);
-                    }else{
+                        $("#bHold").prop("checked", true);
+                    } else {
                         $("#bHold").prop("checked", false);
                     }
                     $('#Hold').val(aData[9]);
                     $('#HoldComments').val(aData[10]);
                     $('#ProcessId').val(aData[12]);
-                    
+
 
                     msg = "Do you really want to edit this record?";
                     onCustomModal(msg, "onEditPanel");
@@ -263,13 +284,13 @@ $(function () {
                 // Key Product
                 "sWidth": "10%",
                 "bSortable": true
-            },  {
+            }, {
                 "sClass": "left-aln",
                 // Key Product
                 "sWidth": "10%",
                 "bSortable": true,
                 "bVisible": false
-            },  {
+            }, {
                 "sClass": "center-aln",
                 // Key Product
                 "sWidth": "10%",
@@ -279,7 +300,7 @@ $(function () {
                 // Key Product
                 "sWidth": "15%",
                 "bSortable": true
-            },{
+            }, {
                 "sClass": "center-aln",
                 // Key Product
                 "sWidth": "5%",

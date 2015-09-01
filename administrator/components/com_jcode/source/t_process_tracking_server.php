@@ -948,6 +948,81 @@ function insertUpdateProcessTracking($conn) {
             echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
 
             break;
+//        case 4:
+//            $bSubContract = isset($_POST['bSubContract']) ? $_POST['bSubContract'] : '';
+//            if ($bSubContract == 'on') {
+//                $bSubContract = 1;
+//            } else {
+//                $bSubContract = 0;
+//            }
+//
+//            if (!$RegNo) {
+//                echo json_encode(array('msgType' => 'error', 'msg' => 'Registration no can not be empty.'));
+//                return;
+//            }
+//
+//
+//            if (getRecExistInProcByRegNo($RegNo, $ProcessId)) {
+//                echo json_encode(array('msgType' => 'error', 'msg' => 'This Job is scanned already.'));
+//                return;
+//            }
+//
+//
+//            /* Update out time of parent */
+//            if ($ParentProcessId && !$bSubContract) {
+//                $aParentData = getParentProcessByRegNo($RegNo, $ParentProcessId);
+//
+//                if (!$aParentData) {
+//                    echo json_encode(array('msgType' => 'error', 'msg' => 'This job has no previous record.'));
+//                    return;
+//                }
+//
+//                $ProTrackId = $aParentData['ProTrackId'];
+//                $ParentInTime = $aParentData['InTime'];
+//                $ParentBHold = $aParentData['bHold'];
+//
+//                if ($ParentBHold) {
+//                    echo json_encode(array('msgType' => 'error', 'msg' => 'This job is holded by previous process.'));
+//                    exit();
+//                }
+//
+//                $aParentTimeDuration = getTimeDuration($ParentInTime);
+//                $duration = $aParentTimeDuration['Duration'];
+//                $txtDuration = $aParentTimeDuration['txtDuration'];
+//
+//                if ($ProTrackId) {
+//                    $sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration', OutUserId = '$jUserId' WHERE ProTrackId = $ProTrackId;";
+//
+//                    $aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
+//
+//                    $aQuerys[] = $aQuery2;
+//                }
+//            }
+//
+//            /* Insert the current process */
+//            $sql = "INSERT INTO t_process_tracking
+//				(TrackingNo, RegNo, ProcessId, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId, bSubContract)
+//				VALUES ('$RegNo', '$RegNo', $ProcessId, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1, $bSubContract);";
+//            $aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
+//            $aQuerys[] = $aQuery1;
+//
+//            if ($ParentProcessId && !$bSubContract) {
+//                $aParentData2 = getInwardNoByRegNo($RegNo, $ParentProcessId);
+//
+//                $TrackingNo = $aParentData2['TrackingNo'];
+//
+//                if ($TrackingNo) {
+//                    /* Update RegNo of ancestors */
+//                    $sql3 = "UPDATE t_process_tracking
+//						SET TrackingNo = '$TrackingNo'
+//						WHERE TrackingNo = '$RegNo' AND RegNo = '$RegNo';";
+//                    $aQuery3 = array('command' => 'UPDATE', 'query' => $sql3, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
+//                    $aQuerys[] = $aQuery3;
+//                }
+//            }
+//
+//            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
+//            break;
         case 8:
             if ($_POST['RegNoWet']) {
                 $ParentProcessId = 5;
@@ -1306,6 +1381,13 @@ function insertUpdateProcessTracking($conn) {
 
             break;
         default:
+            $bSubContract = isset($_POST['bSubContract']) ? $_POST['bSubContract'] : '';
+            if ($bSubContract == 'on') {
+                $bSubContract = 1;
+            } else {
+                $bSubContract = 0;
+            }
+
             if (!$RegNo) {
                 echo json_encode(array('msgType' => 'error', 'msg' => 'Registration no can not be empty.'));
                 return;
@@ -1319,7 +1401,7 @@ function insertUpdateProcessTracking($conn) {
 
 
             /* Update out time of parent */
-            if ($ParentProcessId) {
+            if ($ParentProcessId && !$bSubContract) {
                 $aParentData = getParentProcessByRegNo($RegNo, $ParentProcessId);
 
                 if (!$aParentData) {
@@ -1351,12 +1433,12 @@ function insertUpdateProcessTracking($conn) {
 
             /* Insert the current process */
             $sql = "INSERT INTO t_process_tracking
-				(TrackingNo, RegNo, ProcessId, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId)
-				VALUES ('$RegNo', '$RegNo', $ProcessId, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1);";
+				(TrackingNo, RegNo, ProcessId, InTime, EntryDate, YearId, MonthId, InUserId, ProcUnitId, bSubContract)
+				VALUES ('$RegNo', '$RegNo', $ProcessId, NOW(), Now(), YEAR(NOW()), MONTH(NOW()), '$jUserId', 1, $bSubContract);";
             $aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
             $aQuerys[] = $aQuery1;
 
-            if ($ParentProcessId) {
+            if ($ParentProcessId && !$bSubContract) {
                 $aParentData2 = getInwardNoByRegNo($RegNo, $ParentProcessId);
 
                 $TrackingNo = $aParentData2['TrackingNo'];
@@ -1383,9 +1465,9 @@ function insertUpdateProcessTracking($conn) {
 
 function validateJobByRegNo($RegNo, $ProcessId) {
     if (!$RegNo) {
-         return array('msgType' => 'error', 'msg' => 'Registration no can not be empty.');
+        return array('msgType' => 'error', 'msg' => 'Registration no can not be empty.');
     }
-    
+
     if (getRecExistInProcByRegNo($RegNo, $ProcessId)) {
         return array('msgType' => 'error', 'msg' => 'This Job is scanned already.');
     }

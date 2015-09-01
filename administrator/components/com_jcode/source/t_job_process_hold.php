@@ -77,7 +77,7 @@ $ProcessId = $aUserProcess['ProcessId'];
                 Job Hold Entry          
             </div>
             <div class="panel-body">
-                <form novalidate="" data-validate="parsley" id="process_hold_form" class="form-horizontal form-border no-margin">
+                <form novalidate="" data-validate="parsley" id="process_hold_form" class="form-horizontal form-border no-margin" onsubmit="validate();">
 
                     <div class="form-group">
                         <label class="control-label col-md-4" for="TrackingNo">Tracking No:</label>
@@ -94,10 +94,10 @@ $ProcessId = $aUserProcess['ProcessId'];
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">		
+                        <div class="col-md-12">		
                             <div class="form-group">
-                                <label class="control-label col-md-6" for="bHold">Hold/Unhold</label>
-                                <div class="col-md-6">
+                                <div class="col-md-4" style="text-align:right;">Hold/Unhold</div>
+                                <div class="col-md-8">
                                     <input type="checkbox" name="bHold" id="bHold"/>
                                     <span class="custom-checkbox"></span> 
                                 </div>
