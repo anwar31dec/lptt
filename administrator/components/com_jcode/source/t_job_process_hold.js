@@ -24,8 +24,6 @@ function onListPanel() {
 function onFormPanel() {
     resetForm("process_hold_form");
     ItemNo = '';
-    //$("#bKeyItem").prop("checked", true);
-    //bKey();
     $('#list-panel, .btn-form').hide();
     $('#form-panel, .btn-list').show();
     $('#PrintBTN, #PrintBTN1').hide();

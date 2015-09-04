@@ -894,7 +894,7 @@ $(function () {
                 return;
             }
 
-            if ($("#eNewNoPosition").val() == 'REGISTRATION') {
+            if ($("#ProcessId").val() == 3) {
                 if ($("#RegNo").val() == '') {
                     $("#RegNo").focus();
                     //alert('Please fill up the tracking number.')
@@ -939,7 +939,7 @@ $(function () {
                 return;
             }
 
-            if ($("#eNewNoPosition").val() == 'REGISTRATION') {
+            if ($("#ProcessId").val() == 3) {
                 if ($("#TrackingNo").val() == '') {
                     $("#TrackingNo").focus();
                     //alert('Please fill up the tracking number.')

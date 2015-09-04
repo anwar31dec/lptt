@@ -56,7 +56,23 @@ $ProcessId = $aUserProcess['ProcessId'];
                                         <input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="TrackingNo" id="TrackingNo" data-required="true" placeholder="scan here..."/>
                                     </div>									
                                 </div> 
-                       
+                                <?php if ($ProcessId == 1): ?>
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label class="control-label">Select Department/Unit</label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="OptUnit" value="1" checked />
+                                                Textile
+                                            </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="OptUnit" value="2"/>
+                                                Analytical
+                                            </label>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
 
                                 <div class="form-group">
                                     <div class="col-md-4">
