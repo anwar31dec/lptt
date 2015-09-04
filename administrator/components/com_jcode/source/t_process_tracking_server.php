@@ -752,6 +752,9 @@ function insertUpdateProcessTracking($conn) {
 	
 	$aTextilePrefix = array('GBGDT','BGDT');
 	$aAnalyticalPrefix = array('GBGDA','BGDA','BGDF','GBGDF');
+	
+	$aTextileSubConPrefix = array('GBGDA','BGDA','BGCT','GBGCT','BGDF','GBGDF','BGCA','GBGCA');
+	$aAnalyticalSubConPrefix = array('GBGDT','BGDT','BGCT','GBGCT','BGDF','GBGDF','BGCA','GBGCA');
 
     switch ($ProcessId) {
         case 1:
@@ -1287,12 +1290,18 @@ function insertUpdateProcessTracking($conn) {
 
             break;
         default:
-            $bSubContract = isset($_POST['bSubContract']) ? $_POST['bSubContract'] : '';
+           /*  $bSubContract = isset($_POST['bSubContract']) ? $_POST['bSubContract'] : '';
             if ($bSubContract == 'on') {
                 $bSubContract = 1;
             } else {
                 $bSubContract = 0;
-            }
+            } */
+			
+			if(patn_array_match($aTextileSubConPrefix, $RegNo)){
+				$bSubContract = 1;
+			} else {
+				$bSubContract = 0;
+			}
 
             if (!$RegNo) {
                 echo json_encode(array('msgType' => 'error', 'msg' => 'Registration no can not be empty.'));

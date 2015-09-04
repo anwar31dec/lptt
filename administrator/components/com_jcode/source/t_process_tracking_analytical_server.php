@@ -84,8 +84,8 @@ function getProcessTrackingData($conn) {
                     $sWhere 
                     $sOrder 
                     $sLimit ";
-    // echo $sql;
-    // exit;
+    echo $sql;
+    exit;
 
 
 
@@ -636,6 +636,22 @@ function getWaitingProcessList($conn) {
     echo $sOutput;
 }
 
+
+function patn_array_match($pattern_array, $subject){	
+	if(!$pattern_array){
+		echo 'Pattern array not found.';
+	} 
+	foreach ($pattern_array as $pattern)
+	{
+	  $pattern = '/' . $pattern .'/';
+	  if (preg_match($pattern, $subject))
+	  {
+		return true;
+	  } 
+	}
+	return false;
+}
+
 function insertUpdateProcessTracking($conn) {
     date_default_timezone_set("Asia/Dhaka");
     $jUserId = $_REQUEST['jUserId'];
@@ -644,7 +660,13 @@ function insertUpdateProcessTracking($conn) {
     $RegNo = strtoupper($_POST['RegNo']);
     $ProcessId = $_POST['ProcessId'];
     $ParentProcessId = $_POST['ParentProcessId'];
-    $ProcUnitId = 2;
+    $ProcUnitId = 0;
+	
+	$aTextilePrefix = array('GBGDT','BGDT');
+	$aAnalyticalPrefix = array('GBGDA','BGDA','BGDF','GBGDF');
+	
+	$aTextileSubConPrefix = array('GBGDA','BGDA','BGCT','GBGCT','BGDF','GBGDF','BGCA','GBGCA');
+	$aAnalyticalSubConPrefix = array('GBGDT','BGDT','BGCT','GBGCT','BGDF','GBGDF','BGCA','GBGCA');
 
     switch ($ProcessId) {
         case 23:
@@ -1070,11 +1092,22 @@ function insertUpdateProcessTracking($conn) {
 
             break;
         default:
-            $bSubContract = isset($_POST['bSubContract']) ? $_POST['bSubContract'] : '';
+            /* $bSubContract = isset($_POST['bSubContract']) ? $_POST['bSubContract'] : '';
             if ($bSubContract == 'on') {
                 $bSubContract = 1;
             } else {
                 $bSubContract = 0;
+            } */
+			
+			if(patn_array_match($aAnalyticalSubConPrefix, $RegNo)){
+				$bSubContract = 1;
+			} else {
+				$bSubContract = 0;
+			}
+
+            if (!$RegNo) {
+                echo json_encode(array('msgType' => 'error', 'msg' => 'Registration no can not be empty.'));
+                return;
             }
 
             if (!$RegNo) {
