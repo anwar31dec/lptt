@@ -84,11 +84,7 @@ function getProcessTrackingData($conn) {
                     $sWhere 
                     $sOrder 
                     $sLimit ";
-    echo $sql;
-    exit;
-
-
-
+   
     $result = mysql_query($sql, $conn);
     $total = mysql_num_rows($result);
     $sQuery = "SELECT FOUND_ROWS()";
@@ -734,12 +730,12 @@ function insertUpdateProcessTracking($conn) {
             $aQuery1 = array('command' => 'INSERT', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
             $aQuerys[] = $aQuery1;
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE, FALSE));
 
             break;
         case 25:
             /* Start receiving from Photo Taking */
-            $TrackingNoPt = $_POST['TrackingNoPt'];
+            $TrackingNoPt = strtoupper($_POST['TrackingNoPt']);
 
             if ($TrackingNoPt) {
 
@@ -780,7 +776,7 @@ function insertUpdateProcessTracking($conn) {
                 $aQuery1 = getProTrackInsertCmd($TrackingNoPt, $ProcessId, $jUserId, $ProcUnitId);
                 $aQuerys[] = $aQuery1;
 
-                echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
+                echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE, FALSE));
                 return;
             }
             /* End receiving from Photo Taking */
@@ -806,6 +802,11 @@ function insertUpdateProcessTracking($conn) {
                 echo json_encode(array('msgType' => 'error', 'msg' => 'This Job is scanned already.'));
                 return;
             }
+			
+			if ($aRecExistData3['TrackingNo'] != $aRecExistData3['RegNo']) {
+                echo json_encode(array('msgType' => 'error', 'msg' => 'This inward no ('. $aRecExistData3['TrackingNo'] .') is already linked with Registration No (' . $aRecExistData3['RegNo'] . ').'));
+                return;
+            }
 
             /* Update RegNo of ancestors */
             $sql3 = "UPDATE t_process_tracking
@@ -814,7 +815,7 @@ function insertUpdateProcessTracking($conn) {
             $aQuery3 = array('command' => 'UPDATE', 'query' => $sql3, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => TRUE);
             $aQuerys[] = $aQuery3;
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE, FALSE));
 
             break;
         case 31:
@@ -894,7 +895,7 @@ function insertUpdateProcessTracking($conn) {
                 }
             }
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE, FALSE));
 
             break;
         case 33:
@@ -977,7 +978,7 @@ function insertUpdateProcessTracking($conn) {
                 }
             }
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE, FALSE));
 
             break;        
         case 36:
@@ -1045,7 +1046,7 @@ function insertUpdateProcessTracking($conn) {
                     }
                 }
 
-                echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
+                echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE, FALSE));
             }
             /* FOR JOB DELIVERED */ else if ($_POST['RegNoDel']) {
                 $RegNo = $_POST['RegNoDel'];
@@ -1087,7 +1088,7 @@ function insertUpdateProcessTracking($conn) {
                     $aQuerys[] = $aQuery2;
                 }
 
-                echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
+                echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE, FALSE));
             }
 
             break;
@@ -1175,7 +1176,7 @@ function insertUpdateProcessTracking($conn) {
                 }
             }
 
-            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE));
+            echo json_encode(exec_query($aQuerys, $jUserId, $language, FALSE, FALSE));
 
 
             break;
@@ -1287,7 +1288,7 @@ function getRecExistInProcByInwardNo($JobNo, $ProcessId) {
     $aData = array();
     try {
         $query = "SELECT
-				t_process_tracking.ProTrackId, t_process_tracking.InTime, t_process_tracking.OutTime, t_process_tracking.bHold
+				t_process_tracking.ProTrackId, t_process_tracking.TrackingNo, t_process_tracking.RegNo, t_process_tracking.InTime, t_process_tracking.OutTime, t_process_tracking.bHold
 			FROM
 				t_process_tracking
 			WHERE (t_process_tracking.TrackingNo = '$JobNo'
