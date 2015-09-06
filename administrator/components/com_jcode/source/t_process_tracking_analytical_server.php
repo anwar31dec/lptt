@@ -656,7 +656,7 @@ function insertUpdateProcessTracking($conn) {
     $RegNo = strtoupper($_POST['RegNo']);
     $ProcessId = $_POST['ProcessId'];
     $ParentProcessId = $_POST['ParentProcessId'];
-    $ProcUnitId = 0;
+    $ProcUnitId = 2;
 	
 	$aTextilePrefix = array('GBGDT','BGDT');
 	$aAnalyticalPrefix = array('GBGDA','BGDA','BGDF','GBGDF');
