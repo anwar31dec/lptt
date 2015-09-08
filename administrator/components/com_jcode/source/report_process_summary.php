@@ -38,7 +38,7 @@ include_once ('language/lang_switcher.php');
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <h4>Textile Process Summary</h4>
         <table  id="tblProcessCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
             <thead>
@@ -52,20 +52,6 @@ include_once ('language/lang_switcher.php');
             </thead>
             <tbody>	</tbody>
         </table>
-    </div>
-    <div class="col-md-6">
-        <h4>Analytical Process Summary</h4>
-        <table  id="tblTotalInOutCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
-            <thead>
-                <tr>
-                    <th style="width:50%">Total In</th>
-                    <th style="width:50%">Total Out</th>
-                </tr>
-            </thead>
-            <tbody>	</tbody>
-        </table>
-    </div>
-    <div class="col-md-6">
     </div>
 </div>
 

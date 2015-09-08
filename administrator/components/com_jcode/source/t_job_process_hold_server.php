@@ -81,7 +81,7 @@ function getProcessTrackingData($conn) {
 			  t_process_tracking a 
 			  INNER JOIN t_process_list b 
 				ON (a.ProcessId = b.ProcessId)
-			WHERE a.ProcessId = $ProcessId 
+			WHERE a.ProcessId IN (1,23)
 			  AND a.OutTime IS NULL 
                     $sWhere 
                     $sOrder 
@@ -163,12 +163,12 @@ function insertUpdateProcessTracking($conn) {
             bHold = $bHold,
             HoldComments = '$HoldComments',
             HoldTime = NOW()
-            WHERE RegNo = '$TrackingNo' AND ProcessId = $ProcessId";
+            WHERE RegNo = '$TrackingNo'";
     
 //    echo $sql;
 //    exit;
 
-    $aQuery1 = array('command' => 'UPDATE', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('RegNo','ProcessId'), 'pk_values' => array("'".$RegNo."'", $ProcessId), 'bUseInsetId' => FALSE);
+    $aQuery1 = array('command' => 'UPDATE', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('RegNo'), 'pk_values' => array("'".$RegNo."'"), 'bUseInsetId' => FALSE);
     $aQuerys = array($aQuery1);
     echo json_encode(exec_query($aQuerys, $jUserId, $language));
 }
