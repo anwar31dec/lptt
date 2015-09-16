@@ -15,81 +15,92 @@ include_once ('database_conn.php');
 include_once ('init_month_year.php');
 include_once ('function_lib.php');
 include_once ('combo_script.php');
-include_once ('language/lang_en.php');
-include_once ('language/lang_fr.php');
-include_once ('language/lang_switcher.php');
 ?>
 
 <script type="text/javascript">
     var vLang = '<?php echo $vLang; ?>';
 </script>
 
-<div class="row">
 
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-    </div>
-    <div id="reportrange-container" class="col-md-4">
-        <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-            <span></span> <b class="caret"></b>
+
+<div class="container">
+    <div class="content_fullwidth lessmar">
+        <div class="azp_col-md-12 one_full">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="tbl-header1" id="itemTable_length1">
+                        <label>Select Process: 
+                            <select class="form-control" id="process-list">
+                                <option selected="" value=""></option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div id="reportrange-container" class="col-md-4">
+                    <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                        <span></span> <b class="caret"></b>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-heading clearfix">
+                <?php echo 'Every Process Summary'; ?>
+                <span class="pull-right">
+                    <label>
+                        <a id="PrintBTN" data-mce-href="#" class="but_print" href="javascript:void(0);" onclick="print_function('print')"><i data-mce-bootstrap="1" class="fa fa-print fa-lg">&nbsp;</i> <?php echo $TEXT['Print']; ?></a>
+                        <a id="PrintBTN1" data-mce-href="#" class="but_excel" href="javascript:void(0);" onclick="print_function('excel')"><i data-mce-bootstrap="1" class="fa fa-file-excel-o fa-lg">&nbsp;</i> <?php echo $TEXT['Excel']; ?></a>
+                        <a style="display:none;" id="PDFBTN" data-mce-href="#" class="but_pdf" href="javascript:void(0);" onclick="print_function('pdf')"><i data-mce-bootstrap="1" class="fa fa-file-pdf-o fa-lg">&nbsp;</i> <?php echo $TEXT['PDF']; ?></a>
+                    </label>
+                </span>
+            </div>
+
+            <div class="panel-body">
+                <div style="overflow-x: scroll;" id="tbl-pf">
+                </div>
+            </div>          
+		   <br/>
+			<div class="panel-heading clearfix" style="padding-bottom:10px;">
+				Job Status List
+			</div>
+			
+            <table  id="process-status" class="table table-striped table-bordered display table-hover" cellspacing="0">
+                <thead>
+                    <tr>                        
+                        <th style="text-align: center;">SL.</th>
+                        <th>Tracking No.</th>
+                        <th>Status</th>
+                        <th>User Name</th>
+                        <th>Time consumed</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <h4>Processes in progress</h4>
-        <table  id="tblProcessCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
-            <thead>
-                <tr>
-                    <th style="width:10%">SL.</th>
-                    <th style="width:30%"><?php echo 'Process Name'; ?></th>
-                    <th style="width:30%"><?php echo 'Total'; ?></th>
-                    <th style="width:30%"><?php echo 'Process Id'; ?></th>
-                </tr>
-            </thead>
-            <tbody>	</tbody>
-        </table>
-    </div>
-    <div class="col-md-6">
-        <h4>Total Processes in and out</h4>
-        <table  id="tblTotalInOutCount" class="table table-striped table-bordered display table-hover" cellspacing="0">
-            <thead>
-                <tr>
-                    <th style="width:50%">Total In</th>
-                    <th style="width:50%">Total Out</th>
-                </tr>
-            </thead>
-            <tbody>	</tbody>
-        </table>
-    </div>
-    <div class="col-md-6">
-    </div>
-</div>
 
-<style>
-    .btn {
-        min-width: 78px;
-    }
-</style>
+    </div>
+</div>
+</div>
 
 <script>
     function print_function(type) {
-        //console.log($('#tblJobCountInAllProcess').dataTable());
-        var tableId = 'tblJobCountInAllProcess';
+        //console.log($('#tbl-every-process-summary').dataTable());
+        var tableId = 'tbl-every-process-summary';
         var reportHeaderList = new Array();
         var dataAlignment = new Array();
         var chart = 0;
-        var reportSaveName = 'Job_Total_Time_Duration'; //Not allow any type of special character of cahrtName
+        var reportSaveName = 'Every_Process_Summary'; //Not allow any type of special character of cahrtName
 
-        var reportHeaderName = 'Job Total Time Duration';
+        var reportHeaderName = 'Every Process Summary';
         reportHeaderList[0] = reportHeaderName;
-        reportHeaderList[1] = $('#country-list option[value=' + $('#country-list').val() + ']').text() + ' - ' + $('#item-group option[value=' + $('#item-group').val() + ']').text() + ' - ' + $('#report-by option[value=' + $('#report-by').val() + ']').text();
+        reportHeaderList[1] = $('#process-list option[value=' + $('#process-list').val() + ']').text();
 
-        dataAlignment = ["center", "left", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right"];
+        dataAlignment = ["center", "center"];
         //when column count and width array count are not same then last value repeat
-        cellWidth = ["10", "82", "13"];
+        cellWidth = ["10", "30", "30"];
 
         reportHeaderList = JSON.stringify(reportHeaderList);
 
@@ -188,6 +199,7 @@ include_once ('language/lang_switcher.php');
                                         dataList = JSON.stringify(dataList);
                                         dataColSpanList = JSON.stringify(dataColSpanList);
 
+                                        //alert('kkkkk');
 
                                         $.ajax({
                                             url: baseUrl + 'report/excel_master_dynamic_column.php',
@@ -207,6 +219,7 @@ include_once ('language/lang_switcher.php');
                                                 dataAlignment: JSON.stringify(dataAlignment)
                                             },
                                             success: function (response) {
+                                                //console.log(response);
                                                 window.open(baseUrl + 'report/media/' + reportSaveName + '.xlsx');
                                             }
                                         });
@@ -312,6 +325,139 @@ include_once ('language/lang_switcher.php');
 
 </script>
 
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+    var dp1StartDate;
+    var dp1EndDate;
+    $(document).ready(function () {
+        var cb = function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
+        };
+
+        var optionSet1 = {
+            startDate: moment(),
+            endDate: moment(),
+            minDate: '01/01/2015',
+            maxDate: '12/31/2020',
+            dateLimit: {days: 365},
+            showDropdowns: true,
+            showWeekNumbers: true,
+            timePicker: false,
+            timePickerIncrement: 1,
+            timePicker12Hour: true,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            opens: 'left',
+            buttonClasses: ['btn btn-default'],
+            applyClass: 'btn-sm btn-primary',
+            cancelClass: 'btn-sm',
+            format: 'MM/DD/YYYY',
+            separator: ' to ',
+            locale: {
+                applyLabel: 'Submit',
+                cancelLabel: 'Clear',
+                fromLabel: 'From',
+                toLabel: 'To',
+                customRangeLabel: 'Custom',
+                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                firstDay: 1
+            }
+        };
+
+        $('#reportrange span').html(moment().format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+        $('#reportrange').daterangepicker(optionSet1, cb);
+
+        $('#reportrange').on('show.daterangepicker', function () {
+            console.log("show event fired");
+        });
+        $('#reportrange').on('hide.daterangepicker', function () {
+            console.log("hide event fired");
+        });
+        /* $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+         console.log("apply event fired, start/end dates are "
+         + picker.startDate.format('YYYY-MM-DD')
+         + " to "
+         + picker.endDate.format('YYYY-MM-DD')
+         );
+         }); */
+        $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
+            console.log("cancel event fired");
+        });
+    });
+</script>
+
+
+
+<style>
+    .SL{
+        text-align: center !important;
+    }
+    .amc, .soh, .mos{
+        text-align: right !important;
+    }
+
+    .nationalLevelAMC, .nationalLevelSOH, .nationalLevelMOS{
+
+        text-align: right !important;
+
+    }
+
+    .left-aln{
+        text-align : left !important;
+    }
+    .right-aln{
+        text-align : right !important;
+    }
+    .center-aln{
+        text-align : center !important;
+    }
+
+    .DataTables_sort_wrapper{
+        padding-right: 0px !important;
+    }
+
+    #tbl-every-process-summary  tr  th {
+        vertical-align: middle !important;
+    }
+
+    #tbl-every-process-summary td{
+        border: 1px solid #e4e4e4 !important;
+        text-align: right !important;
+    }
+    #tbl-every-process-summary th{
+        border: 1px solid #e4e4e4 !important;
+
+    }
+
+    #tbl-every-process-summary td:nth-child(2) {
+        text-align: right !important;
+    }
+
+
+    #tbl-every-process-summary td:nth-child(1) {
+    }
+
+    table.dataTable thead th .DataTables_sort_wrapper span.ui-icon-carat-2-n-s:before{
+        content: '' !important ;
+    }
+
+
+    #tbl-every-process-summary th{
+        border: 1px solid #e4e4e4 !important;
+
+    }
+
+</style>
 <script src="<?php echo $baseUrl; ?>lib/fnc-lib.js" type="text/javascript"></script>
 
 <link href="<?php echo $baseUrl; ?>media/datatable-bootstrap/dataTables.bootstrap.css" rel="stylesheet"/>
@@ -319,87 +465,8 @@ include_once ('language/lang_switcher.php');
 <script src='<?php echo $baseUrl; ?>media/datatable/js/jquery.dataTables.min.js'></script>
 <script src='<?php echo $baseUrl; ?>media/datatable-bootstrap/dataTables.bootstrap.min.js'></script>
 
-
-
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/daterangepicker-bs3.css" />
 <script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/moment.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-
-
-<script src='<?php echo $baseUrl; ?>dashboard.js'></script>
-
-<script type="text/javascript" src="<?php echo $baseUrl; ?>language/lang_en.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl; ?>language/lang_fr.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl; ?>language/lang_switcher.js"></script>
-
-<script type="text/javascript">
-                        var dp1StartDate;
-                        var dp1EndDate;
-                        $(document).ready(function () {
-                            var cb = function (start, end, label) {
-                                console.log(start.toISOString(), end.toISOString(), label);
-                                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-                                //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
-                            };
-
-                            var optionSet1 = {
-                                startDate: moment(),
-                                endDate: moment(),
-                                minDate: '01/01/2015',
-                                maxDate: '12/31/2020',
-                                dateLimit: {days: 365},
-                                showDropdowns: true,
-                                showWeekNumbers: true,
-                                timePicker: false,
-                                timePickerIncrement: 1,
-                                timePicker12Hour: true,
-                                ranges: {
-                                    'Today': [moment(), moment()],
-                                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                                },
-                                opens: 'left',
-                                buttonClasses: ['btn btn-default'],
-                                applyClass: 'btn-sm btn-primary',
-                                cancelClass: 'btn-sm',
-                                format: 'MM/DD/YYYY',
-                                separator: ' to ',
-                                locale: {
-                                    applyLabel: 'Submit',
-                                    cancelLabel: 'Clear',
-                                    fromLabel: 'From',
-                                    toLabel: 'To',
-                                    customRangeLabel: 'Custom',
-                                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                                    firstDay: 1
-                                }
-                            };
-
-                            $('#reportrange span').html(moment().format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-
-                            $('#reportrange').daterangepicker(optionSet1, cb);
-
-                            $('#reportrange').on('show.daterangepicker', function () {
-                                console.log("show event fired");
-                            });
-                            $('#reportrange').on('hide.daterangepicker', function () {
-                                console.log("hide event fired");
-                            });
-                            /* $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-                             console.log("apply event fired, start/end dates are "
-                             + picker.startDate.format('YYYY-MM-DD')
-                             + " to "
-                             + picker.endDate.format('YYYY-MM-DD')
-                             );
-                             }); */
-                            $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
-                                console.log("cancel event fired");
-                            });
-                        });
-</script>
-
+<script src='<?php echo $baseUrl; ?>report_every_process_summary.js'></script>

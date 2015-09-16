@@ -20,9 +20,9 @@ function onPatientTrendTable() {
             type: "POST",
             url: baseUrl + "report_job_total_time_duration_server.php",
             data: {
-                action: 'getDiffLevelTableData',
-                dp1_start: dpStartDate,
-                dp1_end: dpEndDate,
+                action: 'getDiffLevelTableColumns',
+                dp1_start: dp1StartDate,
+                dp1_end: dp1EndDate,
                 lan: lan
             },
             success: function (results) {
@@ -114,11 +114,11 @@ function onPatientTrendTable() {
                         });
                         aoData.push({
                             "name": "dp1_start",
-                            "value": dpStartDate
+                            "value": dp1StartDate
                         });
                         aoData.push({
                             "name": "dp1_end",
-                            "value": dpEndDate
+                            "value": dp1EndDate
                         });
 
 
@@ -212,14 +212,14 @@ $(function () {
         onPatientTrendTable();
     });
 
-    dpStartDate = moment().startOf('month').format('YYYY-MM-DD');
-    dpEndDate = moment().endOf('month').format('YYYY-MM-DD');
+    dp1StartDate = moment().format('YYYY-MM-DD');
+    dp1EndDate = moment().format('YYYY-MM-DD');
     
     onPatientTrendTable();
 
     $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
-        dpStartDate = picker.startDate.format('YYYY-MM-DD');
-        dpEndDate = picker.endDate.format('YYYY-MM-DD');
+        dp1StartDate = picker.startDate.format('YYYY-MM-DD');
+        dp1EndDate = picker.endDate.format('YYYY-MM-DD');
 
         onPatientTrendTable();
 

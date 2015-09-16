@@ -743,8 +743,8 @@ function insertUpdateProcessTracking($conn) {
     date_default_timezone_set("Asia/Dhaka");
     $jUserId = $_REQUEST['jUserId'];
     $language = $_REQUEST['language'];
-    $TrackingNo = strtoupper($_POST['TrackingNo']);
-    $RegNo = strtoupper($_POST['RegNo']);
+    $TrackingNo = strtoupper(trim($_POST['TrackingNo']));
+    $RegNo = strtoupper(trim($_POST['RegNo']));
     $ProcessId = $_POST['ProcessId'];
     $ParentProcessId = $_POST['ParentProcessId'];
     $OptUnit = $_POST['OptUnit'];

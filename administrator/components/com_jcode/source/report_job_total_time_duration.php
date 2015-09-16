@@ -27,6 +27,10 @@ var lan='<?php echo $lan;?>';
 
 
 <div class="container">
+	<div id="loading" style="display:none;">
+		<span id="loading-text" style="font-size:2em;">Report loading, It will take some time, please wait.</span>
+		<img id="loading-img" src="<?php echo $baseUrl; ?>images/loader.gif" />
+	</div>
 	<div class="content_fullwidth lessmar">
 		<div class="azp_col-md-12 one_full">			
 			<div class="row"> 	
@@ -71,6 +75,8 @@ var lan='<?php echo $lan;?>';
 <script>
 function print_function(type){
 	//console.log($('#tbl-patient-trend-time-series').dataTable());
+	$('#loading').show();
+	
 	var tableId = 'tbl-patient-trend-time-series';
 	var reportHeaderList = new Array();
 	var dataAlignment = new Array();
@@ -204,6 +210,7 @@ function print_function(type){
 						success: function(response) {
 							//console.log(response);
 						    window.open( baseUrl + 'report/media/'+reportSaveName+'.xlsx');
+							$('#loading').hide();
 						}
 					});	
 					/**/	
@@ -273,31 +280,7 @@ function print_function(type){
 							window.open( baseUrl + 'report/pdfslice/' + response);
 						}
 					});	
-					
-/*
-var ajaxRequest;
-
-        try{
-            // Opera 8.0+, Firefox, Safari
-            ajaxRequest = new XMLHttpRequest();
-        } catch (e){
-            // Internet Explorer Browsers
-            try{
-                ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
-            } catch (e) {
-                try{
-                    ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
-                } catch (e){
-                    // Something went wrong
-                    alert("Browser Not Supported");
-                    return false;
-                }
-            }
-        }
-ajaxRequest.open("POST",  baseUrl + "report/pdf_master_dynamic_column.php", true);
-ajaxRequest.send("jBaseUrl=localhost&lan="+lan+"&reportSaveName="+reportSaveName+"&reportHeaderList="+reportHeaderList+"&chart="+chart+"&htmlTable="+htmlTable);
-*/
-
+				
 				}			
 			}
 		});	
@@ -309,68 +292,74 @@ ajaxRequest.send("jBaseUrl=localhost&lan="+lan+"&reportSaveName="+reportSaveName
 </script>
 
 <script type="text/javascript">
-var $ = jQuery.noConflict();
-var dpStartDate;
-var dpEndDate;
-$(document).ready(function() {
-  var cb = function(start, end, label) {
-	console.log(start.toISOString(), end.toISOString(), label);
-	$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-	//alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
-  };
+    var $ = jQuery.noConflict();
+    var dp1StartDate;
+    var dp1EndDate;
+    $(document).ready(function () {
+        var cb = function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
+        };
 
-  var optionSet1 = {
-	startDate: moment().startOf('month'),
-	endDate: moment().endOf('month'),
-	minDate: '01/01/2015',
-	maxDate: '12/31/2020',
-	dateLimit: { days: 365 },
-	showDropdowns: true,
-	showWeekNumbers: true,
-	timePicker: false,
-	timePickerIncrement: 1,
-	timePicker12Hour: true,
-	ranges: {
-	   'Today': [moment(), moment()],
-	   'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-	   'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-	   'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-	   'This Month': [moment().startOf('month'), moment().endOf('month')],
-	   'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-	},
-	opens: 'left',
-	buttonClasses: ['btn btn-default'],
-	applyClass: 'btn-sm btn-primary',
-	cancelClass: 'btn-sm',
-	format: 'MM/DD/YYYY',
-	separator: ' to ',
-	locale: {
-		applyLabel: 'Submit',
-		cancelLabel: 'Clear',
-		fromLabel: 'From',
-		toLabel: 'To',
-		customRangeLabel: 'Custom',
-		daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr','Sa'],
-		monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-		firstDay: 1
-	}
-  };
+        var optionSet1 = {
+            startDate: moment(),
+            endDate: moment(),
+            minDate: '01/01/2015',
+            maxDate: '12/31/2020',
+            dateLimit: {days: 365},
+            showDropdowns: true,
+            showWeekNumbers: true,
+            timePicker: false,
+            timePickerIncrement: 1,
+            timePicker12Hour: true,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            opens: 'left',
+            buttonClasses: ['btn btn-default'],
+            applyClass: 'btn-sm btn-primary',
+            cancelClass: 'btn-sm',
+            format: 'MM/DD/YYYY',
+            separator: ' to ',
+            locale: {
+                applyLabel: 'Submit',
+                cancelLabel: 'Clear',
+                fromLabel: 'From',
+                toLabel: 'To',
+                customRangeLabel: 'Custom',
+                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                firstDay: 1
+            }
+        };
 
-  $('#reportrange span').html(moment().startOf('month').format('MMMM D, YYYY') + ' - ' + moment().endOf('month').format('MMMM D, YYYY'));
+        $('#reportrange span').html(moment().format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
 
-  $('#reportrange').daterangepicker(optionSet1, cb);
+        $('#reportrange').daterangepicker(optionSet1, cb);
 
-  $('#reportrange').on('show.daterangepicker', function() { console.log("show event fired"); });
-  $('#reportrange').on('hide.daterangepicker', function() { console.log("hide event fired"); });
-  /* $('#reportrange').on('apply.daterangepicker', function(ev, picker) { 
-	console.log("apply event fired, start/end dates are " 
-	  + picker.startDate.format('YYYY-MM-DD') 
-	  + " to " 
-	  + picker.endDate.format('YYYY-MM-DD')
-	); 
-  }); */
-  $('#reportrange').on('cancel.daterangepicker', function(ev, picker) { console.log("cancel event fired"); });
-});
+        $('#reportrange').on('show.daterangepicker', function () {
+            console.log("show event fired");
+        });
+        $('#reportrange').on('hide.daterangepicker', function () {
+            console.log("hide event fired");
+        });
+        /* $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+         console.log("apply event fired, start/end dates are "
+         + picker.startDate.format('YYYY-MM-DD')
+         + " to "
+         + picker.endDate.format('YYYY-MM-DD')
+         );
+         }); */
+        $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
+            console.log("cancel event fired");
+        });
+    });
 </script>
 
 

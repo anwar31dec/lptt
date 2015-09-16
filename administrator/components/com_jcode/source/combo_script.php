@@ -53,6 +53,23 @@ while ($aRow = mysql_fetch_assoc($rResult)) {
     $aUserProcess = $aRow;
 }
 
+//====================================================================================
+
+$sQuery = "SELECT ProcessId, ProcessName 
+           FROM  t_process_list
+           WHERE ProcUnitId = 1
+           ORDER BY ProcessId;";
+
+$rResult = safe_query($sQuery);
+
+$output = array();
+
+while ($obj = mysql_fetch_object($rResult)) {
+    $output[] = $obj;
+}
+echo ' var gProcessList = JSON.parse(\'' . json_encode($output, JSON_HEX_APOS) . '\');';
+
+
 ?>
 
 //====================================================================================
