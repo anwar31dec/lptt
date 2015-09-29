@@ -19,7 +19,7 @@ include_once ('combo_script.php');
 
 <script type="text/javascript">
     var vLang = '<?php echo $vLang; ?>';
-	var ProcUnitId = 1;
+	var ProcUnitId = 2;
 </script>
 
 

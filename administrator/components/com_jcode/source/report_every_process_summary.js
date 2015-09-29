@@ -65,6 +65,7 @@ function onEveryProcessSummaryTable() {
         url: baseUrl + "report_every_process_summary_server.php",
         data: {
             action: 'getEveryProcessData',
+			ProcUnitId: ProcUnitId,
             dp1_start: dpStartDate,
             dp1_end: dpEndDate,
             "ProcessId": $('#process-list').val(),
@@ -126,6 +127,10 @@ function onEveryProcessSummaryTable() {
                     aoData.push({
                         "name": "dp1_start",
                         "value": dpStartDate
+                    });
+					aoData.push({
+                        "name": "ProcUnitId",
+                        "value": ProcUnitId
                     });
                     aoData.push({
                         "name": "dp1_end",
@@ -218,6 +223,10 @@ $(function () {
             aoData.push({
                 "name": "dp1_start",
                 "value": dpStartDate
+            });  
+			aoData.push({
+                "name": "ProcUnitId",
+                "value": ProcUnitId
             });
             aoData.push({
                 "name": "dp1_end",

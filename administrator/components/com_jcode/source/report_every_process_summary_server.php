@@ -29,7 +29,7 @@ function getEveryProcessData() {
     $StartDate = $_POST['dp1_start'];
     $EndDate = $_POST['dp1_end'];
     $ProcessId = $_POST['ProcessId'];
-    $ProcUnitId = 1;
+    $ProcUnitId = $_POST['ProcUnitId'];
 
     $query = "SELECT
   `Name` UserName, COUNT(*) Pending
@@ -157,7 +157,7 @@ function getProcessStatus() {
     $StartDate = $_POST['dp1_start'];
     $EndDate = $_POST['dp1_end'];
     $ProcessId = $_POST['ProcessId'];
-    $ProcUnitId = 1;
+    $ProcUnitId = $_POST['ProcUnitId'];
 
 //    print_r($_POST);
 //    exit;

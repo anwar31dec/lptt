@@ -19,7 +19,6 @@ include_once ('combo_script.php');
 
 <script type="text/javascript">
     var vLang = '<?php echo $vLang; ?>';
-	var ProcUnitId = 1;
 </script>
 
 
@@ -29,13 +28,7 @@ include_once ('combo_script.php');
         <div class="azp_col-md-12 one_full">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="tbl-header1" id="itemTable_length1">
-                        <label>Select Process: 
-                            <select class="form-control" id="process-list">
-                                <option selected="" value=""></option>
-                            </select>
-                        </label>
-                    </div>
+                   
                 </div>
                 <div class="col-md-4">
                 </div>
@@ -48,7 +41,7 @@ include_once ('combo_script.php');
             </div>
 
             <div class="panel-heading clearfix">
-                <?php echo 'Every Process Summary'; ?>
+                <?php echo 'Job details in different process'; ?>
                 <span class="pull-right">
                     <label>
                         <a id="PrintBTN" data-mce-href="#" class="but_print" href="javascript:void(0);" onclick="print_function('print')"><i data-mce-bootstrap="1" class="fa fa-print fa-lg">&nbsp;</i> <?php echo $TEXT['Print']; ?></a>
@@ -57,21 +50,13 @@ include_once ('combo_script.php');
                     </label>
                 </span>
             </div>
-
-            <div class="panel-body">
-                <div style="overflow-x: scroll;" id="tbl-pf">
-                </div>
-            </div>          
-		   <br/>
-			<div class="panel-heading clearfix" style="padding-bottom:10px;">
-				Job Status List
-			</div>
 			
             <table  id="process-status" class="table table-striped table-bordered display table-hover" cellspacing="0">
                 <thead>
                     <tr>                        
                         <th style="text-align: center;">SL.</th>
                         <th>Tracking No.</th>
+                        <th>Process</th>
                         <th>Status</th>
                         <th>User Name</th>
                         <th>Time consumed</th>
@@ -327,74 +312,68 @@ include_once ('combo_script.php');
 </script>
 
 <script type="text/javascript">
-    var $ = jQuery.noConflict();
-    var dp1StartDate;
-    var dp1EndDate;
-    $(document).ready(function () {
-        var cb = function (start, end, label) {
-            console.log(start.toISOString(), end.toISOString(), label);
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-            //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
-        };
+var $ = jQuery.noConflict();
+var dpStartDate;
+var dpEndDate;
+$(document).ready(function() {
+  var cb = function(start, end, label) {
+	console.log(start.toISOString(), end.toISOString(), label);
+	$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+	//alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
+  };
 
-        var optionSet1 = {
-            startDate: moment(),
-            endDate: moment(),
-            minDate: '01/01/2015',
-            maxDate: '12/31/2020',
-            dateLimit: {days: 365},
-            showDropdowns: true,
-            showWeekNumbers: true,
-            timePicker: false,
-            timePickerIncrement: 1,
-            timePicker12Hour: true,
-            ranges: {
-                'Today': [moment(), moment()],
-                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'This Month': [moment().startOf('month'), moment().endOf('month')],
-                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-            },
-            opens: 'left',
-            buttonClasses: ['btn btn-default'],
-            applyClass: 'btn-sm btn-primary',
-            cancelClass: 'btn-sm',
-            format: 'MM/DD/YYYY',
-            separator: ' to ',
-            locale: {
-                applyLabel: 'Submit',
-                cancelLabel: 'Clear',
-                fromLabel: 'From',
-                toLabel: 'To',
-                customRangeLabel: 'Custom',
-                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                firstDay: 1
-            }
-        };
+  var optionSet1 = {
+	startDate: moment().startOf('month'),
+	endDate: moment().endOf('month'),
+	minDate: '01/01/2015',
+	maxDate: '12/31/2020',
+	dateLimit: { days: 365 },
+	showDropdowns: true,
+	showWeekNumbers: true,
+	timePicker: false,
+	timePickerIncrement: 1,
+	timePicker12Hour: true,
+	ranges: {
+	   'Today': [moment(), moment()],
+	   'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+	   'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+	   'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+	   'This Month': [moment().startOf('month'), moment().endOf('month')],
+	   'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+	},
+	opens: 'left',
+	buttonClasses: ['btn btn-default'],
+	applyClass: 'btn-sm btn-primary',
+	cancelClass: 'btn-sm',
+	format: 'MM/DD/YYYY',
+	separator: ' to ',
+	locale: {
+		applyLabel: 'Submit',
+		cancelLabel: 'Clear',
+		fromLabel: 'From',
+		toLabel: 'To',
+		customRangeLabel: 'Custom',
+		daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr','Sa'],
+		monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+		firstDay: 1
+	}
+  };
 
-        $('#reportrange span').html(moment().format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+  $('#reportrange span').html(moment().startOf('month').format('MMMM D, YYYY') + ' - ' + moment().endOf('month').format('MMMM D, YYYY'));
 
-        $('#reportrange').daterangepicker(optionSet1, cb);
+  $('#reportrange').daterangepicker(optionSet1, cb);
 
-        $('#reportrange').on('show.daterangepicker', function () {
-            console.log("show event fired");
-        });
-        $('#reportrange').on('hide.daterangepicker', function () {
-            console.log("hide event fired");
-        });
-        /* $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-         console.log("apply event fired, start/end dates are "
-         + picker.startDate.format('YYYY-MM-DD')
-         + " to "
-         + picker.endDate.format('YYYY-MM-DD')
-         );
-         }); */
-        $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
-            console.log("cancel event fired");
-        });
-    });
+  $('#reportrange').on('show.daterangepicker', function() { console.log("show event fired"); });
+  $('#reportrange').on('hide.daterangepicker', function() { console.log("hide event fired"); });
+  /* $('#reportrange').on('apply.daterangepicker', function(ev, picker) { 
+	console.log("apply event fired, start/end dates are " 
+	  + picker.startDate.format('YYYY-MM-DD') 
+	  + " to " 
+	  + picker.endDate.format('YYYY-MM-DD')
+	); 
+  }); */
+  $('#reportrange').on('cancel.daterangepicker', function(ev, picker) { console.log("cancel event fired"); });
+});
 </script>
 
 
@@ -470,4 +449,4 @@ include_once ('combo_script.php');
 <script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/moment.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-<script src='<?php echo $baseUrl; ?>report_every_process_summary.js'></script>
+<script src='<?php echo $baseUrl; ?>report_search_job.js'></script>
