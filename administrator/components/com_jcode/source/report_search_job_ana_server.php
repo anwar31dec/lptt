@@ -20,64 +20,36 @@ switch ($task) {
         echo "{failure:true}";
         break;
 }
-function getJobListForSearch(){
+
+function getJobListForSearch() {
     $StartDate = $_POST['dp1_start'];
     $EndDate = $_POST['dp1_end'];
     $ProcessId = $_POST['ProcessId'];
-    $ProcUnitId = 1;
+    $ProcUnitId = 2;
 
-    //Criteria columns
-    $aCriColumns = array('SL', 'TrackingNo'
-        , 'OutTime'
-        , 'Name'
-        , 'TxtDuration');
-
-    $sWhere = '';
-    $sLimit = "";
-    if (isset($_POST['iDisplayStart']) && $_POST['iDisplayLength'] != '-1') {
-        $sLimit = "LIMIT " . intval($_POST['iDisplayStart']) . ", " . intval($_POST['iDisplayLength']);
+    if ($_POST['sSearch'] != '') {
+        $RegNo = mysql_real_escape_string($_POST['sSearch']);
     }
-
-    $sOrder = "";
-    if (isset($_POST['iSortCol_0'])) {
-        $sOrder = "ORDER BY  ";
-        for ($i = 0; $i < intval($_POST['iSortingCols']); $i++) {
-            if ($_POST['bSortable_' . intval($_POST['iSortCol_' . $i])] == "true") {
-                $sOrder .= "`" . $aCriColumns[intval($_POST['iSortCol_' . $i])] . "` " . ($_POST['sSortDir_' . $i] === 'asc' ? 'asc' : 'desc') . ", ";
-            }
-        }
-        $sOrder = substr_replace($sOrder, "", -2);
-        if ($sOrder == "ORDER BY") {
-            $sOrder = "";
-        }
-    }
-
-    for ($i = 0; $i < count($aCriColumns); $i++) {
-        if (isset($_POST['bSearchable_' . $i]) && $_POST['bSearchable_' . $i] == "true" && $_POST['sSearch'] != '') {
-            if ($sWhere == "") {
-                $sWhere = " AND (";
-            } else {
-                $sWhere .= " OR ";
-            }
-            $sWhere .= "`" . $aCriColumns[$i] . "` LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' ";
-        }
-    }
-
-    if ($sWhere != "")
-        $sWhere .= ")";
 
     $sql = "SELECT SQL_CALC_FOUND_ROWS
-                t_process_tracking.TrackingNo
+                t_process_tracking.RegNo
+                , t_process_list.ProcessName
+                , t_process_tracking.InTime
                 , t_process_tracking.OutTime
+                , t_process_tracking.bHold
+                , t_process_tracking.HoldComments
                 , ykx9st_users.Name
                 , t_process_tracking.TxtDuration
             FROM
                 t_process_tracking
                 INNER JOIN ykx9st_users 
                     ON (t_process_tracking.InUserId = ykx9st_users.username)
+                INNER JOIN t_process_list 
+                    ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
             WHERE t_process_tracking.ProcUnitId = $ProcUnitId"
-            . " $sWhere $sOrder $sLimit;";
-//        echo $sql;
+            . " AND (TrackingNo = '$RegNo' OR RegNo = '$RegNo')"
+            . " ORDER BY t_process_list.ProcessId;";
+//    echo $sql;
 //    exit;
 
     $result = mysql_query($sql);
@@ -95,13 +67,16 @@ function getJobListForSearch(){
     $serial = $_POST['iDisplayStart'] + 1;
     $f = 0;
 
-    while ($aRow = mysql_fetch_array($result)) {
+    while ($aRow = mysql_fetch_array($result)) {        
         if ($f++)
             $sOutput .= ',';
         $sOutput .= "[";
         $sOutput .= '"' . $serial++ . '",';
-        $sOutput .= '"' . $aRow['TrackingNo'] . '",';
-        $sOutput .= '"' . (is_null($aRow['OutTime']) ? 'Pending' : 'Completed') . '",';
+        $sOutput .= '"' . $aRow['RegNo'] . '",';
+        $sOutput .= '"' . $aRow['ProcessName'] . '",';
+        $sOutput .= '"' . date('d/m/Y g:i A', strtotime($aRow['InTime'])) . '",';
+        $sOutput .= '"' . (is_null($aRow['OutTime'])? '' :  date('d/m/Y g:i A', strtotime($aRow['OutTime']))) . '",';
+        $sOutput .= '"' . (is_null($aRow['OutTime']) ? "<span style='color:#ff0000;'>Pending</span>" : "<span style='color:#00ff00;'>Completed</span>") . '",';
         $sOutput .= '"' . $aRow['Name'] . '",';
         $sOutput .= '"' . $aRow['TxtDuration'] . '"';
         $sOutput .= "]";
@@ -109,4 +84,3 @@ function getJobListForSearch(){
     $sOutput .= '] }';
     echo $sOutput;
 }
-    

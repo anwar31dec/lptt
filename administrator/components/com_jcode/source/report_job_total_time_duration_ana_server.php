@@ -43,7 +43,7 @@ function getDiffLevelTableColumns() {
 
     $StartDate = $_POST['dp1_start'];
     $EndDate = $_POST['dp1_end'];
-	$ProcUnitId = 1;
+	$ProcUnitId = 2;
 
     $query = "SELECT ProcessId, ProcessName, ProcessOrder
 FROM t_process_list
@@ -74,7 +74,7 @@ function getDiffLevelTableData() {
 
     $StartDate = $_POST['dp1_start'];
     $EndDate = $_POST['dp1_end'];
-	$ProcUnitId = 1;
+	$ProcUnitId = 2;
 
     $query = "SELECT ProcessId, ProcessName, ProcessOrder
 FROM t_process_list

@@ -47,7 +47,8 @@ function getJobListForSearch() {
                 INNER JOIN t_process_list 
                     ON (t_process_tracking.ProcessId = t_process_list.ProcessId)
             WHERE t_process_tracking.ProcUnitId = $ProcUnitId"
-            . " AND (TrackingNo = '$RegNo' OR RegNo = '$RegNo');";
+            . " AND (TrackingNo = '$RegNo' OR RegNo = '$RegNo')"
+            . " ORDER BY t_process_list.ProcessId;";
 //    echo $sql;
 //    exit;
 
@@ -66,14 +67,16 @@ function getJobListForSearch() {
     $serial = $_POST['iDisplayStart'] + 1;
     $f = 0;
 
-    while ($aRow = mysql_fetch_array($result)) {
+    while ($aRow = mysql_fetch_array($result)) {        
         if ($f++)
             $sOutput .= ',';
         $sOutput .= "[";
         $sOutput .= '"' . $serial++ . '",';
         $sOutput .= '"' . $aRow['RegNo'] . '",';
         $sOutput .= '"' . $aRow['ProcessName'] . '",';
-        $sOutput .= '"' . (is_null($aRow['OutTime']) ? 'Pending' : 'Complited') . '",';
+        $sOutput .= '"' . date('d/m/Y g:i A', strtotime($aRow['InTime'])) . '",';
+        $sOutput .= '"' . (is_null($aRow['OutTime'])? '' :  date('d/m/Y g:i A', strtotime($aRow['OutTime']))) . '",';
+        $sOutput .= '"' . (is_null($aRow['OutTime']) ? "<span style='color:#ff0000;'>Pending</span>" : "<span style='color:#00ff00;'>Completed</span>") . '",';
         $sOutput .= '"' . $aRow['Name'] . '",';
         $sOutput .= '"' . $aRow['TxtDuration'] . '"';
         $sOutput .= "]";

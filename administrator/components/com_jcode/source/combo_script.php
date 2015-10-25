@@ -69,6 +69,22 @@ while ($obj = mysql_fetch_object($rResult)) {
 }
 echo ' var gProcessList = JSON.parse(\'' . json_encode($output, JSON_HEX_APOS) . '\');';
 
+//====================================================================================
+
+$sQuery = "SELECT ProcessId, ProcessName 
+           FROM  t_process_list
+           WHERE ProcUnitId = 2
+           ORDER BY ProcessId;";
+
+$rResult = safe_query($sQuery);
+
+$output = array();
+
+while ($obj = mysql_fetch_object($rResult)) {
+    $output[] = $obj;
+}
+echo ' var gProcessListAna = JSON.parse(\'' . json_encode($output, JSON_HEX_APOS) . '\');';
+
 
 ?>
 

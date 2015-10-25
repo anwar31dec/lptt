@@ -19,7 +19,7 @@ include_once ('combo_script.php');
 
 <script type="text/javascript">
     var vLang = '<?php echo $vLang; ?>';
-	var ProcUnitId = 1;
+	var ProcUnitId = 2;
 </script>
 
 
@@ -31,7 +31,7 @@ include_once ('combo_script.php');
                 <div class="col-md-4">
                     <div class="tbl-header1" id="itemTable_length1">
                         <label>Select Process: 
-                            <select class="form-control" id="process-list">                               
+                            <select class="form-control" id="process-list">
                             </select>
                         </label>
                     </div>
@@ -469,4 +469,4 @@ include_once ('combo_script.php');
 <script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/moment.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-<script src='<?php echo $baseUrl; ?>report_every_process_summary.js'></script>
+<script src='<?php echo $baseUrl; ?>report_every_process_summary_ana.js'></script>

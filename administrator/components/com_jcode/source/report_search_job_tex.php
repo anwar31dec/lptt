@@ -33,14 +33,14 @@ include_once ('combo_script.php');
                 <div class="col-md-4">
                 </div>
                 <div id="reportrange-container" class="col-md-4">
-                    <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                    <div id="reportrange" class="pull-right" style="display:none;background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                         <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
                         <span></span> <b class="caret"></b>
                     </div>
                 </div>
             </div>
 
-            <div class="panel-heading clearfix">
+            <div class="panel-heading clearfix" style="display:none;">
                 <?php echo 'Job details in different process'; ?>
                 <span class="pull-right">
                     <label>
@@ -57,6 +57,8 @@ include_once ('combo_script.php');
                         <th style="text-align: center;">SL.</th>
                         <th>Tracking No.</th>
                         <th>Process</th>
+                        <th>In Time</th>
+                        <th>Out Time</th>
                         <th>Status</th>
                         <th>User Name</th>
                         <th>Time consumed</th>
@@ -449,4 +451,4 @@ $(document).ready(function() {
 <script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/moment.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>lib/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-<script src='<?php echo $baseUrl; ?>report_search_job.js'></script>
+<script src='<?php echo $baseUrl; ?>report_search_job_tex.js'></script>

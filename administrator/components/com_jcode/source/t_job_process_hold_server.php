@@ -69,24 +69,43 @@ function getProcessTrackingData($conn) {
                 " a.InTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%' OR " .
                 " a.OutTime LIKE '%" . mysql_real_escape_string($_POST['sSearch']) . "%') ";
     }
-
-    $sql = "SELECT 
+    
+	if ($ProcessId == 1) {
+        $sql = "SELECT 
 			SQL_CALC_FOUND_ROWS a.ProTrackId, a.TrackingNo, a.RegNo, b.ProcessId, b.ProcessName, b.ProcessOrder, a.InTime, a.OutTime 
 			, TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
 			, UsualDuration
 			, (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
-                        , bHold
-                        , HoldComments
+			, bHold
+            , HoldComments
 			FROM
 			  t_process_tracking a 
 			  INNER JOIN t_process_list b 
 				ON (a.ProcessId = b.ProcessId)
-			WHERE a.ProcessId IN (1,23)
+			WHERE a.ProcessId IN (1, 23) 
 			  AND a.OutTime IS NULL 
                     $sWhere 
                     $sOrder 
                     $sLimit ";
-    // echo $sql;
+    } else {
+        $sql = "SELECT 
+			SQL_CALC_FOUND_ROWS a.ProTrackId, a.TrackingNo, a.RegNo, b.ProcessId, b.ProcessName, b.ProcessOrder, a.InTime, a.OutTime 
+			, TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
+			, UsualDuration
+			, (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
+			, bHold
+            , HoldComments
+			FROM
+			  t_process_tracking a 
+			  INNER JOIN t_process_list b 
+				ON (a.ProcessId = b.ProcessId)
+			WHERE a.ProcessId = $ProcessId 
+			  AND a.OutTime IS NULL 
+                    $sWhere 
+                    $sOrder 
+                    $sLimit ";
+    }
+	// echo $sql;
     // exit;
 
 

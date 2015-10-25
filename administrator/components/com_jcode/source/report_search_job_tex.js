@@ -25,17 +25,17 @@ $(function () {
         "bDestroy": true,
         "bFilter": true,
         "bJQueryUI": false,
-        "bSort": true,
-        "bInfo": true,
-        "bPaginate": true,
+        "bSort": false,
+        "bInfo": false,
+        "bPaginate": false,
         "bSortClasses": false,
         "bProcessing": true,
         "bServerSide": true,
         "aaSorting": [[0, 'asc']],
         "sPaginationType": "full_numbers",
         "aLengthMenu": [[25, 50, 100], [25, 50, 100]],
-        "iDisplayLength": 25,
-        "sAjaxSource": baseUrl + "report_search_job_server.php",
+        "iDisplayLength": 50,
+        "sAjaxSource": baseUrl + "report_search_job_tex_server.php",
         "fnServerData": function (sSource, aoData, fnCallback) {
             aoData.push({
                 "name": "action",
@@ -70,32 +70,45 @@ $(function () {
         "aoColumns": [{
                 "sWidth": "5%",
                 "sClass": "center-aln",
-                "bSortable": false,
+                 "bSortable": false,
                 "bSearchable": false,
             }, {
-                "sWidth": "20%",
+                "sWidth": "10%",
                 "sClass": "center-aln",
-                "bSortable": true,
-                "bSearchable": true
-            }, {
-                "sWidth": "30%",
-                "sClass": "left-aln",
-                "bSortable": true,
+                "bSortable": false,
                 "bSearchable": true
             }, {
                 "sWidth": "15%",
+                "sClass": "left-aln",
+                "bSortable": false,
+                "bSearchable": true
+            }, {
+                "sWidth": "14%",
                 "sClass": "left-aln",
                 "bVisible": true,
+                "bSortable": false,
                 "bSearchable": true
             }, {
-                "sWidth": "15%",
+                "sWidth": "14%",
                 "sClass": "left-aln",
-                "bSortable": true,
+                "bVisible": true,
+                "bSortable": false,
                 "bSearchable": true
             }, {
-                "sWidth": "15%",
+                "sWidth": "8%",
                 "sClass": "left-aln",
-                "bSortable": true,
+                "bVisible": true,
+                "bSortable": false,
+                "bSearchable": true
+            }, {
+                "sWidth": "20%",
+                "sClass": "left-aln",
+               "bSortable": false,
+                "bSearchable": true
+            }, {
+                "sWidth": "14%",
+                "sClass": "left-aln",
+                "bSortable": false,
                 "bSearchable": true
             }]
     });
