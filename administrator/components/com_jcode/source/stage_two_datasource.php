@@ -1,5 +1,4 @@
 <?php
-
 include_once ('database_conn.php');
 include_once ("function_lib.php");
 include('language/lang_en.php');
@@ -1270,9 +1269,9 @@ function getItemListData($conn) {
 				, t_process_list.ProcessOrder
 				, t_process_tracking.InTime
 				, t_process_tracking.OutTime
-				, TIMESTAMPDIFF(MINUTE, InTime, NOW()) AS Duration
+				, TIMESTAMPDIFF(SECOND, InTime, NOW()) AS Duration
 				, UsualDuration
-				, (TIMESTAMPDIFF(MINUTE, InTime, NOW()) - UsualDuration) Status
+				, (TIMESTAMPDIFF(SECOND, InTime, NOW()) - UsualDuration) Status
 			FROM
 				t_process_tracking
 				INNER JOIN t_process_list
@@ -1281,6 +1280,9 @@ function getItemListData($conn) {
                     $sWhere 
                     $sOrder 
                     $sLimit ";
+	//echo $sql;
+	//exit;
+	
  
 
     $result = mysql_query($sql, $conn);
@@ -1311,7 +1313,11 @@ function getItemListData($conn) {
         $sOutput .= '"' . date('d/m/Y g:i A', strtotime($aRow['InTime'])) . '",';
         $sOutput .= '"' . $aRow['OutTime'] . '",';
 		$sOutput .= '"' . convertToHoursMins($aRow['Duration'], '%02d hours %02d minutes') . '",';
-		$sOutput .= '"' . ($aRow['Status'] < 0 ? abs($aRow['Status']).' minutes ahead' : abs($aRow['Status']).' minutes delay'). '",';
+		
+		//$statusTime = $aRow['Status'] < 0 ? abs($aRow['Status']) : abs($aRow['Status']);
+		$statusTime = $aRow['Status'] < 0 ? convertToHoursMins(abs($aRow['Status']), '%02d hours %02d minutes remaining') : convertToHoursMins(abs($aRow['Status']), '%02d hours %02d minutes delay');
+		
+		$sOutput .= '"' . $statusTime. '",';
 		$sOutput .= '"' . $aRow['ProcessId'] . '",';
 		$sOutput .= '"' . $aRow['ProcessOrder'] . '"';
         $sOutput .= "]";
@@ -1344,6 +1350,7 @@ function convertToHoursMins($time, $format = '%d:%d') {
     if ($time < 1) {
         return;
     }
+	$time = floor($time / 60);//Seconds to minutes
     $hours = floor($time / 60);
     $minutes = ($time % 60);
     return sprintf($format, $hours, $minutes);
@@ -1440,6 +1447,7 @@ function getWaitingProcessList($conn) {
 }
 
 function insertUpdateProcessTracking($conn) {
+	date_default_timezone_set("Asia/Dhaka");
 	$jUserId = $_REQUEST['jUserId'];
 	$language = $_REQUEST['language'];
 	$TrackingNo = $_POST['TrackingNo'];
@@ -1452,9 +1460,7 @@ function insertUpdateProcessTracking($conn) {
 	$ParentProcessId = $_POST['ParentProcessId'];
 	$eNewNoPosition = $_POST['eNewNoPosition'];
 	$Position = $_POST['Position'];
-	
-	$holidays = array("2015-06-18","2015-06-19");
-	
+			
 	/* ============ START ================= */
 	/* 	
 		--PRE CHECKING--
@@ -1466,7 +1472,9 @@ function insertUpdateProcessTracking($conn) {
 		
 		Refill the tracking number that is empty from the client side, so the tracking number is always present.
 	*/
-	if ($RegNo > 0) {
+	//echo $RegNo;
+	//exit;
+	if ($RegNo) {
 		$sql22 = "SELECT TrackingNo FROM t_process_tracking WHERE RegNo = '$RegNo' AND TrackingNo IS NOT NULL LIMIT 1;";
 		$result22 = mysql_query($sql22);
 		if ($result22)
@@ -1478,6 +1486,7 @@ function insertUpdateProcessTracking($conn) {
 		if (!$TrackingNo) {
 			// Replaced empty tracking number with tracking number that come from the earlier stage, the first one is the registration process
 			$TrackingNo = $eTrackingNo;
+			//exit;
 		}
 	}
 	/* ============ END ================= */
@@ -1539,13 +1548,16 @@ function insertUpdateProcessTracking($conn) {
 	}
 	/* ============ END ================= */
 	
-	date_default_timezone_set("Asia/Dhaka");
+	
+	/* ============ START ================= */
+	/* Get time difference between intime and outtime */
+	
 	$duration = 0;	
 	$txtDuration = '';
 	//var_dump($pInTime);
 	//exit;
 	
-	if($pInTime){
+	/* if($pInTime){
 		
 		$now = new DateTime(date('Y-m-d H:i:s'));
 		$vInTime = new DateTime($pInTime);
@@ -1554,13 +1566,54 @@ function insertUpdateProcessTracking($conn) {
 		//exit;
 		$duration = $diff->d*24*60 + $diff->h*60 + $diff->i;
 		
-		if($diff->d)
-			$txtDuration = $diff->d . " Days ";
-		else if($diff->h)
-			$txtDuration .= $diff->h . " Hours ";
-		else if($diff->i)
-			$txtDuration .= $diff->i." Minutes";
-	}
+		$txtDuration = ($diff->d != 0 ? $diff->d . " Days " : "").($diff->h != 0 ? $diff->h . " Hours ":"") . ($diff->i != 0 ? $diff->i . " Minutes ":"");
+	} */
+	
+	/* $holidays = array("2015-06-18","2015-06-19");
+	if($pInTime){
+		
+		$now = date('Y-m-d H:i:s');
+		//$vInTime = $pInTime;
+		//$diff = $now->diff($vInTime);
+		
+		// $durationDays = getWorkingDays($vInTime, $now, $holidays);
+		// $duration = $durationDays * 24 * 60;
+		
+		//$holidays=array("2008-12-25","2008-12-26","2009-01-01");
+		//$holidays=array("2015-06-01");
+		$holidays=array();
+
+		$durationDays = getWorkingDays($pInTime,$now,$holidays);
+		$duration = $durationDays;
+	} */
+	
+	if($pInTime){
+		
+		$now = date('Y-m-d H:i:s');
+		
+		$timeStampInTime = strtotime($pInTime); //1434650400
+		
+		$timeStampNow = strtotime($now);
+		
+		$strNowDate = date('Y-m-d',$timeStampNow);
+		$strInDate = date('Y-m-d',$timeStampInTime);
+		
+		$sql44 = "SELECT COUNT(*) CountNwdDays FROM t_non_working_days WHERE NwdDate > '$strInDate' AND NwdDate < '$strNowDate';";
+		
+		$result44 = mysql_query($sql44);
+		if ($result44)
+			$aData44 = mysql_fetch_assoc($result44);
+		$countNwdDays = 0;
+		if ($aData44) {
+			$countNwdDays = $aData44['CountNwdDays'];			
+		}
+		
+		$diff = $timeStampNow - $timeStampInTime;
+	
+		$duration = $diff - ($countNwdDays * 86400);
+	} 
+
+	/* ============ END ================= */
 	//echo $duration;
 			//exit;
 
@@ -1574,7 +1627,7 @@ function insertUpdateProcessTracking($conn) {
 			// echo $duration;
 			// exit;
 	
-			$sql2 = "UPDATE t_process_tracking SET OutTime = NOW(), Duration = $duration, TxtDuration = '$txtDuration' WHERE TrackingNo = '$TrackingNo' AND ProTrackId = $ProTrackId;";
+			$sql2 = "UPDATE t_process_tracking SET TrackingNo = '$TrackingNo', OutTime = NOW(), Duration = $duration, TxtDuration = '$duration' WHERE TrackingNo = '$TrackingNo' AND ProTrackId = $ProTrackId;";
 			
 			$aQuery2 = array('command' => 'UPDATE', 'query' => $sql2, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo'), 'pk_values' => array("'" . $TrackingNo . "'"), 'bUseInsetId' => FALSE);
 
@@ -1602,7 +1655,7 @@ function insertUpdateProcessTracking($conn) {
 	} else if ($pTrackingNo != '' && $Position == 'END' && $pOutTime == '') {
 		/* Update out time at the end of all processes */
 		$sql = "UPDATE t_process_tracking
-			SET OutTime = NOW()
+			SET OutTime = NOW(), duration = $duration, TxtDuration = $duration
 			WHERE TrackingNo = '$TrackingNo' AND ProcessId = $ProcessId;";
 
 		$aQuery1 = array('command' => 'UPDATE', 'query' => $sql, 'sTable' => 't_process_tracking', 'pks' => array('TrackingNo', 'ProcessId'), 'pk_values' => array("'" . $TrackingNo . "'", $ProcessId), 'bUseInsetId' => FALSE);
@@ -1611,11 +1664,11 @@ function insertUpdateProcessTracking($conn) {
 		
 	}else if ($pTrackingNo != '' && $Position != 'END') {
 		/* No stage can put out time until the last process */
-		echo json_encode(array('msgType' => 'success', 'msg' => '<span style="color:pink;"You have scanned already.</span>'));
+		echo json_encode(array('msgType' => 'success', 'msg' => 'You have scanned already.'));
 	}	
 	else if ($pTrackingNo != '' && $pOutTime != '' && $Position == 'END') {
 		/* The end process is done */
-		echo json_encode(array('msgType' => 'success', 'msg' => '<span style="color:yellow;">This job is already completed.</span>'));
+		echo json_encode(array('msgType' => 'success', 'msg' => 'This job is already completed.'));
 
 	}
 }

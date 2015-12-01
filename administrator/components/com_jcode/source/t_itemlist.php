@@ -39,7 +39,7 @@ include_once ('language/lang_switcher.php');
 	            <form novalidate="" data-validate="parsley" id="itemlist_form" class="form-horizontal form-border no-margin">
 										
 	                <div class="form-group" style="<?php if($aUserProcess['bUseTrackingNo']) echo 'display:block;'; else echo 'display:none;';?>">
-	                    <label class="control-label col-md-4" for="TrackingNo"><?php echo 'Tracking No:'; ?></label>
+	                    <label class="control-label col-md-4" for="TrackingNo"><?php echo 'Inward No:'; ?></label>
 	                    <div class="col-md-8">
 	                        <input class="form-control input-sm parsley-validated" maxlength="100" type="text" name="TrackingNo" id="TrackingNo" data-required="true" placeholder="scan here..."/>
 	                    </div>
@@ -59,6 +59,7 @@ include_once ('language/lang_switcher.php');
 					<input type="hiidden" style="display:none;"name="ProcessOrder" id="ProcessOrder" value="<?php echo $aUserProcess['ProcessOrder']; ?>"/>
 					<input type="hiidden" style="display:none;"name="ParentProcessId" id="ParentProcessId" value="<?php echo $aUserProcess['ParentProcessId']; ?>"/>
 					<input type="hiidden" style="display:none;"name="eNewNoPosition" id="eNewNoPosition" value="<?php echo $aUserProcess['eNewNoPosition']; ?>"/>
+					<input type="hiidden" style="display:none;"name="bUseRegNo" id="bUseRegNo" value="<?php echo $aUserProcess['bUseRegNo']; ?>"/>
 					<input type="hiidden" style="display:none;"name="Position" id="Position" value="<?php echo $aUserProcess['Position']; ?>"/>
 					<input type="hiidden" style="display:none;"name="hTrackingNo" id="hTrackingNo" />
 					<input type="hiidden" style="display:none;" id="userId" value="<?php echo $user->username; ?>"/>
@@ -94,7 +95,7 @@ include_once ('language/lang_switcher.php');
     </div>  
 </div>
 
-<div class="row"> 
+<div class="row" style="display:none;"> 
 	
 	<div class="col-md-6">		
 		<div id="list-panel2">

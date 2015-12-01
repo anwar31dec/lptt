@@ -95,6 +95,7 @@ function onConfirmWhenAddEdit() {
 				onErrorMsg($msg);
 			}
 			$("#TrackingNo").val("");
+			$("#RegNo").val("");
 		}
 	});
 }
@@ -530,11 +531,27 @@ $(function() {
    // });       
    
     var barcode="";
-    $("#TrackingNo").keydown(function(e) {
+    $("#TrackingNo").keydown(function(e) {		
 
         var code = (e.keyCode ? e.keyCode : e.which);
         if(code == 13)// Enter key hit
         {
+			
+			if($("#TrackingNo").val()==$("#RegNo").val()){
+				alert('Inward no and Registration can not be same.');
+				$("#TrackingNo").val('');
+				$("#RegNo").val('');
+				return;
+			}
+			
+			if($("#eNewNoPosition").val()=='REGISTRATION'){
+				if($("#RegNo").val()==''){
+					$("#RegNo").focus();
+					//alert('Please fill up the tracking number.')
+					return;
+				}
+			}
+			
             //console.log(code);
 			//console.log($("#TrackingNo").val());
 			//$("#TrackingNo").val('');
@@ -549,5 +566,47 @@ $(function() {
            // barcode=barcode+String.fromCharCode(code);
         }
     });
+	$("#RegNo").keydown(function(e) {		
+
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13)// Enter key hit
+        {
+			if($("#TrackingNo").val()==$("#RegNo").val()){
+				alert('Inward no and Registration can not be same.');
+				$("#TrackingNo").val('');
+				$("#RegNo").val('');
+				$("#TrackingNo").focus(); 
+				return;
+			}
+			
+			if($("#eNewNoPosition").val()=='REGISTRATION'){
+				if($("#TrackingNo").val()==''){
+					$("#TrackingNo").focus();
+					//alert('Please fill up the tracking number.')
+					return;
+				}
+			}
+						
+            //console.log(code);
+			//console.log($("#TrackingNo").val());
+			//$("#TrackingNo").val('');
+			onConfirmWhenAddEdit();
+        }
+        else if(code==9)// Tab key hit
+        {
+            alert(code);
+        }
+        else
+        {
+           // barcode=barcode+String.fromCharCode(code);
+        }
+    });
+	
+	
+	if($("#bUseRegNo").val() == 1){
+		$("#RegNo").focus();
+	}else{
+		$("#TrackingNo").focus();
+	}
 
 }); 
